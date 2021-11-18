@@ -2,11 +2,12 @@
 
 🐾 동글동글 만보랑 함께 걸어봐요!</br>
 
-🏞 기획서
-https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583
-![Untitled (Draft)-1](https://user-images.githubusercontent.com/53874628/142184526-b73a8483-1648-42ef-9528-dd86065cd223.jpg)
-![Untitled (Draft)-2](https://user-images.githubusercontent.com/53874628/142184545-1d0eaefd-d3c0-42b7-bf16-3e82a537c22e.jpg)
-![Untitled (Draft)-3](https://user-images.githubusercontent.com/53874628/142184548-0ace5292-3253-4f6f-ab1d-d8f8c252e3ce.jpg)
-![Untitled (Draft)-4](https://user-images.githubusercontent.com/53874628/142184553-40b3b151-362a-42d9-b663-5c2b2dfabb52.jpg)
-![Untitled (Draft)-5](https://user-images.githubusercontent.com/53874628/142184555-ac815ffd-4d07-4acc-a324-b51286398971.jpg)
-![Untitled (Draft)-6](https://user-images.githubusercontent.com/53874628/142184559-43951180-d680-433c-b167-874ddf0dd3ce.jpg)
+🏞 [기획서 및 진행상황 노션 보러가기](
+https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
+
+### 팀빌딩 & 하루하루 공부 기록
+#### Iteration 1
+🐾 21/11/15 Day1. 앱 구상 단계 ➢[notion](https://hmhhsh.notion.site/TIL1115-d8ea189f39394508bec6d1586c7b24db)<br>
+🐾 21/11/16 Day2. 앱 기능 및 디자인 구체화 및 기획서 작성1 ➢[notion](https://hmhhsh.notion.site/TIL1116-adaba2df4fcd4ab6b689ef7ffe76b7d0)<br>
+🐾 21/11/16 Day3. 앱 기능 및 디자인 구체화 및 기획서 작성2 ➢[notion](https://hmhhsh.notion.site/TIL_1117-8a18c9ed33674436b116bbb57a4d7426)<br>
+🐾 21/11/16 Day4. 메인View 및 코드 작성 시 유의사항 ➢[notion](https://hmhhsh.notion.site/1118-508b796acc0f455aaddd7b6fdc33daa8)<br>
