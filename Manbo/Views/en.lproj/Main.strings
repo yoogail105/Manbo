@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "목표: 10,000"; ObjectID = "A4K-lC-5UK"; */
+"A4K-lC-5UK.text" = "목표: 10,000";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "AGJ-BA-2ED"; */
+"AGJ-BA-2ED.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Lcs-78-X87"; */
+"Lcs-78-X87.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "good"; ObjectID = "Q09-Dd-Kfi"; */
+"Q09-Dd-Kfi.text" = "good";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hku-Cd-Cwj"; */
+"hku-Cd-Cwj.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iAB-Fb-caH"; */
+"iAB-Fb-caH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "17°C"; ObjectID = "ilM-O6-kmy"; */
+"ilM-O6-kmy.text" = "17°C";
+
+/* Class = "UILabel"; text = "13,926"; ObjectID = "uOh-sl-2b2"; */
+"uOh-sl-2b2.text" = "13,926";
