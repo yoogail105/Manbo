@@ -1,0 +1,11 @@
+/* 
+  Setting.strings
+  Manbo
+
+  Created by minjoohehe on 2021/11/19.
+  
+*/
+
+"data_backup" = "백업하기";
+"data_restore" = "복구하기";
+

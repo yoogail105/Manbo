@@ -27,6 +27,8 @@
 		278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F748227478D6D00794E8D /* CalendarViewController.swift */; };
 		278F7487274797C900794E8D /* TabView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F7486274797C900794E8D /* TabView.storyboard */; };
 		278F74892747A2B600794E8D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74882747A2B600794E8D /* TabViewController.swift */; };
+		278F748D2747EA1E00794E8D /* Setting.strings in Resources */ = {isa = PBXBuildFile; fileRef = 278F748F2747EA1E00794E8D /* Setting.strings */; };
+		278F74952747EFBA00794E8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 278F74972747EFBA00794E8D /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,10 @@
 		278F748227478D6D00794E8D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		278F7486274797C900794E8D /* TabView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabView.storyboard; sourceTree = "<group>"; };
 		278F74882747A2B600794E8D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		278F748E2747EA1E00794E8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Setting.strings; sourceTree = "<group>"; };
+		278F74902747EA1F00794E8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Setting.strings; sourceTree = "<group>"; };
+		278F74962747EFBA00794E8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		278F74982747EFBC00794E8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +95,6 @@
 				2780C5B62744F526004A0BE4 /* ViewController.swift */,
 				278F748027478D1600794E8D /* CameraViewController.swift */,
 				278F74762747785800794E8D /* TabBarViewModel.swift */,
-				278832A22746F1E1007616EA /* LocalizableStrings.swift */,
 				278832962746EB04007616EA /* SettingViewController.swift */,
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
 			);
@@ -118,7 +123,7 @@
 		2780C5A62744F526004A0BE4 = {
 			isa = PBXGroup;
 			children = (
-				2788329C2746EFDF007616EA /* Localizable.strings */,
+				278F748C2747EA0600794E8D /* Localization */,
 				2780C5B12744F526004A0BE4 /* Manbo */,
 				2780C5B02744F526004A0BE4 /* Products */,
 			);
@@ -143,6 +148,17 @@
 				2780C5BB2744F529004A0BE4 /* Assets.xcassets */,
 			);
 			path = Manbo;
+			sourceTree = "<group>";
+		};
+		278F748C2747EA0600794E8D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				278832A22746F1E1007616EA /* LocalizableStrings.swift */,
+				278F74972747EFBA00794E8D /* InfoPlist.strings */,
+				2788329C2746EFDF007616EA /* Localizable.strings */,
+				278F748F2747EA1E00794E8D /* Setting.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,10 +224,12 @@
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
+				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
 				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
 				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
+				278F74952747EFBA00794E8D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +284,24 @@
 				2788329F2746F035007616EA /* ko */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		278F748F2747EA1E00794E8D /* Setting.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				278F748E2747EA1E00794E8D /* en */,
+				278F74902747EA1F00794E8D /* ko */,
+			);
+			name = Setting.strings;
+			sourceTree = "<group>";
+		};
+		278F74972747EFBA00794E8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				278F74962747EFBA00794E8D /* en */,
+				278F74982747EFBC00794E8D /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

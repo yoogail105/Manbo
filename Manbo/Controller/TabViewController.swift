@@ -33,9 +33,7 @@ class TabViewController: UIViewController {
         viewControllers.append(TabViewController.mainVC)
         viewControllers.append(TabViewController.cameraVC)
         viewControllers.append(TabViewController.calendarVC)
-        
-        print(viewControllers)
-        print(buttons)
+    
         buttons[selectedIndex].isSelected = true
         tabChanged(sender: buttons[selectedIndex])
     }

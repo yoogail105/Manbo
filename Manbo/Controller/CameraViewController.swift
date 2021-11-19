@@ -8,11 +8,15 @@
 import UIKit
 
 class CameraViewController: UIViewController {
+    @IBOutlet weak var backupLabel: UILabel!
+    @IBOutlet weak var restoreLabel: UILabel!
     static let identifier = "CameraViewController"
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backupLabel.text = NSLocalizedString("data_backup", tableName: "Setting", bundle: .main, value: "", comment: "")
     }
 
 }
