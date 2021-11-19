@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Manbo
+
+  Created by minjoohehe on 2021/11/19.
+ 
+ "Hello" = "Hello";
+ "키" = "로컬라이징 할 문자열";
+ "goal_steps" = "GOAL";
+*/
+
+"goal_steps" = "목표";

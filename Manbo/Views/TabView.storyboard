@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="TabViewController" customModule="Manbo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nq3-KB-knP" userLabel="Tab View">
+                                <rect key="frame" x="20" y="780" width="374" height="52"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOd-cS-JcO">
+                                        <rect key="frame" x="87" y="15" width="200" height="32"/>
+                                        <color key="backgroundColor" red="0.50588235290000005" green="0.64313725489999995" blue="0.4431372549" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="ih3-09-YXy"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsR-Py-VQB" userLabel="main">
+                                        <rect key="frame" x="161" y="0.0" width="52" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="JsR-Py-VQB" secondAttribute="height" multiplier="1:1" id="EW4-UO-IyI"/>
+                                        </constraints>
+                                        <color key="tintColor" name="mainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="feet"/>
+                                        <connections>
+                                            <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SNF-1w-ous"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-UY-B5o" userLabel="camera">
+                                        <rect key="frame" x="120.5" y="15.5" width="30.5" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="JEv-UY-B5o" secondAttribute="height" multiplier="1:1" id="uV3-Oj-VKC"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="camera.viewfinder" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5rx-HI-ZbG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
+                                        <rect key="frame" x="223" y="15.5" width="30.5" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rXL-5j-L6q" secondAttribute="height" multiplier="1:1" id="aAQ-wD-QZP"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="calendar" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WR4-WG-pbL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstItem="JsR-Py-VQB" firstAttribute="top" secondItem="Nq3-KB-knP" secondAttribute="top" id="5Vr-c9-RPj"/>
+                                    <constraint firstItem="rXL-5j-L6q" firstAttribute="centerY" secondItem="FOd-cS-JcO" secondAttribute="centerY" id="A0r-1D-ZiZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FOd-cS-JcO" secondAttribute="bottom" constant="5" id="Dc3-Fu-Tk9"/>
+                                    <constraint firstItem="JsR-Py-VQB" firstAttribute="leading" secondItem="JEv-UY-B5o" secondAttribute="trailing" constant="10" id="Koj-ZL-BHs"/>
+                                    <constraint firstAttribute="bottom" secondItem="JsR-Py-VQB" secondAttribute="bottom" id="Kzp-l7-ApW"/>
+                                    <constraint firstItem="rXL-5j-L6q" firstAttribute="height" secondItem="FOd-cS-JcO" secondAttribute="height" multiplier="0.958333" id="L7n-8K-gbn"/>
+                                    <constraint firstAttribute="height" constant="52" id="V2R-Eb-R5M"/>
+                                    <constraint firstItem="FOd-cS-JcO" firstAttribute="centerX" secondItem="Nq3-KB-knP" secondAttribute="centerX" id="a6K-qP-j4L"/>
+                                    <constraint firstItem="JEv-UY-B5o" firstAttribute="height" secondItem="FOd-cS-JcO" secondAttribute="height" multiplier="0.958333" id="h9U-X5-wp5"/>
+                                    <constraint firstItem="rXL-5j-L6q" firstAttribute="leading" secondItem="JsR-Py-VQB" secondAttribute="trailing" constant="10" id="nZQ-6q-7jU"/>
+                                    <constraint firstItem="JEv-UY-B5o" firstAttribute="centerY" secondItem="FOd-cS-JcO" secondAttribute="centerY" id="qqp-hA-FE9"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="rDm-Nf-gwP"/>
+                                    <constraint firstItem="FOd-cS-JcO" firstAttribute="top" secondItem="Nq3-KB-knP" secondAttribute="top" constant="15" id="uu5-xs-fcs"/>
+                                    <constraint firstItem="JsR-Py-VQB" firstAttribute="centerX" secondItem="Nq3-KB-knP" secondAttribute="centerX" id="vWr-kJ-P7n"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nq3-KB-knP" secondAttribute="trailing" constant="20" id="OGu-ld-PVr"/>
+                            <constraint firstItem="Nq3-KB-knP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Rwb-Xh-JGI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Nq3-KB-knP" secondAttribute="bottom" constant="30" id="aTF-Vf-Bqf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="aPv-d0-Zah"/>
+                    <connections>
+                        <outlet property="tabBarBackgroundView" destination="FOd-cS-JcO" id="ixI-05-g4U"/>
+                        <outlet property="tabView" destination="Nq3-KB-knP" id="zLr-7Z-Npj"/>
+                        <outletCollection property="buttons" destination="JsR-Py-VQB" collectionClass="NSMutableArray" id="SCE-h8-Xdq"/>
+                        <outletCollection property="buttons" destination="JEv-UY-B5o" collectionClass="NSMutableArray" id="bu3-Mi-K8T"/>
+                        <outletCollection property="buttons" destination="rXL-5j-L6q" collectionClass="NSMutableArray" id="yFE-ne-6YW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836.2318840579712" y="36.830357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="feet" width="2048" height="2048"/>
+        <namedColor name="mainColor">
+            <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

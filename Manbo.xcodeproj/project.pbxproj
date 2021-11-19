@@ -7,15 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
+		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B22744F526004A0BE4 /* AppDelegate.swift */; };
 		2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B42744F526004A0BE4 /* SceneDelegate.swift */; };
 		2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B62744F526004A0BE4 /* ViewController.swift */; };
 		2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2780C5B82744F526004A0BE4 /* Main.storyboard */; };
 		2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2780C5BB2744F529004A0BE4 /* Assets.xcassets */; };
 		2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */; };
+		278832932746DFDB007616EA /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278832922746DFDB007616EA /* Setting.storyboard */; };
+		278832952746DFE8007616EA /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278832942746DFE8007616EA /* Calendar.storyboard */; };
+		278832972746EB04007616EA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278832962746EB04007616EA /* SettingViewController.swift */; };
+		2788329A2746EFDF007616EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2788329C2746EFDF007616EA /* Localizable.strings */; };
+		278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278832A02746F1AE007616EA /* UIString+Extension.swift */; };
+		278832A32746F1E1007616EA /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278832A22746F1E1007616EA /* LocalizableStrings.swift */; };
+		278F74772747785800794E8D /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74762747785800794E8D /* TabBarViewModel.swift */; };
+		278F747F27478D0400794E8D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F747E27478D0400794E8D /* Camera.storyboard */; };
+		278F748127478D1600794E8D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F748027478D1600794E8D /* CameraViewController.swift */; };
+		278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F748227478D6D00794E8D /* CalendarViewController.swift */; };
+		278F7487274797C900794E8D /* TabView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F7486274797C900794E8D /* TabView.storyboard */; };
+		278F74892747A2B600794E8D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74882747A2B600794E8D /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2780C5AF2744F526004A0BE4 /* Manbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Manbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2780C5B22744F526004A0BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2780C5B42744F526004A0BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +40,22 @@
 		2780C5BB2744F529004A0BE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2780C5BE2744F529004A0BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2780C5C02744F529004A0BE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		278832922746DFDB007616EA /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = ../../../Documents/Setting.storyboard; sourceTree = "<group>"; };
+		278832942746DFE8007616EA /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = ../../../Documents/Calendar.storyboard; sourceTree = "<group>"; };
+		278832962746EB04007616EA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2788329B2746EFDF007616EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2788329D2746F035007616EA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2788329E2746F035007616EA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		2788329F2746F035007616EA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		278832A02746F1AE007616EA /* UIString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Extension.swift"; sourceTree = "<group>"; };
+		278832A22746F1E1007616EA /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		278832A52746F59B007616EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		278F74762747785800794E8D /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		278F747E27478D0400794E8D /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		278F748027478D1600794E8D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		278F748227478D6D00794E8D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		278F7486274797C900794E8D /* TabView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabView.storyboard; sourceTree = "<group>"; };
+		278F74882747A2B600794E8D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,9 +69,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270D726927465EB6007ADC71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
+				278F7486274797C900794E8D /* TabView.storyboard */,
+				2780C5B82744F526004A0BE4 /* Main.storyboard */,
+				278832942746DFE8007616EA /* Calendar.storyboard */,
+				278F747E27478D0400794E8D /* Camera.storyboard */,
+				278832922746DFDB007616EA /* Setting.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		270D726A27465EC2007ADC71 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				278F74882747A2B600794E8D /* TabViewController.swift */,
+				2780C5B62744F526004A0BE4 /* ViewController.swift */,
+				278F748027478D1600794E8D /* CameraViewController.swift */,
+				278F74762747785800794E8D /* TabBarViewModel.swift */,
+				278832A22746F1E1007616EA /* LocalizableStrings.swift */,
+				278832962746EB04007616EA /* SettingViewController.swift */,
+				278F748227478D6D00794E8D /* CalendarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		270D726B27465EC9007ADC71 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				278832A02746F1AE007616EA /* UIString+Extension.swift */,
+				270D726D27465F05007ADC71 /* UIView+Extension.swift */,
+				270D726F27466914007ADC71 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		270D726C27465EE1007ADC71 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2780C5B22744F526004A0BE4 /* AppDelegate.swift */,
+				2780C5B42744F526004A0BE4 /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		2780C5A62744F526004A0BE4 = {
 			isa = PBXGroup;
 			children = (
+				2788329C2746EFDF007616EA /* Localizable.strings */,
 				2780C5B12744F526004A0BE4 /* Manbo */,
 				2780C5B02744F526004A0BE4 /* Products */,
 			);
@@ -56,13 +135,12 @@
 		2780C5B12744F526004A0BE4 /* Manbo */ = {
 			isa = PBXGroup;
 			children = (
-				2780C5B22744F526004A0BE4 /* AppDelegate.swift */,
-				2780C5B42744F526004A0BE4 /* SceneDelegate.swift */,
-				2780C5B62744F526004A0BE4 /* ViewController.swift */,
-				2780C5B82744F526004A0BE4 /* Main.storyboard */,
-				2780C5BB2744F529004A0BE4 /* Assets.xcassets */,
-				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
+				270D726C27465EE1007ADC71 /* Support */,
+				270D726B27465EC9007ADC71 /* Extension */,
+				270D726A27465EC2007ADC71 /* Controller */,
+				270D726927465EB6007ADC71 /* Views */,
 				2780C5C02744F529004A0BE4 /* Info.plist */,
+				2780C5BB2744F529004A0BE4 /* Assets.xcassets */,
 			);
 			path = Manbo;
 			sourceTree = "<group>";
@@ -109,6 +187,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 2780C5A62744F526004A0BE4;
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
@@ -126,8 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */,
+				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
+				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
+				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
+				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
+				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +222,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
+				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
+				278F74772747785800794E8D /* TabBarViewModel.swift in Sources */,
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
+				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
+				278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */,
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
+				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
+				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
+				278832972746EB04007616EA /* SettingViewController.swift in Sources */,
+				278832A32746F1E1007616EA /* LocalizableStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +244,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				2780C5B92744F526004A0BE4 /* Base */,
+				2788329E2746F035007616EA /* ko */,
+				278832A52746F59B007616EA /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -159,8 +254,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				2780C5BE2744F529004A0BE4 /* Base */,
+				2788329D2746F035007616EA /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2788329C2746EFDF007616EA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2788329B2746EFDF007616EA /* en */,
+				2788329F2746F035007616EA /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -170,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -231,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -294,9 +401,11 @@
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TabView;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +415,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,9 +431,11 @@
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TabView;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +445,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
