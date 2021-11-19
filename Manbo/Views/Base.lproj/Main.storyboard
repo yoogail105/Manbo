@@ -101,16 +101,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-fO-LXw">
-                                <rect key="frame" x="0.0" y="154" width="210" height="50"/>
+                                <rect key="frame" x="0.0" y="154" width="240" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목표: 10,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4K-lC-5UK">
-                                        <rect key="frame" x="20" y="10" width="139.33333333333334" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL: 10,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4K-lC-5UK">
+                                        <rect key="frame" x="20" y="10" width="164.33333333333334" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feet" translatesAutoresizingMaskIntoConstraints="NO" id="0rE-Hs-PQP">
-                                        <rect key="frame" x="164.33333333333334" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="189.33333333333334" y="10" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fzM-b7-Wb5"/>
                                             <constraint firstAttribute="width" secondItem="0rE-Hs-PQP" secondAttribute="height" multiplier="1:1" id="g4B-MY-ykE"/>
@@ -120,7 +120,7 @@
                                 <color key="backgroundColor" red="0.50533419850000005" green="0.64166849849999996" blue="0.44310578699999997" alpha="0.19030317091783941" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="0rE-Hs-PQP" firstAttribute="leading" secondItem="A4K-lC-5UK" secondAttribute="trailing" constant="5" id="LZy-xU-f7g"/>
-                                    <constraint firstAttribute="width" constant="210" id="Rar-PS-6mD"/>
+                                    <constraint firstAttribute="width" constant="240" id="Rar-PS-6mD"/>
                                     <constraint firstItem="A4K-lC-5UK" firstAttribute="leading" secondItem="abG-fO-LXw" secondAttribute="leading" constant="20" id="aBj-on-Uml"/>
                                     <constraint firstItem="A4K-lC-5UK" firstAttribute="centerY" secondItem="abG-fO-LXw" secondAttribute="centerY" id="dRa-tV-jFG"/>
                                     <constraint firstAttribute="height" constant="50" id="uoa-Df-jly"/>
@@ -148,7 +148,7 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="line.3.horizontal" catalog="system">
+                                        <state key="normal" image="waveform.path" catalog="system">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                     </button>
@@ -247,6 +247,7 @@
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="manbo02" width="400" height="400"/>
         <image name="sunny" width="2048" height="2048"/>
+        <image name="waveform.path" catalog="system" width="128" height="117"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     
     func setUI() {
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
-
-        goalLabel.text = LocalizableStrings.goal_steps.localized
+//        goalLabel.text = NSLocalizedString("goal_steps", comment: "목표 걸음 수")
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain): 10,000"
         
     }
     

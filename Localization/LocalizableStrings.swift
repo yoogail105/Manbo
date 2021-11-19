@@ -17,8 +17,10 @@ enum  LocalizableStrings: String {
     var localized: String {
         return self.rawValue.localized()
     }
-
-    
+//    NSLocalizedString("goal_steps", comment: "목표 걸음 수")
+    var LocalizedMain: String {
+        return self.rawValue.localized(tableName: "Localizable")
+    }
     var localizedSetting: String {
         return self.rawValue.localized(tableName: "Setting")
     }

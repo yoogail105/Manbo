@@ -1,0 +1,11 @@
+/* 
+  Setting.strings
+  Manbo
+
+  Created by minjoohehe on 2021/11/19.
+  
+*/
+
+"change_setting" = "Change";
+"data_backup" = "Backup";
+"data_restore" = "Restore";
