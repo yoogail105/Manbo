@@ -29,6 +29,10 @@
 		278F74892747A2B600794E8D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74882747A2B600794E8D /* TabViewController.swift */; };
 		278F748D2747EA1E00794E8D /* Setting.strings in Resources */ = {isa = PBXBuildFile; fileRef = 278F748F2747EA1E00794E8D /* Setting.strings */; };
 		278F74952747EFBA00794E8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 278F74972747EFBA00794E8D /* InfoPlist.strings */; };
+		278F749D2748FC1900794E8D /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 278F749C2748FC1900794E8D /* SideMenu */; };
+		278F749F2748FC4300794E8D /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F749E2748FC4300794E8D /* Onboarding.storyboard */; };
+		278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74A02748FC5700794E8D /* OnboardingViewController.swift */; };
+		278F74A32749034400794E8D /* CustomSideMenuNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,9 @@
 		278F74902747EA1F00794E8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Setting.strings; sourceTree = "<group>"; };
 		278F74962747EFBA00794E8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		278F74982747EFBC00794E8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		278F749E2748FC4300794E8D /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		278F74A02748FC5700794E8D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278F749D2748FC1900794E8D /* SideMenu in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +92,7 @@
 				278832942746DFE8007616EA /* Calendar.storyboard */,
 				278F747E27478D0400794E8D /* Camera.storyboard */,
 				278832922746DFDB007616EA /* Setting.storyboard */,
+				278F749E2748FC4300794E8D /* Onboarding.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,12 +100,14 @@
 		270D726A27465EC2007ADC71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
 				278F74882747A2B600794E8D /* TabViewController.swift */,
 				2780C5B62744F526004A0BE4 /* ViewController.swift */,
 				278F748027478D1600794E8D /* CameraViewController.swift */,
 				278F74762747785800794E8D /* TabBarViewModel.swift */,
 				278832962746EB04007616EA /* SettingViewController.swift */,
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
+				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,6 +188,9 @@
 			dependencies = (
 			);
 			name = Manbo;
+			packageProductDependencies = (
+				278F749C2748FC1900794E8D /* SideMenu */,
+			);
 			productName = Manbo;
 			productReference = 2780C5AF2744F526004A0BE4 /* Manbo.app */;
 			productType = "com.apple.product-type.application";
@@ -206,6 +220,9 @@
 				ko,
 			);
 			mainGroup = 2780C5A62744F526004A0BE4;
+			packageReferences = (
+				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */,
+			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278F749F2748FC4300794E8D /* Onboarding.storyboard in Resources */,
 				2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */,
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
@@ -250,6 +268,8 @@
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
+				278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */,
+				278F74A32749034400794E8D /* CustomSideMenuNavigationViewController.swift in Sources */,
 				278832972746EB04007616EA /* SettingViewController.swift in Sources */,
 				278832A32746F1E1007616EA /* LocalizableStrings.swift in Sources */,
 			);
@@ -507,6 +527,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		278F749C2748FC1900794E8D /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2780C5A72744F526004A0BE4 /* Project object */;
 }
