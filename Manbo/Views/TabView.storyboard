@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Tab View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="TabViewController" customModule="Manbo" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                                             <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SNF-1w-ous"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-UY-B5o" userLabel="camera">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-UY-B5o" userLabel="camera">
                                         <rect key="frame" x="120.5" y="15.5" width="30.5" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JEv-UY-B5o" secondAttribute="height" multiplier="1:1" id="uV3-Oj-VKC"/>
@@ -53,7 +53,7 @@
                                             <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5rx-HI-ZbG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
                                         <rect key="frame" x="223" y="15.5" width="30.5" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rXL-5j-L6q" secondAttribute="height" multiplier="1:1" id="aAQ-wD-QZP"/>
@@ -94,7 +94,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Nq3-KB-knP" secondAttribute="bottom" constant="30" id="aTF-Vf-Bqf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="aPv-d0-Zah"/>
+                    <navigationItem key="navigationItem" id="ngo-rg-y9B"/>
                     <connections>
                         <outlet property="tabBarBackgroundView" destination="FOd-cS-JcO" id="ixI-05-g4U"/>
                         <outlet property="tabView" destination="Nq3-KB-knP" id="zLr-7Z-Npj"/>
@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836.2318840579712" y="36.830357142857139"/>
+            <point key="canvasLocation" x="3656.521739130435" y="36.830357142857139"/>
         </scene>
     </scenes>
     <resources>

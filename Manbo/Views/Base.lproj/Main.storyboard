@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--네비바-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Manbo" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-fO-LXw">
-                                <rect key="frame" x="0.0" y="154" width="240" height="50"/>
+                                <rect key="frame" x="0.0" y="198" width="220" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL: 10,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4K-lC-5UK">
                                         <rect key="frame" x="20" y="10" width="164.33333333333334" height="30"/>
@@ -120,7 +120,7 @@
                                 <color key="backgroundColor" red="0.50533419850000005" green="0.64166849849999996" blue="0.44310578699999997" alpha="0.19030317091783941" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="0rE-Hs-PQP" firstAttribute="leading" secondItem="A4K-lC-5UK" secondAttribute="trailing" constant="5" id="LZy-xU-f7g"/>
-                                    <constraint firstAttribute="width" constant="240" id="Rar-PS-6mD"/>
+                                    <constraint firstAttribute="width" constant="220" id="Rar-PS-6mD"/>
                                     <constraint firstItem="A4K-lC-5UK" firstAttribute="leading" secondItem="abG-fO-LXw" secondAttribute="leading" constant="20" id="aBj-on-Uml"/>
                                     <constraint firstItem="A4K-lC-5UK" firstAttribute="centerY" secondItem="abG-fO-LXw" secondAttribute="centerY" id="dRa-tV-jFG"/>
                                     <constraint firstAttribute="height" constant="50" id="uoa-Df-jly"/>
@@ -139,7 +139,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TM1-az-hXR">
-                                <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                <rect key="frame" x="20" y="108" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hku-Cd-Cwj">
                                         <rect key="frame" x="344" y="0.0" width="30" height="50"/>
@@ -151,6 +151,10 @@
                                         <state key="normal" image="waveform.path" catalog="system">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="settingButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3SG-bE-py3"/>
+                                            <segue destination="riR-ID-F79" kind="show" id="8ZU-Pm-pmn"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="tj1-ji-vCl">
                                         <rect key="frame" x="1.3333333333333321" y="0.0" width="30" height="30"/>
@@ -222,21 +226,48 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="HUS-Oy-1Y1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="AGJ-BA-2ED">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <navigationItem key="navigationItem" title="네비바" id="HUS-Oy-1Y1">
+                        <barButtonItem key="rightBarButtonItem" image="waveform" catalog="system" id="AGJ-BA-2ED">
+                            <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="goalLabel" destination="A4K-lC-5UK" id="hcI-WL-BFI"/>
                         <outlet property="goalView" destination="abG-fO-LXw" id="a6I-k2-5ex"/>
-                        <outlet property="tabBarView" destination="BWv-FH-uPk" id="Yqr-GK-a4E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2711.594202898551" y="68.303571428571431"/>
+            <point key="canvasLocation" x="5442.0289855072469" y="68.303571428571431"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="bBp-X0-SQX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="riR-ID-F79" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wR3-7B-eUH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRF-gI-eXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6080" y="-91"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PCD-Ip-bZS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pRt-iq-K1D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fNK-e1-YsN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bhL-aU-mgE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kA6-i2-4II" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4531.884057971015" y="68.303571428571431"/>
         </scene>
     </scenes>
     <resources>
@@ -244,9 +275,9 @@
         <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="feet" width="2048" height="2048"/>
         <image name="good" width="2048" height="2048"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="manbo02" width="400" height="400"/>
         <image name="sunny" width="2048" height="2048"/>
+        <image name="waveform" catalog="system" width="128" height="128"/>
         <image name="waveform.path" catalog="system" width="128" height="117"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
