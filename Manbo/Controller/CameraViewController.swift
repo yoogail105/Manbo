@@ -8,9 +8,11 @@
 import UIKit
 
 class CameraViewController: UIViewController {
+    
+    static let identifier = "CameraViewController"
     @IBOutlet weak var backupLabel: UILabel!
     @IBOutlet weak var restoreLabel: UILabel!
-    static let identifier = "CameraViewController"
+    
 
     
     override func viewDidLoad() {

@@ -14,4 +14,5 @@ struct TabBarVM: Equatable {
   func shouldReload(from oldModel: Self?) -> Bool {
     return self.tabs != oldModel?.tabs || self.selectedTab != oldModel?.selectedTab
   }
+    
 }

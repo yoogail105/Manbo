@@ -9,7 +9,7 @@ import UIKit
 
 class TabViewController: UIViewController {
 
-  
+    static let identifier = "TabViewController"
     @IBOutlet weak var tabBarBackgroundView: UIView!
     var selectedIndex: Int = 0
     var previousIndex: Int = 0
@@ -23,7 +23,8 @@ class TabViewController: UIViewController {
     // VC연결
     let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ViewController.identifier)
     let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateViewController(withIdentifier: CameraViewController.identifier)
-    let calendarVC = UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: CalendarViewController.identifier)
+    let calendarVC = UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "CalendarNC")
+    
   
     
     override func viewDidLoad() {
@@ -60,6 +61,7 @@ extension TabViewController {
         buttons[previousIndex].isSelected = false
         let previousVC = vcList[previousIndex]
         
+        //기존의 뷰 제거
         previousVC.willMove(toParent: nil)
         previousVC.view.removeFromSuperview()
         previousVC.removeFromParent()
@@ -67,6 +69,7 @@ extension TabViewController {
         sender.isSelected = true
         
         let vc = vcList[selectedIndex]
+        // 최상단 프레임에
         vc.view.frame = UIApplication.shared.windows[0].frame
         vc.didMove(toParent: self)
         self.addChild(vc)
