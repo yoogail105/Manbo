@@ -59,8 +59,6 @@ class ViewController: UIViewController {
     }
     
     
-
-    
     //다른 뷰에서는 탭바 내려가도록한다.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         

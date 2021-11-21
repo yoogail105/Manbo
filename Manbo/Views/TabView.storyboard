@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nq3-KB-knP" userLabel="Tab View">
-                                <rect key="frame" x="20" y="780" width="374" height="52"/>
+                                <rect key="frame" x="20" y="790" width="374" height="52"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOd-cS-JcO">
                                         <rect key="frame" x="87" y="15" width="200" height="32"/>
@@ -91,7 +91,7 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nq3-KB-knP" secondAttribute="trailing" constant="20" id="OGu-ld-PVr"/>
                             <constraint firstItem="Nq3-KB-knP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Rwb-Xh-JGI"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Nq3-KB-knP" secondAttribute="bottom" constant="30" id="aTF-Vf-Bqf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Nq3-KB-knP" secondAttribute="bottom" constant="20" id="aTF-Vf-Bqf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ngo-rg-y9B"/>
