@@ -9,9 +9,8 @@ import UIKit
 import SideMenu
 
 class ViewController: UIViewController {
-    
+        static let identifier = "ViewController"
     // MARK: - PROPERTIES
-    static let identifier = "ViewController"
  
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalView: UIView!
@@ -30,13 +29,13 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -49,17 +48,16 @@ class ViewController: UIViewController {
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) 10,000"
         
     }
-    
-  
-
     @IBAction func settingButtonClicked(_ sender: UIButton) {
-        print("setting선택")
-    
-        guard let vc = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: SettingViewController.identifier) as? SideMenuNavigationController else {
+        
+        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "CustomSideMenuNavigationViewController") as? CustomSideMenuNavigationViewController else {
             return
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        present(controller, animated: true, completion: nil)
+    
     }
+    
     
 
     

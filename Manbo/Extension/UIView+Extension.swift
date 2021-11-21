@@ -8,16 +8,25 @@
 import UIKit
 
 extension UIView {
-
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get { return self.cornerRadius }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+    
+    
+    }
+    
     func cornerRounded(cornerRadius: CGFloat) {
-        clipsToBounds = true
-        layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadius
     }
     
     func maskedCornerRounded(cornerRadius: CGFloat, maskedCorners: CACornerMask) {
         cornerRounded(cornerRadius: cornerRadius)
         layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
     }
-    
+
 }
 
