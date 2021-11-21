@@ -39,7 +39,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="d8c-lL-oCE">
-                                                <rect key="frame" x="0.0" y="108" width="199" height="44"/>
+                                                <rect key="frame" x="0.0" y="108.5" width="199" height="44"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="UqR-af-1Kv"/>
@@ -77,20 +77,91 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onboarding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYz-ZH-j8A">
-                                <rect key="frame" x="51" y="109" width="90" height="70"/>
+                                <rect key="frame" x="162" y="173" width="90" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97E-3Z-amM">
+                                <rect key="frame" x="181" y="111" width="54" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="alert"/>
+                                <connections>
+                                    <action selector="alertView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ecz-Wa-4TS"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pf-Ts-ldh">
+                                <rect key="frame" x="20" y="790" width="374" height="52"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFU-Xs-V3T">
+                                        <rect key="frame" x="87" y="15" width="200" height="32"/>
+                                        <color key="backgroundColor" red="0.50588235290000005" green="0.64313725489999995" blue="0.4431372549" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="hOo-D4-iMD"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNV-hM-ZS9">
+                                        <rect key="frame" x="119" y="15.5" width="30.5" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="eNV-hM-ZS9" secondAttribute="height" multiplier="1:1" id="Rbv-5c-gW5"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="camera.viewfinder" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fc-MH-Ocb">
+                                        <rect key="frame" x="159.5" y="-3" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="Mhm-gg-pSI"/>
+                                            <constraint firstAttribute="width" secondItem="4Fc-MH-Ocb" secondAttribute="height" multiplier="1:1" id="W57-rS-nQK"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.50533419850000005" green="0.64166849849999996" blue="0.44310578699999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="feet">
+                                            <color key="titleColor" red="0.50533419850000005" green="0.64166849849999996" blue="0.44310578699999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-fs-Lr8">
+                                        <rect key="frame" x="224.5" y="15.5" width="30.5" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fm9-fs-Lr8" secondAttribute="height" multiplier="1:1" id="aYz-Ha-jCF"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="calendar" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cFU-Xs-V3T" secondAttribute="bottom" constant="5" id="0zq-g4-nte"/>
+                                    <constraint firstAttribute="height" constant="52" id="4iu-8S-zDs"/>
+                                    <constraint firstItem="eNV-hM-ZS9" firstAttribute="height" secondItem="cFU-Xs-V3T" secondAttribute="height" multiplier="0.958333" id="Azj-xj-6jL"/>
+                                    <constraint firstItem="fm9-fs-Lr8" firstAttribute="height" secondItem="cFU-Xs-V3T" secondAttribute="height" multiplier="0.958333" id="H8X-nh-60t"/>
+                                    <constraint firstItem="fm9-fs-Lr8" firstAttribute="centerY" secondItem="cFU-Xs-V3T" secondAttribute="centerY" id="KDw-Ig-qY3"/>
+                                    <constraint firstItem="4Fc-MH-Ocb" firstAttribute="centerX" secondItem="3pf-Ts-ldh" secondAttribute="centerX" id="b4r-AL-iyV"/>
+                                    <constraint firstItem="cFU-Xs-V3T" firstAttribute="centerX" secondItem="3pf-Ts-ldh" secondAttribute="centerX" id="d4P-Jz-xXV"/>
+                                    <constraint firstItem="4Fc-MH-Ocb" firstAttribute="leading" secondItem="eNV-hM-ZS9" secondAttribute="trailing" constant="10" id="f4l-ai-hnO"/>
+                                    <constraint firstItem="cFU-Xs-V3T" firstAttribute="top" secondItem="3pf-Ts-ldh" secondAttribute="top" constant="15" id="rd0-5b-eQc"/>
+                                    <constraint firstItem="4Fc-MH-Ocb" firstAttribute="bottom" secondItem="cFU-Xs-V3T" secondAttribute="bottom" constant="5" id="sZ6-s1-l0I"/>
+                                    <constraint firstItem="fm9-fs-Lr8" firstAttribute="leading" secondItem="4Fc-MH-Ocb" secondAttribute="trailing" constant="10" id="w3y-vt-Op2"/>
+                                    <constraint firstItem="eNV-hM-ZS9" firstAttribute="centerY" secondItem="cFU-Xs-V3T" secondAttribute="centerY" id="yuG-07-rQK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3pf-Ts-ldh" secondAttribute="trailing" constant="20" id="7kg-GW-3vq"/>
                             <constraint firstItem="Fsv-Kg-6pC" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.6" id="8HN-mi-hdq"/>
                             <constraint firstItem="Fsv-Kg-6pC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="O7e-3Y-e7R"/>
                             <constraint firstItem="Fsv-Kg-6pC" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.3" id="SmT-VS-m6f"/>
                             <constraint firstItem="Fsv-Kg-6pC" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="YOc-9r-Kfs"/>
+                            <constraint firstItem="3pf-Ts-ldh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="oe0-cx-HlG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3pf-Ts-ldh" secondAttribute="bottom" constant="20" id="uHi-gC-dwt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -103,6 +174,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="feet" width="2048" height="2048"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
