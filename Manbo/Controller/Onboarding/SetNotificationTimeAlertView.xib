@@ -49,43 +49,38 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-fQ-Uuc">
-                                            <rect key="frame" x="41" y="109" width="117" height="50"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCw-xO-7Rb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="ddE-ZE-Dvb"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="02:00 AM"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                            </subviews>
+                                        <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Ij-aIi">
+                                            <rect key="frame" x="0.0" y="109" width="199" height="50"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="rCw-xO-7Rb" firstAttribute="leading" secondItem="yn9-fQ-Uuc" secondAttribute="leading" id="Nlj-vy-wCS"/>
+                                                <constraint firstAttribute="height" constant="50" id="SSH-xt-rEr"/>
                                             </constraints>
-                                        </stackView>
+                                            <locale key="locale" localeIdentifier="ko"/>
+                                        </datePicker>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="i6C-SD-t9G" secondAttribute="trailing" id="CJe-IX-1RH"/>
                                         <constraint firstItem="i6C-SD-t9G" firstAttribute="leading" secondItem="1dB-Z4-AvH" secondAttribute="leading" id="Xxq-7m-aj9"/>
                                     </constraints>
                                 </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 02:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKS-Q5-oNY">
+                                    <rect key="frame" x="20" y="199" width="148" height="50"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="5eq-H0-Ruk" firstAttribute="top" secondItem="1dB-Z4-AvH" secondAttribute="bottom" constant="20" id="DOV-3c-SIZ"/>
                                 <constraint firstItem="1dB-Z4-AvH" firstAttribute="width" secondItem="5r1-de-X5c" secondAttribute="width" multiplier="0.8" id="QsU-yi-qk4"/>
+                                <constraint firstItem="qKS-Q5-oNY" firstAttribute="height" secondItem="5eq-H0-Ruk" secondAttribute="height" id="W2s-1V-k31"/>
                                 <constraint firstAttribute="trailing" secondItem="5eq-H0-Ruk" secondAttribute="trailing" constant="20" id="WKe-1J-TAX"/>
                                 <constraint firstItem="1dB-Z4-AvH" firstAttribute="centerX" secondItem="5r1-de-X5c" secondAttribute="centerX" id="aZ9-zM-dmP"/>
+                                <constraint firstItem="5eq-H0-Ruk" firstAttribute="leading" secondItem="qKS-Q5-oNY" secondAttribute="trailing" constant="10" id="eRg-sA-dfw"/>
+                                <constraint firstItem="qKS-Q5-oNY" firstAttribute="leading" secondItem="5r1-de-X5c" secondAttribute="leading" constant="20" id="hFy-Cz-zON"/>
                                 <constraint firstAttribute="bottom" secondItem="5eq-H0-Ruk" secondAttribute="bottom" constant="20" id="qcr-dH-cjv"/>
+                                <constraint firstItem="qKS-Q5-oNY" firstAttribute="centerY" secondItem="5eq-H0-Ruk" secondAttribute="centerY" id="tOF-y8-KJR"/>
                                 <constraint firstItem="1dB-Z4-AvH" firstAttribute="top" secondItem="5r1-de-X5c" secondAttribute="top" constant="20" id="xe1-h1-4Dd"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -112,7 +107,8 @@
             </constraints>
             <connections>
                 <outlet property="backgroundView" destination="5r1-de-X5c" id="W0D-gl-QyT"/>
-                <outlet property="setNotiTimeButton" destination="yn9-fQ-Uuc" id="iFD-A3-aCu"/>
+                <outlet property="datePicker" destination="JmY-Ij-aIi" id="wFe-BV-7Ln"/>
+                <outlet property="notiTimeLabel" destination="qKS-Q5-oNY" id="IPQ-l9-VKs"/>
                 <outlet property="setNotiTimeLabel" destination="i6C-SD-t9G" id="cuY-BA-yz9"/>
                 <outlet property="toSetNameButton" destination="5eq-H0-Ruk" id="YJM-sQ-a3g"/>
             </connections>
