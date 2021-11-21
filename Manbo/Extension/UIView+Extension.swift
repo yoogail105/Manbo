@@ -8,7 +8,18 @@
 import UIKit
 
 extension UIView {
-
+    
+    
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get { return self.cornerRadius }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+        
+        
+    }
+    
     func cornerRounded(cornerRadius: CGFloat) {
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadius
@@ -19,10 +30,16 @@ extension UIView {
         layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
     }
     
+    
     static func loadFromNib<T>() -> T? {
         let identifier = String(describing: T.self)
         let view = Bundle.main.loadNibNamed(identifier, owner: self, options: nil)?.first
         return view as? T
+    }
+    
+    func customAlertSetting() {
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderWidth = 2
     }
 }
 

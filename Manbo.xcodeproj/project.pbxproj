@@ -36,8 +36,16 @@
 		278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74A4274969F400794E8D /* UIViewController+Extension.swift */; };
 		278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74A627496CB500794E8D /* UserDefaults+Extension.swift */; };
 		278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */; };
-		278F74B4274A9EA400794E8D /* GoalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74B3274A9EA400794E8D /* GoalAlertView.swift */; };
-		278F74B6274A9EB500794E8D /* GoalAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278F74B5274A9EB500794E8D /* GoalAlertView.xib */; };
+		278F74B4274A9EA400794E8D /* SetGoalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74B3274A9EA400794E8D /* SetGoalAlertView.swift */; };
+		278F74B6274A9EB500794E8D /* SetGoalAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278F74B5274A9EB500794E8D /* SetGoalAlertView.xib */; };
+		278F74B8274AC68700794E8D /* SetResetTimeAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278F74B7274AC68700794E8D /* SetResetTimeAlertView.xib */; };
+		278F74BA274AC69B00794E8D /* SetResetTimeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74B9274AC69B00794E8D /* SetResetTimeAlertView.swift */; };
+		278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74BC274AC74700794E8D /* SetNotificationAlertView.swift */; };
+		278F74BF274AC74F00794E8D /* SetNotificationAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278F74BE274AC74F00794E8D /* SetNotificationAlertView.xib */; };
+		278F74C1274AC77700794E8D /* SetNotificationTimeAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278F74C0274AC77700794E8D /* SetNotificationTimeAlertView.xib */; };
+		278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74C4274AC84200794E8D /* SetNotificationTimeAlertView.swift */; };
+		278F74C7274AC8C800794E8D /* SetNameAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74C6274AC8C800794E8D /* SetNameAlertView.swift */; };
+		278F74C9274AC8D200794E8D /* SetNameAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278F74C8274AC8D200794E8D /* SetNameAlertView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +85,16 @@
 		278F74A4274969F400794E8D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		278F74A627496CB500794E8D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionViewCell.swift; path = Manbo/Views/CalendarCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		278F74B3274A9EA400794E8D /* GoalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalAlertView.swift; sourceTree = "<group>"; };
-		278F74B5274A9EB500794E8D /* GoalAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalAlertView.xib; sourceTree = "<group>"; };
+		278F74B3274A9EA400794E8D /* SetGoalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalAlertView.swift; sourceTree = "<group>"; };
+		278F74B5274A9EB500794E8D /* SetGoalAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetGoalAlertView.xib; sourceTree = "<group>"; };
+		278F74B7274AC68700794E8D /* SetResetTimeAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetResetTimeAlertView.xib; sourceTree = "<group>"; };
+		278F74B9274AC69B00794E8D /* SetResetTimeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetResetTimeAlertView.swift; sourceTree = "<group>"; };
+		278F74BC274AC74700794E8D /* SetNotificationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationAlertView.swift; sourceTree = "<group>"; };
+		278F74BE274AC74F00794E8D /* SetNotificationAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetNotificationAlertView.xib; sourceTree = "<group>"; };
+		278F74C0274AC77700794E8D /* SetNotificationTimeAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetNotificationTimeAlertView.xib; sourceTree = "<group>"; };
+		278F74C4274AC84200794E8D /* SetNotificationTimeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationTimeAlertView.swift; sourceTree = "<group>"; };
+		278F74C6274AC8C800794E8D /* SetNameAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameAlertView.swift; sourceTree = "<group>"; };
+		278F74C8274AC8D200794E8D /* SetNameAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetNameAlertView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +127,7 @@
 		270D726A27465EC2007ADC71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
-				278F74B3274A9EA400794E8D /* GoalAlertView.swift */,
-				278F74B5274A9EB500794E8D /* GoalAlertView.xib */,
+				278F74BB274AC6A600794E8D /* Onboarding */,
 				278F74882747A2B600794E8D /* TabViewController.swift */,
 				2780C5B62744F526004A0BE4 /* ViewController.swift */,
 				278F748027478D1600794E8D /* CameraViewController.swift */,
@@ -211,6 +225,24 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		278F74BB274AC6A600794E8D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
+				278F74B5274A9EB500794E8D /* SetGoalAlertView.xib */,
+				278F74B3274A9EA400794E8D /* SetGoalAlertView.swift */,
+				278F74B7274AC68700794E8D /* SetResetTimeAlertView.xib */,
+				278F74B9274AC69B00794E8D /* SetResetTimeAlertView.swift */,
+				278F74BC274AC74700794E8D /* SetNotificationAlertView.swift */,
+				278F74BE274AC74F00794E8D /* SetNotificationAlertView.xib */,
+				278F74C0274AC77700794E8D /* SetNotificationTimeAlertView.xib */,
+				278F74C4274AC84200794E8D /* SetNotificationTimeAlertView.swift */,
+				278F74C6274AC8C800794E8D /* SetNameAlertView.swift */,
+				278F74C8274AC8D200794E8D /* SetNameAlertView.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,10 +309,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				278F749F2748FC4300794E8D /* Onboarding.storyboard in Resources */,
+				278F74BF274AC74F00794E8D /* SetNotificationAlertView.xib in Resources */,
 				2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */,
+				278F74C1274AC77700794E8D /* SetNotificationTimeAlertView.xib in Resources */,
+				278F74B8274AC68700794E8D /* SetResetTimeAlertView.xib in Resources */,
+				278F74C9274AC8D200794E8D /* SetNameAlertView.xib in Resources */,
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
-				278F74B6274A9EB500794E8D /* GoalAlertView.xib in Resources */,
+				278F74B6274A9EB500794E8D /* SetGoalAlertView.xib in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
@@ -298,19 +334,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278F74BA274AC69B00794E8D /* SetResetTimeAlertView.swift in Sources */,
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
 				278F74772747785800794E8D /* TabBarViewModel.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
+				278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */,
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
+				278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
 				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
 				278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */,
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
-				278F74B4274A9EA400794E8D /* GoalAlertView.swift in Sources */,
+				278F74C7274AC8C800794E8D /* SetNameAlertView.swift in Sources */,
+				278F74B4274A9EA400794E8D /* SetGoalAlertView.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
 				278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */,
 				278F74A32749034400794E8D /* CustomSideMenuNavigationViewController.swift in Sources */,
