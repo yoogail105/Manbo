@@ -58,14 +58,9 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as! CalendarCollectionViewCell
         cell.dailyImage.image = UIImage(named: "manbo01")
+        cell.cornerRounded(cornerRadius: 10)
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let collectionCellWidth = UIScreen.main.bounds.width / 8.0
-//        return CGSize(width: collectionCellWidth, height: collectionCellWidth)
-//    }
-    
+
 }
 
