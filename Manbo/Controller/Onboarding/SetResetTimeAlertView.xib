@@ -49,29 +49,13 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yJa-xj-Q6e">
-                                            <rect key="frame" x="41" y="109" width="117" height="50"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PT-Af-Ijv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="sYG-S3-bt7"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="02:00 AM"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                            </subviews>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-r3-Qg4">
+                                            <rect key="frame" x="3" y="109" width="193" height="50"/>
                                             <constraints>
-                                                <constraint firstItem="4PT-Af-Ijv" firstAttribute="leading" secondItem="yJa-xj-Q6e" secondAttribute="leading" id="QPW-GR-SCE"/>
+                                                <constraint firstAttribute="height" constant="50" id="l9m-HF-PzG"/>
                                             </constraints>
-                                        </stackView>
+                                            <locale key="locale" localeIdentifier="ko"/>
+                                        </datePicker>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="EpG-ZI-wEo" firstAttribute="leading" secondItem="7aB-p9-wyK" secondAttribute="leading" id="TXO-Wh-ojS"/>
@@ -112,8 +96,8 @@
             </constraints>
             <connections>
                 <outlet property="backgroundView" destination="mEx-Mf-USt" id="2xf-cQ-LQg"/>
+                <outlet property="datePicker" destination="aeS-r3-Qg4" id="l0N-Lv-mwY"/>
                 <outlet property="resetTimeLabel" destination="EpG-ZI-wEo" id="XST-Fz-Iag"/>
-                <outlet property="setResetTimeButton" destination="4PT-Af-Ijv" id="Xza-N9-HSV"/>
                 <outlet property="toSetNotificationButton" destination="l74-EB-fqh" id="7dq-Ad-NrY"/>
             </connections>
             <point key="canvasLocation" x="128.98550724637681" y="39.508928571428569"/>

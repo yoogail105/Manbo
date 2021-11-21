@@ -13,6 +13,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
 
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var collectonView: UICollectionView!
     var headerVisible = true
        
@@ -27,6 +28,8 @@ class CalendarViewController: UIViewController {
            layout.itemSize = CGSize(width: cellSize,height: cellSize)
            collectionView.collectionViewLayout = layout
         
+           userNameLabel.text = UserDefaults.standard.name
+           print("만보의 이름은 \(UserDefaults.standard.name)")
            naviItem()
            
        }

@@ -10,7 +10,9 @@ import UIKit
 class SetResetTimeAlertView: UIView {
     @IBOutlet weak var resetTimeLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var setResetTimeButton: UIButton!
+//   @IBOutlet weak var setResetTimeLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBOutlet weak var toSetNotificationButton: UIButton!
 
 }

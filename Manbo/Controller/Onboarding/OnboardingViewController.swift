@@ -15,7 +15,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var tabBarBackgroundView: UIView!
     static let identifier = "OnboardingViewController"
     @IBOutlet weak var welcomeLabel: UILabel!
-    
+    var datePickerResult = ""
     // AlertView
     let setGoalAlert: SetGoalAlertView? = UIView.loadFromNib()
     let setResetTimeAlert: SetResetTimeAlertView? = UIView.loadFromNib()
@@ -69,12 +69,17 @@ class OnboardingViewController: UIViewController {
         
         alert?.resetTimeLabel.text = "측정 기준 시간을\n 설정해 주세요!"
         alert?.backgroundView.customAlertSetting()
-       // let resetTime = alert?.setResetTimeButton.titleLabel?.text
+    
         alert?.toSetNotificationButton.addTarget(self, action: #selector(toSetNotificationButtonClicked), for: .touchUpInside)
         
     }
     
+    // MARK: - SetNotification Yes/No
     @objc func toSetNotificationButtonClicked() {
+        UserDefaults.standard.resetTime = changed(setResetTimeAlert!.datePicker)
+        print("reestTiem: \(UserDefaults.standard.resetTime!)")
+        
+
         let alert = setNotificationAlertView
         self.view.addSubview(setNotificationAlertView ?? self.view)
         setResetTimeAlert?.removeFromSuperview()
@@ -91,9 +96,22 @@ class OnboardingViewController: UIViewController {
         let alert = setNotificationTimeAlertView
         alert?.backgroundView.customAlertSetting()
         alert?.setNotiTimeLabel.text = "언제 알림을 드릴까요?"
-        alert?.toSetNameButton.addTarget(self, action: #selector(toSetNameButtonClicked), for: .touchUpInside)
+        
+        
+       // alert?.datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
     
-      
+        alert?.toSetNameButton.addTarget(self, action: #selector(toSetNameButtonClicked), for: .touchUpInside)
+
+    }
+    
+    func changed(_ sender: UIDatePicker) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .none
+        dateformatter.timeStyle = .short
+        
+        let date = dateformatter.string(from: sender.date)
+        return date
+    
     }
     
     func presentAlert(alertFrom: UIView, alertTo: UIView) {
@@ -103,16 +121,23 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - SetName
     @objc func toSetNameButtonClicked() {
+        UserDefaults.standard.notiTime = changed(setNotificationTimeAlertView!.datePicker)
+        print("notiTime: \(UserDefaults.standard.notiTime ?? "알람거부")")
+        
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNameAlertView!)
         let alert = setNameAlertView
         
         alert?.backgroundView.customAlertSetting()
+        
+        
         alert?.completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
         
     }
     
     // 메인 화면으로 전환하기
     @objc func completeButtonClicked() {
+        UserDefaults.standard.name = setNameAlertView?.userNameLabel.text
+        print(UserDefaults.standard.string(forKey: "name") ?? "no name")
         setNameAlertView?.removeFromSuperview()
         let storyboard = UIStoryboard(name: "TabView", bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: TabViewController.identifier) as? TabViewController else {
@@ -127,6 +152,9 @@ class OnboardingViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+    }
 }
 
 extension OnboardingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
