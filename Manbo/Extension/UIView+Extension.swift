@@ -8,15 +8,6 @@
 import UIKit
 
 extension UIView {
-    @IBInspectable
-    var cornerRadius: CGFloat {
-        get { return self.cornerRadius }
-        set {
-            self.layer.cornerRadius = newValue
-        }
-    
-    
-    }
     
     func cornerRounded(cornerRadius: CGFloat) {
         self.clipsToBounds = true
