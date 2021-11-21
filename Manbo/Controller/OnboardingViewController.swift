@@ -10,7 +10,7 @@ import UIKit
 class OnboardingViewController: UIViewController {
 
     // MARK: - PROPERTIES
-    
+    static let identifier = "OnboardingViewController"
     @IBOutlet weak var welcomeLabel: UILabel!
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -31,6 +31,8 @@ class OnboardingViewController: UIViewController {
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .flipHorizontal
         
+        // 첫 런치 + 초기 정보를 저장한 후에 Onboarding 값 바꾸어주기
+        UserDefaults.standard.hasOnbarded = true
         present(controller, animated: true, completion: nil)
     }
     

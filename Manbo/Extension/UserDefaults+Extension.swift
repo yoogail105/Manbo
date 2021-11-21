@@ -12,12 +12,13 @@ extension UserDefaults {
         case hasOnboarded
     }
     
+    // Onboarding에서 start버튼 누르면
     var hasOnbarded: Bool {
         get {
             bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)
         }
         set {
             setValue(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)
+        }
     }
-}
 }

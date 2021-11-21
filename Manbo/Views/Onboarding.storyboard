@@ -29,7 +29,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsv-Kg-6pC">
                                 <rect key="frame" x="83" y="313.5" width="248" height="269"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="y0k-Pv-l5U">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y0k-Pv-l5U">
                                         <rect key="frame" x="24.5" y="27" width="199" height="215"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="처음오셨군요! 반가워요. 목표 걸음수를설정해 주세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9c-j3-q8j">
@@ -39,7 +39,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="d8c-lL-oCE">
-                                                <rect key="frame" x="0.0" y="108.5" width="199" height="44"/>
+                                                <rect key="frame" x="0.0" y="108" width="199" height="44"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="UqR-af-1Kv"/>
@@ -51,7 +51,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IID-HO-S4b">
-                                                <rect key="frame" x="149" y="185" width="50" height="30"/>
+                                                <rect key="frame" x="74.5" y="185" width="50" height="30"/>
                                                 <color key="backgroundColor" red="0.55742577790000003" green="0.58431372550000005" blue="0.82911277299999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Gdt-LK-cxU"/>
