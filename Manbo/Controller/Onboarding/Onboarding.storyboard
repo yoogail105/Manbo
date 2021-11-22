@@ -254,7 +254,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="AtF-7j-uju" firstAttribute="height" secondItem="BZ2-fG-dPU" secondAttribute="height" multiplier="0.3" id="39A-7M-haH"/>
                                     <constraint firstItem="AtF-7j-uju" firstAttribute="centerY" secondItem="BZ2-fG-dPU" secondAttribute="centerY" id="96F-KH-51c"/>

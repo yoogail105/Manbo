@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>사진을 추가하기 위해서는 앨범에 대한 접근 권한이 필요합니다.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>현재 걷고 있는 길을 촬영하기 위해서는 카메라에 대한 접근 권한이 필요합니다.</string>
 	<key></key>
 	<string></string>
 	<key>UIMainStoryboardFile</key>
