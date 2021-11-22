@@ -22,11 +22,15 @@ class TabViewController: UIViewController {
     
     // VC연결
     let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ViewController.identifier)
+    //camera = 1 buttons[1]
     let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateViewController(withIdentifier: CameraViewController.identifier)
     let calendarVC = UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "CalendarNC")
     
-  
+    //camera
+    let imagePickerController = UIImagePickerController()
     
+  
+  // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarBackgroundView.cornerRounded(cornerRadius: tabBarBackgroundView.frame.size.height / 2)
@@ -39,12 +43,24 @@ class TabViewController: UIViewController {
         // 메인 뷰 불러오기
         buttons[selectedIndex].isSelected = true
         tabChanged(sender: buttons[selectedIndex])
+        
+        imagePickerController.delegate = self
+        buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
+        
     }
+    
+    
     
     func setButtonTag() {
         for (index, button) in buttons.enumerated() {
             button.tag = index
         }
+    }
+    
+    @objc func cameraOpen() {
+        self.imagePickerController.sourceType = .camera
+        self.present(self.imagePickerController,animated: true, completion:  nil)
+        
     }
     
 } //:viewDidLoad
@@ -78,4 +94,8 @@ extension TabViewController {
     }
     
    
+}
+
+extension TabViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
 }
