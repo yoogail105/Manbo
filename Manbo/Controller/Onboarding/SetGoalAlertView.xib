@@ -41,16 +41,16 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-oQ-vT7">
-                                    <rect key="frame" x="24.5" y="20" width="199" height="159"/>
+                                    <rect key="frame" x="24.5" y="20" width="199" height="179"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하루 목표 걸음을 설정해 주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOx-Yw-6gV">
-                                            <rect key="frame" x="0.0" y="0.0" width="199" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="199" height="69"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-gx-C5N">
-                                            <rect key="frame" x="0.0" y="59" width="199" height="100"/>
+                                            <rect key="frame" x="0.0" y="79" width="199" height="100"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9R-9s-lTF">
                                                     <rect key="frame" x="0.0" y="0.0" width="159" height="100"/>
@@ -79,7 +79,7 @@
                                 <constraint firstItem="eeg-oQ-vT7" firstAttribute="centerX" secondItem="CNJ-5O-h5a" secondAttribute="centerX" id="3Xr-z9-wfa"/>
                                 <constraint firstAttribute="bottom" secondItem="guw-kZ-u5w" secondAttribute="bottom" constant="20" id="Jvw-4A-MTm"/>
                                 <constraint firstAttribute="trailing" secondItem="guw-kZ-u5w" secondAttribute="trailing" constant="20" id="MqO-18-uTa"/>
-                                <constraint firstItem="guw-kZ-u5w" firstAttribute="top" secondItem="eeg-oQ-vT7" secondAttribute="bottom" constant="20" id="NKG-Ff-8yv"/>
+                                <constraint firstItem="guw-kZ-u5w" firstAttribute="top" secondItem="eeg-oQ-vT7" secondAttribute="bottom" id="NKG-Ff-8yv"/>
                                 <constraint firstItem="eeg-oQ-vT7" firstAttribute="width" secondItem="CNJ-5O-h5a" secondAttribute="width" multiplier="0.8" id="SUg-eN-g9J"/>
                                 <constraint firstItem="eeg-oQ-vT7" firstAttribute="top" secondItem="CNJ-5O-h5a" secondAttribute="top" constant="20" id="vQx-uj-wx7"/>
                             </constraints>

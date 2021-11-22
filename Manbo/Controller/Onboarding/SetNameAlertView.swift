@@ -11,8 +11,8 @@ class SetNameAlertView: UIView {
     @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UITextField!
     
+    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var completeButton: UIButton!
     /*
     // Only override draw() if you perform custom drawing.

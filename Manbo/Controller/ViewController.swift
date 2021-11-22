@@ -9,21 +9,21 @@ import UIKit
 import SideMenu
 
 class ViewController: UIViewController {
-        static let identifier = "ViewController"
+    static let identifier = "ViewController"
     // MARK: - PROPERTIES
- 
+    
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalView: UIView!
+    var goal = ""
     
-  
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         setUI()
-
-       
+        
+        
     }//: viewDidLoad
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
     }
-
+    
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -44,8 +44,8 @@ class ViewController: UIViewController {
     
     func setUI() {
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
-//        goalLabel.text = NSLocalizedString("goal_steps", comment: "목표 걸음 수")
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) 10,000"
+        goal = String(UserDefaults.standard.stepsGoal!)
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(goal)"
         
     }
     @IBAction func settingButtonClicked(_ sender: UIButton) {
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             return
         }
         present(controller, animated: true, completion: nil)
-    
+        
     }
     
     
