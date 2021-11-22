@@ -1,0 +1,6 @@
+framework module Pods_Manbo {
+  umbrella header "Pods-Manbo-umbrella.h"
+
+  export *
+  module * { export * }
+}

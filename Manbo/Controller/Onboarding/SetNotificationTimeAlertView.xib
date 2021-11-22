@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -19,10 +19,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5r1-de-X5c">
-                            <rect key="frame" x="83" y="313.5" width="248" height="269"/>
+                            <rect key="frame" x="82.666666666666671" y="313.66666666666663" width="248.66666666666663" height="268.66666666666663"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eq-H0-Ruk">
-                                    <rect key="frame" x="178" y="199" width="50" height="50"/>
+                                    <rect key="frame" x="178.66666666666663" y="198.66666666666669" width="50" height="50"/>
                                     <color key="backgroundColor" name="mainColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="FBr-z7-hx0"/>
@@ -40,48 +40,37 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1dB-Z4-AvH">
-                                    <rect key="frame" x="24.5" y="20" width="199" height="159"/>
+                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1dB-Z4-AvH">
+                                    <rect key="frame" x="20" y="20" width="208.66666666666666" height="178.66666666666666"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="언제 알림을 드릴까요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6C-SD-t9G">
-                                            <rect key="frame" x="0.0" y="0.0" width="199" height="99"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="언제 알림을 드릴까요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6C-SD-t9G">
+                                            <rect key="frame" x="0.0" y="0.0" width="208.66666666666666" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="M1Z-r3-ubW"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Ij-aIi">
-                                            <rect key="frame" x="0.0" y="109" width="199" height="50"/>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Ij-aIi">
+                                            <rect key="frame" x="0.0" y="80" width="208" height="98"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="SSH-xt-rEr"/>
-                                            </constraints>
+                                            <date key="date" timeIntervalSinceReferenceDate="659232000.92733097">
+                                                <!--2021-11-22 00:00:00 +0000-->
+                                            </date>
                                             <locale key="locale" localeIdentifier="ko"/>
                                         </datePicker>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="i6C-SD-t9G" secondAttribute="trailing" id="CJe-IX-1RH"/>
-                                        <constraint firstItem="i6C-SD-t9G" firstAttribute="leading" secondItem="1dB-Z4-AvH" secondAttribute="leading" id="Xxq-7m-aj9"/>
-                                    </constraints>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 02:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKS-Q5-oNY">
-                                    <rect key="frame" x="20" y="199" width="148" height="50"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="5eq-H0-Ruk" firstAttribute="top" secondItem="1dB-Z4-AvH" secondAttribute="bottom" constant="20" id="DOV-3c-SIZ"/>
-                                <constraint firstItem="1dB-Z4-AvH" firstAttribute="width" secondItem="5r1-de-X5c" secondAttribute="width" multiplier="0.8" id="QsU-yi-qk4"/>
-                                <constraint firstItem="qKS-Q5-oNY" firstAttribute="height" secondItem="5eq-H0-Ruk" secondAttribute="height" id="W2s-1V-k31"/>
                                 <constraint firstAttribute="trailing" secondItem="5eq-H0-Ruk" secondAttribute="trailing" constant="20" id="WKe-1J-TAX"/>
-                                <constraint firstItem="1dB-Z4-AvH" firstAttribute="centerX" secondItem="5r1-de-X5c" secondAttribute="centerX" id="aZ9-zM-dmP"/>
-                                <constraint firstItem="5eq-H0-Ruk" firstAttribute="leading" secondItem="qKS-Q5-oNY" secondAttribute="trailing" constant="10" id="eRg-sA-dfw"/>
-                                <constraint firstItem="qKS-Q5-oNY" firstAttribute="leading" secondItem="5r1-de-X5c" secondAttribute="leading" constant="20" id="hFy-Cz-zON"/>
+                                <constraint firstItem="1dB-Z4-AvH" firstAttribute="leading" secondItem="5r1-de-X5c" secondAttribute="leading" constant="20" id="hBA-I2-6ww"/>
+                                <constraint firstItem="5eq-H0-Ruk" firstAttribute="top" secondItem="1dB-Z4-AvH" secondAttribute="bottom" id="nwE-23-PYt"/>
+                                <constraint firstItem="1dB-Z4-AvH" firstAttribute="top" secondItem="5r1-de-X5c" secondAttribute="top" constant="20" id="nyJ-E0-F7c"/>
                                 <constraint firstAttribute="bottom" secondItem="5eq-H0-Ruk" secondAttribute="bottom" constant="20" id="qcr-dH-cjv"/>
-                                <constraint firstItem="qKS-Q5-oNY" firstAttribute="centerY" secondItem="5eq-H0-Ruk" secondAttribute="centerY" id="tOF-y8-KJR"/>
-                                <constraint firstItem="1dB-Z4-AvH" firstAttribute="top" secondItem="5r1-de-X5c" secondAttribute="top" constant="20" id="xe1-h1-4Dd"/>
+                                <constraint firstAttribute="trailing" secondItem="1dB-Z4-AvH" secondAttribute="trailing" constant="20" id="zhz-Rv-OsE"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -108,7 +97,6 @@
             <connections>
                 <outlet property="backgroundView" destination="5r1-de-X5c" id="W0D-gl-QyT"/>
                 <outlet property="datePicker" destination="JmY-Ij-aIi" id="wFe-BV-7Ln"/>
-                <outlet property="notiTimeLabel" destination="qKS-Q5-oNY" id="IPQ-l9-VKs"/>
                 <outlet property="setNotiTimeLabel" destination="i6C-SD-t9G" id="cuY-BA-yz9"/>
                 <outlet property="toSetNameButton" destination="5eq-H0-Ruk" id="YJM-sQ-a3g"/>
             </connections>

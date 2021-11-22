@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class OnboardingViewController: UIViewController {
-
+    
     // MARK: - PROPERTIES
+    static let identifier = "OnboardingViewController"
+    
     @IBOutlet weak var goalView: UIView!
     @IBOutlet weak var firstAlertView: UIView!
     @IBOutlet weak var tabBarBackgroundView: UIView!
-    static let identifier = "OnboardingViewController"
     @IBOutlet weak var welcomeLabel: UILabel!
+    
     
     
     // AlertView
@@ -23,10 +26,20 @@ class OnboardingViewController: UIViewController {
     let setNotificationAlertView: SetNotificationAlertView? = UIView.loadFromNib()
     let setNotificationTimeAlertView: SetNotificationTimeAlertView? = UIView.loadFromNib()
     let setNameAlertView: SetNameAlertView? = UIView.loadFromNib()
-
     
+    // pickerView
     var stepsGoalList: [Int] = []
     var typeValue = String()
+    
+    // checkName
+    var maxLength = 8
+    var notiText = "2글자 이상 8글자 이하로 입력해주세요"
+    var isCoreectedName = false
+    var userName: String = "" {
+        didSet {
+            notiBanenr(notiText: notiText)
+        }
+    }
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -34,11 +47,11 @@ class OnboardingViewController: UIViewController {
         setUI()
         stepsGoalList.append(contentsOf: stride(from: 3000, to: 21000, by: 1000))
         welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
-        print("화면전환된다.")
-        setGoalAlert?.pickerView.delegate = self
-        setGoalAlert?.pickerView.dataSource = self
-    
-      
+        
+        guard let textField = setNameAlertView?.userNameTextField else { return }
+        textField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: textField)
+        
     } //: viewDidLoad
     
     func setUI() {
@@ -48,11 +61,69 @@ class OnboardingViewController: UIViewController {
         firstAlertView.layer.borderWidth = 2
     }
     
+    @objc private func textDidChange(_ notification: Notification) {
+        if let textField = notification.object as? UITextField {
+            if var text = textField.text {
+                setNameAlertView?.userNameTextField.placeholder = "2글자 이상 8글자 이하로 입력해주세요"
+                
+                if text.count > maxLength {
+                    //  8글자 넘어가면 자동으로 키보드 내려감
+                    textField.resignFirstResponder()
+                    notiText = "8글자를 넘어갈 수 없어요!"
+                    isCoreectedName = true
+                }
+                
+                // 초과되는 텍스트 제거
+                if text.count >= maxLength {
+                    let index = text.index(text.startIndex, offsetBy: maxLength)
+                    let newString = text[text.startIndex..<index]
+                    textField.text = String(newString)
+                    notiText = "8글자를 넘어갈 수 없어요!"
+                    isCoreectedName = true
+                    
+                }
+                
+                else if text.count < 2 {
+                    notiText = "2글자 이상 8글자 이하로 입력해주세요"
+                    // active상태에 따라서 버튼 바꾸어주고 싶은데 안된다.. 오잉...갑자기되었다..?
+//                    setNameAlertView?.completeButton.activeButtonColor(isActive: false)
+//                    setNameAlertView?.completeButton.isEnabled = false
+                    isCoreectedName = false
+                    
+//
+                }
+                else if text == "만보" {
+                    notiBanenr(notiText: "다른 이름을 지어주세요!")
+                    isCoreectedName = false
+                  //  setNameAlertView?.completeButton.isEnabled = false
+                   //  setNameAlertView?.completeButton.activeButtonColor(isActive: false)
+                }
+                else {
+                    isCoreectedName = true
+                    // setNameAlertView?.completeButton.activeButtonColor(isActive: true)
+                    //setNameAlertView?.completeButton.isEnabled = true
+                    setNameAlertView?.setNeedsDisplay()
+                    notiText = "이제 \(textField.text)라고 불러주세요!"
+                    
+                    //warningLabel.textColor = .green
+                    
+                }
+                setNameAlertView?.completeButton.isEnabled = isCoreectedName
+                setNameAlertView?.completeButton.activeButtonColor(isActive: isCoreectedName)
+    
+                
+            }
+            
+        }
+    }
+    
     // MARK: - SetGoal 먼가..코드 정리하기..
     @IBAction func alertView(_ sender: UIButton) {
         let alert = setGoalAlert
         alert?.setGoalBackgroundView.customAlertSetting()
-        alert?.setGoalLabel.text = "하루 목표 걸음을 설정해 주세요!"
+        alert?.setGoalLabel.text = "하루 목표 걸음을\n설정해 주세요!"
+        alert?.pickerView.delegate = self
+        alert?.pickerView.dataSource = self
         self.view.addSubview(setGoalAlert ?? self.view)
         
         alert?.toSetResetButton.addTarget(self, action: #selector(toSetResetButtonClicked), for: .touchUpInside)
@@ -67,9 +138,9 @@ class OnboardingViewController: UIViewController {
         self.view.addSubview(setResetTimeAlert ?? self.view)
         setGoalAlert?.removeFromSuperview()
         
-        alert?.resetTimeLabel.text = "측정 기준 시간을\n 설정해 주세요!"
+        alert?.resetTimeLabel.text = "언제 걸음을\n새로 측정할까요?"
         alert?.backgroundView.customAlertSetting()
-    
+        
         alert?.toSetNotificationButton.addTarget(self, action: #selector(toSetNotificationButtonClicked), for: .touchUpInside)
         
     }
@@ -79,11 +150,12 @@ class OnboardingViewController: UIViewController {
         UserDefaults.standard.resetTime = changed(setResetTimeAlert!.datePicker)
         print("reestTiem: \(UserDefaults.standard.resetTime!)")
         
-
+        
         let alert = setNotificationAlertView
         self.view.addSubview(setNotificationAlertView ?? self.view)
         setResetTimeAlert?.removeFromSuperview()
         
+        alert?.setNotiLabel.text = "알림을\n받으시겠어요?"
         alert?.backgroundView.customAlertSetting()
         alert?.yesNotiButton.addTarget(self, action: #selector(toSetNotificaitonTimeButtonClicked), for: .touchUpInside)
         alert?.noNotiButton.addTarget(self, action: #selector(toSetNameButtonClicked), for: .touchUpInside)
@@ -98,10 +170,10 @@ class OnboardingViewController: UIViewController {
         alert?.setNotiTimeLabel.text = "언제 알림을 드릴까요?"
         
         
-       // alert?.datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
-    
+        // alert?.datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
+        
         alert?.toSetNameButton.addTarget(self, action: #selector(toSetNameButtonClicked), for: .touchUpInside)
-
+        
     }
     
     func changed(_ sender: UIDatePicker) -> String {
@@ -111,7 +183,7 @@ class OnboardingViewController: UIViewController {
         
         let date = dateformatter.string(from: sender.date)
         return date
-    
+        
     }
     
     func presentAlert(alertFrom: UIView, alertTo: UIView) {
@@ -119,16 +191,21 @@ class OnboardingViewController: UIViewController {
         alertFrom.removeFromSuperview()
     }
     
-    // MARK: - SetName
+    // MARK: - SetNameAlert
     @objc func toSetNameButtonClicked() {
         UserDefaults.standard.notiTime = changed(setNotificationTimeAlertView!.datePicker)
         print("notiTime: \(UserDefaults.standard.notiTime ?? "알람거부")")
         
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNameAlertView!)
+        
         let alert = setNameAlertView
-        
         alert?.backgroundView.customAlertSetting()
+        alert?.completeButton.activeButtonColor(isActive: isCoreectedName)
+        alert?.completeButton.isEnabled = false
         
+        if !isCoreectedName {
+            notiBanenr(notiText: notiText)
+        }
         
         alert?.completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
         
@@ -136,7 +213,8 @@ class OnboardingViewController: UIViewController {
     
     // 메인 화면으로 전환하기
     @objc func completeButtonClicked() {
-        UserDefaults.standard.name = setNameAlertView?.userNameLabel.text
+        // checkCorrectUserName()
+        UserDefaults.standard.name = setNameAlertView?.userNameTextField.text
         print(UserDefaults.standard.string(forKey: "name") ?? "no name")
         setNameAlertView?.removeFromSuperview()
         let storyboard = UIStoryboard(name: "TabView", bundle: nil)
@@ -148,31 +226,64 @@ class OnboardingViewController: UIViewController {
         controller.modalTransitionStyle = .flipHorizontal
         
         // 첫 런치 + 초기 정보를 저장한 후에 Onboarding 값 바꾸어주기
-       // UserDefaults.standard.hasOnbarded = true
+        // UserDefaults.standard.hasOnbarded = true
         present(controller, animated: true, completion: nil)
     }
     
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-         self.view.endEditing(true)
+        self.view.endEditing(true)
     }
+        
+        func notiBanenr(notiText: String) {
+            let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
+            
+            banner.show()
+            
+            banner.autoDismiss = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                banner.dismiss()
+            }
+            )
+        }
 }
+
 
 extension OnboardingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
-        }
-
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return stepsGoalList.count
-        }
-
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return String(stepsGoalList[row])
-        }
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return stepsGoalList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(stepsGoalList[row])
+    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         UserDefaults.standard.stepsGoal = stepsGoalList[row]
         print("목표걸음수는 \(UserDefaults.standard.stepsGoal!)")
     }
+    
+  
+    
+}
+
+
+extension OnboardingViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return false }
+        
+        if text.count >= maxLength && range.length == 0 && range.location < maxLength {
+            return false
+        }
+        return true
+    }
+    
+    
 }
