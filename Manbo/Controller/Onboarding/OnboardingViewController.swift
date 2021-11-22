@@ -35,11 +35,8 @@ class OnboardingViewController: UIViewController {
     var maxLength = 8
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
     var isCoreectedName = false
-    var userName: String = "" {
-        didSet {
-            notiBanenr(notiText: notiText)
-        }
-    }
+    var longName = false
+
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -64,9 +61,9 @@ class OnboardingViewController: UIViewController {
     @objc private func textDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
             if var text = textField.text {
-                setNameAlertView?.userNameTextField.placeholder = "2글자 이상 8글자 이하로 입력해주세요"
                 
                 if text.count > maxLength {
+                    longName = true
                     //  8글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
                     notiText = "8글자를 넘어갈 수 없어요!"
@@ -84,33 +81,30 @@ class OnboardingViewController: UIViewController {
                 }
                 
                 else if text.count < 2 {
+                    longName = false
                     notiText = "2글자 이상 8글자 이하로 입력해주세요"
                     // active상태에 따라서 버튼 바꾸어주고 싶은데 안된다.. 오잉...갑자기되었다..?
-//                    setNameAlertView?.completeButton.activeButtonColor(isActive: false)
-//                    setNameAlertView?.completeButton.isEnabled = false
+                   
                     isCoreectedName = false
                     
-//
+                    //
                 }
                 else if text == "만보" {
-                    notiBanenr(notiText: "다른 이름을 지어주세요!")
+                    
+                    longName = false
+                    notiText = "다른 이름을 지어주세요!"
                     isCoreectedName = false
-                  //  setNameAlertView?.completeButton.isEnabled = false
-                   //  setNameAlertView?.completeButton.activeButtonColor(isActive: false)
+                   
                 }
                 else {
+                    longName = false
                     isCoreectedName = true
-                    // setNameAlertView?.completeButton.activeButtonColor(isActive: true)
-                    //setNameAlertView?.completeButton.isEnabled = true
                     setNameAlertView?.setNeedsDisplay()
-                    notiText = "이제 \(textField.text)라고 불러주세요!"
-                    
-                    //warningLabel.textColor = .green
                     
                 }
                 setNameAlertView?.completeButton.isEnabled = isCoreectedName
                 setNameAlertView?.completeButton.activeButtonColor(isActive: isCoreectedName)
-    
+                
                 
             }
             
@@ -235,18 +229,16 @@ class OnboardingViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
+    
+    func notiBanenr(notiText: String) {
+        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
         
-        func notiBanenr(notiText: String) {
-            let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
-            
-            banner.show()
-            
-            banner.autoDismiss = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                banner.dismiss()
-            }
-            )
-        }
+        banner.show()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            banner.dismiss()
+        })
+    }
 }
 
 
@@ -269,7 +261,7 @@ extension OnboardingViewController: UIPickerViewDelegate, UIPickerViewDataSource
         print("목표걸음수는 \(UserDefaults.standard.stepsGoal!)")
     }
     
-  
+    
     
 }
 
@@ -285,5 +277,26 @@ extension OnboardingViewController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        incorrectNameNotification()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        incorrectNameNotification()
+        return true
+    }
+    
+    func incorrectNameNotification(){
+        
+        if self.longName {
+            self.notiBanenr(notiText: self.notiText)
+        } else if !self.isCoreectedName {
+            self.notiBanenr(notiText: self.notiText)
+        }
+    }
+        
     
 }
