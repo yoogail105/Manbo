@@ -15,7 +15,8 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var tabBarBackgroundView: UIView!
     static let identifier = "OnboardingViewController"
     @IBOutlet weak var welcomeLabel: UILabel!
-    var datePickerResult = ""
+    
+    
     // AlertView
     let setGoalAlert: SetGoalAlertView? = UIView.loadFromNib()
     let setResetTimeAlert: SetResetTimeAlertView? = UIView.loadFromNib()
@@ -24,18 +25,18 @@ class OnboardingViewController: UIViewController {
     let setNameAlertView: SetNameAlertView? = UIView.loadFromNib()
 
     
-    let pickerList = ["1000보", "2000보", "3000보"]
+    var stepsGoalList: [Int] = []
     var typeValue = String()
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUI()
+        stepsGoalList.append(contentsOf: stride(from: 3000, to: 21000, by: 1000))
         welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
         print("화면전환된다.")
-    //    setGoalAlert?.goalPickerView.delegate = self
-//        setGoalAlert?.goalPickerView.dataSource = self
+        setGoalAlert?.pickerView.delegate = self
+        setGoalAlert?.pickerView.dataSource = self
     
       
     } //: viewDidLoad
@@ -50,7 +51,6 @@ class OnboardingViewController: UIViewController {
     // MARK: - SetGoal 먼가..코드 정리하기..
     @IBAction func alertView(_ sender: UIButton) {
         let alert = setGoalAlert
-        print("선택됨")
         alert?.setGoalBackgroundView.customAlertSetting()
         alert?.setGoalLabel.text = "하루 목표 걸음을 설정해 주세요!"
         self.view.addSubview(setGoalAlert ?? self.view)
@@ -62,7 +62,7 @@ class OnboardingViewController: UIViewController {
     // MARK: - SetResetTimeAlertView
     @objc func toSetResetButtonClicked() {
         print("클릭됨.")
-    
+        
         let alert = setResetTimeAlert
         self.view.addSubview(setResetTimeAlert ?? self.view)
         setGoalAlert?.removeFromSuperview()
@@ -164,20 +164,15 @@ extension OnboardingViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
 
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return self.pickerList.count
+            return stepsGoalList.count
         }
 
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return pickerList[row]
+            return String(stepsGoalList[row])
         }
-
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            if row == 0 {
-                typeValue = "2개월"
-            } else if row == 1 {
-                typeValue = "3개월"
-            } else if row == 2 {
-                typeValue = "4개월"
-            }
-        }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        UserDefaults.standard.stepsGoal = stepsGoalList[row]
+        print("목표걸음수는 \(UserDefaults.standard.stepsGoal!)")
+    }
 }
