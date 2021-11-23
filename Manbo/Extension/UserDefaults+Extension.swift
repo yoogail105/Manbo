@@ -32,6 +32,11 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "stepsGoal")}
     }
     
+    var currentStepCount: Int? {
+       get { return UserDefaults.standard.integer(forKey: "currentStepCount")}
+       set { UserDefaults.standard.set(newValue, forKey: "currentStepCount")}
+   }
+    
      var resetTime: String? {
         get { return UserDefaults.standard.string(forKey: "resetTime")}
         set { UserDefaults.standard.set(newValue, forKey: "resetTime")}
@@ -41,4 +46,5 @@ extension UserDefaults {
         get { return UserDefaults.standard.string(forKey: "notiTime")}
         set { UserDefaults.standard.set(newValue, forKey: "notiTime")}
     }
+
 }

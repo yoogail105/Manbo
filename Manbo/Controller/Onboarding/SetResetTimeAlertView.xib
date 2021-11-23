@@ -51,6 +51,7 @@
                                         </label>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-r3-Qg4">
                                             <rect key="frame" x="0.0" y="60" width="199" height="109"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <date key="date" timeIntervalSinceReferenceDate="659199600.07529104">
                                                 <!--2021-11-21 15:00:00 +0000-->
                                             </date>

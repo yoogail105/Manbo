@@ -232,6 +232,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="currentStepCountLabel" destination="uOh-sl-2b2" id="x6M-xK-TjP"/>
                         <outlet property="goalLabel" destination="A4K-lC-5UK" id="hcI-WL-BFI"/>
                         <outlet property="goalView" destination="abG-fO-LXw" id="a6I-k2-5ex"/>
                     </connections>

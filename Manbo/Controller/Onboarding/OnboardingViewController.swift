@@ -36,7 +36,7 @@ class OnboardingViewController: UIViewController {
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
     var isCoreectedName = false
     var longName = false
-
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -84,7 +84,7 @@ class OnboardingViewController: UIViewController {
                     longName = false
                     notiText = "2글자 이상 8글자 이하로 입력해주세요"
                     // active상태에 따라서 버튼 바꾸어주고 싶은데 안된다.. 오잉...갑자기되었다..?
-                   
+                    
                     isCoreectedName = false
                     
                     //
@@ -94,7 +94,7 @@ class OnboardingViewController: UIViewController {
                     longName = false
                     notiText = "다른 이름을 지어주세요!"
                     isCoreectedName = false
-                   
+                    
                 }
                 else {
                     longName = false
@@ -115,9 +115,19 @@ class OnboardingViewController: UIViewController {
     @IBAction func alertView(_ sender: UIButton) {
         let alert = setGoalAlert
         alert?.setGoalBackgroundView.customAlertSetting()
+        
+        //UI
+        //        alert?.translatesAutoresizingMaskIntoConstraints = false
+        //        alert?.setGoalBackgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //        alert?.setGoalBackgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        //        alert?.setGoalBackgroundView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.8).isActive = true
+        //        alert?.setGoalBackgroundView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.8).isActive = true
+        
         alert?.setGoalLabel.text = "하루 목표 걸음을\n설정해 주세요!"
         alert?.pickerView.delegate = self
         alert?.pickerView.dataSource = self
+        
+        //  alert?.pickerView.setValue(UIColor.white, forKey: "textColor")
         self.view.addSubview(setGoalAlert ?? self.view)
         
         alert?.toSetResetButton.addTarget(self, action: #selector(toSetResetButtonClicked), for: .touchUpInside)
@@ -127,11 +137,10 @@ class OnboardingViewController: UIViewController {
     // MARK: - SetResetTimeAlertView
     @objc func toSetResetButtonClicked() {
         print("클릭됨.")
-        
         let alert = setResetTimeAlert
         self.view.addSubview(setResetTimeAlert ?? self.view)
         setGoalAlert?.removeFromSuperview()
-        
+        alert?.datePicker.setValue(UIColor.white, forKey: "textColor")
         alert?.resetTimeLabel.text = "언제 걸음을\n새로 측정할까요?"
         alert?.backgroundView.customAlertSetting()
         
@@ -162,6 +171,7 @@ class OnboardingViewController: UIViewController {
         let alert = setNotificationTimeAlertView
         alert?.backgroundView.customAlertSetting()
         alert?.setNotiTimeLabel.text = "언제 알림을 드릴까요?"
+        alert?.datePicker.setValue(UIColor.white, forKey: "textColor")
         
         
         // alert?.datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
@@ -220,7 +230,7 @@ class OnboardingViewController: UIViewController {
         controller.modalTransitionStyle = .flipHorizontal
         
         // 첫 런치 + 초기 정보를 저장한 후에 Onboarding 값 바꾸어주기
-        // UserDefaults.standard.hasOnbarded = true
+        UserDefaults.standard.hasOnbarded = true
         present(controller, animated: true, completion: nil)
     }
     
@@ -263,6 +273,7 @@ extension OnboardingViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? { return NSAttributedString(string: String(self.stepsGoalList[row]), attributes: [.foregroundColor:UIColor.white]) }
 }
 
 
@@ -297,6 +308,7 @@ extension OnboardingViewController: UITextFieldDelegate {
             self.notiBanenr(notiText: self.notiText)
         }
     }
-        
+    
     
 }
+
