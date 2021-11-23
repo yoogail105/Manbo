@@ -53,7 +53,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Ij-aIi">
-                                            <rect key="frame" x="0.0" y="80" width="208" height="98"/>
+                                            <rect key="frame" x="0.0" y="80" width="208.66666666666666" height="98.666666666666686"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <date key="date" timeIntervalSinceReferenceDate="659232000.92733097">
                                                 <!--2021-11-22 00:00:00 +0000-->
