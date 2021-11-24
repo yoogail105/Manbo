@@ -47,4 +47,10 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "notiTime")}
     }
 
+    var setpPercent: Double? {
+        get {
+            let result = Double(currentStepCount!) / Double(stepsGoal!)
+            return result * 100
+        }
+    }
 }
