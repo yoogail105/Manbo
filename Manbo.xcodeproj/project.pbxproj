@@ -54,6 +54,8 @@
 		27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A66654274C2A4900A63683 /* HealthKit.framework */; };
 		27A66657274C2CA100A63683 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66656274C2CA100A63683 /* HealthKitManager.swift */; };
 		27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66659274C34CA00A63683 /* HealthStore.swift */; };
+		27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 27A6665C274D762200A63683 /* JTAppleCalendar */; };
+		27A66660274D81AC00A63683 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,7 @@
 		27A66654274C2A4900A63683 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		27A66656274C2CA100A63683 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		27A66659274C34CA00A63683 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				278F749D2748FC1900794E8D /* SideMenu in Frameworks */,
+				27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */,
 				27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */,
 				27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */,
 				191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */,
@@ -141,6 +145,7 @@
 				278F747E27478D0400794E8D /* Camera.storyboard */,
 				278832922746DFDB007616EA /* Setting.storyboard */,
 				2719275B274B9EB400F26F8D /* NotificationBanner.storyboard */,
+				27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			packageProductDependencies = (
 				278F749C2748FC1900794E8D /* SideMenu */,
 				27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */,
+				27A6665C274D762200A63683 /* JTAppleCalendar */,
 			);
 			productName = Manbo;
 			productReference = 2780C5AF2744F526004A0BE4 /* Manbo.app */;
@@ -337,6 +343,7 @@
 			packageReferences = (
 				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */,
 				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -437,6 +444,7 @@
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
 				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
 				278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */,
+				27A66660274D81AC00A63683 /* DateCollectionViewCell.swift in Sources */,
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
 				278F74C7274AC8C800794E8D /* SetNameAlertView.swift in Sources */,
@@ -723,6 +731,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -735,6 +751,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		27A6665C274D762200A63683 /* JTAppleCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			productName = JTAppleCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

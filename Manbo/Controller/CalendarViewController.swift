@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     static let identifier = "CalendarViewController"
@@ -13,15 +14,19 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
 
+    @IBOutlet weak var calendarCollectionView: JTACMonthView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var collectonView: UICollectionView!
     var headerVisible = true
-       
+    let formatter = DateFormatter()
+    
        override func viewDidLoad() {
            super.viewDidLoad()
            
            collectionView.delegate = self
            collectionView.dataSource = self
+           calendarCollectionView.ibCalendarDelegate = self
+           calendarCollectionView.ibCalendarDataSource = self
             
            let layout = UICollectionViewFlowLayout()
            let cellSize = UIScreen.main.bounds.width / 5
@@ -67,3 +72,33 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 
 }
 
+extension CalendarViewController: JTACMonthViewDelegate {
+    
+    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        guard let cell = cell as? DateCollectionViewCell else {return}
+        cell.dateLabel.text = cellState.text
+    }
+    
+    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
+        guard let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DateCollectionViewCell.identifier, for: indexPath) as? DateCollectionViewCell else {
+            return JTACDayCell()
+        }
+        cell.dateLabel.text = cellState.text
+        return cell
+    }
+    
+}
+
+extension CalendarViewController: JTACMonthViewDataSource {
+    
+    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        let startDate = formatter.date(from: "2021 11 01")!
+        let endDate = Date()
+        return ConfigurationParameters(startDate: startDate, endDate: endDate)
+    }
+    
+}

@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "JTAppleCalendar",
+        "repositoryURL": "https://github.com/patchthecode/JTAppleCalendar.git",
+        "state": {
+          "branch": null,
+          "revision": "2812ae8a58c4b8132cd3d0e761b984e344d841a4",
+          "version": "8.0.3"
+        }
+      },
+      {
         "package": "SideMenu",
         "repositoryURL": "https://github.com/jonkykong/SideMenu.git",
         "state": {
