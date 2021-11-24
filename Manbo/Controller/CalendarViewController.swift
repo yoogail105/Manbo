@@ -10,7 +10,7 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     static let identifier = "CalendarViewController"
-
+    
     // calendar color
     let outsideMonthColor = UIColor(hex: 0x4D4E51)
     let monthColor =  UIColor.label
@@ -21,47 +21,73 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var currentMonth: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var calendarFrameStackView: UIStackView!
-
+    
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
-    @IBOutlet weak var calendarCollectionView: JTACMonthView!
+    @IBOutlet weak var toggleMonthWeek: UIButton!
+    @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var collectonView: UICollectionView!
+    @IBOutlet weak var constraint: NSLayoutConstraint!
     var headerVisible = true
     let formatter = DateFormatter()
+    var isMonthView = true
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        imageTintColorSettings()
+        setupCalendarView()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        calendarView.ibCalendarDelegate = self
+        calendarView.ibCalendarDataSource = self
+        
+        //calendarUI
+        
+        //calendarCollectionView.allowsMultipleSelection = true
+        calendarView.allowsRangedSelection = true
+        calendarView.maskedCornerRounded(cornerRadius: 20, maskedCorners: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
+        calendarFrameStackView.cornerRounded(cornerRadius: 20)
+        calendarFrameStackView.layer.borderWidth = 2
+        calendarFrameStackView.layer.borderColor = UIColor.appColor(.borderLightGray).cgColor
+        
+        
+        
+        let layout = UICollectionViewFlowLayout()
+        let cellSize = UIScreen.main.bounds.width / 5
+        layout.itemSize = CGSize(width: cellSize,height: cellSize)
+        collectionView.collectionViewLayout = layout
+        
+        userNameLabel.text = UserDefaults.standard.name
+        print("만보의 이름은 \(UserDefaults.standard.name)")
+        naviItem()
+        
+    }
     
-       override func viewDidLoad() {
-           super.viewDidLoad()
-           
-           imageTintColorSettings()
-           setupCalendarView()
-           collectionView.delegate = self
-           collectionView.dataSource = self
-           calendarCollectionView.ibCalendarDelegate = self
-           calendarCollectionView.ibCalendarDataSource = self
-           
-           //calendarUI
-           
-           //calendarCollectionView.allowsMultipleSelection = true
-           calendarCollectionView.allowsRangedSelection = true
-           calendarCollectionView.maskedCornerRounded(cornerRadius: 20, maskedCorners: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
-           calendarFrameStackView.cornerRounded(cornerRadius: 20)
-           calendarFrameStackView.layer.borderWidth = 2
-           calendarFrameStackView.layer.borderColor = UIColor.appColor(.borderLightGray).cgColor
-           
-         
-           
-           let layout = UICollectionViewFlowLayout()
-           let cellSize = UIScreen.main.bounds.width / 5
-           layout.itemSize = CGSize(width: cellSize,height: cellSize)
-           collectionView.collectionViewLayout = layout
-           
-           userNameLabel.text = UserDefaults.standard.name
-           print("만보의 이름은 \(UserDefaults.standard.name)")
-           naviItem()
-           
-       }
-    
+    @IBAction func toggleMonthAndWeekButtonClicked(_ sender: UIButton) {
+        print("toggle")
+        
+        if isMonthView {
+            toggleMonthWeek.setImage(UIImage(systemName: "w.square"), for: .normal)
+            constraint.constant = 58.33
+            isMonthView.toggle()
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            }) { completed in
+                self.calendarView.reloadData(withAnchor: Date())
+            }
+        } else {
+            
+            toggleMonthWeek.setImage(UIImage(systemName: "m.square"), for: .normal)
+            self.constraint.constant = 270
+            isMonthView.toggle()
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+                self.calendarView.reloadData(withAnchor: Date())
+            })
+        }
+    }
     // 간결하게 [ ]
     func imageTintColorSettings() {
         let leftButtonImage = UIImage(named: "chevron_left_icon.png")?.withRenderingMode(.alwaysTemplate)
@@ -72,7 +98,7 @@ class CalendarViewController: UIViewController {
         rightButton.tintColor = UIColor.lightGray
         
     }
-
+    
     func naviItem() {
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "waveform.path"), style: .plain, target: self, action: #selector(settingButtonClicked))
         settingButton.tintColor = UIColor.label
@@ -85,14 +111,14 @@ class CalendarViewController: UIViewController {
             return
         }
         present(controller, animated: true, completion: nil)
-    
+        
     }
     
     func setupCalendarView() {
-        calendarCollectionView.minimumLineSpacing = 0
-        calendarCollectionView.minimumInteritemSpacing = 0
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
         
-        calendarCollectionView.visibleDates { visibleDates in
+        calendarView.visibleDates { visibleDates in
             self.setupViewsOfCalendar(from: visibleDates)
         }
     }
@@ -120,22 +146,19 @@ class CalendarViewController: UIViewController {
         self.formatter.dateFormat = "yyyy년 MM월"
         self.currentMonth.text = self.formatter.string(from: date)
     }
-
-    
-
     
     func handleCellSelected(view: JTACDayCell?, cellSTate: CellState) {
         guard let validCell = view as? DateCollectionViewCell else { return }
-        validCell.selectedCellView.cornerRounded(cornerRadius: 20)
-       
+        validCell.selectedView.cornerRounded(cornerRadius: 20)
+        
         if validCell.isSelected {
-            validCell.selectedCellView.isHidden = false
+            validCell.selectedView.isHidden = false
         } else {
-            validCell.selectedCellView.isHidden = true
+            validCell.selectedView.isHidden = true
         }
     }
-
-   
+    
+    
 }
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -151,7 +174,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         cell.cornerRounded(cornerRadius: 10)
         return cell
     }
-
+    
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {
@@ -164,13 +187,22 @@ extension CalendarViewController: JTACMonthViewDataSource {
         let startDate = formatter.date(from: "2021 11 01")!
         let endDate = formatter.date(from: "2021 12 31")!
         
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
+        if isMonthView {
+            return ConfigurationParameters(startDate: startDate, endDate: endDate)
+        } else {
+            return  ConfigurationParameters(startDate: startDate,
+                                            endDate: endDate,
+                                            numberOfRows: 1,
+                                            generateInDates: .forFirstMonthOnly,
+                                            generateOutDates: .off,
+                                            hasStrictBoundaries: false)
+        }
         
-        return parameters
+        
     }
- 
+    
 }
-
+// MARK: - JTAC Delegate
 extension CalendarViewController: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
@@ -178,6 +210,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
     }
     
+    // MARK: - cellForItemAt
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         guard let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DateCollectionViewCell.identifier, for: indexPath) as? DateCollectionViewCell else {
             return JTACDayCell()
@@ -185,16 +218,18 @@ extension CalendarViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
-
+        
+        
         return cell
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-     
+        
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
+        
     }
-         
+    
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         
         handleCellSelected(view: cell, cellSTate: cellState)
@@ -205,23 +240,21 @@ extension CalendarViewController: JTACMonthViewDelegate {
         setupViewsOfCalendar(from: visibleDates)
     }
     
-        
+    func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
+        handleCellSelected(view: cell, cellSTate: cellState)
+        return true
+    }
     
     
-//    func configureCell(view: JTAppleCell?, cellState: CellState) {
-//       guard let cell = view as? DateCell  else { return }
-//       cell.dateLabel.text = cellState.text
-//       handleCellTextColor(cell: cell, cellState: cellState)
-//    }
-//        
-//    func handleCellTextColor(cell: DateCell, cellState: CellState) {
-//       if cellState.dateBelongsTo == .thisMonth {
-//          cell.dateLabel.textColor = UIColor.black
-//       } else {
-//          cell.dateLabel.textColor = UIColor.gray
-//       }
-//    }
-//    
+    //
+    //    func handleCellTextColor(cell: DateCell, cellState: CellState) {
+    //       if cellState.dateBelongsTo == .thisMonth {
+    //          cell.dateLabel.textColor = UIColor.black
+    //       } else {
+    //          cell.dateLabel.textColor = UIColor.gray
+    //       }
+    //    }
+    //
     
 }
 
