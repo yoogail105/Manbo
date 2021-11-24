@@ -8,7 +8,7 @@
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var dailyImage: UIImageView!
     static let identifier = String(describing: CalendarCollectionViewCell.self)
     
