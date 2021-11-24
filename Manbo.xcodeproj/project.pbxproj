@@ -56,6 +56,10 @@
 		27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66659274C34CA00A63683 /* HealthStore.swift */; };
 		27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 27A6665C274D762200A63683 /* JTAppleCalendar */; };
 		27A66660274D81AC00A63683 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */; };
+		27A66662274EB61C00A63683 /* manboManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66661274EB61C00A63683 /* manboManager.swift */; };
+		27A66664274EC6D600A63683 /* realmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66663274EC6D600A63683 /* realmData.swift */; };
+		27A66667274EC78200A63683 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27A66666274EC78200A63683 /* Realm */; };
+		27A66669274EC78200A63683 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27A66668274EC78200A63683 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +117,8 @@
 		27A66656274C2CA100A63683 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		27A66659274C34CA00A63683 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
+		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,7 +129,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A66667274EC78200A63683 /* Realm in Frameworks */,
 				278F749D2748FC1900794E8D /* SideMenu in Frameworks */,
+				27A66669274EC78200A63683 /* RealmSwift in Frameworks */,
 				27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */,
 				27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */,
 				27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */,
@@ -239,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				27192757274AFEDF00F26F8D /* UserModel.swift */,
+				27A66661274EB61C00A63683 /* manboManager.swift */,
+				27A66663274EC6D600A63683 /* realmData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,6 +320,8 @@
 				278F749C2748FC1900794E8D /* SideMenu */,
 				27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */,
 				27A6665C274D762200A63683 /* JTAppleCalendar */,
+				27A66666274EC78200A63683 /* Realm */,
+				27A66668274EC78200A63683 /* RealmSwift */,
 			);
 			productName = Manbo;
 			productReference = 2780C5AF2744F526004A0BE4 /* Manbo.app */;
@@ -344,6 +356,7 @@
 				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */,
 				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+				27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -432,7 +445,9 @@
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
 				278F74772747785800794E8D /* TabBarViewModel.swift in Sources */,
+				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
+				27A66662274EB61C00A63683 /* manboManager.swift in Sources */,
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */,
 				27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */,
@@ -739,6 +754,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.18.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -756,6 +779,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
 			productName = JTAppleCalendar;
+		};
+		27A66666274EC78200A63683 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		27A66668274EC78200A63683 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
