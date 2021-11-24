@@ -93,11 +93,22 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-24-WzL">
+                            <rect key="frame" x="206.5" y="0.0" width="1" height="313.5"/>
+                            <color key="backgroundColor" name="TouchBarBezel"/>
+                            <color key="tintColor" name="TouchBarBezel"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="nOz-aO-yoQ"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="CNJ-5O-h5a" firstAttribute="width" secondItem="DLy-Jk-Tz4" secondAttribute="width" multiplier="0.6" id="90K-Jz-x0G"/>
+                        <constraint firstItem="Yqc-24-WzL" firstAttribute="top" secondItem="DLy-Jk-Tz4" secondAttribute="top" id="Kjq-1Z-06z"/>
                         <constraint firstItem="CNJ-5O-h5a" firstAttribute="height" secondItem="DLy-Jk-Tz4" secondAttribute="height" multiplier="0.3" id="R8j-wS-BMy"/>
                         <constraint firstItem="CNJ-5O-h5a" firstAttribute="centerX" secondItem="DLy-Jk-Tz4" secondAttribute="centerX" id="d7z-Gd-Po5"/>
+                        <constraint firstItem="CNJ-5O-h5a" firstAttribute="top" secondItem="Yqc-24-WzL" secondAttribute="bottom" id="ocm-4j-tPy"/>
+                        <constraint firstItem="Yqc-24-WzL" firstAttribute="centerX" secondItem="DLy-Jk-Tz4" secondAttribute="centerX" id="wag-nh-UUG"/>
                         <constraint firstItem="CNJ-5O-h5a" firstAttribute="centerY" secondItem="DLy-Jk-Tz4" secondAttribute="centerY" id="zAq-36-DTD"/>
                     </constraints>
                 </view>
@@ -112,7 +123,7 @@
             <connections>
                 <outlet property="pickerView" destination="G9R-9s-lTF" id="pcu-Pv-xyi"/>
                 <outlet property="setGoalBackgroundView" destination="CNJ-5O-h5a" id="ZnV-UC-r9D"/>
-                <outlet property="setGoalLabel" destination="SOx-Yw-6gV" id="p8M-0G-TUv"/>
+                <outlet property="titleLabel" destination="SOx-Yw-6gV" id="E03-Nt-NqT"/>
                 <outlet property="toSetResetButton" destination="guw-kZ-u5w" id="ZhT-6e-u6l"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="39.508928571428569"/>
@@ -120,6 +131,9 @@
     </objects>
     <resources>
         <image name="feet" width="2048" height="2048"/>
+        <namedColor name="TouchBarBezel">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

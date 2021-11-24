@@ -113,24 +113,36 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - SetGoal 먼가..코드 정리하기..
     @IBAction func alertView(_ sender: UIButton) {
-        let alert = setGoalAlert
-        alert?.setGoalBackgroundView.customAlertSetting()
+        let veiw = setGoalAlert
+        veiw?.setGoalBackgroundView.customAlertSetting()
         
-        //UI
-        //        alert?.translatesAutoresizingMaskIntoConstraints = false
-        //        alert?.setGoalBackgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        //        alert?.setGoalBackgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        //        alert?.setGoalBackgroundView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.8).isActive = true
-        //        alert?.setGoalBackgroundView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.8).isActive = true
-        
-        alert?.setGoalLabel.text = "하루 목표 걸음을\n설정해 주세요!"
-        alert?.pickerView.delegate = self
-        alert?.pickerView.dataSource = self
+       
+        veiw?.titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"
+        veiw?.pickerView.delegate = self
+        veiw?.pickerView.dataSource = self
         
         //  alert?.pickerView.setValue(UIColor.white, forKey: "textColor")
         self.view.addSubview(setGoalAlert ?? self.view)
         
-        alert?.toSetResetButton.addTarget(self, action: #selector(toSetResetButtonClicked), for: .touchUpInside)
+        /* addSubview 오토 레이아웃
+        veiw?.translatesAutoresizingMaskIntoConstraints = false
+        veiw?.setGoalBackgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        veiw?.setGoalBackgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        veiw?.setGoalBackgroundView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.3).isActive = true
+        veiw?.setGoalBackgroundView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.6).isActive = true
+        
+        func stackViewFactory(type: NSLayoutConstraint.Axis) -> UIStackView {
+            let row = UIStackView()
+            row.axis = .vertical
+            row.alignment = .center
+            
+            row.distribution = .fill
+            row.spacing = 10
+            return row
+        }
+         */
+    
+        veiw?.toSetResetButton.addTarget(self, action: #selector(toSetResetButtonClicked), for: .touchUpInside)
         
     }
     
