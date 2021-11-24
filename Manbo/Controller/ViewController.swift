@@ -159,6 +159,9 @@ class ViewController: UIViewController {
                     }
                 }
             }
+//            DispatchQueue.main.async {
+//                completion(sum.doubleValue(for: HKUnit.count()))
+//            }
         }
         healthStore.execute(query)
     }

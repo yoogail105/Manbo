@@ -11,8 +11,7 @@ import JTAppleCalendar
 class DateCollectionViewCell: JTACDayCell {
     static let identifier = "DateCollectionViewCell"
     
-    @IBOutlet weak var selectedCellView: UIView!
-
+    @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     
 }
