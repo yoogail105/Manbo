@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var healthStore = HKHealthStore()
     
+  //  @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalView: UIView!
@@ -24,23 +25,40 @@ class ViewController: UIViewController {
     var stepCount: Int = 0 {
         didSet  {
             print("stepCount값이 바뀌었음.")
-            view.layoutIfNeeded()
-            setCurrentStep()
-            setUserImage()
+//            view.layoutIfNeeded()
+//            setCurrentStep()
+//            setUserImage()
         }
     }
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.appColor(.mainGreen)
+        
+        return refreshControl
+    }()
     var stepPercent = 0.0
     var userImage = Manbo.manbo00
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
-        print("main",#function)
         super.viewDidLoad()
         
+       // scrollView.addSubview(self.refreshControl)
         
     }//: viewDidLoad
     
+ 
     
+    @objc func handleRefresh(_ refershControl: UIRefreshControl) {
+        
+        authorizeHealthKit()
+        getUserInformation()
+        setUI()
+        
+        refreshControl.endRefreshing()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
