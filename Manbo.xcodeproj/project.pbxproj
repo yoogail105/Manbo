@@ -60,6 +60,7 @@
 		27A66664274EC6D600A63683 /* realmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66663274EC6D600A63683 /* realmData.swift */; };
 		27A66667274EC78200A63683 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27A66666274EC78200A63683 /* Realm */; };
 		27A66669274EC78200A63683 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27A66668274EC78200A63683 /* RealmSwift */; };
+		27DFDA8F274FC879004BD97D /* DateHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DFDA8E274FC879004BD97D /* DateHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
+		27DFDA8E274FC879004BD97D /* DateHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderViewController.swift; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				270D726D27465F05007ADC71 /* UIView+Extension.swift */,
 				270D726F27466914007ADC71 /* UIColor+Extension.swift */,
 				278F74A4274969F400794E8D /* UIViewController+Extension.swift */,
+				27DFDA8E274FC879004BD97D /* DateHeaderViewController.swift */,
 				27192759274B8A1000F26F8D /* UIButton+Extension.swift */,
 			);
 			path = Extension;
@@ -454,6 +457,7 @@
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
 				27192758274AFEDF00F26F8D /* UserModel.swift in Sources */,
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
+				27DFDA8F274FC879004BD97D /* DateHeaderViewController.swift in Sources */,
 				278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,

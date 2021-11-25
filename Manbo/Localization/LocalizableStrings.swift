@@ -9,10 +9,14 @@ import Foundation
 
 enum  LocalizableStrings: String {
 
+    // MainView
     case welcome_text
     case goal_steps
     case data_backup
     case restore
+        
+    // SettingView
+    
     
     var localized: String {
         return self.rawValue.localized()

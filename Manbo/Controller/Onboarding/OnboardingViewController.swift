@@ -156,6 +156,7 @@ class OnboardingViewController: UIViewController {
         alert?.resetTimeLabel.text = "언제 걸음을\n새로 측정할까요?"
         alert?.backgroundView.customAlertSetting()
         
+        
         alert?.toSetNotificationButton.addTarget(self, action: #selector(toSetNotificationButtonClicked), for: .touchUpInside)
         
     }
@@ -194,8 +195,7 @@ class OnboardingViewController: UIViewController {
     
     func changed(_ sender: UIDatePicker) -> String {
         let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .none
-        dateformatter.timeStyle = .short
+        dateformatter.dateFormat = "HH:mm"
         
         let date = dateformatter.string(from: sender.date)
         return date
@@ -242,7 +242,7 @@ class OnboardingViewController: UIViewController {
         controller.modalTransitionStyle = .flipHorizontal
         
         // 첫 런치 + 초기 정보를 저장한 후에 Onboarding 값 바꾸어주기
-        UserDefaults.standard.hasOnbarded = true
+        UserDefaults.standard.hasOnbarded = false
         present(controller, animated: true, completion: nil)
     }
     
