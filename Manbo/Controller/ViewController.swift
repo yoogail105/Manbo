@@ -16,20 +16,18 @@ class ViewController: UIViewController {
     
     var healthStore = HKHealthStore()
     
+    //time
+    let dateFormatter = DateFormatter()
+    let calendar = Calendar.current
+    var date = Date()
+    
   //  @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalView: UIView!
     @IBOutlet weak var currentStepCountLabel: UILabel!
     var stepGoal = 0
-    var stepCount: Int = 0 {
-        didSet  {
-            print("stepCount값이 바뀌었음.")
-//            view.layoutIfNeeded()
-//            setCurrentStep()
-//            setUserImage()
-        }
-    }
+    var stepCount: Int = 0
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -40,10 +38,13 @@ class ViewController: UIViewController {
     }()
     var stepPercent = 0.0
     var userImage = Manbo.manbo00
-    
+   
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.timeZone = calendar.timeZone
+        dateFormatter.locale = calendar.locale
         
        // scrollView.addSubview(self.refreshControl)
         
@@ -152,30 +153,120 @@ class ViewController: UIViewController {
     
     func getTodayTotalStepCounts() {
         print("main",#function)
+       
+        let hour = resetTime().hour
+        let minute = resetTime().minute
+        
+        //오늘, 새벽 2시부터 내일 새벽 2시까지
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+
+      //let dateComponents = DateComponents(year: year, month: month, day: day, hour: hour, minute: minute)
+        
+       let dateComponents = DateComponents(year: 2021, month: 11, day: 23, hour: hour, minute: minute)
+        let startDate = calendar.date(from: dateComponents)
+        let endDate = calendar.date(byAdding: .hour, value: 24, to: startDate!)
+        var totalCount = 0.0
+        print(date)
+        print(startDate!, endDate!)
+        
         guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else {
             return
         }
-        
-        //  let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        
-        let startDate = Calendar.current.startOfDay(for: Date())
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictEndDate)
+ 
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
         var interval = DateComponents()
-        interval.day = 1
+        interval.minute = 60
         
-        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate, intervalComponents: interval)
+        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate!, intervalComponents: interval)
         
         query.initialResultsHandler = {
             query, result, Error in
             
             if let myresult = result {
-                myresult.enumerateStatistics(from: startDate, to: Date()) { (statistic, value) in
+                myresult.enumerateStatistics(from: startDate!, to:endDate!) { (statistic, value) in
                     if let count = statistic.sumQuantity() {
+                    
                         let val = count.doubleValue(for: HKUnit.count())
-                        print("Total step taken today is \(val) steps.")
-                        UserDefaults.standard.currentStepCount = Int(val)
+                        print("count: \(val) steps.")
+                        totalCount += val
                     }
+                   
                 }
+                UserDefaults.standard.currentStepCount = Int(totalCount)
+                print(totalCount)
+            }
+//            DispatchQueue.main.async {
+//                completion(sum.doubleValue(for: HKUnit.count()))
+//            }
+        }
+        healthStore.execute(query)
+    }
+    
+    func resetTime() -> (hour: Int, minute: Int){
+    
+        //유저가 선택한 시간 가져오기
+        
+        let resetTimeString = UserDefaults.standard.resetTime
+        dateFormatter.dateFormat = "HH:mm"
+        let resetTime = dateFormatter.date(from: resetTimeString!)
+        let hour = calendar.component(.hour, from: resetTime!)
+        let minute = calendar.component(.minute, from: resetTime!)
+        
+        return (hour: hour, minute: minute)
+    }
+    
+    
+    func getAWeekTotalStepCounts() {
+        print("main",#function)
+        
+      
+        let hour = resetTime().hour
+        let minute = resetTime().minute
+        
+        //오늘, 새벽 2시부터 내일 새벽 2시까지
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+
+      //let dateComponents = DateComponents(year: year, month: month, day: day, hour: hour, minute: minute)
+        
+       let dateComponents = DateComponents(year: 2021, month: 11, day: 23, hour: hour, minute: minute)
+        let startDate = calendar.date(from: dateComponents)
+        let endDate = calendar.date(byAdding: .hour, value: 24, to: startDate!)
+        var totalCount = 0.0
+        print(date)
+        print(startDate!, endDate!)
+        
+
+        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else {
+            return
+        }
+        
+        //  let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+        var interval = DateComponents()
+        interval.minute = 60
+        
+        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate!, intervalComponents: interval)
+        
+        query.initialResultsHandler = {
+            query, result, Error in
+            
+            if let myresult = result {
+                myresult.enumerateStatistics(from: startDate!, to:endDate!) { (statistic, value) in
+                    if let count = statistic.sumQuantity() {
+                    
+                        let val = count.doubleValue(for: HKUnit.count())
+                        print("count: \(val) steps.")
+                        totalCount += val
+                    }
+                   
+                }
+                UserDefaults.standard.currentStepCount = Int(totalCount)
+                print(totalCount)
             }
 //            DispatchQueue.main.async {
 //                completion(sum.doubleValue(for: HKUnit.count()))
@@ -184,6 +275,7 @@ class ViewController: UIViewController {
         healthStore.execute(query)
     }
 }
+
 
 
 extension Date {

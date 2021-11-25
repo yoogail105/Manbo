@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController {
     let monthColor =  UIColor.label
     let selectedMonthColor = UIColor.black
     
+
     let currentDateSelecedViewColor = UIColor.appColor(.borderLightGray)
     
     @IBOutlet weak var currentMonth: UILabel!
@@ -30,10 +31,15 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var collectonView: UICollectionView!
     @IBOutlet weak var constraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var togleAlbumOnOff: UIButton!
+    var isAlbumOn = true
     var headerVisible = true
     let formatter = DateFormatter()
     var isMonthView = true
-    let testCalendar = Calendar.current
+    let calendar = Calendar.current
+
+    var isSelectedDate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +117,14 @@ class CalendarViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: - IsAlbumOn
+    @IBAction func toggleAlbumOnOffButtonClicked(_ sender: UIButton) {
+        
+        isAlbumOn.toggle()
+        collectionView.isHidden.toggle()
+        
+    }
     // 간결하게 [ ]
     func imageTintColorSettings() {
         let leftButtonImage = UIImage(named: "chevron_left_icon.png")?.withRenderingMode(.alwaysTemplate)
@@ -168,9 +182,9 @@ class CalendarViewController: UIViewController {
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
         guard let startDate = visibleDates.monthDates.first?.date else { return
         }
-        let month = testCalendar.dateComponents([.month], from: startDate).month!
+        let month = calendar.dateComponents([.month], from: startDate).month!
         let monthName = self.formatter.monthSymbols[ (month-1) % 12]
-        let year = testCalendar.component(.year, from: startDate)
+        let year = calendar.component(.year, from: startDate)
         
         self.currentMonth.text = String(year) + "년 " + monthName
 //        self.currentMonth.text = self.formatter.string(from: date)
@@ -181,8 +195,10 @@ class CalendarViewController: UIViewController {
         validCell.selectedView.cornerRounded(cornerRadius: 20)
         
         if validCell.isSelected {
+            isSelectedDate = true
             validCell.selectedView.isHidden = false
         } else {
+            isSelectedDate = false
             validCell.selectedView.isHidden = true
         }
     }
@@ -205,14 +221,14 @@ extension CalendarViewController: JTACMonthViewDataSource {
             return ConfigurationParameters(startDate: startDate,
                                            endDate: endDate,
                                            numberOfRows: 6,
-                                           calendar: self.testCalendar,
+                                           calendar: self.calendar,
                                            firstDayOfWeek: .sunday)
                                            
         } else {
             return  ConfigurationParameters(startDate: startDate,
                                             endDate: endDate,
                                             numberOfRows: 1,
-                                            calendar: self.testCalendar,
+                                            calendar: self.calendar,
                                             generateInDates: .forFirstMonthOnly,
                                             generateOutDates: .off,
                                             hasStrictBoundaries: false)
@@ -254,15 +270,24 @@ extension CalendarViewController: JTACMonthViewDelegate {
 
         validCell.dateLabel.text = cellState.text
 
-        if self.testCalendar.isDateInToday(date) {
-            print("오늘날짜configureVisibileCellD:\(testCalendar.isDateInToday(date))")
+        if self.calendar.isDateInToday(date) {
+            print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
             validCell.contentView.cornerRounded(cornerRadius: 15)
-            validCell.contentView.backgroundColor = UIColor.red
+            validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
             print("실ㅇ행됨: \(date)")
         } else {
             validCell.contentView.backgroundColor = .clear
 
         }
+        
+        handleCelltextColor(view: validCell, cellSTate: cellState)
+        
+        if cellState.dateBelongsTo == .thisMonth && cellState.text == "1" {
+            formatter.dateFormat = "MMM"
+            let month = formatter.string(from: date)
+            print(month)
+        }
+
    //     handleCellSelected(view: validCell, cellSTate: cellState)
         //      handleCellSelected(cell: myCustomCell, cellState: cellState)
     }
@@ -282,7 +307,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 //        }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        
+        print("didSelectDate: \(date), CellState: \(cellState)")
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
         print(cellState.date)

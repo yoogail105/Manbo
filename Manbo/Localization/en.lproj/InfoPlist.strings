@@ -6,5 +6,6 @@
   
 */
 
-//CFBundleIdentifier = "SManbo";
-//NSCameraUsageDescription = "Please Access Camera";
+NSHealthShareUsageDescription = "Allow my app to access step counts data from HealthKit.";
+NSPhotoLibraryAddUsageDescription = "";
+NSCameraUsageDescription = "";
