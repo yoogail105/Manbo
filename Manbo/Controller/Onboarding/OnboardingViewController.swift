@@ -60,7 +60,7 @@ class OnboardingViewController: UIViewController {
     
     @objc private func textDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
-            if var text = textField.text {
+            if let text = textField.text {
                 
                 if text.count > maxLength {
                     longName = true

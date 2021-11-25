@@ -196,8 +196,10 @@ class CalendarViewController: UIViewController {
         
         if validCell.isSelected {
             isSelectedDate = true
+            self.calendarView.allowsMultipleSelection = true
             validCell.selectedView.isHidden = false
         } else {
+            calendarView.allowsMultipleSelection = false
             isSelectedDate = false
             validCell.selectedView.isHidden = true
         }
@@ -308,24 +310,44 @@ extension CalendarViewController: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         print("didSelectDate: \(date), CellState: \(cellState)")
+        calendarView.allowsMultipleSelection = true
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
         print(cellState.date)
     }
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        
+        calendar.selectDates(calendar.selectedDates.filter({ $0 != date }))
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
     }
     
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        
         setupViewsOfCalendar(from: visibleDates)
+        
         
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
         handleCellSelected(view: cell, cellSTate: cellState)
+       
+//        if self.calendar.isDateInToday(date) {
+//            handleCellSelected(view: cell, cellSTate: cellState)
+        
+        
+//        func handleCellSelected(view: JTACDayCell?, cellSTate: CellState) {
+//            guard let validCell = view as? DateCollectionViewCell else { return }
+//            validCell.selectedView.cornerRounded(cornerRadius: 20)
+//
+//            if validCell.isSelected {
+//                isSelectedDate = true
+//                validCell.selectedView.isHidden = false
+//            } else {
+//                isSelectedDate = false
+//                validCell.selectedView.isHidden = true
+//            }
+//        }
         return true
     }
     

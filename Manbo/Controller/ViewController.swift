@@ -8,6 +8,7 @@
 import UIKit
 import SideMenu
 import HealthKit
+import RealmSwift
 
 class ViewController: UIViewController {
     static let identifier = "ViewController"
