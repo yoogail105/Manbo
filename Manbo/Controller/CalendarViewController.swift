@@ -37,7 +37,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(#function)
         imageTintColorSettings()
         setupCalendarView()
         collectionView.delegate = self
@@ -67,9 +67,25 @@ class CalendarViewController: UIViewController {
     
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print(#function)
+        setupCalendarView()
+    }
     
+    @IBAction func reloadCalendar(_ sender: UIButton) {
+        //let visibleDates = self.calendarView.visibleDates()
+        //let date = calendarView.visibleDates().monthDates.first!.date
+            let date = Date()
+            calendarView.reloadData(withAnchor: date)
+        self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
+                  self.setupViewsOfCalendar(from: visibleDates)
+              }
+        }
+    
+    // MARK: - toggle()
     @IBAction func toggleMonthAndWeekButtonClicked(_ sender: UIButton) {
-        
+        let visibleDates = self.calendarView.visibleDates()
         if isMonthView {
             isMonthView.toggle()
             toggleMonthWeek.setImage(UIImage(systemName: "w.square"), for: .normal)
@@ -77,7 +93,10 @@ class CalendarViewController: UIViewController {
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
             }) { completed in
-                self.calendarView.reloadData(withAnchor: Date())
+                self.calendarView.reloadData(withAnchor: visibleDates.monthDates.first!.date)
+                self.setupViewsOfCalendar(from: visibleDates)
+
+                //visibleDates.monthDates.first!.date
             }
         } else {
             isMonthView.toggle()
@@ -86,7 +105,9 @@ class CalendarViewController: UIViewController {
             
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
-                self.calendarView.reloadData(withAnchor: Date())
+                self.calendarView.reloadData(withAnchor: visibleDates.monthDates.first!.date)
+                self.setupViewsOfCalendar(from: visibleDates)
+
             })
         }
     }
@@ -120,11 +141,11 @@ class CalendarViewController: UIViewController {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         self.calendarView.reloadData(withAnchor: Date())
-
-        self.calendarView.visibleDates { visibleDates in
+        self.calendarView.visibleDates { [unowned self] visibleDates in
             self.setupViewsOfCalendar(from: visibleDates)
         }
     }
+    
     
     
     func handleCelltextColor(view: JTACDayCell?, cellSTate: CellState) {
@@ -183,7 +204,7 @@ extension CalendarViewController: JTACMonthViewDataSource {
         if isMonthView {
             return ConfigurationParameters(startDate: startDate,
                                            endDate: endDate,
-                                           numberOfRows: 5,
+                                           numberOfRows: 6,
                                            calendar: self.testCalendar,
                                            firstDayOfWeek: .sunday)
                                            
