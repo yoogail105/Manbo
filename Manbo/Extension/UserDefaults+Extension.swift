@@ -14,6 +14,7 @@ extension UserDefaults {
         case stepGoal
         case resetTime
         case notiTIme
+        case lastConnection
     }
     
     // Onboarding에서 start버튼 누르면
@@ -21,7 +22,16 @@ extension UserDefaults {
         get { bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
         set { setValue(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
     }
+
+//    var lastConnection: String? {
+//        get { return UserDefaults.standard.string(forKey: "lastConnection")}
+//        set { UserDefaults.standard.setValue(newValue, forKey: "lastConnection")}
+//    }
     
+    var lastConnection: Date? {
+        get { return UserDefaults.standard.object(forKey: "lastConnection") as? Date}
+        set { UserDefaults.standard.set(newValue, forKey: "lastConnection")}
+    }
     
      var name: String? {
         get { return UserDefaults.standard.string(forKey: "name")}
