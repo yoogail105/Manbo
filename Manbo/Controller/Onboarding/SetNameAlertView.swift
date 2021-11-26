@@ -14,12 +14,4 @@ class SetNameAlertView: UIView {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var completeButton: UIButton!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

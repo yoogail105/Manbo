@@ -41,6 +41,7 @@ class OnboardingViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Onboarding: ",#function)
         setUI()
         stepsGoalList.append(contentsOf: stride(from: 3000, to: 21000, by: 1000))
         welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
@@ -52,6 +53,7 @@ class OnboardingViewController: UIViewController {
     } //: viewDidLoad
     
     func setUI() {
+        print("Onboarding: ",#function)
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
         tabBarBackgroundView.cornerRounded(cornerRadius: tabBarBackgroundView.frame.size.height / 2)
         firstAlertView.layer.borderColor = UIColor.white.cgColor
@@ -59,6 +61,7 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc private func textDidChange(_ notification: Notification) {
+        print("Onboarding: ",#function)
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
                 
@@ -320,7 +323,6 @@ extension OnboardingViewController: UITextFieldDelegate {
             self.notiBanenr(notiText: self.notiText)
         }
     }
-    
     
 }
 
