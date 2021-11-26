@@ -93,7 +93,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-24-WzL">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-24-WzL">
                             <rect key="frame" x="206.5" y="0.0" width="1" height="313.5"/>
                             <color key="backgroundColor" name="TouchBarBezel"/>
                             <color key="tintColor" name="TouchBarBezel"/>

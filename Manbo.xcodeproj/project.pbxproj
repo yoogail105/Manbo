@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335005497D8D5B55E108E521 /* Pods_Manbo.framework */; };
+		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
+		2707947D275038CC00CE532D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947C275038CC00CE532D /* Constants.swift */; };
+		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
 		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */; };
@@ -55,15 +58,16 @@
 		27A66657274C2CA100A63683 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66656274C2CA100A63683 /* HealthKitManager.swift */; };
 		27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66659274C34CA00A63683 /* HealthStore.swift */; };
 		27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 27A6665C274D762200A63683 /* JTAppleCalendar */; };
-		27A66660274D81AC00A63683 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */; };
+		27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */; };
 		27A66662274EB61C00A63683 /* manboManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66661274EB61C00A63683 /* manboManager.swift */; };
 		27A66664274EC6D600A63683 /* realmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66663274EC6D600A63683 /* realmData.swift */; };
-		27A66667274EC78200A63683 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27A66666274EC78200A63683 /* Realm */; };
-		27A66669274EC78200A63683 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27A66668274EC78200A63683 /* RealmSwift */; };
-		27DFDA8F274FC879004BD97D /* DateHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DFDA8E274FC879004BD97D /* DateHeaderViewController.swift */; };
+		27DC209E2750DE310098E698 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209D2750DE310098E698 /* Realm */; };
+		27DC20A02750DE310098E698 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209F2750DE310098E698 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2707947C275038CC00CE532D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -117,10 +121,9 @@
 		27A66654274C2A4900A63683 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		27A66656274C2CA100A63683 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		27A66659274C34CA00A63683 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
-		27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendarViewCell.swift; sourceTree = "<group>"; };
 		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
-		27DFDA8E274FC879004BD97D /* DateHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderViewController.swift; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,9 +134,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27A66667274EC78200A63683 /* Realm in Frameworks */,
+				27DC20A02750DE310098E698 /* RealmSwift in Frameworks */,
+				27DC209E2750DE310098E698 /* Realm in Frameworks */,
+				2707947A27501D5D00CE532D /* Alamofire in Frameworks */,
 				278F749D2748FC1900794E8D /* SideMenu in Frameworks */,
-				27A66669274EC78200A63683 /* RealmSwift in Frameworks */,
 				27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */,
 				27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */,
 				27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */,
@@ -144,6 +148,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2707947B2750387B00CE532D /* APIKEYS */ = {
+			isa = PBXGroup;
+			children = (
+				2707947C275038CC00CE532D /* Constants.swift */,
+				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
+			);
+			path = APIKEYS;
+			sourceTree = "<group>";
+		};
 		270D726927465EB6007ADC71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +168,7 @@
 				278F747E27478D0400794E8D /* Camera.storyboard */,
 				278832922746DFDB007616EA /* Setting.storyboard */,
 				2719275B274B9EB400F26F8D /* NotificationBanner.storyboard */,
-				27A6665F274D81AC00A63683 /* DateCollectionViewCell.swift */,
+				27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,7 +197,6 @@
 				270D726D27465F05007ADC71 /* UIView+Extension.swift */,
 				270D726F27466914007ADC71 /* UIColor+Extension.swift */,
 				278F74A4274969F400794E8D /* UIViewController+Extension.swift */,
-				27DFDA8E274FC879004BD97D /* DateHeaderViewController.swift */,
 				27192759274B8A1000F26F8D /* UIButton+Extension.swift */,
 			);
 			path = Extension;
@@ -222,6 +234,7 @@
 			children = (
 				27A66656274C2CA100A63683 /* HealthKitManager.swift */,
 				27A66653274C2A4900A63683 /* ManboDebug.entitlements */,
+				2707947B2750387B00CE532D /* APIKEYS */,
 				278F74A92749701A00794E8D /* CustomViews */,
 				278F748C2747EA0600794E8D /* Localization */,
 				278F74A82749701100794E8D /* Models */,
@@ -323,8 +336,9 @@
 				278F749C2748FC1900794E8D /* SideMenu */,
 				27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */,
 				27A6665C274D762200A63683 /* JTAppleCalendar */,
-				27A66666274EC78200A63683 /* Realm */,
-				27A66668274EC78200A63683 /* RealmSwift */,
+				2707947927501D5D00CE532D /* Alamofire */,
+				27DC209D2750DE310098E698 /* Realm */,
+				27DC209F2750DE310098E698 /* RealmSwift */,
 			);
 			productName = Manbo;
 			productReference = 2780C5AF2744F526004A0BE4 /* Manbo.app */;
@@ -359,7 +373,8 @@
 				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */,
 				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
-				27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -453,17 +468,18 @@
 				27A66662274EB61C00A63683 /* manboManager.swift in Sources */,
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */,
+				2707947D275038CC00CE532D /* Constants.swift in Sources */,
 				27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */,
+				2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */,
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
 				27192758274AFEDF00F26F8D /* UserModel.swift in Sources */,
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
-				27DFDA8F274FC879004BD97D /* DateHeaderViewController.swift in Sources */,
 				278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
 				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
 				278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */,
-				27A66660274D81AC00A63683 /* DateCollectionViewCell.swift in Sources */,
+				27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */,
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
 				278F74C7274AC8C800794E8D /* SetNameAlertView.swift in Sources */,
@@ -734,6 +750,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -758,7 +782,7 @@
 				minimumVersion = 8.0.0;
 			};
 		};
-		27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -769,6 +793,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2707947927501D5D00CE532D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
@@ -784,14 +813,14 @@
 			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
 			productName = JTAppleCalendar;
 		};
-		27A66666274EC78200A63683 /* Realm */ = {
+		27DC209D2750DE310098E698 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = 27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
 		};
-		27A66668274EC78200A63683 /* RealmSwift */ = {
+		27DC209F2750DE310098E698 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27A66665274EC78200A63683 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = 27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
