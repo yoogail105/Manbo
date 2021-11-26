@@ -9,7 +9,7 @@ import UIKit
 import SideMenu
 import HealthKit
 //import RealmSwift
-//import CoreLocation
+import CoreLocation
 
 
 class ViewController: UIViewController {
@@ -25,8 +25,8 @@ class ViewController: UIViewController {
     var date = Date()
     
     //CoreLocation
-    //let locationManager = CLLocationManager()
-    //var locationAuthorization = false
+    let locationManager = CLLocationManager()
+    var locationAuthorization = false
     
     
     //  @IBOutlet weak var scrollView: UIScrollView!
@@ -34,25 +34,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalView: UIView!
     @IBOutlet weak var currentStepCountLabel: UILabel!
-    var stepGoal = 0
-    var stepCount: Int = 0 {
+    var userImage = Manbo.manbo00
+    var stepGoal = UserDefaults.standard.stepsGoal!
+    var stepPercent = UserDefaults.standard.setpPercent! {
         didSet {
-            print("stepCount 업데이트")
-            currentStepCountLabel.text = String(stepCount)
+            print("퍼센테이지 바꼈다.")
+            DispatchQueue.main.async {
+                self.setUserImage()
+            }
         }
     }
-    var stepPercent = 0.0
-    var userImage = Manbo.manbo00
+    var currentStepCount = UserDefaults.standard.currentStepCount! {
+        didSet{
+            print("걸음수값 변경되었다.")
+            DispatchQueue.main.async {
+                self.currentStepCountLabel.text = "\(self.currentStepCount)"
+            }
+        }
+    }
+    //
     
     /*
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = UIColor.appColor(.mainGreen)
-        
-        return refreshControl
-    }()*/
-  
+     lazy var refreshControl: UIRefreshControl = {
+     let refreshControl = UIRefreshControl()
+     refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+     refreshControl.tintColor = UIColor.appColor(.mainGreen)
+     
+     return refreshControl
+     }()*/
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -61,8 +71,10 @@ class ViewController: UIViewController {
         dateFormatter.timeZone = calendar.timeZone
         dateFormatter.locale = calendar.locale
         
-        // locationManager.delegate = self
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
         
+        setUI()
         // scrollView.addSubview(self.refreshControl)
         
     }//: viewDidLoad
@@ -71,22 +83,25 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         print("main",#function)
         self.navigationController?.isNavigationBarHidden = true
+        
         authorizeHealthKit()
-        getUserInformation()
-        setUI()
+        //getUserInformation()
+        setUserImage()
+        
+        
     }//: viewWillLoad
     
     /*
-    @objc func handleRefresh(_ refershControl: UIRefreshControl) {
-        
-        authorizeHealthKit()
-        getUserInformation()
-        setUI()
-        
-        refreshControl.endRefreshing()
-    }*/
+     @objc func handleRefresh(_ refershControl: UIRefreshControl) {
+     
+     authorizeHealthKit()
+     getUserInformation()
+     setUI()
+     
+     refreshControl.endRefreshing()
+     }*/
     
-   
+    
     
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,11 +110,15 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    func getUserInformation() {
-        let userDefaults = UserDefaults.standard
+    func updateCurrentSteps() {
         
-        stepGoal = userDefaults.stepsGoal ?? 5000
-        stepPercent = userDefaults.setpPercent ?? 0.0
+        // view.layoutIfNeeded()
+    }
+    func getUserInformation() {
+        //let userDefaults = UserDefaults.standard
+        
+        // stepGoal = userDefaults.stepsGoal ?? 5000
+        //stepPercent = userDefaults.setpPercent ?? 0.0
         //resetTime = userDefaults.setpPercent ?? "00:00"
         //notiTime = userDefaults.notiTime ?? "00:00"
     }
@@ -111,15 +130,11 @@ class ViewController: UIViewController {
     func setUI() {
         print("main: ", #function)
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
-        
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(stepGoal))"
-        
-        setUserImage()
-        
     }
     
     func setUserImage() {
-        print("main: ", #function)
+        print("main: percente \(stepPercent)", #function)
         switch stepPercent {
         case 0.0 ..< 30.0:
             userImage = Manbo.manbo00
@@ -135,6 +150,14 @@ class ViewController: UIViewController {
         
         userImageView.image = UIImage(named: userImage.rawValue)
     }
+    
+    
+    //        DispatchQueue.global().sync {
+    //            if i == true {
+    //                print("🧚‍♀️ authorizeHealthKit")
+    //                self.authorizeHealthKit()
+    //
+    //            }
     
     @IBAction func settingButtonClicked(_ sender: UIButton) {
         
@@ -152,6 +175,12 @@ class ViewController: UIViewController {
         
     }
     
+    func setDefaultLocation() {
+        let lat = 37.566403559824955
+        let lon = 126.97794018074802
+        print("기본 주소: \(lat), \(lon)")
+    }
+    
     // MARK: - HEALTHKIT
     // 접근 권한 허용
     func authorizeHealthKit() {
@@ -162,6 +191,10 @@ class ViewController: UIViewController {
             if(sucess) {
                 print("permission granted")
                 self.getTodayTotalStepCounts()
+                
+                
+                
+                
             }
             
         }
@@ -209,14 +242,13 @@ class ViewController: UIViewController {
                         print("count: \(val) steps.")
                         totalCount += val
                     }
-                    
                 }
                 UserDefaults.standard.currentStepCount = Int(totalCount)
-                print(totalCount)
+                print(UserDefaults.standard.currentStepCount!)
+                self.stepPercent = UserDefaults.standard.setpPercent!
+                self.currentStepCount = Int(totalCount)
             }
-            //            DispatchQueue.main.async {
-            //                completion(sum.doubleValue(for: HKUnit.count()))
-            //            }
+            
         }
         healthStore.execute(query)
     }
@@ -283,17 +315,18 @@ class ViewController: UIViewController {
                     
                 }
                 UserDefaults.standard.currentStepCount = Int(totalCount)
-                print(totalCount)
+                //                    self.currentStepCount = Int(totalCount)
+                //                    print(self.currentStepCount)
             }
-            //            DispatchQueue.main.async {
-            //                completion(sum.doubleValue(for: HKUnit.count()))
-            //            }
+            //                            DispatchQueue.main.async {
+            //                                completion(totalCount.doubleValue(for: HKUnit.count()))
+            //                            }
         }
         healthStore.execute(query)
     }
     
     //    func locationSettingAlert() {
-    //        showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 https://evan-moon.github.io/2020/04/07/about-restful-api/ 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "설정으로 이동") {
+    //        showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "설정으로 이동") {
     //            guard let url = URL(string: UIApplication.openSettingsURLString) else {
     //                return
     //            }
@@ -308,6 +341,101 @@ class ViewController: UIViewController {
     
 }
 
+// MARK: - LOCATION
+extension ViewController: CLLocationManagerDelegate {
+    
+    //3. 앱 처음 실행했거나, 권한을 변경하고자 할때
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("메인: ", #function)
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("위치권한: 권한 설정ok")
+            self.locationManager.startUpdatingLocation()
+        case .restricted, .notDetermined:
+            print("위치권한: 권한이 설정되지 않음")
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            print("위치권한: 요청을 거부함")
+            setDefaultLocation()
+        default:
+            print("위치권한:  디폴트")
+            setDefaultLocation()
+        }
+    }
+    
+    // 1. 사용자가 위치를 허용했다면
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("메인: ", #function)
+        
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            print("\(lat), \(lon)")
+            
+        } else {
+            let lat = 37.566403559824955
+            let lon = 126.97794018074802
+            print("기본 주소: \(lat), \(lon)")
+        }
+    }
+    // 2. 허용했는데, 에러남
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(#function, error)
+    }
+    
+    
+    
+    func checkCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
+        switch authorizationStatus {
+        case .notDetermined:
+            locationAuthorization = false
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestLocation()
+        case .restricted, .denied:
+            locationAuthorization = false
+            print("설정으로")
+        case .authorizedAlways:
+            locationAuthorization = true
+            locationManager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            locationAuthorization = true
+        case .authorized:
+            print("dlfault")
+        }
+        if #available(iOS 14.0, *) {
+            let accurancyState = locationManager.accuracyAuthorization
+            
+            switch accurancyState {
+            case .reducedAccuracy:
+                print("reduce")
+            case .fullAccuracy:
+                print("fullAccuraty")
+            @unknown default:
+                print("default")
+            }
+        }
+        
+    }
+    
+}
+//
+//extension ViewController: MTMapViewDelegate() {
+//    func mapVe
+//}
+
+////처음 실행하는 경우, 권한이 변경된 경우
+//func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//    print(#function)
+//    //check
+//}
+//func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+//    print(#function)
+//    //check
+//}
+//
+
+
 
 
 //extension Date {
@@ -315,29 +443,4 @@ class ViewController: UIViewController {
 //        return Calendar(identifier: .iso8601).date(from: Calendar(identifier: .iso8601).dateComponents([.yearForWeekOfYear,.weekOfYear], from: Date()))!
 //    }
 //}
-
-
-
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        print(#function)
-//
-//        if let coordinate = locations.last?.coordinate {
-//            getCurrentAddress(location: locations[0])
-//        } else {
-//            print("주소 없음 얼럿")
-//        }
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print(#function)
-//    }
-//    //처음 실행하는 경우, 권한이 변경된 경우
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        print(#function)
-//        //check
-//    }
-//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//        print(#function)
-//        //check
-//    }
 

@@ -21,7 +21,7 @@ extension UIView {
     }
     
     func cornerRounded(cornerRadius: CGFloat) {
-        self.clipsToBounds = true
+       // self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadius
     }
     

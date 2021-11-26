@@ -22,6 +22,7 @@ extension UserDefaults {
         set { setValue(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
     }
     
+    
      var name: String? {
         get { return UserDefaults.standard.string(forKey: "name")}
         set { UserDefaults.standard.set(newValue, forKey: "name")}

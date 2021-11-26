@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthShareUsageDescription</key>
-	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>걸음 수를 가져오기 위해서 건강 앱에 대한 접근 권한이 필요합니다.</string>
+	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>날씨 정보와 미세먼지 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>날씨 정보와 미세먼지 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>사진을 추가하기 위해서는 앨범에 대한 접근 권한이 필요합니다.</string>
 	<key>NSCameraUsageDescription</key>
