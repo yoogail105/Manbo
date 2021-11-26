@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 import HealthKit
-import RealmSwift
+//import RealmSwift
 //import CoreLocation
 
 
