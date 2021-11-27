@@ -61,7 +61,7 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc private func textDidChange(_ notification: Notification) {
-        print("Onboarding: ",#function)
+        //print("Onboarding: ",#function)
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
                 
@@ -215,8 +215,7 @@ class OnboardingViewController: UIViewController {
     // MARK: - SetNameAlert
     @objc func toSetNameButtonClicked() {
         UserDefaults.standard.notiTime = setNotificationTimeAlertView?.datePicker.date
-        
-        
+        print("알림시간: \(UserDefaults.standard.notiTime)")
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNameAlertView!)
         
         let alert = setNameAlertView

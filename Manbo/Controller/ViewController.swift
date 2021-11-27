@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     var stepGoal = UserDefaults.standard.stepsGoal!
     var stepPercent = UserDefaults.standard.setpPercent! {
         didSet {
-            print("퍼센테이지 바꼈다.")
+            //print("퍼센테이지 바꼈다.")
             DispatchQueue.main.async {
                 self.setUserImage()
             }
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     var currentStepCount = UserDefaults.standard.currentStepCount! {
         didSet{
-            print("걸음수값 변경되었다.")
+            //print("걸음수값 변경되었다.")
             DispatchQueue.main.async {
                 self.currentStepCountLabel.text = "\(self.currentStepCount)"
             }
@@ -101,22 +101,20 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         print("main",#function)
         self.navigationController?.isNavigationBarHidden = true
-        if healthKitAuthorized() {
-            self.getTodayStepCounts()
-            self.getSevenDaysStepCounts()
-            self.getThisWeekStepCounts()
-            self.getThisMonthStepCounts()
-        } else {
-            authorizeHealthKit()
-        }
-        //getUserInformation()
-        setUserImage()
-    
-        print("SevenDaysStepCounts", SevenDaysStepCounts)
-        print("ThisWeekStepCounts", ThisWeekStepCounts)
-        print("ThisMonthStepCounts", ThisMonthStepCounts)
-  
         
+        if healthStore != nil {
+            if healthStore!.ishealthKitAuthorized() {
+                 self.getTodayStepCounts()
+                healthStore?.getSevenDaysStepCounts()
+                healthStore?.getThisWeekStepCounts()
+                healthStore?.getThisMonthStepCounts()
+            } else {
+                healthStore!.authorizeHealthKit()
+            }
+        }
+
+        setUserImage()
+ 
     }//: viewWillLoad
     
     /*
@@ -169,14 +167,7 @@ class ViewController: UIViewController {
         
         userImageView.image = UIImage(named: userImage.rawValue)
     }
-    
-    
-    //        DispatchQueue.global().sync {
-    //            if i == true {
-    //                print("🧚‍♀️ authorizeHealthKit")
-    //                self.authorizeHealthKit()
-    //
-    //            }
+
     
     @IBAction func settingButtonClicked(_ sender: UIButton) {
         
@@ -201,123 +192,18 @@ class ViewController: UIViewController {
     }
     
     // MARK: - HEALTHKIT
-    // 접근 권한 허용
-    
-    func healthKitAuthorized() -> Bool {
-            if (self.healthStore?.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingAuthorized) {
-                return true
-            }
-            else {
-                return false
-            }
-        }
-        
-    func authorizeHealthKit() {
-        print("main: ", #function)
-        let healthKitTypes = Set([HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!])
-        //let share = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-        healthStore?.requestAuthorization(toShare: [], read: healthKitTypes) { (sucess, error) in
-            if(sucess) {
-                print("HealthKit: permission granted")
-                self.getTodayStepCounts()
-                self.getSevenDaysStepCounts()
-                self.getThisWeekStepCounts()
-                self.getThisMonthStepCounts()
-            }
-        }
-    }
-    
+    // UI바뀌어야 해서,,
     func getTodayStepCounts()  {
-        
-        self.getToalStepCounts(passedDays: 0) { (result) in
+        healthStore!.getToalStepCounts(passedDays: 0) { (result) in
             DispatchQueue.main.async {
                 self.currentStepCount = Int(result)
                 UserDefaults.standard.currentStepCount = self.currentStepCount
             }
         }
     }
-
-    func getSevenDaysStepCounts() {
-        self.getToalStepCounts(passedDays: 6, completion: { (result) in
-            DispatchQueue.main.async {
-                self.SevenDaysStepCounts = Int(result)
-               // self.averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
-               
-            }
-        })
-    }
-
-    func getThisWeekStepCounts() {
-        
-        let passedWeekday = today.weekday
-        self.getToalStepCounts(passedDays: passedWeekday - 1, completion: { (result) in
-            DispatchQueue.main.async { [self] in
-                userDafaults.weekStepCount = Int(result)
-               // self.averageThisWeekStepCounts = thisWeekTotalStepCount / 7
-               
-            }
-        })
-    }
-
-    func getThisMonthStepCounts() {
-        
-        self.getToalStepCounts(passedDays: today.day, completion: { (result) in
-            DispatchQueue.main.async { [self] in
-                userDafaults.
-                monthStepCount = Int(result)
-               // self.averageThisMonthStepCounts = thisWeekTotalStepCount / today.day
-            }
-        })
-    }
-
     
-    
-    // MARK: - getToalStepCounts
-//    func getToalStepCounts(passedDays: Int) {
-func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
-        //var totalCount = 0.0
-        var totalSetpCountArray = [Int]()
-        let pinDate = today.getPinDate()
-        
-        let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
-        
-        //엔드: 오늘 기준시간으로부터 24시간 후까지
-        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
-        
-        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
-        var interval = DateComponents()
-        interval.day = 1
-        
-        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate, intervalComponents: interval)
-        
-    var totalCount = 0.0
-        query.initialResultsHandler = {
-            query, result, Error in
-            var dayCount = 0.0
-                    if let myresult = result {
-                myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
-                    
-                    if let count = statistic.sumQuantity() {
-                        //step가져오기(double)
-                        dayCount = count.doubleValue(for: HKUnit.count())
-                        totalSetpCountArray.append(Int(dayCount))
-                        totalCount += dayCount
-                       // print("걸음더하기: \(dayCount)")
-                    }
-                    //return
-                    DispatchQueue.main.async {
-                        completion(totalCount)
-                        
-                    }
-                }
-            }
-            print(totalCount)
-        }
-        healthStore!.execute(query)
-    }
-    
-    
+//     MARK: - getToalStepCounts -> HealthKit Extension
+
 
 //    func locationSettingAlert() {
 //        showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "설정으로 이동") {
