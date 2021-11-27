@@ -48,29 +48,4 @@ extension Date {
         return pinDate!
     }
     
-    func endDate() -> Date {
-        
-        let dateComponents = DateComponents(year: self.year, month: self.month, day: self.day, hour: UserDefaults.standard.resetTime!.hour, minute: UserDefaults.standard.resetTime!.minute)
-        let pinDate = Calendar.current.date(from: dateComponents)
-        
-        return pinDate!
-    }
-    
-    
-    //오늘
-    func todayDateSet() -> Date {
-        let startDate = Calendar.current.date(byAdding: .day, value: 0, to: self)!
-        
-        return startDate
-    }
-    
-//    endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate!) //오늘의 기록 구하기
-//
-//    // 이번주
-//    let passedWeekday = today.weekday - 1
-//    startDate = calendar.date(byAdding: .day, value: -passedWeekday, to: pinDate!)
-//    endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate!)
-//
-//
-    
 }
