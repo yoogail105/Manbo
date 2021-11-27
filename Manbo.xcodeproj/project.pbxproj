@@ -64,7 +64,6 @@
 		27DC209E2750DE310098E698 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209D2750DE310098E698 /* Realm */; };
 		27DC20A02750DE310098E698 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209F2750DE310098E698 /* RealmSwift */; };
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
-		27DC20AD275249640098E698 /* Calendart+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20AC275249640098E698 /* Calendart+Extension.swift */; };
 		27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20AE27524B410098E698 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +127,6 @@
 		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
 		27DC20A9275241380098E698 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
-		27DC20AC275249640098E698 /* Calendart+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendart+Extension.swift"; sourceTree = "<group>"; };
 		27DC20AE27524B410098E698 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 				27192759274B8A1000F26F8D /* UIButton+Extension.swift */,
 				27DC20A9275241380098E698 /* DateFormatter+Extension.swift */,
 				27DC20AE27524B410098E698 /* Date+Extension.swift */,
-				27DC20AC275249640098E698 /* Calendart+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -497,7 +494,6 @@
 				27A66657274C2CA100A63683 /* HealthKitManager.swift in Sources */,
 				278F74B4274A9EA400794E8D /* SetGoalAlertView.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
-				27DC20AD275249640098E698 /* Calendart+Extension.swift in Sources */,
 				278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */,
 				278F74A32749034400794E8D /* CustomSideMenuNavigationViewController.swift in Sources */,
 				278832972746EB04007616EA /* SettingViewController.swift in Sources */,
