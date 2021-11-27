@@ -13,7 +13,7 @@ extension UserDefaults {
         case name
         case stepGoal
         case resetTime
-        case notiTIme
+        case notiTime
         case lastConnection
     }
     
@@ -48,13 +48,13 @@ extension UserDefaults {
        set { UserDefaults.standard.set(newValue, forKey: "currentStepCount")}
    }
     
-     var resetTime: String? {
-        get { return UserDefaults.standard.string(forKey: "resetTime")}
+    var resetTime: Date? {
+        get { return UserDefaults.standard.object(forKey: "resetTime") as? Date}
         set { UserDefaults.standard.set(newValue, forKey: "resetTime")}
     }
     
-     var notiTime: String? {
-        get { return UserDefaults.standard.string(forKey: "notiTime")}
+    var notiTime: Date? {
+        get { return UserDefaults.standard.object(forKey: "notiTime") as? Date}
         set { UserDefaults.standard.set(newValue, forKey: "notiTime")}
     }
 

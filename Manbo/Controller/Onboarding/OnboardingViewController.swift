@@ -166,7 +166,9 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - SetNotification Yes/No
     @objc func toSetNotificationButtonClicked() {
-        UserDefaults.standard.resetTime = changed(setResetTimeAlert!.datePicker)
+        UserDefaults.standard.resetTime = setResetTimeAlert?.datePicker.date
+        
+        
         print("reestTiem: \(UserDefaults.standard.resetTime!)")
         
         
@@ -212,8 +214,8 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - SetNameAlert
     @objc func toSetNameButtonClicked() {
-        UserDefaults.standard.notiTime = changed(setNotificationTimeAlertView!.datePicker)
-        print("notiTime: \(UserDefaults.standard.notiTime ?? "알람거부")")
+        UserDefaults.standard.notiTime = setNotificationTimeAlertView?.datePicker.date
+        
         
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNameAlertView!)
         
@@ -245,7 +247,7 @@ class OnboardingViewController: UIViewController {
         controller.modalTransitionStyle = .flipHorizontal
         
         // 첫 런치 + 초기 정보를 저장한 후에 Onboarding 값 바꾸어주기
-        UserDefaults.standard.hasOnbarded = false
+        UserDefaults.standard.hasOnbarded = true
         present(controller, animated: true, completion: nil)
     }
     

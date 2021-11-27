@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 import HealthKit
-//import RealmSwift
+import RealmSwift
 import CoreLocation
 
 
@@ -18,9 +18,12 @@ class ViewController: UIViewController {
     
     // healthStore
     var healthStore: HKHealthStore?
+    var totalStepCount = 0.0
+    var averageThisWeekStepCounts = 0
+    var averageThisMonthStepCounts = 0
     
-    var aWeekStepCount = [Int]()
     //time
+    
     let dateFormatter = DateFormatter()
     let calendar = Calendar.current
     var today = Date()
@@ -37,15 +40,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentStepCountLabel: UILabel!
     var userImage = Manbo.manbo00
     
-    //suerDefaults
-    var resetHour = 0
-    var resetMinute = 0
-    var resetTimeString = UserDefaults.standard.resetTime! {
-        didSet {
-            print("업데이트")
-            self.getResetTime()
-        }
-    }
+    //userDefaults
+    let userDafaults = UserDefaults.standard
+    
     var stepGoal = UserDefaults.standard.stepsGoal!
     var stepPercent = UserDefaults.standard.setpPercent! {
         didSet {
@@ -78,9 +75,11 @@ class ViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.hasOnbarded = false
+      //  UserDefaults.standard.hasOnbarded = false
         dateFormatter.timeZone = calendar.timeZone
         dateFormatter.locale = calendar.locale
+
+        dateFormatter.basicDateSetting()
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
@@ -92,7 +91,7 @@ class ViewController: UIViewController {
         }
         
         getLastConnection()
-        getResetTime()
+        
         setUI()
         // scrollView.addSubview(self.refreshControl)
         
@@ -200,131 +199,131 @@ class ViewController: UIViewController {
         let share = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
         healthStore?.requestAuthorization(toShare: share, read: read) {(sucess, error) in
             if(sucess) {
-                print("permission granted")
-                self.getTodayTotalStepCounts()
-                self.getWeekTotalStepCounts()
-                
-                
+                print("HealthKit: permission granted")
+                self.getTodayStepCounts()
+                // 언제 계산할지 정해주기
+        
+//                DispatchQueue.main.async {
+//                    self.getTodayStepCounts()
+//                }
+//                DispatchQueue.main.async {
+//                    self.getSevenDaysStepCounts()
+//                }
+//                DispatchQueue.main.async {
+//                    self.getThisWeekStepCounts()
+//                }
+//                DispatchQueue.main.async {
+//                    self.getThisMonthStepCounts()
+//                }
+
+
+                //오늘 걸음수
+               // self.getTodayStepCounts()
+                //지난 일주일 걸음수
+              // self.getSevenDaysStepCounts()
+               // self.getThisWeekStepCounts()
+                //self.getThisMonthStepCounts()
                 
                 
             }
             
         }
     }
-    
-    func getResetTime() {
-        print("main",#function)
-        //유저가 선택한 시간 가져오기
-        dateFormatter.dateFormat = "HH:mm"
-        let resetTime = dateFormatter.date(from: resetTimeString)
-        resetHour = calendar.component(.hour, from: resetTime!)
-        resetMinute = calendar.component(.minute, from: resetTime!)
-    }
-    
-    
-    func getTodayTotalStepCounts() {
-        print("main",#function)
+    func getTodayStepCounts()  {
         
-        //오늘, 새벽 2시부터 내일 새벽 2시까지
-        let year = calendar.component(.year, from: today)
-        let month = calendar.component(.month, from: today)
-        let day = calendar.component(.day, from: today)
-        
-        let dateComponents = DateComponents(year: year, month: month, day: day, hour: resetHour, minute: resetMinute)
-        
-        //let dateComponents = DateComponents(year: 2021, month: 11, day: 23, hour: hour, minute: minute)
-        let startDate = calendar.date(from: dateComponents)
-        let endDate = calendar.date(byAdding: .hour, value: 24, to: startDate!)
-        var totalCount = 0.0
-        print(today)
-        print(startDate!, endDate!)
-        
-        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else {
-            return
-        }
-        
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
-        var interval = DateComponents()
-        interval.minute = 60
-        
-        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate!, intervalComponents: interval)
-        
-        query.initialResultsHandler = {
-            query, result, Error in
-            
-            if let myresult = result {
-                myresult.enumerateStatistics(from: startDate!, to:endDate!) { (statistic, value) in
-                    if let count = statistic.sumQuantity() {
-                        
-                        let val = count.doubleValue(for: HKUnit.count())
-                        print("count: \(val) steps.")
-                        totalCount += val
-                    }
-                }
-                UserDefaults.standard.currentStepCount = Int(totalCount)
-                print(UserDefaults.standard.currentStepCount!)
-                self.stepPercent = UserDefaults.standard.setpPercent!
-                self.currentStepCount = Int(totalCount)
+        self.getToalStepCounts(passedDays: 0, completion: { (result) in
+            DispatchQueue.main.async {
+                let stepCount = Int(result)
+                self.currentStepCountLabel.text = String(stepCount)
             }
-            
-        }
-        healthStore?.execute(query)
+        })
+
+        
+//       self.getToalStepCounts(passedDays: 0)
+//        let todayStepCount = self.totalStepCount
+//        UserDefaults.standard.currentStepCount = Int(todayStepCount)
+//        // stepPercent업데이트
+//        self.stepPercent = UserDefaults.standard.setpPercent!
+//        // view 업데이트되도록 변수에 넣기
+//        self.currentStepCount = Int(todayStepCount)
+//        print(UserDefaults.standard.currentStepCount!)
     }
+//
+//    func getSevenDaysStepCounts() {
+//         self.getToalStepCounts(passedDays: 6)
+//        let sevenDaysTotalStepCount = self.totalStepCount
+//        // 지난 일주일 평균
+//        let averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
+//        print("지난 일주일 평균 걸음: \(averageSevenDaysStepCounts)")
+//    }
+//
+//    func getThisWeekStepCounts() {
+//        let passedWeekday = today.weekday
+//
+//         self.getToalStepCounts(passedDays: passedWeekday - 1)
+//        let thisWeekTotalStepCount = self.totalStepCount
+//         //이번주 평균
+//        averageThisWeekStepCounts = Int(thisWeekTotalStepCount / Double(passedWeekday))
+//        print("이번주 평균 걸음: \(averageThisWeekStepCounts)")
+//    }
+//
+//    func getThisMonthStepCounts() {
+//        self.getToalStepCounts(passedDays: today.day)
+//       let thisMonthStepCounts = self.totalStepCount
+//        averageThisMonthStepCounts = Int(thisMonthStepCounts / Double(today.day))
+//        print("이번달 평균 걸음: \(averageThisMonthStepCounts)")
+//
+//    }
     
-    
-    
-    
-    //7일 걸음 데이터 가져오기
-    func getWeekTotalStepCounts() {
-        print("main",#function)
-        
-        //기준점: 마지막접속일
-        
-        //오늘, 새벽 2시부터 내일 새벽 2시까지
-        let year = calendar.component(.year, from: today)
-        let month = calendar.component(.month, from: today)
-        let day = calendar.component(.day, from: today)
-        
-        let dateComponents = DateComponents(year: year, month: month, day: day, hour: resetHour, minute: resetMinute)
-        
-       
-        let pinDate = calendar.date(from: dateComponents) // 기준점: 오늘 오전 00시 00분
-        let startDate = calendar.date(byAdding: .day, value: 0, to: pinDate!) //몇일 전부터 구할건데? 일주일 전: -6 (총7일)
-        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate!) //오늘의 기록 구하기
+    // MARK: - getToalStepCounts
+    func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
 
-        print(today)
-        print(startDate!, endDate!)
+        //var totalCount = 0.0
+        var totalSetpCountArray = [Int]()
         
-        //-------------startDate, endDate만 변경하면 된다.
-        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else {
-            return
-        }
-
+        let pinDate = today.getPinDate()
+        print("pinDate", pinDate)
+        
+        let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
+        print("startDate", startDate)
+        //엔드: 오늘 기준시간으로부터 24시간 후까지
+        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
+        print("endDate", endDate)
+        
+        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
         var interval = DateComponents()
         interval.day = 1
         
-        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate!, intervalComponents: interval)
+        let query = HKStatisticsCollectionQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate, intervalComponents: interval)
+        
         query.initialResultsHandler = {
             query, result, Error in
-            if let myresult = result {
-                myresult.enumerateStatistics(from: startDate!, to:endDate!) { (statistic, value) in
-                    if let count = statistic.sumQuantity() {
-                        
-                        let val = count.doubleValue(for: HKUnit.count())
-                        self.aWeekStepCount.append(Int(val))
-                        print("count: \(val) steps.")
-                    }
+            var dayCount = 0.0
+                    if let myresult = result {
+                myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
                     
+                    if let count = statistic.sumQuantity() {
+                        //step가져오기(double)
+                        dayCount = count.doubleValue(for: HKUnit.count())
+                        totalSetpCountArray.append(Int(dayCount))
+                        self.totalStepCount += dayCount
+                        print("걸음더하기: \(dayCount)")
+                    } //end if
+                    //return
+                    DispatchQueue.main.async {
+                        completion(dayCount)
+                    }
                 }
-                
-                
+
+                                    
             }
-            print(self.aWeekStepCount)
+        
         }
+        healthStore!.execute(query)
+    }
     
-    healthStore?.execute(query)
-}
+    
 
 //    func locationSettingAlert() {
 //        showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "설정으로 이동") {
