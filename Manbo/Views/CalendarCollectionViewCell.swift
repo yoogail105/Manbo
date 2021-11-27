@@ -18,7 +18,8 @@ class CollectionViewCell: UICollectionViewCell {
         
     
     }
-
+    
+    
 }
 
     

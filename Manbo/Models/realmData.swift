@@ -27,13 +27,4 @@ class UserReport: Object {
         self.stepGoal = stepGoal
         self.goalPercent = goalPercent
     }
- 
-    // 퍼센트를 계산해서 넣으면 추후 변경이 어려우므로 percent를 그대로 넣기로 함.
-//    enum GoalRate: String {
-//        case row
-//        case middle
-//        case high
-//        case complete
-//
-//    }
 }
