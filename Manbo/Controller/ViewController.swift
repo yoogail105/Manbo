@@ -130,7 +130,6 @@ class ViewController: UIViewController {
      }*/
     
     
-    
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -237,7 +236,6 @@ class ViewController: UIViewController {
             }
         }
     }
-        
 
     func getSevenDaysStepCounts() {
         self.getToalStepCounts(passedDays: 6, completion: { (result) in
@@ -249,26 +247,24 @@ class ViewController: UIViewController {
         })
     }
 
-
     func getThisWeekStepCounts() {
         
         let passedWeekday = today.weekday
         self.getToalStepCounts(passedDays: passedWeekday - 1, completion: { (result) in
             DispatchQueue.main.async { [self] in
-                self.ThisWeekStepCounts = Int(result)
+                userDafaults.weekStepCount = Int(result)
                // self.averageThisWeekStepCounts = thisWeekTotalStepCount / 7
                
             }
         })
     }
 
-
-
     func getThisMonthStepCounts() {
         
         self.getToalStepCounts(passedDays: today.day, completion: { (result) in
             DispatchQueue.main.async { [self] in
-                self.ThisMonthStepCounts = Int(result)
+                userDafaults.
+                monthStepCount = Int(result)
                // self.averageThisMonthStepCounts = thisWeekTotalStepCount / today.day
             }
         })

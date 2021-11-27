@@ -10,11 +10,16 @@ import Foundation
 extension UserDefaults {
     private enum UserDefaultsKeys: String {
         case hasOnboarded
+        case healthKitAuthorization
         case name
         case stepGoal
         case resetTime
         case notiTime
         case lastConnection
+        case setpPercent
+        case weekStepCount
+        case monthStepCount
+        
     }
     
     // Onboarding에서 start버튼 누르면
@@ -27,6 +32,11 @@ extension UserDefaults {
 //        get { return UserDefaults.standard.string(forKey: "lastConnection")}
 //        set { UserDefaults.standard.setValue(newValue, forKey: "lastConnection")}
 //    }
+    
+    var healthKitAuthorization: Bool {
+        get { bool(forKey: UserDefaultsKeys.healthKitAuthorization.rawValue)}
+        set { setValue(newValue, forKey: UserDefaultsKeys.healthKitAuthorization.rawValue)}
+    }
     
     var lastConnection: Date? {
         get { return UserDefaults.standard.object(forKey: "lastConnection") as? Date}
@@ -64,4 +74,14 @@ extension UserDefaults {
             return result * 100
         }
     }
+
+    var weekStepCount: Int? {
+       get { return UserDefaults.standard.integer(forKey: "weekStepCount")}
+       set { UserDefaults.standard.set(newValue, forKey: "weekStepCount")}
+   }
+    var monthStepCount: Int? {
+       get { return UserDefaults.standard.integer(forKey: "monthStepCount")}
+       set { UserDefaults.standard.set(newValue, forKey: "monthStepCount")}
+   }
+    
 }

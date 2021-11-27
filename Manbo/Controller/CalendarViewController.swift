@@ -28,18 +28,29 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var constraint: NSLayoutConstraint!
     
     @IBOutlet weak var togleAlbumOnOff: UIButton!
+    @IBOutlet weak var averageWeekLabel: UILabel!
+    @IBOutlet weak var averageMonthLabel: UILabel!
+    
+    let userDefaults = UserDefaults.standard
     var isAlbumOn = true
     var headerVisible = true
     let formatter = DateFormatter()
     var isMonthView = true
     let calendar = Calendar.current
     var isSelectedDate = false
-    
+    var currentStepCount = UserDefaults.standard.currentStepCount {
+        didSet {
+            self.setAverageStepCounts()
+        }
+    }
+  
     
     // cell color
     let outsideMonthColor = UIColor(hex: 0x4D4E51)
     let monthColor =  UIColor.label
     let selectedMonthColor = UIColor.black
+    
+    //View Controller
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -51,7 +62,9 @@ class CalendarViewController: UIViewController {
         collectionView.dataSource = self
         calendarView.ibCalendarDelegate = self
         calendarView.ibCalendarDataSource = self
+        setAverageStepCounts()
         
+    
         //calendarUI
         
         //calendarCollectionView.allowsMultipleSelection = true
@@ -78,7 +91,9 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(#function)
+        currentStepCount = UserDefaults.standard.currentStepCount
         setupCalendarView()
+        
     }//: viewWillAppear
     
     @IBAction func reloadCalendar(_ sender: UIButton) {
@@ -140,6 +155,12 @@ class CalendarViewController: UIViewController {
             //        self.currentMonth.text = self.formatter.string(from: date)
         }
         
+    func setAverageStepCounts() {
+        print(#function)
+     
+        averageWeekLabel.text = "\(userDefaults.weekStepCount! / Date().weekday)"
+        averageMonthLabel.text = "\(userDefaults.monthStepCount! / Date().day)"
+    }
     
     
     // MARK: - IsAlbumOn
