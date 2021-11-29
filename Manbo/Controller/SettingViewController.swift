@@ -40,7 +40,7 @@ class SettingViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        setResetButtonsUI()
+        setNameLabelUI()
         notiTimeLabel.setTimeLabelUI()
         resetTimeLabel.setTimeLabelUI()
 
@@ -78,19 +78,42 @@ class SettingViewController: UIViewController {
         )
     }
      
-//    @objc func saveName(_ newName: String) {
-//
-//        dismiss(animated: true) {
-//            self.userDefaults.name = self.setNameAlertView?.userNameTextField.text!
-//        }
-//    }
     
-    func setResetNameButtonUI() {
+    @IBAction func resetTimeButtonClicked(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "SetName", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SetNameViewController.identifier) as? SetNameViewController else {
+            print("Error")
+            return
+        }
+        
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true, completion: nil
+        )
+        
+    }
+    
+    @IBAction func resetNotiTimeButtonClicked(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "SetName", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SetNameViewController.identifier) as? SetNameViewController else {
+            print("Error")
+            return
+        }
+        
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true, completion: nil
+        )
+    }
+    
+    func setNameLabelUI() {
         resetNameButton.setTitle(userDefaults.name, for: .normal)
         resetNameButton.setTitleColor(UIColor.white, for: .normal)
         resetNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
 
     }
+    
+    
     
 }//: ViewDidLoad
 

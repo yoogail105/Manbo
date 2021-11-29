@@ -81,6 +81,8 @@
 		27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33DB2754BFEE00C60C0F /* SetName.storyboard */; };
 		27EC33DE2754C0AA00C60C0F /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */; };
 		27EC33E02754F10D00C60C0F /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */; };
+		27EC33E32754F59400C60C0F /* SetResetTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33E22754F59400C60C0F /* SetResetTime.storyboard */; };
+		27EC33E52754F5B100C60C0F /* SetNotiTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +162,8 @@
 		27EC33DB2754BFEE00C60C0F /* SetName.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetName.storyboard; sourceTree = "<group>"; };
 		27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
 		27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		27EC33E22754F59400C60C0F /* SetResetTime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetResetTime.storyboard; sourceTree = "<group>"; };
+		27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetNotiTime.storyboard; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 				2780C5B62744F526004A0BE4 /* ViewController.swift */,
 				278F748027478D1600794E8D /* CameraViewController.swift */,
 				278832962746EB04007616EA /* SettingViewController.swift */,
+				27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */,
+				27EC33E22754F59400C60C0F /* SetResetTime.storyboard */,
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
 				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
 				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
@@ -463,6 +469,7 @@
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
 				27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */,
+				27EC33E52754F5B100C60C0F /* SetNotiTime.storyboard in Resources */,
 				278F74B6274A9EB500794E8D /* SetGoalAlertView.xib in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
@@ -471,6 +478,7 @@
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
 				27EC33C82754899E00C60C0F /* RestNotiTimeTableViewCell.xib in Resources */,
 				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
+				27EC33E32754F59400C60C0F /* SetResetTime.storyboard in Resources */,
 				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
 				27EC33D82754A61F00C60C0F /* SettingText.storyboard in Resources */,
 				278F74952747EFBA00794E8D /* InfoPlist.strings in Resources */,
