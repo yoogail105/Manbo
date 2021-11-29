@@ -17,7 +17,7 @@ class SetStepGoalViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     var stepsGoalList: [Int] = []
-    var newGoal = 0
+    var newGoal = 3000
     var isOK = false
     let userDefaults = UserDefaults.standard
     override func viewDidLoad() {
@@ -26,7 +26,6 @@ class SetStepGoalViewController: UIViewController {
         titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerView.selectRow(0, inComponent: stepsGoalList[0], animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,7 +67,7 @@ extension SetStepGoalViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+
         self.newGoal = stepsGoalList[row]
 
     }
