@@ -128,7 +128,6 @@
 		18FF70D7A61CC12E7A3BCD487B2F1201 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		1A84F8758480FA41637E3FE21060BF75 /* Pods-Manbo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Manbo-umbrella.h"; sourceTree = "<group>"; };
 		1D3642716B8A8B6CFEC04B60567C9CA6 /* MarqueeLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarqueeLabel.release.xcconfig; sourceTree = "<group>"; };
-		27DC20AB275247700098E698 /* Calendart+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calendart+Extension.swift"; path = "../Manbo/Controller/Onboarding/Calendart+Extension.swift"; sourceTree = "<group>"; };
 		28639B7B52BA4AFA7896D6C86AFF6C6B /* StatusBarNotificationBanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatusBarNotificationBanner.swift; path = NotificationBanner/Classes/StatusBarNotificationBanner.swift; sourceTree = "<group>"; };
 		2BE09DD1E7756AE2BBF3E631D016677A /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		2CB91E8F17D424953119E0173691FAC1 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
@@ -407,7 +406,6 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
-				27DC20AB275247700098E698 /* Calendart+Extension.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				F7FD97031E78B003E1D40518965C1991 /* Pods */,
