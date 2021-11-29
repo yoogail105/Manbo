@@ -36,7 +36,7 @@ class OnboardingViewController: UIViewController {
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
     var isCoreectedName = false
     var longName = false
-    
+    let userDefaults = UserDefaults.standard
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class OnboardingViewController: UIViewController {
         guard let textField = setNameAlertView?.userNameTextField else { return }
         textField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: textField)
-        
+        userDefaults.stepsGoal = 3000
     } //: viewDidLoad
     
     func setUI() {
