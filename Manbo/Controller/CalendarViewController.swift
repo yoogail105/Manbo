@@ -48,7 +48,7 @@ class CalendarViewController: UIViewController {
     // cell color
     let outsideMonthColor = UIColor(hex: 0x4D4E51)
     let monthColor =  UIColor.label
-    let selectedMonthColor = UIColor.black
+    let selectedMonthColor = UIColor.label
     
     //View Controller
     
@@ -79,9 +79,7 @@ class CalendarViewController: UIViewController {
         let cellSize = UIScreen.main.bounds.width / 5
         layout.itemSize = CGSize(width: cellSize,height: cellSize)
         collectionView.collectionViewLayout = layout
-        let name = UserDefaults.standard.name
-        userNameLabel.text = name!
-        print(name!)
+        
         
         
         naviItem()
@@ -93,6 +91,7 @@ class CalendarViewController: UIViewController {
         print(#function)
         currentStepCount = UserDefaults.standard.currentStepCount
         setupCalendarView()
+        userNameLabel.text = UserDefaults.standard.name!
         
     }//: viewWillAppear
     
@@ -101,6 +100,7 @@ class CalendarViewController: UIViewController {
         //let date = calendarView.visibleDates().monthDates.first!.date
         let date = Date()
         calendarView.reloadData(withAnchor: date)
+        view.layoutIfNeeded()
         self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
             setupViewsOfCalendar(from: visibleDates)
         }
@@ -222,10 +222,12 @@ class CalendarViewController: UIViewController {
             isSelectedDate = true
             calendarView.allowsMultipleSelection = true
             validCell.selectedView.isHidden = false
+            validCell.dateLabel.textColor = monthColor
         } else {
             calendarView.allowsMultipleSelection = false
             isSelectedDate = false
             validCell.selectedView.isHidden = true
+            validCell.dateLabel.textColor = monthColor
         }
     }
 }
@@ -281,7 +283,6 @@ extension CalendarViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
-        
         configureVisibleCell(view: cell, cellState: cellState, date: date, indexPath: indexPath)
         
         return cell
