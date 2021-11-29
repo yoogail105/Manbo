@@ -27,11 +27,6 @@ extension UserDefaults {
         get { bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
         set { setValue(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
     }
-
-//    var lastConnection: String? {
-//        get { return UserDefaults.standard.string(forKey: "lastConnection")}
-//        set { UserDefaults.standard.setValue(newValue, forKey: "lastConnection")}
-//    }
     
     var healthKitAuthorization: Bool {
         get { bool(forKey: UserDefaultsKeys.healthKitAuthorization.rawValue)}
