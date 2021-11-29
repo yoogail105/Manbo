@@ -111,8 +111,8 @@ class ViewController: UIViewController {
             if healthStore!.ishealthKitAuthorized() {
                  self.getTodayStepCounts()
 //                healthStore?.getSevenDaysStepCounts()
-//                healthStore?.getThisWeekStepCounts()
-//                healthStore?.getThisMonthStepCounts()
+                healthStore?.getThisWeekStepCounts()
+                healthStore?.getThisMonthStepCounts()
             } else {
                 healthStore!.authorizeHealthKit()
             }
@@ -207,87 +207,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
-        let dateFormatter = DateObject.dateFormatter
-        let calendar = DateObject.calendar
-        
-        //let realm = try! Realm()
-        
-        
-        let goal = UserDefaults.standard.stepsGoal!
-        let today = Date()
-        dateFormatter.basicDateSetting()
-        //var totalCount = 0.0
-        var totalSetpCountArray = [Int]()
-        let pinDate = today.getPinDate()
-        
-        let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
-        
-        //엔드: 오늘 기준시간으로부터 24시간 후까지
-        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
-        
-        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
-        var interval = DateComponents()
-        interval.day = 1
-        
-        let query = HKStatisticsCollectionQuery(quantityType: sampleType,
-                                                quantitySamplePredicate: predicate,
-                                                options: [.cumulativeSum],
-                                                anchorDate: startDate,
-                                                intervalComponents: interval)
-        
-        var totalCount = 0.0
-        query.initialResultsHandler = {
-            query, result, Error in
-            var dayCount = 0.0
-            var currentDate = startDate
-            let goal = UserDefaults.standard.stepsGoal!
-            if let myresult = result {
-                myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
-                    let realm = try! Realm()
-                    let tasks: Results<UserReport>!
-                    tasks = realm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-                    if let count = statistic.sumQuantity() {
-                        //step가져오기(double)
-                        dayCount = count.doubleValue(for: HKUnit.count())
-                        totalSetpCountArray.append(Int(dayCount))
-                        totalCount += dayCount
-                        let savedDate = dateFormatter.simpleDateString(date: currentDate)
-                        //realm 에 저장하기! -> func
-                       
-                        
-                        let task = UserReport(date: savedDate,
-                                              
-                                              stepCount:Int(dayCount),
-                                              stepGoal: goal,
-                                              goalPercent: dayCount / Double(goal))
-                        print(task)
-                        print(dateFormatter.simpleDateString(date: currentDate))
-                        
-                        if realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").count != 0{
-//
-//                        try! realm.write {
-//                            realm.add(task)
-//                            print("success")
-//
-//                        }
-                            print("ㅐㅏ")
-                        }
-                        currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
-                        // print("걸음더하기: \(dayCount)")
-                    }
-                    //return
-                    DispatchQueue.main.async {
-                        completion(totalCount)
-                        
-                    }
-                }
-            }
-            // print(totalCount)
-        }
-        healthStore!.execute(query)
-    }
+  
 }
     
 //     MARK: - getToalStepCounts -> HealthKit Extension
