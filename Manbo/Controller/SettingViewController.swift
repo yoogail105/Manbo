@@ -19,6 +19,9 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var resetColorButton: UIButton!
     
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var resetTimeLabel: UILabel!
+    @IBOutlet weak var notiTimeLabel: UILabel!
+    
     
     let setMenuItem = ["공지사항", "문의하기", "이용양관", "개인정보정책", "오픈소스", "버전"]
     
@@ -27,6 +30,7 @@ class SettingViewController: UIViewController {
     let setResetTimeAlert: SetResetTimeAlertView? = UIView.loadFromNib()
     let setNotificationTimeAlertView: SetNotificationTimeAlertView? = UIView.loadFromNib()
     let userDefaults = UserDefaults.standard
+    let dateFormatter = DateFormatter()
     
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
@@ -35,11 +39,19 @@ class SettingViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         setResetButtonsUI()
+        notiTimeLabel.setTimeLabelUI()
+        resetTimeLabel.setTimeLabelUI()
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         userNameLabel.text = userDefaults.name!
+        resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
+        notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
     }
     
     func setResetButtonsUI() {
@@ -49,6 +61,9 @@ class SettingViewController: UIViewController {
         resetStepTimeButton.settingButtonUI()
         resetColorButton.settingButtonUI()
     }
+    
+    
+    
     
     @IBAction func resetNameButtonClicked(_ sender: UIButton) {
         let sb = UIStoryboard(name: "SetName", bundle: nil)
@@ -63,12 +78,12 @@ class SettingViewController: UIViewController {
         )
     }
      
-    @objc func saveName(_ newName: String) {
-        
-        dismiss(animated: true) {
-            self.userDefaults.name = self.setNameAlertView?.userNameTextField.text!
-        }
-    }
+//    @objc func saveName(_ newName: String) {
+//
+//        dismiss(animated: true) {
+//            self.userDefaults.name = self.setNameAlertView?.userNameTextField.text!
+//        }
+//    }
     
     func setResetNameButtonUI() {
         resetNameButton.setTitle(userDefaults.name, for: .normal)

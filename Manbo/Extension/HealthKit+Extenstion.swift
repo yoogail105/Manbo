@@ -74,8 +74,8 @@ extension HKHealthStore {
     
     
     func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
-        let dateFormatter = DateObject.dateFormatter
-        let calendar = DateObject.calendar
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
         
         //let realm = try! Realm()
         
