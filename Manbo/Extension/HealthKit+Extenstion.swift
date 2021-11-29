@@ -108,22 +108,27 @@ extension HKHealthStore {
             query, result, Error in
             var dayCount = 0.0
             var currentDate = startDate
+            
             let goal = UserDefaults.standard.stepsGoal!
             if let myresult = result {
                 myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
                     let realm = try! Realm()
-                    let tasks: Results<UserReport>!
+                    var tasks: Results<UserReport>!
+                    var filterdTask: Results<UserReport>?
                     tasks = realm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
+                    
+                    var todayReport = dateFormatter.simpleDateString(date: today)
                     if let count = statistic.sumQuantity() {
                         //step가져오기(double)
                         dayCount = count.doubleValue(for: HKUnit.count())
                         totalSetpCountArray.append(Int(dayCount))
                         totalCount += dayCount
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
+                        filterdTask = realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
                         //realm 에 저장하기! -> func
                        
                         
-                        let task = UserReport(date: "2023",
+                        let task = UserReport(date: savedDate,
                                               
                                               stepCount:Int(dayCount),
                                               stepGoal: goal,
@@ -131,13 +136,20 @@ extension HKHealthStore {
                         print(task)
                         print(dateFormatter.simpleDateString(date: currentDate))
                         
-                        if realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").count != 0{
-                        try! realm.write {
-                            realm.add(task)
-                            print("success")
-
+                        if filterdTask?.count == 0 {
+                            try! realm.write {
+                                realm.add(task)
+                            }
+                            print("add success")
+                        } else if savedDate == todayReport {
+                            try! realm.write {
+                                filterdTask?.first?.stepCount = Int(dayCount)
+                                filterdTask?.first?.goalPercent = dayCount / Double(goal)
+                            }
+                            print("update success")
                         }
-                        }
+                        
+                        
                         currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
                         // print("걸음더하기: \(dayCount)")
                     }
