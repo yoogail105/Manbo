@@ -7,13 +7,6 @@
 
 import UIKit
 
-class DateObject {
-    static let dateFormatter = DateFormatter()
-    static let calendar = Calendar.current
-
-    private init() { }
-}
-
 extension DateFormatter {
     
     func basicDateSetting() {
@@ -24,6 +17,13 @@ extension DateFormatter {
     func simpleDateString(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.string(from: date)
+    }
+    
+    func simpleTimeString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a HH:mm"
         
         return dateFormatter.string(from: date)
     }

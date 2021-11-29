@@ -80,6 +80,7 @@
 		27EC33D82754A61F00C60C0F /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33D72754A61F00C60C0F /* SettingText.storyboard */; };
 		27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33DB2754BFEE00C60C0F /* SetName.storyboard */; };
 		27EC33DE2754C0AA00C60C0F /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */; };
+		27EC33E02754F10D00C60C0F /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +159,7 @@
 		27EC33D72754A61F00C60C0F /* SettingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingText.storyboard; sourceTree = "<group>"; };
 		27EC33DB2754BFEE00C60C0F /* SetName.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetName.storyboard; sourceTree = "<group>"; };
 		27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
+		27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				27DC20A9275241380098E698 /* DateFormatter+Extension.swift */,
 				27DC20AE27524B410098E698 /* Date+Extension.swift */,
 				27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */,
+				27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				27EC33BC275488E100C60C0F /* ResetNameTableViewCell.swift in Sources */,
 				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
+				27EC33E02754F10D00C60C0F /* UILabel+Extension.swift in Sources */,
 				27A66662274EB61C00A63683 /* manboManager.swift in Sources */,
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */,

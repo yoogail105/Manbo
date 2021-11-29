@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     
     //time
     var today = Date()
-    let dateFormatter = DateObject.dateFormatter
-    let calendar = DateObject.calendar
+    let dateFormatter = DateFormatter()
+    let calendar = Calendar.current
     
     //Realm
     let localRealm = try! Realm()

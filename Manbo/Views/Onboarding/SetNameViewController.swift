@@ -81,7 +81,6 @@ class SetNameViewController: UIViewController {
                 completeButton.activeButtonColor(isActive: isCoreectedName)
 
             }
-            
         }
     }
     
