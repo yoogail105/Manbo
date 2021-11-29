@@ -25,13 +25,13 @@ class OnboardingViewController: UIViewController {
     let setResetTimeAlert: SetResetTimeAlertView? = UIView.loadFromNib()
     let setNotificationAlertView: SetNotificationAlertView? = UIView.loadFromNib()
     let setNotificationTimeAlertView: SetNotificationTimeAlertView? = UIView.loadFromNib()
-    let setNameAlertView: SetNameAlertView? = UIView.loadFromNib()
+    @objc let setNameAlertView: SetNameAlertView? = UIView.loadFromNib()
     
     // pickerView
     var stepsGoalList: [Int] = []
     var typeValue = String()
     
-    // checkName
+    // checkName -> setNameVC
     var maxLength = 8
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
     var isCoreectedName = false
@@ -60,6 +60,8 @@ class OnboardingViewController: UIViewController {
         firstAlertView.layer.borderWidth = 2
     }
     
+    
+    //setNameVC
     @objc private func textDidChange(_ notification: Notification) {
         //print("Onboarding: ",#function)
         if let textField = notification.object as? UITextField {

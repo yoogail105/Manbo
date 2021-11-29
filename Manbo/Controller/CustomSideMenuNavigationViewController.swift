@@ -16,7 +16,7 @@ class CustomSideMenuNavigationViewController: SideMenuNavigationController {
         super.viewDidLoad()
         self.presentationStyle = .menuSlideIn
         //self.statusBarEndAlpha = 0.0
-        self.menuWidth = self.view.frame.width * 0.55
+        self.menuWidth = self.view.frame.width * 0.7
         // Do any additional setup after loading the view.
         
     }

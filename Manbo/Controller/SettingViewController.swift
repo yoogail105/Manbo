@@ -8,12 +8,110 @@
 import UIKit
 
 class SettingViewController: UIViewController {
-  static let identifier = "SettingViewController"
+
+    
+    @IBOutlet weak var tableView: UITableView!
+    // Button
+    @IBOutlet weak var resetNameButton: UIButton!
+    @IBOutlet weak var resetGoalButton: UIButton!
+    @IBOutlet weak var resetStepTimeButton: UIButton!
+    @IBOutlet weak var resetNotiTimeButton: UIButton!
+    @IBOutlet weak var resetColorButton: UIButton!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    let setMenuItem = ["공지사항", "문의하기", "이용양관", "개인정보정책", "오픈소스", "버전"]
+    
+    let onboardingVC = OnboardingViewController()
+    let setNameAlertView: SetNameAlertView? = UIView.loadFromNib()
+    let setResetTimeAlert: SetResetTimeAlertView? = UIView.loadFromNib()
+    let setNotificationTimeAlertView: SetNotificationTimeAlertView? = UIView.loadFromNib()
+    let userDefaults = UserDefaults.standard
+    
+    // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
         
-       
+        tableView.delegate = self
+        tableView.dataSource = self
+        setResetButtonsUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        userNameLabel.text = userDefaults.name!
+    }
+    
+    func setResetButtonsUI() {
+        resetNameButton.settingButtonUI()
+        resetGoalButton.settingButtonUI()
+        resetNotiTimeButton.settingButtonUI()
+        resetStepTimeButton.settingButtonUI()
+        resetColorButton.settingButtonUI()
+    }
+    
+    @IBAction func resetNameButtonClicked(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "SetName", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SetNameViewController.identifier) as? SetNameViewController else {
+            print("Error")
+            return
+        }
+        
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true, completion: nil
+        )
+    }
+     
+    @objc func saveName(_ newName: String) {
+        
+        dismiss(animated: true) {
+            self.userDefaults.name = self.setNameAlertView?.userNameTextField.text!
+        }
+    }
+    
+    func setResetNameButtonUI() {
+        resetNameButton.setTitle(userDefaults.name, for: .normal)
+        resetNameButton.setTitleColor(UIColor.white, for: .normal)
+        resetNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
 
+    }
+    
+}//: ViewDidLoad
+
+// MARK: - TABLEVIEW
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return setMenuItem.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingBasicTableViewCell.identifier, for: indexPath) as? SettingBasicTableViewCell else {
+            return UITableViewCell() }
+        
+        let row = indexPath.row
+        cell.menuLable.text = setMenuItem[row]
+        if setMenuItem[row] == "버전" {
+            cell.rightLabel.text = "1.0.0."
+        }
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 공지사항은 다른 테이블뷰로 이동
+        // 이용약관, 개인보호정책, 오픈소스, 버전은 문자열 표시
+        let vc = SettingTextViewController()
+        present(vc, animated: true, completion: nil)
+        
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
 }
