@@ -86,6 +86,7 @@ class SetNameViewController: UIViewController {
     }
     
     @IBAction func completeButtonClicked(_ sender: UIButton) {
+        let vc = CalendarViewController()
         dismiss(animated: true) {
             self.userDefaults.name = self.userNameTextField.text!
         }
