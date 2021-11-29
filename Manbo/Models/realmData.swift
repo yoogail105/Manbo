@@ -11,20 +11,21 @@ import RealmSwift
 
 class UserReport: Object {
     
-    @Persisted var date = Date()
+    @Persisted var date: String
     @Persisted var stepCount: Int
     @Persisted var stepGoal: Int
     @Persisted var goalPercent: Double
-    
-    //PK(필수): Int, String, UUID, objectID
-    @Persisted(primaryKey: true) var _id : ObjectId
-    
-    convenience init(date: Date, stepCount:Int,stepGoal: Int, goalRagoalPercentte: Double) {
+   // @Persisted var success: Bool
+    override static func primaryKey() -> String? {
+        return "date"
+    }
+    convenience init(date: String, stepCount:Int,stepGoal: Int, goalPercent: Double) {
         self.init()
         
         self.date = date
         self.stepCount = stepCount
         self.stepGoal = stepGoal
         self.goalPercent = goalPercent
+        //self.success = false
     }
 }

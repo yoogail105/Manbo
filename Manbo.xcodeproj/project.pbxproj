@@ -11,6 +11,7 @@
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947D275038CC00CE532D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947C275038CC00CE532D /* Constants.swift */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
+		270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE952753ED70004230A6 /* RealmManagerViewController.swift */; };
 		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
 		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		2707947C275038CC00CE532D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
+		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
 		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
 				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
 				27A66659274C34CA00A63683 /* HealthStore.swift */,
+				270CAE952753ED70004230A6 /* RealmManagerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
 				278F74772747785800794E8D /* TabBarViewModel.swift in Sources */,
+				270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */,
 				27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */,
 				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,

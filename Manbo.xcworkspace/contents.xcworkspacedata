@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Library/Developer/Xcode/DerivedData/Manbo-dpvuqqvfgcrsqjgvaqfvuqzyjrdd/SourcePackages/checkouts/Alamofire/RealmManagerViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:Manbo.xcodeproj">
    </FileRef>
    <FileRef
