@@ -177,7 +177,7 @@ class ViewController: UIViewController {
     @IBAction func settingButtonClicked(_ sender: UIButton) {
         
         let storyboard = UIStoryboard(name: "Setting", bundle: nil)
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "CustomSideMenuNavigationViewController") as? CustomSideMenuNavigationViewController else {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: CustomSideMenuNavigationViewController.identifier) as? CustomSideMenuNavigationViewController else {
             return
         }
         present(controller, animated: true, completion: nil)

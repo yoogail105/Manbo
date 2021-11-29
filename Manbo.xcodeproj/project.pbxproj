@@ -66,6 +66,20 @@
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
 		27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20AE27524B410098E698 /* Date+Extension.swift */; };
 		27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */; };
+		27EC33B9275487DE00C60C0F /* SettingTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33B8275487DE00C60C0F /* SettingTableViewCellController.swift */; };
+		27EC33BC275488E100C60C0F /* ResetNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33BA275488E100C60C0F /* ResetNameTableViewCell.swift */; };
+		27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */; };
+		27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */; };
+		27EC33C42754896500C60C0F /* RsetStepTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */; };
+		27EC33C72754899E00C60C0F /* RestNotiTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33C52754899E00C60C0F /* RestNotiTimeTableViewCell.swift */; };
+		27EC33C82754899E00C60C0F /* RestNotiTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33C62754899E00C60C0F /* RestNotiTimeTableViewCell.xib */; };
+		27EC33CB275489E400C60C0F /* RsetColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33C9275489E400C60C0F /* RsetColorTableViewCell.swift */; };
+		27EC33CC275489E400C60C0F /* RsetColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33CA275489E400C60C0F /* RsetColorTableViewCell.xib */; };
+		27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */; };
+		27EC33D62754A60900C60C0F /* SettingTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33D52754A60900C60C0F /* SettingTextViewController.swift */; };
+		27EC33D82754A61F00C60C0F /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33D72754A61F00C60C0F /* SettingText.storyboard */; };
+		27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33DB2754BFEE00C60C0F /* SetName.storyboard */; };
+		27EC33DE2754C0AA00C60C0F /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +144,20 @@
 		27DC20A9275241380098E698 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		27DC20AE27524B410098E698 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extenstion.swift"; sourceTree = "<group>"; };
+		27EC33B8275487DE00C60C0F /* SettingTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCellController.swift; sourceTree = "<group>"; };
+		27EC33BA275488E100C60C0F /* ResetNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNameTableViewCell.swift; sourceTree = "<group>"; };
+		27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetNameTableViewCell.xib; sourceTree = "<group>"; };
+		27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsetStepTimeTableViewCell.swift; sourceTree = "<group>"; };
+		27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RsetStepTimeTableViewCell.xib; sourceTree = "<group>"; };
+		27EC33C52754899E00C60C0F /* RestNotiTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestNotiTimeTableViewCell.swift; sourceTree = "<group>"; };
+		27EC33C62754899E00C60C0F /* RestNotiTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestNotiTimeTableViewCell.xib; sourceTree = "<group>"; };
+		27EC33C9275489E400C60C0F /* RsetColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsetColorTableViewCell.swift; sourceTree = "<group>"; };
+		27EC33CA275489E400C60C0F /* RsetColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RsetColorTableViewCell.xib; sourceTree = "<group>"; };
+		27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasicTableViewCell.swift; sourceTree = "<group>"; };
+		27EC33D52754A60900C60C0F /* SettingTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextViewController.swift; sourceTree = "<group>"; };
+		27EC33D72754A61F00C60C0F /* SettingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingText.storyboard; sourceTree = "<group>"; };
+		27EC33DB2754BFEE00C60C0F /* SetName.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetName.storyboard; sourceTree = "<group>"; };
+		27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,8 +202,10 @@
 				270CAE9827546E37004230A6 /* TabBarViewModel.swift */,
 				278F747E27478D0400794E8D /* Camera.storyboard */,
 				278832922746DFDB007616EA /* Setting.storyboard */,
+				27EC33D72754A61F00C60C0F /* SettingText.storyboard */,
 				2719275B274B9EB400F26F8D /* NotificationBanner.storyboard */,
 				27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */,
+				27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +222,7 @@
 				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
 				27A66659274C34CA00A63683 /* HealthStore.swift */,
 				270CAE952753ED70004230A6 /* RealmManagerViewController.swift */,
+				27EC33D52754A60900C60C0F /* SettingTextViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +281,7 @@
 				270D726C27465EE1007ADC71 /* Support */,
 				270D726B27465EC9007ADC71 /* Extension */,
 				270D726A27465EC2007ADC71 /* Controller */,
+				27EC33BE275488EF00C60C0F /* Setting */,
 				270D726927465EB6007ADC71 /* Views */,
 				2780C5C02744F529004A0BE4 /* Info.plist */,
 				2780C5BB2744F529004A0BE4 /* Assets.xcassets */,
@@ -300,8 +332,26 @@
 				278F74C4274AC84200794E8D /* SetNotificationTimeAlertView.swift */,
 				278F74C6274AC8C800794E8D /* SetNameAlertView.swift */,
 				278F74C8274AC8D200794E8D /* SetNameAlertView.xib */,
+				27EC33DB2754BFEE00C60C0F /* SetName.storyboard */,
+				27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		27EC33BE275488EF00C60C0F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				27EC33B8275487DE00C60C0F /* SettingTableViewCellController.swift */,
+				27EC33BA275488E100C60C0F /* ResetNameTableViewCell.swift */,
+				27EC33C52754899E00C60C0F /* RestNotiTimeTableViewCell.swift */,
+				27EC33C62754899E00C60C0F /* RestNotiTimeTableViewCell.xib */,
+				27EC33C9275489E400C60C0F /* RsetColorTableViewCell.swift */,
+				27EC33CA275489E400C60C0F /* RsetColorTableViewCell.xib */,
+				27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */,
+				27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */,
+				27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		33ABD6F044B2651CDB0AC97F /* Pods */ = {
@@ -398,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27EC33C42754896500C60C0F /* RsetStepTimeTableViewCell.xib in Resources */,
 				2719275C274B9EB400F26F8D /* NotificationBanner.storyboard in Resources */,
 				278F749F2748FC4300794E8D /* Onboarding.storyboard in Resources */,
 				278F74BF274AC74F00794E8D /* SetNotificationAlertView.xib in Resources */,
@@ -405,15 +456,20 @@
 				278F74C1274AC77700794E8D /* SetNotificationTimeAlertView.xib in Resources */,
 				278F74B8274AC68700794E8D /* SetResetTimeAlertView.xib in Resources */,
 				278F74C9274AC8D200794E8D /* SetNameAlertView.xib in Resources */,
+				27EC33CC275489E400C60C0F /* RsetColorTableViewCell.xib in Resources */,
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
+				27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */,
 				278F74B6274A9EB500794E8D /* SetGoalAlertView.xib in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
+				27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
+				27EC33C82754899E00C60C0F /* RestNotiTimeTableViewCell.xib in Resources */,
 				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
 				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
+				27EC33D82754A61F00C60C0F /* SettingText.storyboard in Resources */,
 				278F74952747EFBA00794E8D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,23 +525,30 @@
 			files = (
 				278F74BA274AC69B00794E8D /* SetResetTimeAlertView.swift in Sources */,
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
+				27EC33D62754A60900C60C0F /* SettingTextViewController.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
 				270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */,
 				270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */,
+				27EC33DE2754C0AA00C60C0F /* SetNameViewController.swift in Sources */,
 				27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */,
+				27EC33BC275488E100C60C0F /* ResetNameTableViewCell.swift in Sources */,
 				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
 				27A66662274EB61C00A63683 /* manboManager.swift in Sources */,
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */,
+				27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */,
 				27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */,
 				2707947D275038CC00CE532D /* Constants.swift in Sources */,
 				27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */,
 				2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */,
+				27EC33B9275487DE00C60C0F /* SettingTableViewCellController.swift in Sources */,
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
 				27192758274AFEDF00F26F8D /* UserModel.swift in Sources */,
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
+				27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */,
 				278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */,
+				27EC33CB275489E400C60C0F /* RsetColorTableViewCell.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
 				27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */,
@@ -496,6 +559,7 @@
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
 				278F74C7274AC8C800794E8D /* SetNameAlertView.swift in Sources */,
 				278F74B4274A9EA400794E8D /* SetGoalAlertView.swift in Sources */,
+				27EC33C72754899E00C60C0F /* RestNotiTimeTableViewCell.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
 				278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */,
 				278F74A32749034400794E8D /* CustomSideMenuNavigationViewController.swift in Sources */,
