@@ -12,6 +12,7 @@
 		2707947D275038CC00CE532D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947C275038CC00CE532D /* Constants.swift */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE952753ED70004230A6 /* RealmManagerViewController.swift */; };
+		270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE9827546E37004230A6 /* TabBarViewModel.swift */; };
 		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
 		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */; };
@@ -30,7 +31,6 @@
 		2788329A2746EFDF007616EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2788329C2746EFDF007616EA /* Localizable.strings */; };
 		278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278832A02746F1AE007616EA /* UIString+Extension.swift */; };
 		278832A32746F1E1007616EA /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278832A22746F1E1007616EA /* LocalizableStrings.swift */; };
-		278F74772747785800794E8D /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74762747785800794E8D /* TabBarViewModel.swift */; };
 		278F747F27478D0400794E8D /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F747E27478D0400794E8D /* Camera.storyboard */; };
 		278F748127478D1600794E8D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F748027478D1600794E8D /* CameraViewController.swift */; };
 		278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F748227478D6D00794E8D /* CalendarViewController.swift */; };
@@ -72,6 +72,7 @@
 		2707947C275038CC00CE532D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
+		270CAE9827546E37004230A6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		278832A02746F1AE007616EA /* UIString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Extension.swift"; sourceTree = "<group>"; };
 		278832A22746F1E1007616EA /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		278832A52746F59B007616EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		278F74762747785800794E8D /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		278F747E27478D0400794E8D /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		278F748027478D1600794E8D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		278F748227478D6D00794E8D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +171,7 @@
 				278F7486274797C900794E8D /* TabView.storyboard */,
 				2780C5B82744F526004A0BE4 /* Main.storyboard */,
 				278832942746DFE8007616EA /* Calendar.storyboard */,
+				270CAE9827546E37004230A6 /* TabBarViewModel.swift */,
 				278F747E27478D0400794E8D /* Camera.storyboard */,
 				278832922746DFDB007616EA /* Setting.storyboard */,
 				2719275B274B9EB400F26F8D /* NotificationBanner.storyboard */,
@@ -185,7 +186,6 @@
 				278F74882747A2B600794E8D /* TabViewController.swift */,
 				2780C5B62744F526004A0BE4 /* ViewController.swift */,
 				278F748027478D1600794E8D /* CameraViewController.swift */,
-				278F74762747785800794E8D /* TabBarViewModel.swift */,
 				278832962746EB04007616EA /* SettingViewController.swift */,
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
 				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
@@ -301,8 +301,7 @@
 				278F74C6274AC8C800794E8D /* SetNameAlertView.swift */,
 				278F74C8274AC8D200794E8D /* SetNameAlertView.xib */,
 			);
-			name = Onboarding;
-			path = ../Controller/Onboarding;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		33ABD6F044B2651CDB0AC97F /* Pods */ = {
@@ -471,8 +470,8 @@
 				278F74BA274AC69B00794E8D /* SetResetTimeAlertView.swift in Sources */,
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
-				278F74772747785800794E8D /* TabBarViewModel.swift in Sources */,
 				270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */,
+				270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */,
 				27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */,
 				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
