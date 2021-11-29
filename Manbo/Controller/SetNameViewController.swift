@@ -21,6 +21,7 @@ class SetNameViewController: UIViewController {
     var isCoreectedName = false
     var longName = false
     let userDefaults = UserDefaults.standard
+    var isOK = false
 
     // MARK: - VIEWDIDROW
     override func viewDidLoad() {
@@ -40,6 +41,11 @@ class SetNameViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if isOK {
+            userDefaults.name = userNameTextField.text
+        }
+    }
 
     @objc private func textDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
@@ -85,13 +91,17 @@ class SetNameViewController: UIViewController {
     }
     
     @IBAction func completeButtonClicked(_ sender: UIButton) {
-        let vc = CalendarViewController()
-        dismiss(animated: true) {
-            self.userDefaults.name = self.userNameTextField.text!
-        }
+        isOK = true
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotification"), object: ["newName": userNameTextField.text])
+                                            
+        self.dismiss(animated: true, completion: nil)
+                                        
+                                
     }
   
     @IBAction func cancelButton(_ sender: UIButton) {
+        isOK = false
         dismiss(animated: true, completion: nil)
     }
     
