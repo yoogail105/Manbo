@@ -76,19 +76,16 @@ extension HKHealthStore {
     func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
-        
+        let userDefaults = UserDefaults.standard
         //let realm = try! Realm()
         
-        
-        let goal = UserDefaults.standard.stepsGoal!
+
         let today = Date()
         dateFormatter.basicDateSetting()
-        //var totalCount = 0.0
         var totalSetpCountArray = [Int]()
         let pinDate = today.getPinDate()
-        
+    
         let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
-        
         //엔드: 오늘 기준시간으로부터 24시간 후까지
         let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
         
@@ -109,15 +106,12 @@ extension HKHealthStore {
             var dayCount = 0.0
             var currentDate = startDate
             
-            let goal = UserDefaults.standard.stepsGoal!
+            let goal = userDefaults.stepsGoal!
             if let myresult = result {
                 myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
                     let realm = try! Realm()
-                    var tasks: Results<UserReport>!
                     var filterdTask: Results<UserReport>?
-                    tasks = realm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-                    
-                    var todayReport = dateFormatter.simpleDateString(date: today)
+                    let todayReport = dateFormatter.simpleDateString(date: today)
                     if let count = statistic.sumQuantity() {
                         //step가져오기(double)
                         dayCount = count.doubleValue(for: HKUnit.count())
@@ -126,10 +120,8 @@ extension HKHealthStore {
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
                         filterdTask = realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
                         //realm 에 저장하기! -> func
-                       
                         
                         let task = UserReport(date: savedDate,
-                                              
                                               stepCount:Int(dayCount),
                                               stepGoal: goal,
                                               goalPercent: dayCount / Double(goal))
@@ -148,7 +140,6 @@ extension HKHealthStore {
                             }
                             print("update success")
                         }
-                        
                         
                         currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
                         // print("걸음더하기: \(dayCount)")

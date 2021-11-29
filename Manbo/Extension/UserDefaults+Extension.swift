@@ -43,9 +43,11 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "name")}
     }
     
-     var stepsGoal: Int?{
+     var stepsGoal: Int? {
         get { return UserDefaults.standard.integer(forKey: "stepsGoal")}
-        set { UserDefaults.standard.set(newValue, forKey: "stepsGoal")}
+        set {
+            newValue == 0 ? 3000 : newValue
+            UserDefaults.standard.set(newValue, forKey: "stepsGoal")}
     }
     
     var currentStepCount: Int? {

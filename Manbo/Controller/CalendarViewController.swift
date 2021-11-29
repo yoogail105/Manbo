@@ -64,6 +64,7 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDataSource = self
         setAverageStepCounts()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(nameNotification), name: .nameNotification, object: nil)
     
         //calendarUI
         
@@ -89,11 +90,18 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(#function)
-        currentStepCount = UserDefaults.standard.currentStepCount
+        currentStepCount = userDefaults.currentStepCount
         setupCalendarView()
-        userNameLabel.text = UserDefaults.standard.name!
+        userNameLabel.text = userDefaults.name!
         
     }//: viewWillAppear
+    
+    @objc func nameNotification(notification: NSNotification) {
+        if let text = notification.userInfo?["newName"] as? String {
+            userNameLabel.text = text
+        }
+
+    }
     
     @IBAction func reloadCalendar(_ sender: UIButton) {
         //let visibleDates = self.calendarView.visibleDates()
@@ -391,3 +399,5 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
 }
+
+

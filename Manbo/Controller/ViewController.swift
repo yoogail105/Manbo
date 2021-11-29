@@ -65,21 +65,13 @@ class ViewController: UIViewController {
             }
         }
     }
-    //
-    
-    /*
-     lazy var refreshControl: UIRefreshControl = {
-     let refreshControl = UIRefreshControl()
-     refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
-     refreshControl.tintColor = UIColor.appColor(.mainGreen)
-     
-     return refreshControl
-     }()*/
+
     
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("main", #function)
       //  UserDefaults.standard.hasOnbarded = false
         dateFormatter.timeZone = calendar.timeZone
         dateFormatter.locale = calendar.locale
@@ -98,7 +90,11 @@ class ViewController: UIViewController {
         }
        
         setUI()
-        // scrollView.addSubview(self.refreshControl)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeResteTimeNotification), name:.stepNotification, object: nil)
+        
+  
         
     }//: viewDidLoad
     
@@ -108,7 +104,7 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         if healthStore != nil {
-            if healthStore!.ishealthKitAuthorized() {
+            if ((healthStore?.ishealthKitAuthorized()) != nil) {
                  self.getTodayStepCounts()
 //                healthStore?.getSevenDaysStepCounts()
                 healthStore?.getThisWeekStepCounts()
@@ -120,24 +116,30 @@ class ViewController: UIViewController {
 
         setUserImage()
  
-    }//: viewWillLoad
-    
-    /*
-     @objc func handleRefresh(_ refershControl: UIRefreshControl) {
-     
-     authorizeHealthKit()
-     getUserInformation()
-     setUI()
-     
-     refreshControl.endRefreshing()
-     }*/
-    
+    }//: viewWillAppear
     
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print(#function)
+        print("main:", #function)
         self.navigationController?.isNavigationBarHidden = false
+        
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(userDafaults.stepsGoal!))"
+    }//: viewWillAppear
+    
+    @objc func changeGoalNotification(notification: NSNotification) {
+        let goal = userDafaults.stepsGoal
+        let data = notification.object as? Int ?? goal
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(data!))"
+        self.setUserImage()
+    }
+    
+    @objc func changeResteTimeNotification(notification: NSNotification) {
+        
+        let step = userDafaults.currentStepCount
+        let data = notification.object as? Int ?? step
+        currentStepCountLabel.text = "\(String(data!))"
+        self.setUserImage()
     }
     
     func getLastConnection() {
@@ -211,22 +213,6 @@ class ViewController: UIViewController {
 }
     
 //     MARK: - getToalStepCounts -> HealthKit Extension
-    
-
-
-//    func locationSettingAlert() {
-//        showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "설정으로 이동") {
-//            guard let url = URL(string: UIApplication.openSettingsURLString) else {
-//                return
-//            }
-//            if UIApplication.shared.canOpenURL(url){
-//                UIApplication.shared.open(url) { success in
-//                    print("설정으로 이동했습니다.")
-//                }
-//            }
-//
-//        }
-//    } //: locationSettingAlert
 
 
 
@@ -290,7 +276,9 @@ extension ViewController: CLLocationManagerDelegate {
         case .authorizedWhenInUse:
             locationAuthorization = true
         case .authorized:
-            print("dlfault")
+            print("default")
+        @unknown default:
+            print("default")
         }
         if #available(iOS 14.0, *) {
             let accurancyState = locationManager.accuracyAuthorization
@@ -308,28 +296,3 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
 }
-//
-//extension ViewController: MTMapViewDelegate() {
-//    func mapVe
-//}
-
-////처음 실행하는 경우, 권한이 변경된 경우
-//func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//    print(#function)
-//    //check
-//}
-//func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//    print(#function)
-//    //check
-//}
-//
-
-
-
-
-//extension Date {
-//    static func mondayAt12AM() -> Date {
-//        return Calendar(identifier: .iso8601).date(from: Calendar(identifier: .iso8601).dateComponents([.yearForWeekOfYear,.weekOfYear], from: Date()))!
-//    }
-//}
-

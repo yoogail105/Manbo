@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reset Time View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ResetTimeViewController" id="Y6W-OH-hqX" customClass="ResetTimeViewController" customModule="Manbo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkJ-sZ-Cz2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afc-2R-2XC">
+                                        <rect key="frame" x="83" y="313.5" width="248" height="269"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jmK-Tw-GTC">
+                                                <rect key="frame" x="20" y="20" width="208" height="193"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="측정 기준 시간을 설정해 주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1K-dl-cnt">
+                                                        <rect key="frame" x="20.5" y="0.0" width="167.5" height="60"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-5R-WaS">
+                                                        <rect key="frame" x="0.0" y="60" width="208" height="133"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <date key="date" timeIntervalSinceReferenceDate="659199600.07529104">
+                                                            <!--2021-11-21 15:00:00 +0000-->
+                                                        </date>
+                                                        <locale key="locale" localeIdentifier="ko"/>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GLE-gt-2a4">
+                                                <rect key="frame" x="20" y="213" width="208" height="36"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAV-5j-yKj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="36"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="취소">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cancelButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hhV-7t-hax"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Beb-Uq-oHu">
+                                                        <rect key="frame" x="109" y="0.0" width="99" height="36"/>
+                                                        <color key="backgroundColor" name="mainColor"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="다음">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="okButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vsG-Kq-DNY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="GLE-gt-2a4" firstAttribute="top" secondItem="jmK-Tw-GTC" secondAttribute="bottom" id="4Lx-sC-NzS"/>
+                                            <constraint firstItem="jmK-Tw-GTC" firstAttribute="top" secondItem="afc-2R-2XC" secondAttribute="top" constant="20" id="RKl-Kq-EpK"/>
+                                            <constraint firstAttribute="trailing" secondItem="jmK-Tw-GTC" secondAttribute="trailing" constant="20" id="cz4-K3-tPx"/>
+                                            <constraint firstItem="GLE-gt-2a4" firstAttribute="leading" secondItem="afc-2R-2XC" secondAttribute="leading" constant="20" id="dEW-Kv-h1x"/>
+                                            <constraint firstItem="GLE-gt-2a4" firstAttribute="top" secondItem="jmK-Tw-GTC" secondAttribute="bottom" id="hhB-HE-jdC"/>
+                                            <constraint firstItem="jmK-Tw-GTC" firstAttribute="leading" secondItem="afc-2R-2XC" secondAttribute="leading" constant="20" id="m7i-jr-V5H"/>
+                                            <constraint firstAttribute="trailing" secondItem="GLE-gt-2a4" secondAttribute="trailing" constant="20" id="syb-PJ-VDA"/>
+                                            <constraint firstAttribute="bottom" secondItem="GLE-gt-2a4" secondAttribute="bottom" constant="20" id="tWC-AY-Zji"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="afc-2R-2XC" firstAttribute="centerX" secondItem="qkJ-sZ-Cz2" secondAttribute="centerX" id="DNA-IR-l0m"/>
+                                    <constraint firstItem="afc-2R-2XC" firstAttribute="centerY" secondItem="qkJ-sZ-Cz2" secondAttribute="centerY" id="Esz-gO-bNf"/>
+                                    <constraint firstItem="afc-2R-2XC" firstAttribute="width" secondItem="qkJ-sZ-Cz2" secondAttribute="width" multiplier="0.6" id="JsV-ZN-6dE"/>
+                                    <constraint firstItem="afc-2R-2XC" firstAttribute="height" secondItem="qkJ-sZ-Cz2" secondAttribute="height" multiplier="0.3" id="Rt9-WT-cEy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <constraints>
+                            <constraint firstItem="qkJ-sZ-Cz2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MjN-qi-1v2"/>
+                            <constraint firstAttribute="bottom" secondItem="qkJ-sZ-Cz2" secondAttribute="bottom" id="UqJ-HB-A8i"/>
+                            <constraint firstItem="qkJ-sZ-Cz2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Zee-8o-VZ0"/>
+                            <constraint firstAttribute="trailing" secondItem="qkJ-sZ-Cz2" secondAttribute="trailing" id="wBn-1O-0jJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="afc-2R-2XC" id="Bs4-kz-TOI"/>
+                        <outlet property="datePicker" destination="HRk-5R-WaS" id="Z3S-rQ-G4m"/>
+                        <outlet property="resetTimeLabel" destination="M1K-dl-cnt" id="Pdf-es-FKH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11.594202898550726" y="41.517857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="mainColor">
+            <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

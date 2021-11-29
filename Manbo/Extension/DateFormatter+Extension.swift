@@ -23,7 +23,7 @@ extension DateFormatter {
     
     func simpleTimeString(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a HH:mm"
+        dateFormatter.dateFormat = "a hh:mm"
         
         return dateFormatter.string(from: date)
     }

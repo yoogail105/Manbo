@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23b-3i-vth">
-                    <rect key="frame" x="-7" y="0.0" width="414" height="896"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23b-3i-vth">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-HJ-oh8">
                             <rect key="frame" x="83" y="313.5" width="248" height="269"/>
@@ -80,6 +80,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="TCb-HJ-oh8" firstAttribute="centerX" secondItem="23b-3i-vth" secondAttribute="centerX" id="7IW-5x-HAB"/>
                         <constraint firstItem="TCb-HJ-oh8" firstAttribute="height" secondItem="23b-3i-vth" secondAttribute="height" multiplier="0.3" id="MG1-hY-hlc"/>
