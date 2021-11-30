@@ -12,6 +12,15 @@ import RealmSwift
 
 extension HKHealthStore {
     
+   
+    /*
+     if UserDefaults.standard.healthKitAuthorization {
+      //code
+     } else {
+         healthStore!.authorizeHealthKit()
+     }
+     */
+    
     // 헬스킷 허용 여부
     func ishealthKitAuthorized() -> Bool {
         if (self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingAuthorized) {
@@ -41,8 +50,8 @@ extension HKHealthStore {
     }
     
     // 나중에 활용
-    func getSevenDaysStepCounts() {
-        self.getToalStepCounts(passedDays: 6, completion: { (result) in
+    func getNDaysStepCounts(number: Int) {
+        self.getToalStepCounts(passedDays: number, completion: { (result) in
             DispatchQueue.main.async {
                 // self.averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
                 
@@ -70,6 +79,14 @@ extension HKHealthStore {
                 // self.averageThisMonthStepCounts = thisWeekTotalStepCount / today.day
             }
         })
+    }
+    
+    func getMonthStepCounts() {
+        self.getToalStepCounts(passedDays: 0) { (result) in
+            DispatchQueue.main.async {
+                // 결과 받아올 곳(혹은 리턴하기)
+            }
+        }
     }
     
     
@@ -109,6 +126,89 @@ extension HKHealthStore {
             let goal = userDefaults.stepsGoal!
             if let myresult = result {
                 myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
+                    let realm = try! Realm()
+                    var filterdTask: Results<UserReport>?
+                    let todayReport = dateFormatter.simpleDateString(date: today)
+                    if let count = statistic.sumQuantity() {
+                        //step가져오기(double)
+                        dayCount = count.doubleValue(for: HKUnit.count())
+                        totalSetpCountArray.append(Int(dayCount))
+                        totalCount += dayCount
+                        let savedDate = dateFormatter.simpleDateString(date: currentDate)
+                        filterdTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
+                        //realm 에 저장하기! -> func
+                        
+                        let task = UserReport(date: savedDate,
+                                              stepCount:Int(dayCount),
+                                              stepGoal: goal,
+                                              goalPercent: dayCount / Double(goal))
+                        print(task)
+                        print(dateFormatter.simpleDateString(date: currentDate))
+                        
+                        if filterdTask?.count == 0 {
+                            try! realm.write {
+                                realm.add(task)
+                            }
+                            print("add success")
+                        } else if savedDate == todayReport {
+                            try! realm.write {
+                                filterdTask?.first?.stepCount = Int(dayCount)
+                                filterdTask?.first?.goalPercent = dayCount / Double(goal)
+                            }
+                            print("update success")
+                        }
+                        
+                        currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+                        // print("걸음더하기: \(dayCount)")
+                    }
+                    //return
+                    DispatchQueue.main.async {
+                        completion(totalCount)
+                        
+                    }
+                }
+            }
+            // print(totalCount)
+        }
+        self.execute(query)
+    }
+    
+    
+    
+    // MARK: - get total Steps of Month
+    func getToalStepCountsOfMonth(month: Int, completion: @escaping (Double) -> Void) {
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        let userDefaults = UserDefaults.standard
+
+        let today = Date()
+        
+        let startDate = Date().getPinDate(startMonth: month)// 시작점
+        let nextMonth = calendar.date(byAdding: .month, value: +1, to: startDate)
+        let endDate = calendar.date(byAdding: .day, value: -1, to: nextMonth!) // 끝점
+        
+        var totalSetpCountArray = [Int]()
+        
+        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+        var interval = DateComponents()
+        interval.day = 1
+        
+        let query = HKStatisticsCollectionQuery(quantityType: sampleType,
+                                                quantitySamplePredicate: predicate,
+                                                options: [.cumulativeSum],
+                                                anchorDate: startDate,
+                                                intervalComponents: interval)
+        
+        var totalCount = 0.0
+        query.initialResultsHandler = {
+            query, result, Error in
+            var dayCount = 0.0
+            var currentDate = startDate
+            
+            let goal = userDefaults.stepsGoal!
+            if let myresult = result {
+                myresult.enumerateStatistics(from: startDate, to:endDate!) { (statistic, value) in
                     let realm = try! Realm()
                     var filterdTask: Results<UserReport>?
                     let todayReport = dateFormatter.simpleDateString(date: today)

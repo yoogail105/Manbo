@@ -10,6 +10,7 @@ import SideMenu
 import HealthKit
 import RealmSwift
 import CoreLocation
+import NotificationBannerSwift
 
 
 class ViewController: UIViewController {
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
     var SevenDaysStepCounts = 0
     var ThisWeekStepCounts = 0
     var ThisMonthStepCounts = 0
+    var last30DaysStepCount = false
     
     //time
     var today = Date()
@@ -44,7 +46,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var goalView: UIView!
     @IBOutlet weak var currentStepCountLabel: UILabel!
     var userImage = Manbo.manbo00
-    
     //userDefaults
     let userDafaults = UserDefaults.standard
     
@@ -86,7 +87,7 @@ class ViewController: UIViewController {
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
         } else {
-            //healthKit은 아이패드 등에서는 안돼요.
+            self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
         }
        
         setUI()
@@ -105,13 +106,18 @@ class ViewController: UIViewController {
         if healthStore != nil {
             if ((healthStore?.ishealthKitAuthorized()) != nil) {
                  self.getTodayStepCounts()
-//                healthStore?.getSevenDaysStepCounts()
-                healthStore?.getThisWeekStepCounts()
-                healthStore?.getThisMonthStepCounts()
+                if !last30DaysStepCount {
+                healthStore?.getNDaysStepCounts(number: 30)
+                    healthStore?.getThisWeekStepCounts()
+                    healthStore?.getThisMonthStepCounts()
+                }
+           
             } else {
+             //   헬스킷 권한 요청한다.
                 healthStore!.authorizeHealthKit()
             }
         }
+        
         setUserImage()
  
     }//: viewWillAppear
@@ -171,8 +177,8 @@ class ViewController: UIViewController {
         }
         
         userImageView.image = UIImage(named: userImage.rawValue)
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeImageNotification"), object: nil, userInfo: ["newImage": userImage.rawValue])
+//
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeImageNotification"), object: nil, userInfo: ["newImage": userImage.rawValue])
     }
 
     
@@ -184,6 +190,16 @@ class ViewController: UIViewController {
         }
         present(controller, animated: true, completion: nil)
         
+    }
+    
+    func notiBanenr(notiText: String) {
+        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
+        
+        banner.show()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            banner.dismiss()
+        })
     }
     
     
