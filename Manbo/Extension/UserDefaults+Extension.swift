@@ -79,5 +79,5 @@ extension UserDefaults {
        get { return UserDefaults.standard.integer(forKey: "monthStepCount")}
        set { UserDefaults.standard.set(newValue, forKey: "monthStepCount")}
    }
-    
+
 }

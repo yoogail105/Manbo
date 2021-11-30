@@ -2,7 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:UserNotificationCenter+Extension.swift">
+      location = "group:/Users/minjoohehe/Manbo/Manbo/Extension/Double+Extension.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/minjoohehe/Manbo/Manbo/Extension/SelectedTaskCollectionViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/minjoohehe/Manbo/Manbo/Extension/SelectedTaskCollectionViewCell.xib">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/minjoohehe/Manbo/Manbo/Extension/UserNotificationCenter+Extension.swift">
    </FileRef>
    <FileRef
       location = "group:Manbo.xcodeproj">
