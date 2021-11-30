@@ -92,8 +92,8 @@ class SetNameViewController: UIViewController {
     
     @IBAction func completeButtonClicked(_ sender: UIButton) {
         isOK = true
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotification"), object: ["newName": userNameTextField.text])
+        let changedName = userNameTextField.text!
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotificaiton"), object: nil, userInfo: ["newName": changedName])
                                             
         self.dismiss(animated: true, completion: nil)
                                         

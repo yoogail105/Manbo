@@ -7,6 +7,8 @@
 
 import UIKit
 import JTAppleCalendar
+import RealmSwift
+
 
 class CalendarViewController: UIViewController {
     static let identifier = "CalendarViewController"
@@ -43,7 +45,9 @@ class CalendarViewController: UIViewController {
             self.setAverageStepCounts()
         }
     }
-  
+    //Realm
+    let localRealm = try! Realm()
+    var tasks: Results<UserReport>!
     
     // cell color
     let outsideMonthColor = UIColor(hex: 0x4D4E51)
@@ -64,7 +68,7 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDataSource = self
         setAverageStepCounts()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(nameNotification), name: .nameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotification), name: .nameNotification, object: nil)
     
         //calendarUI
         
@@ -81,6 +85,7 @@ class CalendarViewController: UIViewController {
         layout.itemSize = CGSize(width: cellSize,height: cellSize)
         collectionView.collectionViewLayout = layout
         
+        tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
         
         
         naviItem()
@@ -96,11 +101,11 @@ class CalendarViewController: UIViewController {
         
     }//: viewWillAppear
     
-    @objc func nameNotification(notification: NSNotification) {
+    @objc func changeNameNotification(notification: NSNotification) {
         if let text = notification.userInfo?["newName"] as? String {
             userNameLabel.text = text
         }
-
+print("noti!")
     }
     
     @IBAction func reloadCalendar(_ sender: UIButton) {

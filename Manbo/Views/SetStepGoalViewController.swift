@@ -40,7 +40,7 @@ class SetStepGoalViewController: UIViewController {
     @IBAction func okButtonClicked(_ sender: UIButton) {
         isOK = true
         userDefaults.stepsGoal = newGoal
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeGoalNotification"), object: ["myValue": newGoal])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeGoalNotification"), object: nil, userInfo: ["myValue": newGoal])
         self.dismiss(animated: true, completion: nil)
     }
     

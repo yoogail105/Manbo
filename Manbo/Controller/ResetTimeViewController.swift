@@ -34,7 +34,7 @@ class ResetTimeViewController: UIViewController {
 
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         isOK = false
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeResteTimeNotification"), object: ["newStep": userDefaults.currentStepCount!])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeResteTimeNotification"), object: nil, userInfo: ["newStep": userDefaults.currentStepCount!])
                                             
         self.dismiss(animated: true, completion: nil)
     }

@@ -336,7 +336,6 @@
 				27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */,
 				27EC33E22754F59400C60C0F /* SetResetTime.storyboard */,
 				278F749E2748FC4300794E8D /* Onboarding.storyboard */,
-				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
 				278F74B5274A9EB500794E8D /* SetGoalAlertView.xib */,
 				278F74B3274A9EA400794E8D /* SetGoalAlertView.swift */,
 				278F74B7274AC68700794E8D /* SetResetTimeAlertView.xib */,
@@ -366,6 +365,7 @@
 				27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */,
 				27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */,
 				27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */,
+				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
