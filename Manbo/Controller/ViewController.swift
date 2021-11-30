@@ -112,7 +112,7 @@ class ViewController: UIViewController {
                 healthStore!.authorizeHealthKit()
             }
         }
-        //setUserImage()
+        setUserImage()
  
     }//: viewWillAppear
     

@@ -12,7 +12,7 @@ import RealmSwift
 
 class CalendarViewController: UIViewController {
     static let identifier = "CalendarViewController"
-
+    
     let currentDateSelecedViewColor = UIColor.appColor(.borderLightGray)
     
     @IBOutlet weak var currentMonth: UILabel!
@@ -74,10 +74,14 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDataSource = self
         setAverageStepCounts()
         
+        
+        let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
+        collectionView.register(nibName, forCellWithReuseIdentifier: SelectedTaskCollectionViewCell.identifier)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotification), name: .nameNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeImageNotification), name: .imageNotification, object: nil)
-    
+        
         //calendarUI
         
         //calendarCollectionView.allowsMultipleSelection = true
@@ -87,17 +91,14 @@ class CalendarViewController: UIViewController {
         calendarFrameStackView.layer.borderWidth = 2
         calendarFrameStackView.layer.borderColor = UIColor.appColor(.borderLightGray).cgColor
         
-        
         let layout = UICollectionViewFlowLayout()
-        let cellSize = UIScreen.main.bounds.width / 5
-        layout.itemSize = CGSize(width: cellSize,height: cellSize)
         collectionView.collectionViewLayout = layout
         
+
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-        print(tasks)
         
         naviItem()
-
+        
     }//: VIEWDIDLOAD
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +121,7 @@ class CalendarViewController: UIViewController {
             userImageView.image = UIImage(named: text)
         }
     }
-        
+    
     @IBAction func reloadCalendar(_ sender: UIButton) {
         //let visibleDates = self.calendarView.visibleDates()
         //let date = calendarView.visibleDates().monthDates.first!.date
@@ -160,30 +161,30 @@ class CalendarViewController: UIViewController {
             })
         }
     }
-        
-        func setupCalendarView() {
-            calendarView.minimumLineSpacing = 0
-            calendarView.minimumInteritemSpacing = 0
-            calendarView.reloadData(withAnchor: Date())
-            calendarView.visibleDates { [unowned self] visibleDates in
-                setupViewsOfCalendar(from: visibleDates)
-            }
+    
+    func setupCalendarView() {
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
+        calendarView.reloadData(withAnchor: Date())
+        calendarView.visibleDates { [unowned self] visibleDates in
+            setupViewsOfCalendar(from: visibleDates)
         }
-        
-        func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
-            guard let startDate = visibleDates.monthDates.first?.date else { return
-            }
-            let month = calendar.dateComponents([.month], from: startDate).month!
-            let monthName = self.dateFormatter.monthSymbols[ (month-1) % 12]
-            let year = calendar.component(.year, from: startDate)
-            
-            currentMonth.text = String(year) + "년 " + monthName
-            //        self.currentMonth.text = self.formatter.string(from: date)
+    }
+    
+    func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
+        guard let startDate = visibleDates.monthDates.first?.date else { return
         }
+        let month = calendar.dateComponents([.month], from: startDate).month!
+        let monthName = self.dateFormatter.monthSymbols[ (month-1) % 12]
+        let year = calendar.component(.year, from: startDate)
         
+        currentMonth.text = String(year) + "년 " + monthName
+        //        self.currentMonth.text = self.formatter.string(from: date)
+    }
+    
     func setAverageStepCounts() {
         print(#function)
-     
+        
         averageWeekLabel.text = "\(userDefaults.weekStepCount! / Date().weekday)"
         averageMonthLabel.text = "\(userDefaults.monthStepCount! / Date().day)"
     }
@@ -289,7 +290,7 @@ extension CalendarViewController: JTACMonthViewDataSource {
     
 }
 
-      
+
 // MARK: - JTAC Delegate
 extension CalendarViewController: JTACMonthViewDelegate {
     
@@ -347,23 +348,23 @@ extension CalendarViewController: JTACMonthViewDelegate {
         print("didSelectDate: \(date), CellState: \(cellState)")
         calendarView.allowsMultipleSelection = true
         
-       
-       let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
+        
+        let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
         
         print(SelectedDate)
         self.selectedTask =  localRealm.objects(UserReport.self).filter("date CONTAINS[c] '\(SelectedDate)'")
-       // print(filterdTask.first?.stepCount!)
+        // print(filterdTask.first?.stepCount!)
         
         //print("row: \(cellState.row), day: \(cellState.day), date: \(cellState.date), text: \(cellState.text), cell: \(cellState.cell), column: \(cellState.column), dateBelongsTo: \(cellState.dateBelongsTo),dateSection: \(cellState.dateSection), isSelected: \(cellState.isSelected), selectedPosition: \(cellState.selectedPosition), selectionType: \(cellState.selectionType)")
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
         print(cellState.date)
     }
-
+    
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         calendar.selectDates(calendar.selectedDates.filter({ $0 != date }))
-      
+        
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
     }
@@ -427,13 +428,19 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if isSelectedDate {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
             let userReport = self.selectedTask.first
             print("여기는 콜렉션뷰",self.selectedTask.first!)
             let userStep = userReport?.stepCount
-            let userPercent = userReport?.goalPercent
+            cell.dailyStepLabel.text = "\(String(describing: userStep!))"
+            cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
+//            cell.tintColor = UIColor.init(hex: 0xF2E2DA)
+            //cell.layer.borderColor = UIColor.white.cgColor
+           // cell.layer.borderWidth = 1
             
-            cell.dailyImage.image = UIImage(named: "manbo100")
+            let userPercent = userReport?.goalPercent
+            let userImageName =  self.setUserImage(userPercent: userPercent!)
+            cell.dailyImage.image = UIImage(named: userImageName)
             cell.cornerRounded(cornerRadius: 10)
             return cell
         } else {
@@ -443,7 +450,18 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
             
         }
+        
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if isSelectedDate {
+            return CGSize(width: UIScreen.main.bounds.width * 0.9, height:
+                            UIScreen.main.bounds.height * 0.1)
+        } else {
+            let cellSize = UIScreen.main.bounds.width / 5
+            return CGSize(width: cellSize,height: cellSize)
+            
+        }
     }
     
     
