@@ -12,13 +12,13 @@ class SettingBasicTableViewCell: UITableViewCell {
     @IBOutlet weak var rightLabel: UILabel!
     static let identifier = "SettingBasicTableViewCell"
     
-    //callectionView 에서 사용하기
-    func configureCell(row: UserReport) {
+//    //callectionView 에서 사용하기
+//    func configureCell(row: UserReport) {
+////
+////        memoTitleLabel.text = row.memoTitle
+////        memoContentLabel.text = row.content
+//    }
 //
-//        memoTitleLabel.text = row.memoTitle
-//        memoContentLabel.text = row.content
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

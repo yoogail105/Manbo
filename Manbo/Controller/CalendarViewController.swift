@@ -12,14 +12,15 @@ import RealmSwift
 
 class CalendarViewController: UIViewController {
     static let identifier = "CalendarViewController"
-    
-    
+
     let currentDateSelecedViewColor = UIColor.appColor(.borderLightGray)
     
     @IBOutlet weak var currentMonth: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var calendarFrameStackView: UIStackView!
     
+    
+    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var toggleMonthWeek: UIButton!
@@ -36,10 +37,14 @@ class CalendarViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     var isAlbumOn = true
     var headerVisible = true
-    let formatter = DateFormatter()
+    let dateFormatter = DateFormatter()
     var isMonthView = true
     let calendar = Calendar.current
-    var isSelectedDate = false
+    var isSelectedDate = false {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     var currentStepCount = UserDefaults.standard.currentStepCount {
         didSet {
             self.setAverageStepCounts()
@@ -48,6 +53,7 @@ class CalendarViewController: UIViewController {
     //Realm
     let localRealm = try! Realm()
     var tasks: Results<UserReport>!
+    var selectedTask: Results<UserReport>!
     
     // cell color
     let outsideMonthColor = UIColor(hex: 0x4D4E51)
@@ -69,6 +75,8 @@ class CalendarViewController: UIViewController {
         setAverageStepCounts()
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotification), name: .nameNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeImageNotification), name: .imageNotification, object: nil)
     
         //calendarUI
         
@@ -86,7 +94,7 @@ class CalendarViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-        
+        print(tasks)
         
         naviItem()
 
@@ -105,9 +113,14 @@ class CalendarViewController: UIViewController {
         if let text = notification.userInfo?["newName"] as? String {
             userNameLabel.text = text
         }
-print("noti!")
     }
     
+    @objc func changeImageNotification(notification: NSNotification) {
+        if let text = notification.userInfo?["newImage"] as? String {
+            userImageView.image = UIImage(named: text)
+        }
+    }
+        
     @IBAction func reloadCalendar(_ sender: UIButton) {
         //let visibleDates = self.calendarView.visibleDates()
         //let date = calendarView.visibleDates().monthDates.first!.date
@@ -161,7 +174,7 @@ print("noti!")
             guard let startDate = visibleDates.monthDates.first?.date else { return
             }
             let month = calendar.dateComponents([.month], from: startDate).month!
-            let monthName = self.formatter.monthSymbols[ (month-1) % 12]
+            let monthName = self.dateFormatter.monthSymbols[ (month-1) % 12]
             let year = calendar.component(.year, from: startDate)
             
             currentMonth.text = String(year) + "년 " + monthName
@@ -247,12 +260,12 @@ print("noti!")
 extension CalendarViewController: JTACMonthViewDataSource {
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        formatter.dateFormat = "yyyy MM dd"
-        formatter.timeZone = Calendar.current.timeZone
-        formatter.locale = Calendar.current.locale
+        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2021 09 01")!
-        let endDate = formatter.date(from: "2022 12 31")!
+        let startDate = dateFormatter.date(from: "2021 09 01")!
+        let endDate = dateFormatter.date(from: "2022 12 31")!
         
         
         if isMonthView {
@@ -313,7 +326,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
             print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
             validCell.contentView.cornerRounded(cornerRadius: 15)
             validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
-            print("실ㅇ행됨: \(date)")
+            //print("실행됨: \(date)")
         } else {
             validCell.contentView.backgroundColor = .clear
             
@@ -322,9 +335,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
         handleCelltextColor(view: validCell, cellSTate: cellState)
         
         if cellState.dateBelongsTo == .thisMonth && cellState.text == "1" {
-            formatter.dateFormat = "MMM"
-            let month = formatter.string(from: date)
-            print(month)
+            dateFormatter.dateFormat = "MMM"
+            let month = dateFormatter.string(from: date)
+            print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
         }
         
     }
@@ -333,6 +346,15 @@ extension CalendarViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         print("didSelectDate: \(date), CellState: \(cellState)")
         calendarView.allowsMultipleSelection = true
+        
+       
+       let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
+        
+        print(SelectedDate)
+        self.selectedTask =  localRealm.objects(UserReport.self).filter("date CONTAINS[c] '\(SelectedDate)'")
+       // print(filterdTask.first?.stepCount!)
+        
+        //print("row: \(cellState.row), day: \(cellState.day), date: \(cellState.date), text: \(cellState.text), cell: \(cellState.cell), column: \(cellState.column), dateBelongsTo: \(cellState.dateBelongsTo),dateSection: \(cellState.dateSection), isSelected: \(cellState.isSelected), selectedPosition: \(cellState.selectedPosition), selectionType: \(cellState.selectionType)")
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
         print(cellState.date)
@@ -341,6 +363,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         calendar.selectDates(calendar.selectedDates.filter({ $0 != date }))
+      
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
     }
@@ -392,16 +415,37 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        
+        if isSelectedDate {
+            return 1
+        } else {
+            return tasks.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
         
-        cell.dailyImage.image = UIImage(named: "manbo01")
-        cell.cornerRounded(cornerRadius: 10)
-        return cell
+        if isSelectedDate {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+            let userReport = self.selectedTask.first
+            print("여기는 콜렉션뷰",self.selectedTask.first!)
+            let userStep = userReport?.stepCount
+            let userPercent = userReport?.goalPercent
+            
+            cell.dailyImage.image = UIImage(named: "manbo100")
+            cell.cornerRounded(cornerRadius: 10)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+            cell.dailyImage.image = UIImage(named: "manbo01")
+            cell.cornerRounded(cornerRadius: 10)
+            return cell
+            
+        }
+    
     }
+    
     
 }
 

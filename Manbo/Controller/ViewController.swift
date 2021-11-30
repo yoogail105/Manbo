@@ -112,8 +112,7 @@ class ViewController: UIViewController {
                 healthStore!.authorizeHealthKit()
             }
         }
-
-        setUserImage()
+        //setUserImage()
  
     }//: viewWillAppear
     
@@ -130,12 +129,14 @@ class ViewController: UIViewController {
         
         if let newGoal = notification.userInfo?["myValue"] as? Int {
             goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(newGoal))"
+            setUserImage()
         }
     }
     
     @objc func changeResteTimeNotification(notification: NSNotification) {
         if let currentStep = notification.userInfo?["newStep"] as? Int {
             currentStepCountLabel.text = "\(String(currentStep))"
+            setUserImage()
         }
     }
     
@@ -170,6 +171,8 @@ class ViewController: UIViewController {
         }
         
         userImageView.image = UIImage(named: userImage.rawValue)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeImageNotification"), object: nil, userInfo: ["newImage": userImage.rawValue])
     }
 
     
