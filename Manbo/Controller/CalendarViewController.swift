@@ -438,7 +438,10 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        func settingCell(cell: UICollectionViewCell) {
+            cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
+            cell.cornerRounded(cornerRadius: 10)
+        }
         if isSelectedDate { //셀이 하나
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
             
@@ -448,20 +451,26 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             let dailyStep = userStep?.numberForamt()
             
             cell.dailyStepLabel.text = dailyStep
-            cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
+           // cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
             
             let userPercent = dailyData!.goalPercent
             print("userPercent는 \(dailyData!.goalPercent)")
             let userImageName = self.setUserImage(userPercent: userPercent)
             cell.dailyImage.image = UIImage(named: userImageName)
-            cell.cornerRounded(cornerRadius: 10)
-            
+           // cell.cornerRounded(cornerRadius: 10)
+            settingCell(cell: cell)
             return cell
             
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
             cell.dailyImage.image = UIImage(named: "manbo01")
             cell.cornerRounded(cornerRadius: 10)
+                //task.count
+            let row = indexPath.row
+            let imageName = setUserImage(userPercent: tasks[row].goalPercent)
+            cell.dailyImage.image = UIImage(named: imageName)
+            settingCell(cell: cell)
+            
             return cell
             
         }
