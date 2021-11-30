@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         didSet {
             //print("퍼센테이지 바꼈다.")
             DispatchQueue.main.async {
-                self.setUserImage()
+                self.userImageView.image = UIImage(named: self.userImage.rawValue)
             }
         }
     }
@@ -63,7 +63,8 @@ class ViewController: UIViewController {
         didSet{
             //print("걸음수값 변경되었다.")
             DispatchQueue.main.async {
-                self.currentStepCountLabel.text = "\(self.currentStepCount)"
+                self.currentStepCountLabel.text = self.currentStepCount.numberForamt()
+                self.setUserImage()
             }
         }
     }
@@ -94,6 +95,7 @@ class ViewController: UIViewController {
         }
        
         setUI()
+        setUserImage()
         SetNotiViewController().requestNotificationAuthorization()
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
@@ -121,8 +123,6 @@ class ViewController: UIViewController {
                 healthStore!.authorizeHealthKit()
             }
         }
-        
-        setUserImage()
  
     }//: viewWillAppear
     
@@ -132,20 +132,20 @@ class ViewController: UIViewController {
         print("main:", #function)
         self.navigationController?.isNavigationBarHidden = false
         
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(userDafaults.stepsGoal!))"
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDafaults.stepsGoal!.numberForamt())"
     }//: viewWillAppear
     
     @objc func changeGoalNotification(notification: NSNotification) {
         
         if let newGoal = notification.userInfo?["myValue"] as? Int {
-            goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(newGoal))"
+            goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(newGoal.numberForamt())"
             setUserImage()
         }
     }
     
     @objc func changeResteTimeNotification(notification: NSNotification) {
         if let currentStep = notification.userInfo?["newStep"] as? Int {
-            currentStepCountLabel.text = "\(String(currentStep))"
+            currentStepCountLabel.text = "\(currentStep.numberForamt())"
             setUserImage()
         }
     }
@@ -162,27 +162,24 @@ class ViewController: UIViewController {
     func setUI() {
         print("main: ", #function)
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(stepGoal))"
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(stepGoal.numberForamt())"
     }
     
     func setUserImage() {
         print("main: percente \(stepPercent)", #function)
+        stepPercent = userDafaults.setpPercent!
         switch stepPercent {
-        case 0.0 ..< 30.0:
+        case 0.0 ..< 0.3:
             userImage = Manbo.manbo00
-        case 30.0 ..< 50.0:
+        case 0.3 ..< 0.5:
             userImage = Manbo.manbo01
-        case 50.0 ..< 80.0:
+        case 0.5 ..< 0.8:
             userImage = Manbo.manbo02
-        case 80.0 ..< 100.0:
+        case 0.8 ..< 1.0:
             userImage = Manbo.manbo03
         default:
             userImage = Manbo.manbo100
         }
-        
-        userImageView.image = UIImage(named: userImage.rawValue)
-//
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeImageNotification"), object: nil, userInfo: ["newImage": userImage.rawValue])
     }
 
     

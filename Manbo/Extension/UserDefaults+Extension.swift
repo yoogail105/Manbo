@@ -72,8 +72,8 @@ extension UserDefaults {
 
     var setpPercent: Double? {
         get {
-            let result = Double(currentStepCount!) / Double(stepsGoal!)
-            return result * 100
+            return Double(currentStepCount!) / Double(stepsGoal!)
+            
         }
     }
 
