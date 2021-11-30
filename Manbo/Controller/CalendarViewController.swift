@@ -67,7 +67,7 @@ class CalendarViewController: UIViewController {
     //Realm
     let localRealm = try! Realm()
     var tasks: Results<UserReport>!
-    var selectedTask: Results<UserReport>!
+    var selectedTask: UserReport?
     
     // cell color
     let outsideMonthColor = UIColor(hex: 0x4D4E51)
@@ -388,9 +388,18 @@ extension CalendarViewController: JTACMonthViewDelegate {
         let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
         
         print(SelectedDate)
-        self.selectedTask =  localRealm.objects(UserReport.self).filter("date CONTAINS[c] '\(SelectedDate)'")
-        // print(filterdTask.first?.stepCount!)
+        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
+            print("해당 날짜 없음.")
+            return
+        }
+//        guard let thisTask = localRealm.objects(UserReport.self).filter("date CONTAINS[c] '\(SelectedDate)'") else {
+//            return
+//
+//        }
+        self.selectedTask = localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate)!
         
+        // print(filterdTask.first?.stepCount!)
+    
         //print("row: \(cellState.row), day: \(cellState.day), date: \(cellState.date), text: \(cellState.text), cell: \(cellState.cell), column: \(cellState.column), dateBelongsTo: \(cellState.dateBelongsTo),dateSection: \(cellState.dateSection), isSelected: \(cellState.isSelected), selectedPosition: \(cellState.selectedPosition), selectionType: \(cellState.selectionType)")
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
@@ -435,17 +444,6 @@ extension CalendarViewController: JTACMonthViewDelegate {
         return true
     }
     
-    
-    //
-    //    func handleCellTextColor(cell: DateCell, cellState: CellState) {
-    //       if cellState.dateBelongsTo == .thisMonth {
-    //          cell.dateLabel.textColor = UIColor.black
-    //       } else {
-    //          cell.dateLabel.textColor = UIColor.gray
-    //       }
-    //    }
-    //
-    
 }
 
 // MARK: - CollectionVeiw
@@ -467,8 +465,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         if isSelectedDate {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
             
-           let dailyData = self.selectedTask.first
-             print("여기는 콜렉션뷰",self.selectedTask.first!)
+           let dailyData = self.selectedTask
+             print("여기는 콜렉션뷰",self.selectedTask!)
             let userStep = dailyData?.stepCount
             let dailyStep = userStep?.numberForamt()
             
