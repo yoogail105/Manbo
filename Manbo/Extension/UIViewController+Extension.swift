@@ -19,21 +19,21 @@ extension UIViewController {
     func setUserImage(userPercent: Double) -> String {
         var userImage = Manbo.manbo100
         switch userPercent {
-        case 0.0 ..< 30.0:
+        case 0.0 ..< 0.3:
             userImage = Manbo.manbo00
-        case 30.0 ..< 50.0:
+        case 0.3 ..< 0.5:
             userImage = Manbo.manbo01
-        case 50.0 ..< 80.0:
+        case 0.5 ..< 0.8:
             userImage = Manbo.manbo02
-        case 80.0 ..< 100.0:
+        case 0.8 ..< 1.0:
             userImage = Manbo.manbo03
         default:
             userImage = Manbo.manbo100
         }
         
         return userImage.rawValue
-}
-
+    }
+    
 }
 
 

@@ -88,14 +88,13 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDelegate = self
         calendarView.ibCalendarDataSource = self
         setAverageStepCounts()
+        setUserImage(userPercent: userDefaults.setpPercent!)
         
         
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: SelectedTaskCollectionViewCell.identifier)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotification), name: .nameNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(changeImageNotification), name: .imageNotification, object: nil)
         
         //calendarUI
         
@@ -119,7 +118,7 @@ class CalendarViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print(#function)
+        print("calendarview", #function)
         currentStepCount = userDefaults.currentStepCount
         setupCalendarView()
         userNameLabel.text = userDefaults.name!
@@ -133,11 +132,6 @@ class CalendarViewController: UIViewController {
         }
     }
     
-    @objc func changeImageNotification(notification: NSNotification) {
-        if let text = notification.userInfo?["newImage"] as? String {
-            userImageView.image = UIImage(named: text)
-        }
-    }
     
     @IBAction func reloadCalendar(_ sender: UIButton) {
         //let visibleDates = self.calendarView.visibleDates()
@@ -214,8 +208,10 @@ class CalendarViewController: UIViewController {
     func setAverageStepCounts() {
         print(#function)
         
-        averageWeekLabel.text = "\(userDefaults.weekStepCount! / Date().weekday)"
-        averageMonthLabel.text = "\(userDefaults.monthStepCount! / Date().day)"
+        let weekAverageStepCount = userDefaults.weekStepCount! / Date().weekday
+        let monthAverageStepCount = userDefaults.monthStepCount! / Date().day
+        averageWeekLabel.text = "이번주 평균 \(weekAverageStepCount.numberForamt())"
+        averageMonthLabel.text = "이번달 평균 \(monthAverageStepCount.numberForamt())"
     }
     
     
@@ -389,13 +385,10 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         print(SelectedDate)
         guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
+            
             print("해당 날짜 없음.")
             return
         }
-//        guard let thisTask = localRealm.objects(UserReport.self).filter("date CONTAINS[c] '\(SelectedDate)'") else {
-//            return
-//
-//        }
         self.selectedTask = localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate)!
         
         // print(filterdTask.first?.stepCount!)
@@ -424,23 +417,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
         handleCellSelected(view: cell, cellSTate: cellState)
-        
-        //        if self.calendar.isDateInToday(date) {
-        //            handleCellSelected(view: cell, cellSTate: cellState)
-        
-        
-        //        func handleCellSelected(view: JTACDayCell?, cellSTate: CellState) {
-        //            guard let validCell = view as? DateCollectionViewCell else { return }
-        //            validCell.selectedView.cornerRounded(cornerRadius: 20)
-        //
-        //            if validCell.isSelected {
-        //                isSelectedDate = true
-        //                validCell.selectedView.isHidden = false
-        //            } else {
-        //                isSelectedDate = false
-        //                validCell.selectedView.isHidden = true
-        //            }
-        //        }
+
         return true
     }
     
@@ -462,7 +439,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if isSelectedDate {
+        if isSelectedDate { //셀이 하나
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
             
            let dailyData = self.selectedTask
@@ -472,14 +449,13 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             
             cell.dailyStepLabel.text = dailyStep
             cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
-//            cell.tintColor = UIColor.init(hex: 0xF2E2DA)
-            //cell.layer.borderColor = UIColor.white.cgColor
-           // cell.layer.borderWidth = 1
             
-            let userPercent = dailyData?.goalPercent
-            let userImageName = self.setUserImage(userPercent: userPercent!)
+            let userPercent = dailyData!.goalPercent
+            print("userPercent는 \(dailyData!.goalPercent)")
+            let userImageName = self.setUserImage(userPercent: userPercent)
             cell.dailyImage.image = UIImage(named: userImageName)
             cell.cornerRounded(cornerRadius: 10)
+            
             return cell
             
         } else {
