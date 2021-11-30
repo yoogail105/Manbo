@@ -10,6 +10,7 @@ import UIKit
 enum AssetsColor {
     case mainGreen
     case borderLightGray
+    case mainBlue
 }
 
 extension UIColor {
@@ -20,6 +21,8 @@ extension UIColor {
             return #colorLiteral(red: 0.5058823529, green: 0.6431372549, blue: 0.4431372549, alpha: 1)
         case .borderLightGray:
             return #colorLiteral(red: 0.9098039216, green: 0.8980392157, blue: 0.9294117647, alpha: 1)
+        case .mainBlue:
+            return #colorLiteral(red: 0.4156862745, green: 0.5490196078, blue: 0.7019607843, alpha: 1)
         }
     }
     

@@ -8,6 +8,8 @@
 import UIKit
 import JTAppleCalendar
 import RealmSwift
+import HealthKit
+import NotificationBannerSwift
 
 
 class CalendarViewController: UIViewController {
@@ -50,6 +52,18 @@ class CalendarViewController: UIViewController {
             self.setAverageStepCounts()
         }
     }
+    
+    // 월이 바뀌면 헬스킷 데이터 받아오기
+    var month = Date().month {
+        didSet {
+            
+        }
+    }
+    var year = Date().year {
+        didSet {
+            
+        }
+    }
     //Realm
     let localRealm = try! Realm()
     var tasks: Results<UserReport>!
@@ -60,7 +74,8 @@ class CalendarViewController: UIViewController {
     let monthColor =  UIColor.label
     let selectedMonthColor = UIColor.label
     
-    //View Controller
+    //HEALTHKIT
+    let healthStore = HKHealthStore()
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -98,6 +113,7 @@ class CalendarViewController: UIViewController {
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
         
         naviItem()
+        setupCalendarView()
         
     }//: VIEWDIDLOAD
     
@@ -108,6 +124,7 @@ class CalendarViewController: UIViewController {
         setupCalendarView()
         userNameLabel.text = userDefaults.name!
         
+
     }//: viewWillAppear
     
     @objc func changeNameNotification(notification: NSNotification) {
@@ -131,6 +148,18 @@ class CalendarViewController: UIViewController {
         self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
             setupViewsOfCalendar(from: visibleDates)
         }
+    }
+    
+    // MARK: - HEalthkit download
+    func thisMonthUserReports() {
+        if healthStore.ishealthKitAuthorized() {
+            healthStore.getThisMonthStepCounts()
+            healthStore.getThisMonthStepCounts()
+        }
+            
+
+                                           
+        
     }
     
     // MARK: - toggle()
@@ -243,7 +272,7 @@ class CalendarViewController: UIViewController {
     
     func handleCellSelected(view: JTACDayCell?, cellSTate: CellState) {
         guard let validCell = view as? DateCalendarViewCell else { return }
-        validCell.selectedView.cornerRounded(cornerRadius: 20)
+        validCell.selectedView.cornerRounded(cornerRadius: 8)
         
         if validCell.isSelected {
             isSelectedDate = true
@@ -265,9 +294,13 @@ extension CalendarViewController: JTACMonthViewDataSource {
         dateFormatter.timeZone = Calendar.current.timeZone
         dateFormatter.locale = Calendar.current.locale
         
-        let startDate = dateFormatter.date(from: "2021 09 01")!
-        let endDate = dateFormatter.date(from: "2022 12 31")!
+        let firstDate = userDefaults.firstLaunchDate!
         
+        //앱 런치 기준 지난 달의 첫날부터
+        let startDate = firstDate.startOfMonth().startOfLastMonth
+    
+        // 지금 달의 마지막날까지 달력 표시
+        let endDate = Date().startOfMonth().endOfThisMonth
         
         if isMonthView {
             return ConfigurationParameters(startDate: startDate,
@@ -325,7 +358,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         if self.calendar.isDateInToday(date) {
             print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
-            validCell.contentView.cornerRounded(cornerRadius: 15)
+            validCell.contentView.cornerRounded(cornerRadius: 8)
             validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
             //print("실행됨: \(date)")
         } else {
@@ -335,9 +368,12 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         handleCelltextColor(view: validCell, cellSTate: cellState)
         
+        // 다른 날 healthKIt 정보 내려받기
+        
         if cellState.dateBelongsTo == .thisMonth && cellState.text == "1" {
             dateFormatter.dateFormat = "MMM"
-            let month = dateFormatter.string(from: date)
+            month = cellState.date.month
+            year = cellState.date.year
             print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
         }
         
@@ -363,6 +399,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        
         calendar.selectDates(calendar.selectedDates.filter({ $0 != date }))
         
         handleCellSelected(view: cell, cellSTate: cellState)
@@ -429,20 +466,24 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         
         if isSelectedDate {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
-            let userReport = self.selectedTask.first
-            print("여기는 콜렉션뷰",self.selectedTask.first!)
-            let userStep = userReport?.stepCount
-            cell.dailyStepLabel.text = "\(String(describing: userStep!))"
+            
+           let dailyData = self.selectedTask.first
+             print("여기는 콜렉션뷰",self.selectedTask.first!)
+            let userStep = dailyData?.stepCount
+            let dailyStep = userStep?.numberForamt()
+            
+            cell.dailyStepLabel.text = dailyStep
             cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
 //            cell.tintColor = UIColor.init(hex: 0xF2E2DA)
             //cell.layer.borderColor = UIColor.white.cgColor
            // cell.layer.borderWidth = 1
             
-            let userPercent = userReport?.goalPercent
-            let userImageName =  self.setUserImage(userPercent: userPercent!)
+            let userPercent = dailyData?.goalPercent
+            let userImageName = self.setUserImage(userPercent: userPercent!)
             cell.dailyImage.image = UIImage(named: userImageName)
             cell.cornerRounded(cornerRadius: 10)
             return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
             cell.dailyImage.image = UIImage(named: "manbo01")

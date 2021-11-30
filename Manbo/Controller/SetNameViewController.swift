@@ -22,7 +22,6 @@ class SetNameViewController: UIViewController {
     var longName = false
     let userDefaults = UserDefaults.standard
     var isOK = false
-
     // MARK: - VIEWDIDROW
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,7 @@ class SetNameViewController: UIViewController {
         completeButton.isEnabled = false
         
         if !isCoreectedName {
-            notiBanenr(notiText: notiText)
+            self.notiBanenr(notiText: notiText)
         }
         
     }
@@ -114,6 +113,7 @@ class SetNameViewController: UIViewController {
             banner.dismiss()
         })
     }
+    
 }
 
 extension SetNameViewController: UITextFieldDelegate {
@@ -147,5 +147,6 @@ extension SetNameViewController: UITextFieldDelegate {
             self.notiBanenr(notiText: self.notiText)
         }
     }
+    
 }
 

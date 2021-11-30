@@ -16,4 +16,6 @@ extension String {
     func localized(tableName: String = "Localizaton") -> String {
         return NSLocalizedString(self, tableName: tableName, bundle: .main, value: "", comment: "")
     }
+    
+    
 }

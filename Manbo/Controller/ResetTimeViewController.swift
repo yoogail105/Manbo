@@ -23,24 +23,27 @@ class ResetTimeViewController: UIViewController {
         backgroundView.customAlertSetting()
     
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if isOK {
-            userDefaults.resetTime = self.datePicker.date
-        }
-        print("리셋타임은 \(userDefaults.notiTime!)")
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        if isOK {
+//            userDefaults.resetTime = self.datePicker.date
+//        }
+//        print("리셋타임은 \(userDefaults.notiTime!)")
+//    }
     
 
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         isOK = false
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeResteTimeNotification"), object: nil, userInfo: ["newStep": userDefaults.currentStepCount!])
+       
                                             
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
         isOK = true
+        userDefaults.resetTime = self.datePicker.date
+        print("리셋타임은 \(userDefaults.notiTime!)")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeResteTimeNotification"), object: nil, userInfo: ["newStep": userDefaults.currentStepCount!])
         dismiss(animated: true, completion: nil)
     }
    

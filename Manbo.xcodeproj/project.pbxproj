@@ -22,6 +22,7 @@
 		272567CF27562CD3002F11CB /* UserNotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567CC27562CD3002F11CB /* UserNotificationCenter+Extension.swift */; };
 		272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */; };
 		272567D327562D77002F11CB /* SelectedTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */; };
+		272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D4275644B9002F11CB /* UIInt+Extension.swift */; };
 		2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B22744F526004A0BE4 /* AppDelegate.swift */; };
 		2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B42744F526004A0BE4 /* SceneDelegate.swift */; };
 		2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B62744F526004A0BE4 /* ViewController.swift */; };
@@ -106,6 +107,7 @@
 		272567CC27562CD3002F11CB /* UserNotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserNotificationCenter+Extension.swift"; path = "/Users/minjoohehe/Manbo/Manbo/Extension/UserNotificationCenter+Extension.swift"; sourceTree = "<absolute>"; };
 		272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTaskCollectionViewCell.swift; sourceTree = "<group>"; };
 		272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedTaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		272567D4275644B9002F11CB /* UIInt+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInt+Extension.swift"; sourceTree = "<group>"; };
 		2780C5AF2744F526004A0BE4 /* Manbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Manbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2780C5B22744F526004A0BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2780C5B42744F526004A0BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				27DC20AE27524B410098E698 /* Date+Extension.swift */,
 				27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */,
 				27EC33F027557AA500C60C0F /* Notification+Extension.swift */,
+				272567D4275644B9002F11CB /* UIInt+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				27EC33E92755451700C60C0F /* ResetTimeViewController.swift in Sources */,
 				278F74C5274AC84200794E8D /* SetNotificationTimeAlertView.swift in Sources */,
+				272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */,
 				27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */,
 				27EC33F127557AA500C60C0F /* Notification+Extension.swift in Sources */,
 				27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */,

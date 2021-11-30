@@ -190,6 +190,8 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - SetNotiTime
     @objc func toSetNotificaitonTimeButtonClicked() {
+        let vc = SetNotiViewController()
+        vc.requestNotificationAuthorization()
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNotificationTimeAlertView!)
         let alert = setNotificationTimeAlertView
         alert?.backgroundView.customAlertSetting()
@@ -251,6 +253,7 @@ class OnboardingViewController: UIViewController {
         controller.modalTransitionStyle = .flipHorizontal
         
         // 첫 런치 + 초기 정보를 저장한 후에 Onboarding 값 바꾸어주기
+        UserDefaults.standard.firstLaunchDate = Date()
         UserDefaults.standard.hasOnbarded = true
         present(controller, animated: true, completion: nil)
     }
@@ -324,7 +327,7 @@ extension OnboardingViewController: UITextFieldDelegate {
     func incorrectNameNotification(){
         
         if self.longName {
-            self.notiBanenr(notiText: self.notiText)
+            self.notiBanenr(notiText: notiText)
         } else if !self.isCoreectedName {
             self.notiBanenr(notiText: self.notiText)
         }

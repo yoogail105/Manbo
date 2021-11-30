@@ -32,9 +32,10 @@ extension Date {
         return Calendar.current.component(.minute, from: self)
     }
     
-    func getPinDate(startDay: Int) -> Date {
+    // 이번달 첫날
+    func getPinDate(startMonth: Int) -> Date {
         
-        let dateComponents = DateComponents(year: self.year, month: self.month, day: self.day, hour: UserDefaults.standard.resetTime!.hour, minute: UserDefaults.standard.resetTime!.minute)
+        let dateComponents = DateComponents(year: self.year, month: startMonth, day: 1, hour: UserDefaults.standard.resetTime!.hour, minute: UserDefaults.standard.resetTime!.minute)
         let pinDate = Calendar.current.date(from: dateComponents)
         
         return pinDate!
@@ -48,4 +49,30 @@ extension Date {
         return pinDate!
     }
     
+    // 이번달 1일 구하기 with 설정 시간
+    func startOfMonth() -> (startOfThisMonth: Date, startOfLastMonth: Date, startOfNextMonth: Date, endOfThisMonth: Date) {
+        
+        
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        let userDefaults = UserDefaults.standard
+        
+        let month = self.month
+        
+        // 이번달 1일
+        let startOfThisMonth = self.getPinDate(startMonth: month)
+        
+        // 지난달 1일
+        let startOfLastMonth = calendar.date(byAdding: .month, value: -1, to: startOfThisMonth)
+        
+        
+        //다음달 1일
+        let startOfNextMonth = calendar.date(byAdding: .month, value: +1, to: startOfThisMonth)
+        
+        //이번달 마지막
+        let endOfThisMonth = calendar.date(byAdding: .day, value: -1, to: startOfNextMonth!)
+    
+    
+        return (startOfThisMonth,  startOfLastMonth!,  startOfNextMonth!, endOfThisMonth!)
+    }
 }
