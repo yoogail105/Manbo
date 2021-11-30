@@ -156,13 +156,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let sb = UIStoryboard(name: "SettingText", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: SettingTextViewController.identifier) as? SettingTextViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
-        
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 45
+        
     }
     
 }

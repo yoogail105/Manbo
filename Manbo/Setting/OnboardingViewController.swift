@@ -40,6 +40,7 @@ class OnboardingViewController: UIViewController {
     var longName = false
     let userDefaults = UserDefaults.standard
     
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()

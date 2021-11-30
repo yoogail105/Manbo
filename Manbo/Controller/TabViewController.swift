@@ -85,6 +85,7 @@ extension TabViewController {
         sender.isSelected = true
         
         let vc = vcList[selectedIndex]
+        
         // 최상단 프레임에
         vc.view.frame = UIApplication.shared.windows[0].frame
         vc.didMove(toParent: self)

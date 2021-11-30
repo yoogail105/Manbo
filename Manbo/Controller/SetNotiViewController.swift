@@ -60,7 +60,7 @@ class SetNotiViewController: UIViewController {
         }
     }
 
-    // 알림보내기
+    // 알림보내기 
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
 
