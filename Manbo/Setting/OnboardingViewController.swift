@@ -9,6 +9,7 @@
 // AlertView 스토리보드&VC로 옮기기..!!
 import UIKit
 import NotificationBannerSwift
+import UserNotifications
 
 class OnboardingViewController: UIViewController {
     
@@ -190,8 +191,6 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - SetNotiTime
     @objc func toSetNotificaitonTimeButtonClicked() {
-        let vc = SetNotiViewController()
-        vc.requestNotificationAuthorization()
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNotificationTimeAlertView!)
         let alert = setNotificationTimeAlertView
         alert?.backgroundView.customAlertSetting()

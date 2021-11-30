@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     //CoreLocation
     let locationManager = CLLocationManager()
     var locationAuthorization = false
+    var notificationAuthorization = false
     
     
     //  @IBOutlet weak var scrollView: UIScrollView!
@@ -82,7 +83,9 @@ class ViewController: UIViewController {
         dateFormatter.basicDateSetting()
         
         locationManager.delegate = self
+        if !notificationAuthorization {
         self.locationManager.requestWhenInUseAuthorization()
+        }
         
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
@@ -91,6 +94,7 @@ class ViewController: UIViewController {
         }
        
         setUI()
+        SetNotiViewController().requestNotificationAuthorization()
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeResteTimeNotification), name:.stepNotification, object: nil)
@@ -106,10 +110,10 @@ class ViewController: UIViewController {
         if healthStore != nil {
             if ((healthStore?.ishealthKitAuthorized()) != nil) {
                  self.getTodayStepCounts()
+                healthStore?.getThisWeekStepCounts()
+                healthStore?.getThisMonthStepCounts()
                 if !last30DaysStepCount {
                 healthStore?.getNDaysStepCounts(number: 30)
-                    healthStore?.getThisWeekStepCounts()
-                    healthStore?.getThisMonthStepCounts()
                 }
            
             } else {
