@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:UserNotificationCenter+Extension.swift">
+   </FileRef>
+   <FileRef
       location = "group:Manbo.xcodeproj">
    </FileRef>
    <FileRef

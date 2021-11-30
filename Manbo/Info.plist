@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

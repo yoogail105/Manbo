@@ -94,7 +94,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeResteTimeNotification), name:.stepNotification, object: nil)
         
-  
         
     }//: viewDidLoad
     
@@ -128,18 +127,16 @@ class ViewController: UIViewController {
     }//: viewWillAppear
     
     @objc func changeGoalNotification(notification: NSNotification) {
-        let goal = userDafaults.stepsGoal
-        let data = notification.object as? Int ?? goal
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(data!))"
-        self.setUserImage()
+        
+        if let newGoal = notification.userInfo?["myValue"] as? Int {
+            goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(String(newGoal))"
+        }
     }
     
     @objc func changeResteTimeNotification(notification: NSNotification) {
-        
-        let step = userDafaults.currentStepCount
-        let data = notification.object as? Int ?? step
-        currentStepCountLabel.text = "\(String(data!))"
-        self.setUserImage()
+        if let currentStep = notification.userInfo?["newStep"] as? Int {
+            currentStepCountLabel.text = "\(String(currentStep))"
+        }
     }
     
     func getLastConnection() {
@@ -208,10 +205,8 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-  
 }
-    
+
 //     MARK: - getToalStepCounts -> HealthKit Extension
 
 
@@ -296,3 +291,4 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
 }
+

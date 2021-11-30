@@ -118,7 +118,7 @@ extension HKHealthStore {
                         totalSetpCountArray.append(Int(dayCount))
                         totalCount += dayCount
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
-                        filterdTask = realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
+                        filterdTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
                         //realm 에 저장하기! -> func
                         
                         let task = UserReport(date: savedDate,
