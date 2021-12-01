@@ -240,13 +240,12 @@ class ViewController: UIViewController {
     }
     
     func fetchWeather() {
-        OpenWeatherAPIManager.shared.fetchWeatherInformation(latitude: latitude, longitude: longitude) { temp, weather in
+        OpenWeatherAPIManager.shared.fetchWeatherInformation(latitude: latitude, longitude: longitude) { temp  in
             
             
             let currentTemp = Int(temp)
             self.weatherTempLabel.text = "\(currentTemp)°C"
-            
-            print("지금 날씨는요: ",weather)
+        
             
         }
     }

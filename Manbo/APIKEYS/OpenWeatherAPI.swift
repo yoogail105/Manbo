@@ -13,7 +13,7 @@ class OpenWeatherAPIManager {
     
     static let shared = OpenWeatherAPIManager()
     
-    func fetchWeatherInformation(latitude: Double, longitude: Double, result: @escaping (Double, String) -> ()) {
+    func fetchWeatherInformation(latitude: Double, longitude: Double, result: @escaping (Double) -> ()) {
         
         let appid = Bundle.main.apiKey
    
@@ -24,11 +24,9 @@ class OpenWeatherAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let weather = json["weather"]["main"].stringValue
                 let temp = json["main"]["temp"].doubleValue - 273.15
                 
-                result(temp, weather)
-                //label.text = "\(temp)도"
+                result(temp)
             case .failure(let error):
                 print(error)
             }

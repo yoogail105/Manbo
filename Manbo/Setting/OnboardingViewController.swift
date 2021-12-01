@@ -221,7 +221,6 @@ class OnboardingViewController: UIViewController {
     // MARK: - SetNameAlert
     @objc func toSetNameButtonClicked() {
         UserDefaults.standard.notiTime = setNotificationTimeAlertView?.datePicker.date
-        print("알림시간: \(UserDefaults.standard.notiTime)")
         presentAlert(alertFrom: self.setNotificationAlertView!, alertTo: self.setNameAlertView!)
         
         let alert = setNameAlertView

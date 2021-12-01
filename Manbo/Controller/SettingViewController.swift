@@ -25,7 +25,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var notiTimeLabel: UILabel!
     
     
-    let setMenuItem = ["문의하기", "개인정보정책", "버전"]
+    let setMenuItem = ["개인정보정책", "문의하기", "버전"]
     
     let userDefaults = UserDefaults.standard
     let dateFormatter = DateFormatter()
@@ -33,22 +33,26 @@ class SettingViewController: UIViewController {
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         print(#function)
         
         setButtonsUI()
-        tableView.delegate = self
-        tableView.dataSource = self
-        setNameLabelUI()
+    
+    
         notiTimeLabel.setTimeLabelUI()
         resetTimeLabel.setTimeLabelUI()
         stepGoalLabel.setTimeLabelUI()
-        
-    }
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         print("SettingViewController", #function)
         
         print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!), dateFormatter.simpleTimeString(date: userDefaults.notiTime!))
+        
         userNameLabel.text = userDefaults.name!
         stepGoalLabel.text = String(userDefaults.stepsGoal!)
         resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
@@ -113,19 +117,12 @@ class SettingViewController: UIViewController {
                 present(vc, animated: true, completion: nil)
     }
     
-    func setNameLabelUI() {
-        userNameLabel.text = userDefaults.name
-        userNameLabel.tintColor = UIColor.white
-        userNameLabel.font = UIFont.systemFont(ofSize: 20)
-    }
-    
-    
-    
 }//: ViewDidLoad
 
 
 // MARK: - TABLEVIEW
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         1
@@ -141,6 +138,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         let row = indexPath.row
         cell.menuLable.text = setMenuItem[row]
+        
+        
+        
+        if setMenuItem[row] == "문의하기" {
+            cell.rightLabel.text = "yoogail105@gmail.com"
+        }
+        
         if setMenuItem[row] == "버전" {
             cell.rightLabel.text = "1.0.0."
         }
@@ -152,16 +156,11 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 공지사항은 다른 테이블뷰로 이동
         // 이용약관, 개인보호정책, 오픈소스, 버전은 문자열 표시
-        
+        if setMenuItem[indexPath.row] == "개인보호정책" {
         let sb = UIStoryboard(name: "SettingText", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: SettingTextViewController.identifier) as? SettingTextViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 45
-        
+        }
     }
 
     
