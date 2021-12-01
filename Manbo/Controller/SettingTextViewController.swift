@@ -13,18 +13,12 @@ class SettingTextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function)
-        // Do any additional setup after loading the view.
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeButtonClicked))
     }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func closeButtonClicked() {
+        dismiss(animated: true, completion: nil)
     }
-    */
-
 }

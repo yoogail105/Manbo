@@ -53,9 +53,9 @@ extension Date {
     func startOfMonth() -> (startOfThisMonth: Date, startOfLastMonth: Date, startOfNextMonth: Date, endOfThisMonth: Date) {
         
         
-        let dateFormatter = DateFormatter()
+        
         let calendar = Calendar.current
-        let userDefaults = UserDefaults.standard
+        
         
         let month = self.month
         

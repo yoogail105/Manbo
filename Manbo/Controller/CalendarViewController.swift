@@ -162,7 +162,7 @@ class CalendarViewController: UIViewController {
         if isMonthView {
             isMonthView.toggle()
             toggleMonthWeek.setImage(UIImage(systemName: "w.square"), for: .normal)
-            constraint.constant = 58.33
+            constraint.constant = 50.0
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
             }) { completed in
@@ -259,7 +259,7 @@ class CalendarViewController: UIViewController {
                 validCell.dateLabel.textColor = monthColor
                 
             } else {
-                validCell.dateLabel.textColor = outsideMonthColor
+                validCell.dateLabel.textColor = UIColor.appColor(.borderLightGray)
             }
         }
         
@@ -466,16 +466,18 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             cell.dailyImage.image = UIImage(named: "manbo01")
             cell.cornerRounded(cornerRadius: 10)
                 //task.count
-            let row = indexPath.row
-            let imageName = setUserImage(userPercent: tasks[row].goalPercent)
+            let row = tasks[indexPath.row]
+            let imageName = setUserImage(userPercent: row.goalPercent)
             cell.dailyImage.image = UIImage(named: imageName)
             settingCell(cell: cell)
+            cell.configureCell(row: row)
             
             return cell
             
         }
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if isSelectedDate {

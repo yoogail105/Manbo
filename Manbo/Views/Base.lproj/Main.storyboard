@@ -24,16 +24,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zao-dk-eX8">
-                                <rect key="frame" x="139.66666666666669" y="546.33333333333337" width="134.66666666666669" height="35"/>
+                                <rect key="frame" x="179.33333333333334" y="546.33333333333337" width="55.333333333333343" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13,926" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-sl-2b2">
-                                        <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-sl-2b2">
+                                        <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="35"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feet" translatesAutoresizingMaskIntoConstraints="NO" id="Ox0-7H-5ii">
-                                        <rect key="frame" x="99.666666666666686" y="0.0" width="35" height="35"/>
+                                        <rect key="frame" x="20.333333333333314" y="0.0" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ox0-7H-5ii" secondAttribute="height" multiplier="1:1" id="4u2-HP-FyW"/>
                                             <constraint firstAttribute="width" constant="35" id="Hqy-v9-9Pe"/>
@@ -162,7 +162,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eK7-Eb-H3w">
-                                        <rect key="frame" x="0.0" y="29" width="75" height="15"/>
+                                        <rect key="frame" x="0.0" y="29" width="32.666666666666664" height="15"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-O6-kmy">
                                                 <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="15"/>
@@ -170,8 +170,8 @@
                                                 <color key="textColor" red="0.96084719900000004" green="0.76179283860000002" blue="0.25864145160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q09-Dd-Kfi">
-                                                <rect key="frame" x="37.666666666666657" y="0.0" width="37.333333333333343" height="15"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q09-Dd-Kfi">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.41585117579999997" green="0.55007231239999999" blue="0.70198142529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                             <constraint firstAttribute="height" constant="15" id="zf9-5p-XN3"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-j5-erS">
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-j5-erS">
                                         <rect key="frame" x="42" y="0.0" width="29" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="B2X-j5-erS" secondAttribute="height" multiplier="1:1" id="uSt-ST-H83"/>
@@ -235,6 +235,8 @@
                         <outlet property="goalLabel" destination="A4K-lC-5UK" id="hcI-WL-BFI"/>
                         <outlet property="goalView" destination="abG-fO-LXw" id="a6I-k2-5ex"/>
                         <outlet property="userImageView" destination="q7I-if-tu1" id="Red-R7-O3s"/>
+                        <outlet property="weatherImageView" destination="tj1-ji-vCl" id="Obh-lU-PGt"/>
+                        <outlet property="weatherTempLabel" destination="ilM-O6-kmy" id="8D5-Wc-jEz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

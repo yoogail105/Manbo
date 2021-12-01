@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     static let identifier = "ViewController"
     // MARK: - PROPERTIES
     
+    @IBOutlet weak var weatherTempLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
     // healthStore
     var healthKitAuthorization = false
     var healthStore: HKHealthStore?
@@ -39,7 +41,9 @@ class ViewController: UIViewController {
     let locationManager = CLLocationManager()
     var locationAuthorization = false
     var notificationAuthorization = false
-    
+    var currentLocation: CLLocation?
+    var latitude = 37.566403559824955
+    var longitude = 126.97794018074802
     
     //  @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -68,14 +72,14 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("main", #function)
-      //  UserDefaults.standard.hasOnbarded = false
+        //  UserDefaults.standard.hasOnbarded = false
         dateFormatter.timeZone = calendar.timeZone
         dateFormatter.locale = calendar.locale
         
@@ -85,15 +89,16 @@ class ViewController: UIViewController {
         
         locationManager.delegate = self
         if !notificationAuthorization {
-        self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.requestWhenInUseAuthorization()
         }
         
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
+            healthStore!.authorizeHealthKit()
         } else {
             self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
         }
-       
+        
         setUI()
         setUserImage()
         SetNotiViewController().requestNotificationAuthorization()
@@ -103,6 +108,15 @@ class ViewController: UIViewController {
         
         
     }//: viewDidLoad
+    func getLocation() {
+        if(CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestLocation()
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -111,19 +125,19 @@ class ViewController: UIViewController {
         
         if healthStore != nil {
             if ((healthStore?.ishealthKitAuthorized()) != nil) {
-                 self.getTodayStepCounts()
+                self.getTodayStepCounts()
                 healthStore?.getThisWeekStepCounts()
                 healthStore?.getThisMonthStepCounts()
                 if !last30DaysStepCount {
-                healthStore?.getNDaysStepCounts(number: 30)
+                    healthStore?.getNDaysStepCounts(number: 30)
                 }
-           
+                
             } else {
-             //   헬스킷 권한 요청한다.
+                //   헬스킷 권한 요청한다.
                 healthStore!.authorizeHealthKit()
             }
         }
- 
+        
     }//: viewWillAppear
     
     // calendar에서는 보이도록
@@ -181,7 +195,7 @@ class ViewController: UIViewController {
             userImage = Manbo.manbo100
         }
     }
-
+    
     
     @IBAction func settingButtonClicked(_ sender: UIButton) {
         
@@ -209,10 +223,9 @@ class ViewController: UIViewController {
         
     }
     
+    
     func setDefaultLocation() {
-        let lat = 37.566403559824955
-        let lon = 126.97794018074802
-        print("기본 주소: \(lat), \(lon)")
+        currentLocation = CLLocation(latitude: 37.566403559824955, longitude: 126.97794018074802)
     }
     
     // MARK: - HEALTHKIT
@@ -225,6 +238,19 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func fetchWeather() {
+        OpenWeatherAPIManager.shared.fetchWeatherInformation(latitude: latitude, longitude: longitude) { temp, weather in
+            
+            
+            let currentTemp = Int(temp)
+            self.weatherTempLabel.text = "\(currentTemp)°C"
+            
+            print("지금 날씨는요: ",weather)
+            
+        }
+    }
+    
 }
 
 //     MARK: - getToalStepCounts -> HealthKit Extension
@@ -258,16 +284,19 @@ extension ViewController: CLLocationManagerDelegate {
         print("메인: ", #function)
         
         if let location = locations.last {
+            self.currentLocation = location
+            
             locationManager.stopUpdatingLocation()
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            print("\(lat), \(lon)")
+            latitude = self.currentLocation!.coordinate.latitude
+            longitude = self.currentLocation!.coordinate.longitude
+            
             
         } else {
-            let lat = 37.566403559824955
-            let lon = 126.97794018074802
-            print("기본 주소: \(lat), \(lon)")
+            latitude = 37.566403559824955
+            longitude = 126.97794018074802
         }
+        
+        fetchWeather()
     }
     // 2. 허용했는데, 에러남
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -311,4 +340,5 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
 }
+
 

@@ -23,11 +23,11 @@ class TabViewController: UIViewController {
     // VC연결
     let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ViewController.identifier)
     //camera = 1 buttons[1]
-    let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateViewController(withIdentifier: CameraViewController.identifier)
+//    let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateViewController(withIdentifier: CameraViewController.identifier)
     let calendarVC = UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "CalendarNC")
     
     //camera
-    let imagePickerController = UIImagePickerController()
+   // let imagePickerController = UIImagePickerController()
     
   
   // MARK: - VIEWDIDLOAD
@@ -36,7 +36,7 @@ class TabViewController: UIViewController {
         tabBarBackgroundView.cornerRounded(cornerRadius: tabBarBackgroundView.frame.size.height / 2)
         
         // VC배열에 넣기
-        vcList = [mainVC, cameraVC, calendarVC]
+        vcList = [mainVC, calendarVC]
         
         setButtonTag()
         
@@ -44,8 +44,8 @@ class TabViewController: UIViewController {
         buttons[selectedIndex].isSelected = true
         tabChanged(sender: buttons[selectedIndex])
         
-        imagePickerController.delegate = self
-        buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
+     //   imagePickerController.delegate = self
+//        buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
         
     }
     
@@ -57,11 +57,11 @@ class TabViewController: UIViewController {
         }
     }
     
-    @objc func cameraOpen() {
-        self.imagePickerController.sourceType = .camera
-        self.present(self.imagePickerController,animated: true, completion:  nil)
-        
-    }
+//    @objc func cameraOpen() {
+//        self.imagePickerController.sourceType = .camera
+//        self.present(self.imagePickerController,animated: true, completion:  nil)
+//
+//    }
     
 } //:viewDidLoad
 

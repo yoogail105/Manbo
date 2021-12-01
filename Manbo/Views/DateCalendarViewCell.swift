@@ -10,7 +10,7 @@ import JTAppleCalendar
 
 class DateCalendarViewCell: JTACDayCell {
     static let identifier = "DateCalendarViewCell"
-    //static let identifier = String(describing: DateCalendarViewCell.self)
+    
 
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
