@@ -20,6 +20,7 @@ class ResetTimeViewController: UIViewController {
         super.viewDidLoad()
 
         resetTimeLabel.text = "언제 걸음을\n새로 측정할까요?"
+        datePicker.setValue(UIColor.white, forKey: "textColor")
         backgroundView.customAlertSetting()
     
     }

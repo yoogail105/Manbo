@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentStepCountLabel: UILabel!
     var userImage = Manbo.manbo00
     //userDefaults
-    let userDafaults = UserDefaults.standard
+    let userDefaults = UserDefaults.standard
     
     var stepGoal = UserDefaults.standard.stepsGoal!
     var stepPercent = UserDefaults.standard.setpPercent! {
@@ -88,15 +88,28 @@ class ViewController: UIViewController {
         dateFormatter.basicDateSetting()
         
         locationManager.delegate = self
-        if !notificationAuthorization {
-            self.locationManager.requestWhenInUseAuthorization()
-        }
+        
+        checkUserLoactionServicesAuthorization()
         
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
-            healthStore!.authorizeHealthKit()
         } else {
             self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
+        }
+        
+        if healthStore != nil {
+            if ((healthStore?.ishealthKitAuthorized()) != nil) {
+                self.getTodayStepCounts()
+                healthStore?.getThisWeekStepCounts()
+                healthStore?.getThisMonthStepCounts()
+                if !last30DaysStepCount {
+                    healthStore?.getNDaysStepCounts(number: 30)
+                }
+                
+            } else {
+                //   헬스킷 권한 요청한다.
+                healthStore!.authorizeHealthKit()
+            }
         }
         
         setUI()
@@ -108,19 +121,13 @@ class ViewController: UIViewController {
         
         
     }//: viewDidLoad
-    func getLocation() {
-        if(CLLocationManager.locationServicesEnabled()) {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.requestLocation()
-        }
-    }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("main",#function)
+        
         self.navigationController?.isNavigationBarHidden = true
         
         if healthStore != nil {
@@ -138,7 +145,9 @@ class ViewController: UIViewController {
             }
         }
         
+        
     }//: viewWillAppear
+    
     
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
@@ -146,7 +155,7 @@ class ViewController: UIViewController {
         print("main:", #function)
         self.navigationController?.isNavigationBarHidden = false
         
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDafaults.stepsGoal!.numberForamt())"
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDefaults.stepsGoal!.numberForamt())"
     }//: viewWillAppear
     
     @objc func changeGoalNotification(notification: NSNotification) {
@@ -154,6 +163,15 @@ class ViewController: UIViewController {
         if let newGoal = notification.userInfo?["myValue"] as? Int {
             goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(newGoal.numberForamt())"
             setUserImage()
+        }
+    }
+    
+    func getLocation() {
+        if(CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestLocation()
         }
     }
     
@@ -177,11 +195,13 @@ class ViewController: UIViewController {
         print("main: ", #function)
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(stepGoal.numberForamt())"
+        let stepText = userDefaults.currentStepCount?.numberForamt()
+        currentStepCountLabel.text = "\(String(describing: stepText))"
     }
     
     func setUserImage() {
         print("main: percente \(stepPercent)", #function)
-        stepPercent = userDafaults.setpPercent!
+        stepPercent = userDefaults.setpPercent!
         switch stepPercent {
         case 0.0 ..< 0.3:
             userImage = Manbo.manbo00
@@ -245,7 +265,7 @@ class ViewController: UIViewController {
             
             let currentTemp = Int(temp)
             self.weatherTempLabel.text = "\(currentTemp)°C"
-        
+            
             
         }
     }
@@ -259,7 +279,26 @@ class ViewController: UIViewController {
 // MARK: - LOCATION
 extension ViewController: CLLocationManagerDelegate {
     
-    //3. 앱 처음 실행했거나, 권한을 변경하고자 할때
+    func checkUserLoactionServicesAuthorization() {
+        
+        let authorizationStatus: CLAuthorizationStatus
+        
+        if #available(iOS 14.0, *) {
+            authorizationStatus = locationManager.authorizationStatus
+    
+        } else {
+            authorizationStatus = CLLocationManager.authorizationStatus()
+        }
+        
+        if CLLocationManager.locationServicesEnabled() {
+            checkCurrentLocationAuthorization(authorizationStatus)
+        } else {
+            print("iOS 위치 서비스를 켜주세요 alert")
+            
+        }
+    }
+    
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print("메인: ", #function)
         switch status {
@@ -278,7 +317,7 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
     
-    // 1. 사용자가 위치를 허용했다면
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("메인: ", #function)
         
@@ -297,7 +336,7 @@ extension ViewController: CLLocationManagerDelegate {
         
         fetchWeather()
     }
-    // 2. 허용했는데, 에러남
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(#function, error)
     }

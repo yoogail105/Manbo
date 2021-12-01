@@ -281,6 +281,17 @@ class CalendarViewController: UIViewController {
             validCell.dateLabel.textColor = monthColor
         }
     }
+    
+    func notiBanenr(notiText: String) {
+        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
+        
+        banner.show()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+            banner.dismiss()
+        })
+    }
+    
 }
 extension CalendarViewController: JTACMonthViewDataSource {
     
@@ -384,7 +395,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         print(SelectedDate)
         guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
-            
+            self.notiBanenr(notiText: "이날도 만보랑 걸어주실거죠?")
             print("해당 날짜 없음.")
             return
         }
