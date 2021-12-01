@@ -64,8 +64,8 @@ class SetNotiViewController: UIViewController {
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
 
-        notificationContent.title = "\(userDefaults.name!)님이 메세지를 보냈습니다."
-        notificationContent.body = "오늘도 저를 보러 와주실 거죠?"
+        notificationContent.title = "\(userDefaults.name!)님이 보낸 메세지:"
+        notificationContent.body = "산책 언제 가요? 산책 가요!"
 
         let notiTime = userDefaults.notiTime!
         var date = DateComponents()

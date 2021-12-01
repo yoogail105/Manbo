@@ -10,5 +10,5 @@
 //NSPhotoLibraryAddUsageDescription = "";
 //NSCameraUsageDescription = "";
 NSHealthShareUsageDescription = "걸음 수를 읽어오기 위해서 건강 앱에 대한 접근 권한이 필요합니다.";
-NSPhotoLibraryAddUsageDescription = "사진을 추가하기 위해서는 앨범에 대한 접근 권한이 필요합니다.";
-NSCameraUsageDescription = "현재 걷고 있는 길을 촬영하기 위해서는 카메라에 대한 접근 권한이 필요합니다.";
+//NSPhotoLibraryAddUsageDescription = "사진을 추가하기 위해서는 앨범에 대한 접근 권한이 필요합니다.";
+//NSCameraUsageDescription = "현재 걷고 있는 길을 촬영하기 위해서는 카메라에 대한 접근 권한이 필요합니다.";

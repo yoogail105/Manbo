@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335005497D8D5B55E108E521 /* Pods_Manbo.framework */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
-		2707947D275038CC00CE532D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947C275038CC00CE532D /* Constants.swift */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE952753ED70004230A6 /* RealmManagerViewController.swift */; };
 		270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE9827546E37004230A6 /* TabBarViewModel.swift */; };
@@ -19,10 +18,11 @@
 		27192758274AFEDF00F26F8D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27192757274AFEDF00F26F8D /* UserModel.swift */; };
 		2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27192759274B8A1000F26F8D /* UIButton+Extension.swift */; };
 		2719275C274B9EB400F26F8D /* NotificationBanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2719275B274B9EB400F26F8D /* NotificationBanner.storyboard */; };
-		272567CF27562CD3002F11CB /* UserNotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567CC27562CD3002F11CB /* UserNotificationCenter+Extension.swift */; };
 		272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */; };
 		272567D327562D77002F11CB /* SelectedTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */; };
 		272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D4275644B9002F11CB /* UIInt+Extension.swift */; };
+		272567DB2756CCFF002F11CB /* WeatherInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272567DA2756CCFF002F11CB /* WeatherInfo.plist */; };
+		272567DD2756CD50002F11CB /* MANBORANG++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */; };
 		2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B22744F526004A0BE4 /* AppDelegate.swift */; };
 		2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B42744F526004A0BE4 /* SceneDelegate.swift */; };
 		2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B62744F526004A0BE4 /* ViewController.swift */; };
@@ -95,7 +95,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2707947C275038CC00CE532D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
 		270CAE9827546E37004230A6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
@@ -104,10 +103,11 @@
 		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		27192759274B8A1000F26F8D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		2719275B274B9EB400F26F8D /* NotificationBanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationBanner.storyboard; sourceTree = "<group>"; };
-		272567CC27562CD3002F11CB /* UserNotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserNotificationCenter+Extension.swift"; path = "/Users/minjoohehe/Manbo/Manbo/Extension/UserNotificationCenter+Extension.swift"; sourceTree = "<absolute>"; };
 		272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTaskCollectionViewCell.swift; sourceTree = "<group>"; };
 		272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedTaskCollectionViewCell.xib; sourceTree = "<group>"; };
 		272567D4275644B9002F11CB /* UIInt+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInt+Extension.swift"; sourceTree = "<group>"; };
+		272567DA2756CCFF002F11CB /* WeatherInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeatherInfo.plist; sourceTree = "<group>"; };
+		272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MANBORANG++Bundle.swift"; sourceTree = "<group>"; };
 		2780C5AF2744F526004A0BE4 /* Manbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Manbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2780C5B22744F526004A0BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2780C5B42744F526004A0BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,7 +209,8 @@
 		2707947B2750387B00CE532D /* APIKEYS */ = {
 			isa = PBXGroup;
 			children = (
-				2707947C275038CC00CE532D /* Constants.swift */,
+				272567DA2756CCFF002F11CB /* WeatherInfo.plist */,
+				272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */,
 				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
 			);
 			path = APIKEYS;
@@ -259,7 +260,6 @@
 		270D726B27465EC9007ADC71 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				272567CC27562CD3002F11CB /* UserNotificationCenter+Extension.swift */,
 				278832A02746F1AE007616EA /* UIString+Extension.swift */,
 				278F74A627496CB500794E8D /* UserDefaults+Extension.swift */,
 				270D726D27465F05007ADC71 /* UIView+Extension.swift */,
@@ -483,6 +483,7 @@
 				2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */,
 				278F74C1274AC77700794E8D /* SetNotificationTimeAlertView.xib in Resources */,
 				278F74B8274AC68700794E8D /* SetResetTimeAlertView.xib in Resources */,
+				272567DB2756CCFF002F11CB /* WeatherInfo.plist in Resources */,
 				278F74C9274AC8D200794E8D /* SetNameAlertView.xib in Resources */,
 				27EC33CC275489E400C60C0F /* RsetColorTableViewCell.xib in Resources */,
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
@@ -558,7 +559,6 @@
 				278F74BA274AC69B00794E8D /* SetResetTimeAlertView.swift in Sources */,
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
 				27EC33D62754A60900C60C0F /* SettingTextViewController.swift in Sources */,
-				272567CF27562CD3002F11CB /* UserNotificationCenter+Extension.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
 				270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */,
 				270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */,
@@ -576,7 +576,6 @@
 				27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */,
 				27EC33F127557AA500C60C0F /* Notification+Extension.swift in Sources */,
 				27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */,
-				2707947D275038CC00CE532D /* Constants.swift in Sources */,
 				27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */,
 				2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */,
 				27EC33B9275487DE00C60C0F /* SettingTableViewCellController.swift in Sources */,
@@ -599,6 +598,7 @@
 				278F74C7274AC8C800794E8D /* SetNameAlertView.swift in Sources */,
 				278F74B4274A9EA400794E8D /* SetGoalAlertView.swift in Sources */,
 				27EC33C72754899E00C60C0F /* RestNotiTimeTableViewCell.swift in Sources */,
+				272567DD2756CD50002F11CB /* MANBORANG++Bundle.swift in Sources */,
 				27EC33E7275544B600C60C0F /* SetNotiViewController.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
 				278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */,
@@ -790,9 +790,15 @@
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "현재 걷고 있는 길을 촬영하기 위해서는 카메라에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 설정하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 설정하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "사진을 추가하기 위해서는 앨범에 대한 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = TabView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -802,7 +808,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoogail105.Manbo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoogail105.Manborang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -821,9 +827,15 @@
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "현재 걷고 있는 길을 촬영하기 위해서는 카메라에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 설정하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 설정하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "사진을 추가하기 위해서는 앨범에 대한 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = TabView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

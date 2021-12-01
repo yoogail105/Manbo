@@ -4,22 +4,26 @@ PODS:
     - MarqueeLabel (~> 4.0.5)
     - SnapKit (~> 5.0.1)
   - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - NotificationBannerSwift (~> 3.0.0)
   - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - MarqueeLabel
     - NotificationBannerSwift
     - SnapKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 4c4ebeb04e9b02d44cf9fd463328f39827c7f994
+PODFILE CHECKSUM: aa45aa3b6eec22d8663594310b24be035bfcb546
 
 COCOAPODS: 1.11.2

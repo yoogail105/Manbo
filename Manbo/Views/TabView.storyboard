@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -46,12 +46,9 @@
                                             <constraint firstAttribute="width" secondItem="JEv-UY-B5o" secondAttribute="height" multiplier="1:1" id="uV3-Oj-VKC"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="camera.viewfinder" catalog="system">
+                                        <state key="normal" image="heart">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
-                                        <connections>
-                                            <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5rx-HI-ZbG"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
                                         <rect key="frame" x="223" y="15.5" width="30.5" height="31"/>
@@ -99,7 +96,6 @@
                         <outlet property="tabBarBackgroundView" destination="FOd-cS-JcO" id="ixI-05-g4U"/>
                         <outlet property="tabView" destination="Nq3-KB-knP" id="zLr-7Z-Npj"/>
                         <outletCollection property="buttons" destination="JsR-Py-VQB" collectionClass="NSMutableArray" id="SCE-h8-Xdq"/>
-                        <outletCollection property="buttons" destination="JEv-UY-B5o" collectionClass="NSMutableArray" id="bu3-Mi-K8T"/>
                         <outletCollection property="buttons" destination="rXL-5j-L6q" collectionClass="NSMutableArray" id="yFE-ne-6YW"/>
                     </connections>
                 </viewController>
@@ -110,8 +106,8 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="feet" width="2048" height="2048"/>
+        <image name="heart" width="400" height="400"/>
         <namedColor name="mainColor">
             <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

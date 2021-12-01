@@ -25,7 +25,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var notiTimeLabel: UILabel!
     
     
-    let setMenuItem = ["공지사항", "문의하기", "이용양관", "개인정보정책", "오픈소스", "버전"]
+    let setMenuItem = ["문의하기", "개인정보정책", "버전"]
     
     let userDefaults = UserDefaults.standard
     let dateFormatter = DateFormatter()
@@ -114,10 +114,9 @@ class SettingViewController: UIViewController {
     }
     
     func setNameLabelUI() {
-        resetNameButton.setTitle(userDefaults.name, for: .normal)
-        resetNameButton.setTitleColor(UIColor.white, for: .normal)
-        resetNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        
+        userNameLabel.text = userDefaults.name
+        userNameLabel.tintColor = UIColor.white
+        userNameLabel.font = UIFont.systemFont(ofSize: 20)
     }
     
     
@@ -139,7 +138,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingBasicTableViewCell.identifier, for: indexPath) as? SettingBasicTableViewCell else {
             return UITableViewCell() }
-        
+        cell.selectionStyle = .none
         let row = indexPath.row
         cell.menuLable.text = setMenuItem[row]
         if setMenuItem[row] == "버전" {
@@ -164,6 +163,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         return 45
         
     }
+
     
 }
 
