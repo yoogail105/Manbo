@@ -88,7 +88,6 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDelegate = self
         calendarView.ibCalendarDataSource = self
         setAverageStepCounts()
-        setUserImage(userPercent: userDefaults.setpPercent!)
         
         
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
