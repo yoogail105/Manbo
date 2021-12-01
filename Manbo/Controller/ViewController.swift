@@ -20,13 +20,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherTempLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     // healthStore
-    var healthKitAuthorization = false
+    var healthKitAuthorization = UserDefaults.standard.healthKitAuthorization
     var healthStore: HKHealthStore?
     var totalStepCount = 0.0
     var SevenDaysStepCounts = 0
     var ThisWeekStepCounts = 0
     var ThisMonthStepCounts = 0
     var last30DaysStepCount = false
+    var didHealthKitAlert = false
+
     
     //time
     var today = Date()
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
     var currentLocation: CLLocation?
     var latitude = 37.566403559824955
     var longitude = 126.97794018074802
+    var didLocationAlert = false
     
     //  @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -80,38 +83,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("main", #function)
         //  UserDefaults.standard.hasOnbarded = false
-        dateFormatter.timeZone = calendar.timeZone
-        dateFormatter.locale = calendar.locale
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
-        dateFormatter.basicDateSetting()
-        
-        locationManager.delegate = self
-        
-        checkUserLoactionServicesAuthorization()
-        
+        // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
         } else {
             self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
         }
         
-        if healthStore != nil {
-            if ((healthStore?.ishealthKitAuthorized()) != nil) {
-                print("헬스킷Ok")
-                self.getTodayStepCounts()
-                healthStore?.getThisWeekStepCounts()
-                healthStore?.getThisMonthStepCounts()
-                if !last30DaysStepCount {
-                    healthStore?.getNDaysStepCounts(number: 30)
-                }
-                
-            } else {
-                //   헬스킷 권한 요청한다.
-                healthStore!.authorizeHealthKit()
-            }
+        dateFormatter.timeZone = calendar.timeZone
+        dateFormatter.locale = calendar.locale
+        dateFormatter.basicDateSetting()
+        
+        locationManager.delegate = self
+        checkUserLoactionServicesAuthorization()
+        
+        if !locationAuthorization && !didLocationAlert {
+            locationSettingAlert()
+            didLocationAlert = true
         }
+       
         
         setUI()
         setUserImage()
@@ -119,36 +110,37 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeResteTimeNotification), name:.stepNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeStepCountNotification), name: .updateStepNotification, object: nil)
         
+        // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }//: viewDidLoad
-    
-    
+ 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("main",#function)
-        
+
         self.navigationController?.isNavigationBarHidden = true
         
-        if healthStore != nil {
-            if ((healthStore?.ishealthKitAuthorized()) != nil) {
-                self.getTodayStepCounts()
-                healthStore?.getThisWeekStepCounts()
-                healthStore?.getThisMonthStepCounts()
-                if !last30DaysStepCount {
-                    healthStore?.getNDaysStepCounts(number: 30)
-                }
-                
-            } else {
-                //   헬스킷 권한 요청한다.
-                healthStore!.authorizeHealthKit()
-            }
+        healthStore!.authorizedHealthKIt()
+        if !userDefaults.healthKitAuthorization, !didHealthKitAlert {
+            currentStepCountLabel.text = "만보랑 같이 걸어요"
+            healthKitSettingAlert()
         }
-        
-        
+//
     }//: viewWillAppear
     
+    @objc func changeStepCountNotification(notification: NSNotification) {
+        if let newCount = notification.userInfo?["newCurrentStepCount"] as? Int {
+            if newCount == 0 {
+                currentStepCountLabel.text = "만보랑 같이 걸어요"
+            } else {
+            currentStepCountLabel.text = "\(newCount.numberForamt())"
+                view.layoutIfNeeded()
+            }
+        }
+    }
     
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
@@ -251,14 +243,7 @@ class ViewController: UIViewController {
     
     // MARK: - HEALTHKIT
     // UI바뀌어야 해서,,
-    func getTodayStepCounts()  {
-        healthStore!.getToalStepCounts(passedDays: 0) { (result) in
-            DispatchQueue.main.async {
-                self.currentStepCount = Int(result)
-                UserDefaults.standard.currentStepCount = self.currentStepCount
-            }
-        }
-    }
+    
     
     func fetchWeather() {
         OpenWeatherAPIManager.shared.fetchWeatherInformation(latitude: latitude, longitude: longitude) { temp  in
@@ -270,9 +255,34 @@ class ViewController: UIViewController {
             
         }
     }
+    func locationSettingAlert() {
+            showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 정확한 날씨 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "허용하기") {
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(url){
+                    UIApplication.shared.open(url) { success in
+                    }
+                }
+                
+            }
+        } //: locationSettingAlert
+    func healthKitSettingAlert() {
+        showAlert(title: "걸음을 가져올 수 없습니다.", message: "건강 앱에서 내 걸음수를 읽을 수 있도록 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요.", okTitle: "확인") {
+            self.healthStore!.authorizedHealthKIt()
+            self.didHealthKitAlert = true
+//            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+//                return
+//            }
+//            if UIApplication.shared.canOpenURL(url){
+//                UIApplication.shared.open(url) { success in
+//                }
+//            }
+            
+        }
+        }
+    }
     
-}
-
 //     MARK: - getToalStepCounts -> HealthKit Extension
 
 
@@ -294,6 +304,7 @@ extension ViewController: CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization(authorizationStatus)
         } else {
+            fetchWeather()
             print("iOS 위치 서비스를 켜주세요 alert")
             
         }
@@ -352,6 +363,7 @@ extension ViewController: CLLocationManagerDelegate {
             locationManager.requestLocation()
         case .restricted, .denied:
             locationAuthorization = false
+            fetchWeather()
             print("설정으로")
         case .authorizedAlways:
             locationAuthorization = true
@@ -360,8 +372,10 @@ extension ViewController: CLLocationManagerDelegate {
             locationAuthorization = true
         case .authorized:
             print("default")
+            fetchWeather()
         @unknown default:
             print("default")
+            fetchWeather()
         }
         if #available(iOS 14.0, *) {
             let accurancyState = locationManager.accuracyAuthorization

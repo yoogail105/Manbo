@@ -96,7 +96,8 @@ class SetNameViewController: UIViewController {
                                             
         self.dismiss(animated: true, completion: nil)
                                         
-                                
+                   
+        
     }
   
     @IBAction func cancelButton(_ sender: UIButton) {

@@ -24,16 +24,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zao-dk-eX8">
-                                <rect key="frame" x="27.333333333333343" y="546.33333333333337" width="359.33333333333326" height="35"/>
+                                <rect key="frame" x="74.333333333333343" y="546.33333333333337" width="265.33333333333326" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아래의 발자국을 눌러주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-sl-2b2">
-                                        <rect key="frame" x="0.0" y="0.0" width="324.33333333333331" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-sl-2b2">
+                                        <rect key="frame" x="0.0" y="0.0" width="230.33333333333334" height="35"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feet" translatesAutoresizingMaskIntoConstraints="NO" id="Ox0-7H-5ii">
-                                        <rect key="frame" x="324.33333333333337" y="0.0" width="35" height="35"/>
+                                        <rect key="frame" x="230.33333333333337" y="0.0" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ox0-7H-5ii" secondAttribute="height" multiplier="1:1" id="4u2-HP-FyW"/>
                                             <constraint firstAttribute="width" constant="35" id="Hqy-v9-9Pe"/>

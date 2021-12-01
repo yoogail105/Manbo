@@ -25,22 +25,48 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGC-iB-4eE">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" name="mainColor"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manbo100" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-Rh-7q5">
+                                <rect key="frame" x="124" y="365" width="166" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zRe-Rh-7q5" secondAttribute="height" multiplier="1:1" id="E1a-VI-y2s"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <constraints>
+                            <constraint firstItem="zRe-Rh-7q5" firstAttribute="width" secondItem="zGC-iB-4eE" secondAttribute="width" multiplier="0.4" id="31k-TT-4xx"/>
+                            <constraint firstItem="zGC-iB-4eE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3w7-Xw-kvf"/>
                             <constraint firstItem="uFD-fn-fd5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="FMO-kW-y2m"/>
+                            <constraint firstItem="zGC-iB-4eE" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Foc-wq-6A7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uFD-fn-fd5" secondAttribute="bottom" id="Ndb-ZG-ICI"/>
+                            <constraint firstItem="zRe-Rh-7q5" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="SZi-MF-gZA"/>
+                            <constraint firstAttribute="bottom" secondItem="zGC-iB-4eE" secondAttribute="bottom" id="UEj-j9-w3p"/>
+                            <constraint firstItem="zRe-Rh-7q5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="e43-Yr-g4v"/>
                             <constraint firstItem="uFD-fn-fd5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="m3b-AR-Dol"/>
+                            <constraint firstItem="zGC-iB-4eE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uo1-Z1-WDI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uFD-fn-fd5" secondAttribute="trailing" id="zhI-MY-fDA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="manboImage" destination="zRe-Rh-7q5" id="McC-Hf-bmE"/>
+                        <outlet property="webView" destination="zGC-iB-4eE" id="mfQ-As-nVY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="45"/>
+            <point key="canvasLocation" x="69.565217391304358" y="44.866071428571423"/>
         </scene>
     </scenes>
     <resources>
+        <image name="manbo100" width="400" height="400"/>
         <namedColor name="mainColor">
             <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

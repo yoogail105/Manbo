@@ -156,9 +156,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 공지사항은 다른 테이블뷰로 이동
         // 이용약관, 개인보호정책, 오픈소스, 버전은 문자열 표시
-        if setMenuItem[indexPath.row] == "개인보호정책" {
+        let cellURL = ["https://hmhhsh.notion.site/19e03d2d23c248978f0f664c60f333bb", "https://hmhhsh.notion.site/f2f120f85fdf4bfcb9e52db44ef7b6f1"]
+        
+        let row = indexPath.row
+        
+        if setMenuItem[row] != "버전" {
         let sb = UIStoryboard(name: "SettingText", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: SettingTextViewController.identifier) as? SettingTextViewController else { return }
+            vc.urlString = cellURL[row]
         present(vc, animated: true, completion: nil)
         }
     }

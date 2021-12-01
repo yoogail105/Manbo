@@ -22,42 +22,76 @@ extension HKHealthStore {
      */
     
     // 헬스킷 허용 여부
-    func ishealthKitAuthorized() -> Bool {
-        if (self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingAuthorized) {
-            return true
-        }
-        else {
-            return false
-        }
-    }
+//    func ishealthKitAuthorized()  { //얘는 무조건 엘스라고 나오네.
+//        if (self.authorizationStatus(for: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .) {
+//            print("ishealthKIt허용")
+//        }
+//        else {
+//            print("ishealthKIt허용x")
+//        }
+//    }
     
-    // 헬스킷 허용 요청
-    func authorizeHealthKit() {
-        print("main: ", #function)
-        let healthKitTypes = Set([HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!])
-        //let share = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-        self.requestAuthorization(toShare: [], read: healthKitTypes) { (sucess, error) in
-            if(sucess) {
-                print("HealthKit: permission granted")
-                UserDefaults.standard.healthKitAuthorization = true
+    
+    func authorizedHealthKIt() {
+        let healthKitTypes = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
+        
+        self.requestAuthorization(toShare: [healthKitTypes], read: [healthKitTypes]) { success, Error in
+            //read는 감별할 수 없다.
+            if success {
+                if ( self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingAuthorized) {
+                    print("yesss")
+                    
+                    //code
+                    print("허용했음.")
+                    self.getTodayStepCounts()
+                    self.getThisWeekStepCounts()
+                    self.getThisMonthStepCounts()
+                    self.getNDaysStepCounts(number: 30)
+    //                if !last30DaysStepCount {
+    //                    healthStore?.getNDaysStepCounts(number: 30)
+    //                }
+                } else {
+                    print("nooo")
+                }
             } else {
-                print("헬스킷 거부됨 -> 얼럿 필요")
-                UserDefaults.standard.healthKitAuthorization = false
+                // 퍼미션뷰를 보지 못했다.
+             
             }
         }
-        
-        
     }
     
+    func calculateDailyStepCountForPastWeek() {
+        
+    }
+
     // 나중에 활용
     func getNDaysStepCounts(number: Int) {
         self.getToalStepCounts(passedDays: number, completion: { (result) in
             DispatchQueue.main.async {
+                if result == 0 {
+                    UserDefaults.standard.healthKitAuthorization = false
+                } else {
+                    UserDefaults.standard.healthKitAuthorization = true
+                }
                 // self.averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
                 
             }
         })
     }
+    
+    func getTodayStepCounts()  {
+        self.getToalStepCounts(passedDays: 0) { (result) in
+            DispatchQueue.main.async {
+                let currentStepCount = Int(result)
+                UserDefaults.standard.currentStepCount = currentStepCount
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStepCountNotification"), object: nil, userInfo: ["newCurrentStepCount": currentStepCount])
+            }
+        }
+    }
+    
+    
+    
+    
     
     func getThisWeekStepCounts() {
         

@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
