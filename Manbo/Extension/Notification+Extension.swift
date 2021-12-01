@@ -11,5 +11,6 @@ extension NSNotification.Name {
     static let goalNotification = NSNotification.Name("changeGoalNotification")
     static let nameNotification = NSNotification.Name("changeNameNotificaiton")
     static let stepNotification = NSNotification.Name("changeResteTimeNotification")
+    static let updateStepNotification = NSNotification.Name("changeStepCountNotification")
     
 }

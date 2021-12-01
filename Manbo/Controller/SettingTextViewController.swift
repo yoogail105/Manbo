@@ -6,19 +6,41 @@
 //
 
 import UIKit
+import WebKit
 
-class SettingTextViewController: UIViewController {
+class SettingTextViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+    
+    @IBOutlet weak var manboImage: UIImageView!
+    @IBOutlet weak var webView: WKWebView!
+
     static let identifier = "SettingTextViewController"
-
+    
+    var urlString = "https://hmhhsh.notion.site/f2f120f85fdf4bfcb9e52db44ef7b6f1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            self.manboImage.isHidden = true
+        
+        })
+        loadWebPage(urlString)
     }
+        
+        
+        
+//        let request = URLRequest(url: url!)
+//        self.webView?.allowsBackForwardNavigationGestures = true
 
     
-    @objc func closeButtonClicked() {
-        dismiss(animated: true, completion: nil)
+    func loadWebPage(_ url:String) {
+        let myUrl = URL(string: url)
+        let myRequest = URLRequest(url: myUrl!)
+        webView.load(myRequest)
     }
-}
+        
+    @IBAction func onBtnBack(_ sender: Any) {
+            self.navigationController?.popViewController(animated: true)
+        }
+    
+    }
+

@@ -23,6 +23,8 @@
 		272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D4275644B9002F11CB /* UIInt+Extension.swift */; };
 		272567DB2756CCFF002F11CB /* WeatherInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272567DA2756CCFF002F11CB /* WeatherInfo.plist */; };
 		272567DD2756CD50002F11CB /* MANBORANG++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */; };
+		275D718C2757AFB800070234 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D718B2757AFB800070234 /* Alert+Extension.swift */; };
+		275D718E2757B31700070234 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D718D2757B31700070234 /* WebKit.framework */; };
 		2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B22744F526004A0BE4 /* AppDelegate.swift */; };
 		2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B42744F526004A0BE4 /* SceneDelegate.swift */; };
 		2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780C5B62744F526004A0BE4 /* ViewController.swift */; };
@@ -108,6 +110,8 @@
 		272567D4275644B9002F11CB /* UIInt+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInt+Extension.swift"; sourceTree = "<group>"; };
 		272567DA2756CCFF002F11CB /* WeatherInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeatherInfo.plist; sourceTree = "<group>"; };
 		272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MANBORANG++Bundle.swift"; sourceTree = "<group>"; };
+		275D718B2757AFB800070234 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
+		275D718D2757B31700070234 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2780C5AF2744F526004A0BE4 /* Manbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Manbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2780C5B22744F526004A0BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2780C5B42744F526004A0BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275D718E2757B31700070234 /* WebKit.framework in Frameworks */,
 				27DC20A02750DE310098E698 /* RealmSwift in Frameworks */,
 				27DC209E2750DE310098E698 /* Realm in Frameworks */,
 				2707947A27501D5D00CE532D /* Alamofire in Frameworks */,
@@ -270,6 +275,7 @@
 				27EC33DF2754F10D00C60C0F /* UILabel+Extension.swift */,
 				27EC33F027557AA500C60C0F /* Notification+Extension.swift */,
 				272567D4275644B9002F11CB /* UIInt+Extension.swift */,
+				275D718B2757AFB800070234 /* Alert+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 		D0B6A4650FE09D4490357B70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				275D718D2757B31700070234 /* WebKit.framework */,
 				27A66654274C2A4900A63683 /* HealthKit.framework */,
 				335005497D8D5B55E108E521 /* Pods_Manbo.framework */,
 			);
@@ -582,6 +589,7 @@
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
 				27192758274AFEDF00F26F8D /* UserModel.swift in Sources */,
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
+				275D718C2757AFB800070234 /* Alert+Extension.swift in Sources */,
 				27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */,
 				272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */,
 				278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */,

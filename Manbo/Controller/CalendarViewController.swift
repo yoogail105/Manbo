@@ -145,11 +145,11 @@ class CalendarViewController: UIViewController {
     
     // MARK: - HEalthkit download
     func thisMonthUserReports() {
-        if healthStore.ishealthKitAuthorized() {
-            healthStore.getThisMonthStepCounts()
-            healthStore.getThisMonthStepCounts()
-        }
-            
+//        if healthStore.ishealthKitAuthorized() {
+//            healthStore.getThisMonthStepCounts()
+//            healthStore.getThisMonthStepCounts()
+//        }
+//            
 
                                            
         
