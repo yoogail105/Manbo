@@ -108,10 +108,10 @@ class SetNameViewController: UIViewController {
         let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
         
         banner.show()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            banner.dismiss()
-        })
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+//            banner.dismiss()
+//        })
     }
     
 }
