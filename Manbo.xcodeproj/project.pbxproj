@@ -209,9 +209,7 @@
 		2707947B2750387B00CE532D /* APIKEYS */ = {
 			isa = PBXGroup;
 			children = (
-				272567DA2756CCFF002F11CB /* WeatherInfo.plist */,
 				272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */,
-				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
 			);
 			path = APIKEYS;
 			sourceTree = "<group>";
@@ -308,6 +306,7 @@
 			children = (
 				27A66653274C2A4900A63683 /* ManboDebug.entitlements */,
 				2707947B2750387B00CE532D /* APIKEYS */,
+				272567DA2756CCFF002F11CB /* WeatherInfo.plist */,
 				278F748C2747EA0600794E8D /* Localization */,
 				278F74A82749701100794E8D /* Models */,
 				270D726C27465EE1007ADC71 /* Support */,
@@ -324,6 +323,7 @@
 		278F748C2747EA0600794E8D /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
 				278832A22746F1E1007616EA /* LocalizableStrings.swift */,
 				278F74972747EFBA00794E8D /* InfoPlist.strings */,
 				2788329C2746EFDF007616EA /* Localizable.strings */,
@@ -786,15 +786,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/ManboDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
@@ -807,7 +806,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoogail105.Manborang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoogail105.Manbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -822,15 +821,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다.(필수기능)";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;

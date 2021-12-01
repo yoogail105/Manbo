@@ -99,6 +99,7 @@ class ViewController: UIViewController {
         
         if healthStore != nil {
             if ((healthStore?.ishealthKitAuthorized()) != nil) {
+                print("헬스킷Ok")
                 self.getTodayStepCounts()
                 healthStore?.getThisWeekStepCounts()
                 healthStore?.getThisMonthStepCounts()
@@ -195,7 +196,7 @@ class ViewController: UIViewController {
         print("main: ", #function)
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(stepGoal.numberForamt())"
-        let stepText = userDefaults.currentStepCount?.numberForamt()
+        let stepText = userDefaults.currentStepCount!.numberForamt()
         currentStepCountLabel.text = "\(String(describing: stepText))"
     }
     

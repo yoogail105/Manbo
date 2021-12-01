@@ -2,20 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 &apos;서울시청&apos;을 기준으로 표시됩니다.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 &apos;서울시청&apos;을 기준으로 표시됩니다.</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.</string>
-	<key>CFBundleIdentifier</key>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 &apos;서울시청&apos;을 기준으로 표시됩니다.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 &apos;서울시청&apos;을 기준으로 표시됩니다.</string>
+	<key></key>
 	<string></string>
-	<key>UIMainStoryboardFile</key>
-	<string>Onboarding</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -25,12 +21,12 @@
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
-					<key>UISceneStoryboardFile</key>
-					<string>Onboarding</string>
 					<key>UISceneConfigurationName</key>
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Onboarding</string>
 				</dict>
 			</array>
 		</dict>
