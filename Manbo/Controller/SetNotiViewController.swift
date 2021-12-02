@@ -23,6 +23,7 @@ class SetNotiViewController: UIViewController {
 
         setNotiTimeLabel.text = "언제 알림을 드릴까요?"
         datePicker.setValue(UIColor.white, forKey: "textColor")
+        backgroundView.customAlertSetting()
         
     }
     

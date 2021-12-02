@@ -29,7 +29,7 @@ class SetNameViewController: UIViewController {
         guard let textField = self.userNameTextField else { return }
         textField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: textField)
-        
+        userNameTextField.text = userDefaults.name!
         backgroundView.customAlertSetting()
         completeButton.activeButtonColor(isActive: isCoreectedName)
         completeButton.isEnabled = false

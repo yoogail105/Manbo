@@ -47,13 +47,13 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         print("Onboarding: ",#function)
         setUI()
-        stepsGoalList.append(contentsOf: stride(from: 3000, to: 21000, by: 1000))
+        stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
         welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
         
         guard let textField = setNameAlertView?.userNameTextField else { return }
         textField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: textField)
-        userDefaults.stepsGoal = 3000
+        userDefaults.stepsGoal = 1000
     } //: viewDidLoad
     
     func setUI() {
@@ -121,9 +121,11 @@ class OnboardingViewController: UIViewController {
     }
     
     // MARK: - SetGoal 먼가..코드 정리하기..
+    //"같이 걸어요 선택했을 때
     @IBAction func alertView(_ sender: UIButton) {
         let veiw = setGoalAlert
         veiw?.setGoalBackgroundView.customAlertSetting()
+        
         
        
         veiw?.titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"

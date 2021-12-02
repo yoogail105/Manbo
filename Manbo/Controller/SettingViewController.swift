@@ -54,7 +54,7 @@ class SettingViewController: UIViewController {
         print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!), dateFormatter.simpleTimeString(date: userDefaults.notiTime!))
         
         userNameLabel.text = userDefaults.name!
-        stepGoalLabel.text = String(userDefaults.stepsGoal!)
+        stepGoalLabel.text = "\(userDefaults.stepsGoal!.numberForamt()) 걸음"
         resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
         notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
         view.layoutIfNeeded()
@@ -137,6 +137,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell() }
         cell.selectionStyle = .none
         let row = indexPath.row
+        //String
+        
         cell.menuLable.text = setMenuItem[row]
         
         
