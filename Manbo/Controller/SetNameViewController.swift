@@ -107,14 +107,16 @@ class SetNameViewController: UIViewController {
     @IBAction func completeButtonClicked(_ sender: UIButton) {
         isOK = true
         
-        userDefaults.name = userNameTextField.text
+        let changeName = userNameTextField.text!
+        userDefaults.name = changeName
         
          if isOnboarding {
              UserDefaults.standard.firstLaunchDate = Date()
              UserDefaults.standard.hasOnbarded = true
             openTabViewSB()
         } else {
-        self.dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotificaiton"), object: nil, userInfo: ["newName": changeName])
+            self.dismiss(animated: true, completion: nil)
         }
         
     }

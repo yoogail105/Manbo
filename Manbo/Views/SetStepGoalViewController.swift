@@ -27,7 +27,7 @@ class SetStepGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
-        titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"
+        titleLabel.text = "하루 목표 걸음을\n 설정해 주세요!"
         pickerView.delegate = self
         pickerView.dataSource = self
         setGoalBackgroundView.customAlertSetting()

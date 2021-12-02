@@ -57,7 +57,7 @@ class SettingViewController: UIViewController {
         stepGoalLabel.text = "\(userDefaults.stepsGoal!.numberForamt()) 걸음"
         resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
         notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
-        view.layoutIfNeeded()
+        //view.layoutIfNeeded()
     }
     
     func setButtonsUI() {
@@ -144,6 +144,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         if setMenuItem[row] == "버전" {
             cell.rightLabel.text = "1.0.0."
+            cell.rightLabel.font = UIFont.italicSystemFont(ofSize: 10)
         }
         
         return cell

@@ -32,8 +32,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10245" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXH-eR-niN">
-                        <rect key="frame" x="278" y="51" width="59" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10245" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXH-eR-niN">
+                        <rect key="frame" x="171" y="51" width="166" height="44"/>
                         <color key="tintColor" red="0.41568627450000001" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <color key="textColor" red="0.41568627450000001" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -47,6 +47,7 @@
                 <constraint firstItem="CXH-eR-niN" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.3" id="06O-69-1Pg"/>
                 <constraint firstItem="TtW-WD-aAY" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1QH-qG-qhn"/>
                 <constraint firstItem="TtW-WD-aAY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="4LD-ux-QwV"/>
+                <constraint firstItem="CXH-eR-niN" firstAttribute="leading" secondItem="TtW-WD-aAY" secondAttribute="trailing" constant="20" id="EhV-1q-VG9"/>
                 <constraint firstItem="TtW-WD-aAY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="GQ6-cu-THn"/>
                 <constraint firstItem="Mlq-GK-3hd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="K1u-wH-ESb"/>
                 <constraint firstItem="Mlq-GK-3hd" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.3" id="dxK-W1-uzh"/>

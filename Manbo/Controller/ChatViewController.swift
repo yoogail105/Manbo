@@ -6,36 +6,38 @@
 //
 
 import UIKit
-import WebKit
 
-class ChatViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+class ChatViewController: UIViewController {
         
-        @IBOutlet weak var manboImage: UIImageView!
-        @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var manboImage: UIImageView!
 
         static let identifier = "ChatViewController"
         
-        var urlString = "https://hmhhsh.notion.site/59521b608ee8440a98dd069edea5e9f4"
         
-        override func viewDidLoad() {
+    @IBOutlet weak var todayStepLabel: UILabel!
+    override func viewDidLoad() {
             super.viewDidLoad()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                self.manboImage.isHidden = true
             
-            })
-            loadWebPage(urlString)
+            let dateFormatter = DateFormatter()
+            let nowPercent = UserDefaults.standard.setpPercent
+            manboImage.image = UIImage(named: self.setUserImage(userPercent: nowPercent!))
+            let date = Date()
+            dateFormatter.dateFormat = "yy.MM.dd"
+            
+            
+            
+            todayLabel.text = dateFormatter.string(from: date)
+        let step = UserDefaults.standard.currentStepCount!
+        todayStepLabel.text = "\(step.numberForamt())"
+            
     
         }
+}
             
             
             
     //        let request = URLRequest(url: url!)
     //        self.webView?.allowsBackForwardNavigationGestures = true
 
-        
-        func loadWebPage(_ url:String) {
-            let myUrl = URL(string: url)
-            let myRequest = URLRequest(url: myUrl!)
-            webView.load(myRequest)
-        }
-}
+

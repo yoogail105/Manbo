@@ -94,7 +94,7 @@ class CalendarViewController: UIViewController {
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: SelectedTaskCollectionViewCell.identifier)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotification), name: .nameNotification, object: nil)
+        
         
         //calendarUI
         
@@ -114,6 +114,9 @@ class CalendarViewController: UIViewController {
         naviItem()
         setupCalendarView()
         
+        // MARK: - NOTIFICATION
+        NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotificaiton), name: .nameNotification, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(changeImageNotification), name:.updateImageNotification, object: nil)
         
         let nowPercent = userDefaults.setpPercent
@@ -130,7 +133,7 @@ class CalendarViewController: UIViewController {
 
     }//: viewWillAppear
     
-    @objc func changeNameNotification(notification: NSNotification) {
+    @objc func changeNameNotificaiton(notification: NSNotification) {
         if let text = notification.userInfo?["newName"] as? String {
             userNameLabel.text = text
         }
@@ -210,7 +213,7 @@ class CalendarViewController: UIViewController {
     }
     
     func setAverageStepCounts() {
-        print(#function)
+        print("CalendarView", #function)
         
         let weekAverageStepCount = userDefaults.weekStepCount! / Date().weekday
         let monthAverageStepCount = userDefaults.monthStepCount! / Date().day
@@ -375,7 +378,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         validCell.dateLabel.text = cellState.text
         
         if self.calendar.isDateInToday(date) {
-            print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
+//            print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
             validCell.contentView.cornerRounded(cornerRadius: 8)
             validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
             //print("실행됨: \(date)")
@@ -392,33 +395,34 @@ extension CalendarViewController: JTACMonthViewDelegate {
             dateFormatter.dateFormat = "MMM"
             month = cellState.date.month
             year = cellState.date.year
-            print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
+           // print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
         }
         
     }
     
-    
+    // MARK: -  배너 없애기
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        print("didSelectDate: \(date), CellState: \(cellState)")
+//        print("didSelectDate: \(date), CellState: \(cellState)")
         calendarView.allowsMultipleSelection = true
         
         
         let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
         
-        print(SelectedDate)
-        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
-            self.notiBanenr(notiText: "이날도 만보랑 걸어주실거죠?")
-            print("해당 날짜 없음.")
-            return
-        }
-        self.selectedTask = localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate)!
+       // print(SelectedDate)
+//        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
+//            // self.notiBanenr(notiText: "이날도 만보랑 걸어주실거죠?")
+//           // print("해당 날짜 없음.")
+//            return
+//        }
+        self.selectedTask = localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate)
+        //! 지움
         
         // print(filterdTask.first?.stepCount!)
     
         //print("row: \(cellState.row), day: \(cellState.day), date: \(cellState.date), text: \(cellState.text), cell: \(cellState.cell), column: \(cellState.column), dateBelongsTo: \(cellState.dateBelongsTo),dateSection: \(cellState.dateSection), isSelected: \(cellState.isSelected), selectedPosition: \(cellState.selectedPosition), selectionType: \(cellState.selectionType)")
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCelltextColor(view: cell, cellSTate: cellState)
-        print(cellState.date)
+       // print(cellState.date)
     }
     
     
@@ -466,9 +470,9 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         }
         if isSelectedDate { //셀이 하나
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
-            
+            if self.selectedTask != nil {
            let dailyData = self.selectedTask
-             print("여기는 콜렉션뷰",self.selectedTask!)
+            // print("여기는 콜렉션뷰",self.selectedTask!)
             let userStep = dailyData?.stepCount
             let dailyStep = userStep?.numberForamt()
             
@@ -476,10 +480,17 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
            // cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
             
             let userPercent = dailyData!.goalPercent
-            print("userPercent는 \(dailyData!.goalPercent)")
+            // print("userPercent는 \(dailyData!.goalPercent)")
             let userImageName = self.setUserImage(userPercent: userPercent)
             cell.dailyImage.image = UIImage(named: userImageName)
            // cell.cornerRounded(cornerRadius: 10)
+            
+            } else {
+                cell.dailyImage.image = UIImage(named: "manbo03")
+                cell.dailyStepLabel.adjustsFontSizeToFitWidth = true
+                cell.dailyStepLabel.text = "오늘도 같이 걸어 주실거죠?"
+                
+            }
             settingCell(cell: cell)
             return cell
             
@@ -503,7 +514,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if isSelectedDate {
-            return CGSize(width: UIScreen.main.bounds.width * 0.9, height:
+            return CGSize(width: UIScreen.main.bounds.width * 0.88, height:
                             UIScreen.main.bounds.height * 0.1)
         } else {
             let cellSize = UIScreen.main.bounds.width / 5
