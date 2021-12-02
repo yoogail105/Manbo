@@ -67,6 +67,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="cancelButton:" destination="LaN-e4-8Mw" eventType="touchUpInside" id="lCH-xd-RxH"/>
                                                             <action selector="cancelButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yaB-QE-E9s"/>
                                                         </connections>
                                                     </button>
@@ -129,12 +130,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundView" destination="ypC-Pw-USR" id="7ea-E8-xOl"/>
+                        <outlet property="backgroundView" destination="ypC-Pw-USR" id="d08-nt-VSl"/>
+                        <outlet property="cancelButton" destination="Kt9-ag-Yea" id="S1M-gG-NIb"/>
                         <outlet property="datePicker" destination="QkX-9s-RvV" id="9S7-YR-SOq"/>
+                        <outlet property="okButton" destination="1By-Q6-88I" id="bRE-71-pAo"/>
                         <outlet property="setNotiTimeLabel" destination="Joc-iS-v5k" id="T8b-Iw-Q3P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LaN-e4-8Mw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="15.942028985507248" y="49.553571428571423"/>
         </scene>

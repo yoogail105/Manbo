@@ -121,43 +121,24 @@ class OnboardingViewController: UIViewController {
     }
     
     // MARK: - SetGoal 먼가..코드 정리하기..
-    //"같이 걸어요 선택했을 때
+    //"같이 걸어요 선택했을 때: 목표걸음 수 설정
     @IBAction func alertView(_ sender: UIButton) {
-        let veiw = setGoalAlert
-        veiw?.setGoalBackgroundView.customAlertSetting()
-        
-        
-       
-        veiw?.titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"
-        veiw?.pickerView.delegate = self
-        veiw?.pickerView.dataSource = self
-        
-        //  alert?.pickerView.setValue(UIColor.white, forKey: "textColor")
-        self.view.addSubview(setGoalAlert ?? self.view)
-        
-        /* addSubview 오토 레이아웃
-        veiw?.translatesAutoresizingMaskIntoConstraints = false
-        veiw?.setGoalBackgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        veiw?.setGoalBackgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        veiw?.setGoalBackgroundView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.3).isActive = true
-        veiw?.setGoalBackgroundView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.6).isActive = true
-        
-        func stackViewFactory(type: NSLayoutConstraint.Axis) -> UIStackView {
-            let row = UIStackView()
-            row.axis = .vertical
-            row.alignment = .center
-            
-            row.distribution = .fill
-            row.spacing = 10
-            return row
+
+        let sb = UIStoryboard(name: "SetStepGoal", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SetStepGoalViewController.identifier) as? SetStepGoalViewController else {
+            print("Error")
+            return
         }
-         */
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+     
+        present(vc, animated: true, completion: nil)
     
-        veiw?.toSetResetButton.addTarget(self, action: #selector(toSetResetButtonClicked), for: .touchUpInside)
-        
-    }
+        }
     
-    // MARK: - SetResetTimeAlertView
+    
+    // MARK: - SetResetTimeAlertView: 리셋타임
     @objc func toSetResetButtonClicked() {
         print("클릭됨.")
         let alert = setResetTimeAlert

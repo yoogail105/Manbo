@@ -69,6 +69,8 @@
 		27A66664274EC6D600A63683 /* realmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66663274EC6D600A63683 /* realmData.swift */; };
 		27C6D67527586D6F009A7D4B /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67427586D6F009A7D4B /* Chat.storyboard */; };
 		27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D67827587A98009A7D4B /* ChatViewController.swift */; };
+		27C6D67D2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */; };
+		27C6D6812758F7F3009A7D4B /* SetNotiPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */; };
 		27DC209E2750DE310098E698 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209D2750DE310098E698 /* Realm */; };
 		27DC20A02750DE310098E698 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209F2750DE310098E698 /* RealmSwift */; };
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
@@ -167,6 +169,8 @@
 		27C6D67827587A98009A7D4B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		27C6D67A2758C01B009A7D4B /* Manbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Manbo.entitlements; sourceTree = "<group>"; };
 		27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManboRelease.entitlements; sourceTree = "<group>"; };
+		27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetNotiSetNotiPermission.storyboard; sourceTree = "<group>"; };
+		27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotiPermissionViewController.swift; sourceTree = "<group>"; };
 		27DC20A9275241380098E698 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		27DC20AE27524B410098E698 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extenstion.swift"; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				27EC33D52754A60900C60C0F /* SettingTextViewController.swift */,
 				27EC33E6275544B600C60C0F /* SetNotiViewController.swift */,
 				27EC33E82755451700C60C0F /* ResetTimeViewController.swift */,
+				27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */,
 				27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */,
 				27C6D67827587A98009A7D4B /* ChatViewController.swift */,
 			);
@@ -377,6 +382,7 @@
 				27EC33DB2754BFEE00C60C0F /* SetName.storyboard */,
 				27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */,
 				27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */,
+				27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				27EC33E32754F59400C60C0F /* SetResetTime.storyboard in Resources */,
 				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
 				27EC33D82754A61F00C60C0F /* SettingText.storyboard in Resources */,
+				27C6D67D2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard in Resources */,
 				27EC33EF2755568600C60C0F /* SetStepGoal.storyboard in Resources */,
 				278F74952747EFBA00794E8D /* InfoPlist.strings in Resources */,
 			);
@@ -608,6 +615,7 @@
 				27EC33CB275489E400C60C0F /* RsetColorTableViewCell.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
+				27C6D6812758F7F3009A7D4B /* SetNotiPermissionViewController.swift in Sources */,
 				27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */,
 				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
 				27EC33ED2755566600C60C0F /* SetStepGoalViewController.swift in Sources */,

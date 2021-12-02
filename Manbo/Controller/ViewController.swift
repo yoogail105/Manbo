@@ -83,7 +83,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("main", #function)
-        //  UserDefaults.standard.hasOnbarded = false
+       //   UserDefaults.standard.hasOnbarded = false
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {

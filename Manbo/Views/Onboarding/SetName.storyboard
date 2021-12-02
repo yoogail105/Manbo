@@ -125,7 +125,9 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="S5D-d6-ECO" id="hB0-Zc-QMG"/>
+                        <outlet property="cancelButton" destination="gMX-8k-75U" id="RPQ-b9-hOD"/>
                         <outlet property="completeButton" destination="lF6-kp-3ao" id="hRq-pR-KzR"/>
+                        <outlet property="okButton" destination="lF6-kp-3ao" id="n0Q-J3-CyV"/>
                         <outlet property="userImageView" destination="tOL-R8-zUb" id="drH-9J-5eE"/>
                         <outlet property="userNameTextField" destination="Plx-Pe-MkP" id="xQh-oZ-TdA"/>
                     </connections>

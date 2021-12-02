@@ -127,6 +127,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="Nvk-LE-Bba" id="Pdl-wJ-clX"/>
                         <outlet property="pickerView" destination="z3K-Ne-40W" id="2cn-AJ-rp1"/>
                         <outlet property="setGoalBackgroundView" destination="CWf-b1-MrB" id="xWt-xt-4ez"/>
                         <outlet property="titleLabel" destination="aWc-Od-0NW" id="Fcu-Fn-qCu"/>

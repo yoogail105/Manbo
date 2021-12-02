@@ -119,6 +119,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="afc-2R-2XC" id="Bs4-kz-TOI"/>
+                        <outlet property="cancelButton" destination="VAV-5j-yKj" id="RdV-hD-m7z"/>
                         <outlet property="datePicker" destination="HRk-5R-WaS" id="Z3S-rQ-G4m"/>
                         <outlet property="resetTimeLabel" destination="M1K-dl-cnt" id="Pdf-es-FKH"/>
                     </connections>

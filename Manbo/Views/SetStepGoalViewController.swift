@@ -15,17 +15,28 @@ class SetStepGoalViewController: UIViewController {
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     
     var stepsGoalList: [Int] = []
     var newGoal = 3000
     var isOK = false
     let userDefaults = UserDefaults.standard
+    let isOnboarding = !UserDefaults.standard.hasOnbarded
+    
+    // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
         titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"
         pickerView.delegate = self
         pickerView.dataSource = self
+        setGoalBackgroundView.customAlertSetting()
+        
+        if isOnboarding {
+            cancelButton.isHidden = true
+        } else {
+            cancelButton.isHidden = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,7 +52,15 @@ class SetStepGoalViewController: UIViewController {
         isOK = true
         userDefaults.stepsGoal = newGoal
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeGoalNotification"), object: nil, userInfo: ["myValue": newGoal])
-        self.dismiss(animated: true, completion: nil)
+            
+        if isOnboarding {
+            // 온보딩이라면
+            openSetResetTimeSB()
+        } else {
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
@@ -50,6 +69,19 @@ class SetStepGoalViewController: UIViewController {
         
     }
     
+    func openSetResetTimeSB() {
+        let sb = UIStoryboard(name: "SetResetTime", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: ResetTimeViewController.identifier) as? ResetTimeViewController else {
+            print("Error")
+            return
+        }
+        
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        
+        present(vc, animated: true, completion: nil)
+        }
 }
 
 extension SetStepGoalViewController: UIPickerViewDelegate, UIPickerViewDataSource {
