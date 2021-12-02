@@ -165,6 +165,8 @@
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
 		27C6D67427586D6F009A7D4B /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		27C6D67827587A98009A7D4B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		27C6D67A2758C01B009A7D4B /* Manbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Manbo.entitlements; sourceTree = "<group>"; };
+		27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManboRelease.entitlements; sourceTree = "<group>"; };
 		27DC20A9275241380098E698 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		27DC20AE27524B410098E698 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extenstion.swift"; sourceTree = "<group>"; };
@@ -316,6 +318,8 @@
 		2780C5B12744F526004A0BE4 /* Manbo */ = {
 			isa = PBXGroup;
 			children = (
+				27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */,
+				27C6D67A2758C01B009A7D4B /* Manbo.entitlements */,
 				27A66653274C2A4900A63683 /* ManboDebug.entitlements */,
 				2707947B2750387B00CE532D /* APIKEYS */,
 				272567DA2756CCFF002F11CB /* WeatherInfo.plist */,
@@ -800,14 +804,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Manbo/ManboDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Manbo/Manbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음수를 표시하기 위해서는 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
@@ -838,13 +842,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Manbo/ManboRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음수를 표시하기 위해서는 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
