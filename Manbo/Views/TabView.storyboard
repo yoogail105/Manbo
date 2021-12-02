@@ -49,6 +49,9 @@
                                         <state key="normal" image="heart">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="heartButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XzC-pV-qGK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
                                         <rect key="frame" x="223" y="15.5" width="30.5" height="31"/>

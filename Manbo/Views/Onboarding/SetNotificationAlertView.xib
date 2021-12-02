@@ -97,6 +97,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="EHU-Fe-mpP" firstAttribute="height" secondItem="kGC-k5-i21" secondAttribute="height" multiplier="0.3" id="1xp-Kw-ULu"/>
                         <constraint firstItem="EHU-Fe-mpP" firstAttribute="centerY" secondItem="kGC-k5-i21" secondAttribute="centerY" id="OMm-m2-R2N"/>

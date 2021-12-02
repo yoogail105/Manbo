@@ -12,5 +12,6 @@ extension NSNotification.Name {
     static let nameNotification = NSNotification.Name("changeNameNotificaiton")
     static let stepNotification = NSNotification.Name("changeResteTimeNotification")
     static let updateStepNotification = NSNotification.Name("changeStepCountNotification")
+    static let updateImageNotification = NSNotification.Name("changeImageNotification")
     
 }

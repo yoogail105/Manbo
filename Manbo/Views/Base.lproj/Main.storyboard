@@ -204,6 +204,12 @@
                                     <constraint firstItem="eK7-Eb-H3w" firstAttribute="leading" secondItem="TM1-az-hXR" secondAttribute="leading" id="p1v-GN-5x0"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 &gt; 걸음 &gt; 데이터 소스 및 접근'에서 만보랑의 접근을 허용해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-OL-TMk">
+                                <rect key="frame" x="41.333333333333343" y="591.33333333333337" width="331.33333333333326" height="71.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -216,11 +222,14 @@
                             <constraint firstItem="zao-dk-eX8" firstAttribute="top" secondItem="q7I-if-tu1" secondAttribute="bottom" constant="30" id="9L2-7c-hRU"/>
                             <constraint firstItem="j2v-Hf-NL1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Am7-Mj-iRu"/>
                             <constraint firstAttribute="trailing" secondItem="j2v-Hf-NL1" secondAttribute="trailing" constant="20" id="ErO-tF-3ml"/>
+                            <constraint firstItem="LuV-OL-TMk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iih-qY-da6"/>
                             <constraint firstItem="abG-fO-LXw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N2m-6w-8u9"/>
+                            <constraint firstItem="LuV-OL-TMk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="be6-o2-mbt"/>
                             <constraint firstItem="q7I-if-tu1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e3p-A2-oen"/>
                             <constraint firstItem="q7I-if-tu1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.33" id="eOa-RR-cJ8"/>
                             <constraint firstItem="TM1-az-hXR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lNt-zU-PYZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TM1-az-hXR" secondAttribute="trailing" constant="15" id="rxh-1b-2oC"/>
+                            <constraint firstItem="LuV-OL-TMk" firstAttribute="top" secondItem="zao-dk-eX8" secondAttribute="bottom" constant="10" id="zrX-yU-12F"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -234,6 +243,7 @@
                         <outlet property="currentStepCountLabel" destination="uOh-sl-2b2" id="x6M-xK-TjP"/>
                         <outlet property="goalLabel" destination="A4K-lC-5UK" id="hcI-WL-BFI"/>
                         <outlet property="goalView" destination="abG-fO-LXw" id="a6I-k2-5ex"/>
+                        <outlet property="healthKItInform" destination="LuV-OL-TMk" id="I7k-6N-uAd"/>
                         <outlet property="userImageView" destination="q7I-if-tu1" id="Red-R7-O3s"/>
                         <outlet property="weatherImageView" destination="tj1-ji-vCl" id="Obh-lU-PGt"/>
                         <outlet property="weatherTempLabel" destination="ilM-O6-kmy" id="8D5-Wc-jEz"/>
