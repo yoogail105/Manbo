@@ -28,9 +28,9 @@ class ResetTimeViewController: UIViewController {
         datePicker.setValue(UIColor.white, forKey: "textColor")
         backgroundView.customAlertSetting()
         if isOnboarding {
-            cancelButton.isHidden = false
-        } else {
             cancelButton.isHidden = true
+        } else {
+            cancelButton.isHidden = false
         }
         
     }

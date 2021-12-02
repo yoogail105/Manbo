@@ -46,7 +46,7 @@
                                             <constraint firstAttribute="width" secondItem="JEv-UY-B5o" secondAttribute="height" multiplier="1:1" id="uV3-Oj-VKC"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="heart">
+                                        <state key="normal" image="camera.viewfinder" catalog="system">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
@@ -109,8 +109,8 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="feet" width="2048" height="2048"/>
-        <image name="heart" width="400" height="400"/>
         <namedColor name="mainColor">
             <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
