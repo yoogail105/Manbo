@@ -25,7 +25,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var notiTimeLabel: UILabel!
     
     
-    let setMenuItem = ["개인정보정책", "문의하기", "버전"]
+    let setMenuItem = ["공지사항", "문의하기", "개인정보정책", "버전"]
     
     let userDefaults = UserDefaults.standard
     let dateFormatter = DateFormatter()
@@ -41,12 +41,12 @@ class SettingViewController: UIViewController {
         print(#function)
         
         setButtonsUI()
-    
-    
+        
+        
         notiTimeLabel.setTimeLabelUI()
         resetTimeLabel.setTimeLabelUI()
         stepGoalLabel.setTimeLabelUI()
-            }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         print("SettingViewController", #function)
@@ -114,7 +114,7 @@ class SettingViewController: UIViewController {
         }
         
         vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
 }//: ViewDidLoad
@@ -140,11 +140,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.menuLable.text = setMenuItem[row]
         
         
-        
-        if setMenuItem[row] == "문의하기" {
-            cell.rightLabel.text = "yoogail105@gmail.com"
-        }
-        
         if setMenuItem[row] == "버전" {
             cell.rightLabel.text = "1.0.0."
         }
@@ -156,18 +151,20 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 공지사항은 다른 테이블뷰로 이동
         // 이용약관, 개인보호정책, 오픈소스, 버전은 문자열 표시
-        let cellURL = ["https://hmhhsh.notion.site/19e03d2d23c248978f0f664c60f333bb", "https://hmhhsh.notion.site/f2f120f85fdf4bfcb9e52db44ef7b6f1"]
+        let cellURL = ["https://hmhhsh.notion.site/ab8d1336219d4a36a3b0b43adaa603b3",
+                       "https://hmhhsh.notion.site/f2f120f85fdf4bfcb9e52db44ef7b6f1",
+                       "https://hmhhsh.notion.site/19e03d2d23c248978f0f664c60f333bb"]
         
         let row = indexPath.row
         
         if setMenuItem[row] != "버전" {
-        let sb = UIStoryboard(name: "SettingText", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: SettingTextViewController.identifier) as? SettingTextViewController else { return }
+            let sb = UIStoryboard(name: "SettingText", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: SettingTextViewController.identifier) as? SettingTextViewController else { return }
             vc.urlString = cellURL[row]
-        present(vc, animated: true, completion: nil)
+            present(vc, animated: true, completion: nil)
         }
     }
-
+    
     
 }
 

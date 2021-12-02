@@ -80,6 +80,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="5r1-de-X5c" firstAttribute="height" secondItem="4Ta-al-QKK" secondAttribute="height" multiplier="0.3" id="7VL-Xh-Ue8"/>
                         <constraint firstItem="5r1-de-X5c" firstAttribute="centerX" secondItem="4Ta-al-QKK" secondAttribute="centerX" id="S9S-WY-HsB"/>

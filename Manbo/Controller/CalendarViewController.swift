@@ -70,7 +70,8 @@ class CalendarViewController: UIViewController {
     var selectedTask: UserReport?
     
     // cell color
-    let outsideMonthColor = UIColor(hex: 0x4D4E51)
+    let outsideMonthColoer = UIColor(named: "outDatetedColor")
+//    let outsideMonthColor = UIColor(hex: 0x4D4E51)
     let monthColor =  UIColor.label
     let selectedMonthColor = UIColor.label
     
@@ -113,6 +114,10 @@ class CalendarViewController: UIViewController {
         naviItem()
         setupCalendarView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(changeImageNotification), name:.updateImageNotification, object: nil)
+        
+        let nowPercent = userDefaults.setpPercent
+        userImageView.image = UIImage(named: "\(self.setUserImage(userPercent: nowPercent!))")
     }//: VIEWDIDLOAD
     
     override func viewWillAppear(_ animated: Bool) {
@@ -258,7 +263,7 @@ class CalendarViewController: UIViewController {
                 validCell.dateLabel.textColor = monthColor
                 
             } else {
-                validCell.dateLabel.textColor = UIColor.appColor(.borderLightGray)
+                validCell.dateLabel.textColor = outsideMonthColoer
             }
         }
         
@@ -279,6 +284,13 @@ class CalendarViewController: UIViewController {
             isSelectedDate = false
             validCell.selectedView.isHidden = true
             validCell.dateLabel.textColor = monthColor
+        }
+    }
+    
+    @objc func changeImageNotification(notification: NSNotification) {
+        
+        if let newImage = notification.userInfo?["ImageName"] as? String {
+            self.userImageView.image = UIImage(named: newImage)
         }
     }
     

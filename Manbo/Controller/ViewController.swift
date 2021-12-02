@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     static let identifier = "ViewController"
     // MARK: - PROPERTIES
     
+    @IBOutlet weak var healthKItInform: UILabel!
     @IBOutlet weak var weatherTempLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     // healthStore
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
             locationSettingAlert()
             didLocationAlert = true
         }
-       
+        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요! 허용 후에는 아래의 발자국을 탭해주세요🐾"
         
         setUI()
         setUserImage()
@@ -124,9 +125,11 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         healthStore!.authorizedHealthKIt()
-        if !userDefaults.healthKitAuthorization, !didHealthKitAlert {
+        if !userDefaults.healthKitAuthorization {
             currentStepCountLabel.text = "만보랑 같이 걸어요"
-            healthKitSettingAlert()
+            healthKItInform.isHidden = false
+        } else {
+            healthKItInform.isHidden = true
         }
 //
     }//: viewWillAppear
@@ -135,9 +138,13 @@ class ViewController: UIViewController {
         if let newCount = notification.userInfo?["newCurrentStepCount"] as? Int {
             if newCount == 0 {
                 currentStepCountLabel.text = "만보랑 같이 걸어요"
+                healthKItInform.isHidden = false
             } else {
-            currentStepCountLabel.text = "\(newCount.numberForamt())"
+                currentStepCount = newCount
+            currentStepCountLabel.text = "\(currentStepCount.numberForamt())"
+                healthKItInform.isHidden = true
                 view.layoutIfNeeded()
+                
             }
         }
     }
@@ -207,6 +214,8 @@ class ViewController: UIViewController {
         default:
             userImage = Manbo.manbo100
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeImageNotification"), object: nil, userInfo: ["ImageName": userImage.rawValue])
     }
     
     
@@ -270,7 +279,7 @@ class ViewController: UIViewController {
     func healthKitSettingAlert() {
         showAlert(title: "걸음을 가져올 수 없습니다.", message: "건강 앱에서 내 걸음수를 읽을 수 있도록 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요.", okTitle: "확인") {
             self.healthStore!.authorizedHealthKIt()
-            self.didHealthKitAlert = true
+//            self.didHealthKitAlert = true
 //            guard let url = URL(string: UIApplication.openSettingsURLString) else {
 //                return
 //            }

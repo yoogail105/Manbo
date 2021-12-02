@@ -67,6 +67,8 @@
 		27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */; };
 		27A66662274EB61C00A63683 /* manboManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66661274EB61C00A63683 /* manboManager.swift */; };
 		27A66664274EC6D600A63683 /* realmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66663274EC6D600A63683 /* realmData.swift */; };
+		27C6D67527586D6F009A7D4B /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67427586D6F009A7D4B /* Chat.storyboard */; };
+		27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D67827587A98009A7D4B /* ChatViewController.swift */; };
 		27DC209E2750DE310098E698 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209D2750DE310098E698 /* Realm */; };
 		27DC20A02750DE310098E698 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209F2750DE310098E698 /* RealmSwift */; };
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
@@ -161,6 +163,8 @@
 		27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendarViewCell.swift; sourceTree = "<group>"; };
 		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
+		27C6D67427586D6F009A7D4B /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		27C6D67827587A98009A7D4B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		27DC20A9275241380098E698 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		27DC20AE27524B410098E698 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extenstion.swift"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */,
 				272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */,
 				272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */,
+				27C6D67427586D6F009A7D4B /* Chat.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				27EC33E6275544B600C60C0F /* SetNotiViewController.swift */,
 				27EC33E82755451700C60C0F /* ResetTimeViewController.swift */,
 				27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */,
+				27C6D67827587A98009A7D4B /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,6 +510,7 @@
 				27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
+				27C6D67527586D6F009A7D4B /* Chat.storyboard in Resources */,
 				27EC33C82754899E00C60C0F /* RestNotiTimeTableViewCell.xib in Resources */,
 				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
 				27EC33E32754F59400C60C0F /* SetResetTime.storyboard in Resources */,
@@ -591,6 +598,7 @@
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
 				275D718C2757AFB800070234 /* Alert+Extension.swift in Sources */,
 				27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */,
+				27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */,
 				272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */,
 				278F74BD274AC74700794E8D /* SetNotificationAlertView.swift in Sources */,
 				27EC33CB275489E400C60C0F /* RsetColorTableViewCell.swift in Sources */,
@@ -794,13 +802,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/ManboDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음수를 표시하기 위해서는 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -829,13 +839,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음수를 표시하기 위해서는 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

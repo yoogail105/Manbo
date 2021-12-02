@@ -15,6 +15,7 @@ class TabViewController: UIViewController {
     var previousIndex: Int = 0
     
     var vcList = [UIViewController]()
+   
     
     @IBOutlet var tabView:UIView!
     @IBOutlet var buttons:[UIButton]!
@@ -62,6 +63,14 @@ class TabViewController: UIViewController {
 //        self.present(self.imagePickerController,animated: true, completion:  nil)
 //
 //    }
+    
+    
+    @IBAction func heartButtonClicked(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Chat", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: ChatViewController.identifier) as? ChatViewController else { return }
+            vc.urlString = "https://hmhhsh.notion.site/59521b608ee8440a98dd069edea5e9f4"
+        present(vc, animated: true, completion: nil)
+    }
     
 } //:viewDidLoad
 

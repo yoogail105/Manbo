@@ -33,12 +33,17 @@ extension HKHealthStore {
     
     
     func authorizedHealthKIt() {
-        let healthKitTypes = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
+        let healthKitTypes = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
         
-        self.requestAuthorization(toShare: [healthKitTypes], read: [healthKitTypes]) { success, Error in
+        self.requestAuthorization(toShare: nil, read: [healthKitTypes]) { success, Error in
             //read는 감별할 수 없다.
             if success {
-                if ( self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingAuthorized) {
+                print("허용여부는 \(self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) ==  .sharingDenied)")
+//                if ( self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingDenied) {
+//                    print("noooo")
+                    
+                    
+//                } else {
                     print("yesss")
                     
                     //code
@@ -49,10 +54,7 @@ extension HKHealthStore {
                     self.getNDaysStepCounts(number: 30)
     //                if !last30DaysStepCount {
     //                    healthStore?.getNDaysStepCounts(number: 30)
-    //                }
-                } else {
-                    print("nooo")
-                }
+//                }
             } else {
                 // 퍼미션뷰를 보지 못했다.
              
@@ -64,7 +66,7 @@ extension HKHealthStore {
         
     }
 
-    // 나중에 활용
+    
     func getNDaysStepCounts(number: Int) {
         self.getToalStepCounts(passedDays: number, completion: { (result) in
             DispatchQueue.main.async {

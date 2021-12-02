@@ -102,6 +102,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="CNJ-5O-h5a" firstAttribute="width" secondItem="DLy-Jk-Tz4" secondAttribute="width" multiplier="0.6" id="90K-Jz-x0G"/>
                         <constraint firstItem="Yqc-24-WzL" firstAttribute="top" secondItem="DLy-Jk-Tz4" secondAttribute="top" id="Kjq-1Z-06z"/>
