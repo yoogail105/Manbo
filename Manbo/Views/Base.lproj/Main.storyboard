@@ -204,8 +204,8 @@
                                     <constraint firstItem="eK7-Eb-H3w" firstAttribute="leading" secondItem="TM1-az-hXR" secondAttribute="leading" id="p1v-GN-5x0"/>
                                 </constraints>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 &gt; 걸음 &gt; 데이터 소스 및 접근'에서 만보랑의 접근을 허용해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-OL-TMk">
-                                <rect key="frame" x="41.333333333333343" y="591.33333333333337" width="331.33333333333326" height="71.666666666666629"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 &gt; 걸음 &gt; 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요! 허용 후에는 아래의 발자국을 탭해주세요🐾" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-OL-TMk">
+                                <rect key="frame" x="41.333333333333371" y="591.33333333333337" width="331.33333333333326" height="71.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

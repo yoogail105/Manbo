@@ -103,7 +103,7 @@ class ViewController: UIViewController {
             locationSettingAlert()
             didLocationAlert = true
         }
-        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요! 허용 후에는 아래의 발자국을 탭해주세요🐾"
+        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 탭해주세요🐾"
         
         setUI()
         setUserImage()
