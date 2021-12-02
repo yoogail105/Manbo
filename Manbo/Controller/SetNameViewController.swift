@@ -16,12 +16,16 @@ class SetNameViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var completeButton: UIButton!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var okButton: UIButton!
     var maxLength = 8
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
     var isCoreectedName = false
     var longName = false
     let userDefaults = UserDefaults.standard
     var isOK = false
+    let isOnboarding = !UserDefaults.standard.hasOnbarded
+    
     // MARK: - VIEWDIDROW
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,9 @@ class SetNameViewController: UIViewController {
         guard let textField = self.userNameTextField else { return }
         textField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: textField)
-        userNameTextField.text = userDefaults.name!
+    
+        
+       
         backgroundView.customAlertSetting()
         completeButton.activeButtonColor(isActive: isCoreectedName)
         completeButton.isEnabled = false
@@ -38,6 +44,15 @@ class SetNameViewController: UIViewController {
             self.notiBanenr(notiText: notiText)
         }
         
+        if isOnboarding {
+            cancelButton.isHidden = true
+            okButton.setTitle("같이 걸어요!", for: .normal)
+        } else {
+            cancelButton.isHidden = false
+            userNameTextField.text = userDefaults.name!
+            
+        }
+      
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -91,13 +106,28 @@ class SetNameViewController: UIViewController {
     
     @IBAction func completeButtonClicked(_ sender: UIButton) {
         isOK = true
-        let changedName = userNameTextField.text!
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotificaiton"), object: nil, userInfo: ["newName": changedName])
-                                            
-        self.dismiss(animated: true, completion: nil)
-                                        
-                   
         
+        userDefaults.name = userNameTextField.text
+        
+         if isOnboarding {
+             UserDefaults.standard.firstLaunchDate = Date()
+             UserDefaults.standard.hasOnbarded = true
+            openTabViewSB()
+        } else {
+        self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    func openTabViewSB() {
+        
+        let sb = UIStoryboard(name: "TabView", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: TabViewController.identifier) as? TabViewController else {
+            return
+        }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
   
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -109,10 +139,10 @@ class SetNameViewController: UIViewController {
         let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
         
         banner.show()
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            banner.dismiss()
-//        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            banner.dismiss()
+        })
     }
     
 }
