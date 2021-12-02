@@ -22,7 +22,7 @@ class SetStepGoalViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        stepsGoalList.append(contentsOf: stride(from: 3000, to: 21000, by: 1000))
+        stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
         titleLabel.text = "하루 목표 걸음을\n설정해 주세요!"
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -63,11 +63,12 @@ extension SetStepGoalViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(stepsGoalList[row])
+        let decimalString = Int(stepsGoalList[row]).numberForamt()
+        return decimalString
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
+        
         self.newGoal = stepsGoalList[row]
 
     }
