@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 // MARK: - (노티예스) -> "노티 시간 설정" (-> 다음: 이름설정)
 class SetNotiViewController: UIViewController {
     static let identifier = "SetNotiViewController"
@@ -20,6 +22,7 @@ class SetNotiViewController: UIViewController {
     
     let userNotificationCenter = UNUserNotificationCenter.current()
     var isOKButton = true
+    var isnotiAuthorization = true
     let isOnboarding = !UserDefaults.standard.hasOnbarded
     
     override func viewDidLoad() {
@@ -32,20 +35,28 @@ class SetNotiViewController: UIViewController {
         if isOnboarding {
             okButton.setTitle("다음", for: .normal)
             cancelButton.isHidden = true
-            
         } else {
             cancelButton.isHidden = false
-            
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(turnOffNotification), name: .offNotification, object: nil)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("setNotiTiemVeiw", #function)
+        
         if isOKButton {
             userDefaults.notiTime = datePicker.date
         }
         print("알림시간: ", userDefaults.notiTime!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("setNotiTiemVeiw", #function)
+       
     }
     
     
@@ -56,28 +67,61 @@ class SetNotiViewController: UIViewController {
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
         isOKButton = true
-        userDefaults.notiTime = datePicker.date
+        self.userDefaults.notiTime = self.datePicker.date
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["dailyNoti"])
-        requestNotificationAuthorization()
+    
         
         if isOnboarding {
-            
+            requestNotificationAuthorization()
             openSetNameSB()
         } else {
-            
-            dismiss(animated: true, completion: nil)
+            checkNotificationAuthorization()
+            if !isnotiAuthorization {
+                DispatchQueue.main.async {
+
+                    self.notificaitonSettingAlert()
+                }
+            }
         }
-        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func turnOffNotification() {
+        userDefaults.removeObject(forKey: "notiTime")
+        userNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["dailyNoti"])
+        guard let noti = userDefaults.notiTime else {
+            print("notitiem없음")
+            return
+        }
+        print(noti)
     }
     
     // MARK: - NOTIFICATION CENTER
+    
+    func checkNotificationAuthorization() {
+        userNotificationCenter.getNotificationSettings { (settings) in
+            print("Checking notification status")
+
+            switch settings.authorizationStatus {
+            case .authorized:
+                print("authorized")
+                self.requestNotificationAuthorization()
+               
+            default :
+                print(settings.authorizationStatus)
+                self.isnotiAuthorization = false
+            }
+        }
+    }
     // 권한 요청 -> 권한 요청 팝업
     func requestNotificationAuthorization() {
-        let userNotificationCenter = UNUserNotificationCenter.current()
+      //  let userNotificationCenter = UNUserNotificationCenter.current()
         
         let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
         userNotificationCenter.requestAuthorization(options: authOptions) { success, error in
-            if success {
+            if let error = error {
+                print("requestNotificationAuthorization Error: \(error)")
+            } else {
                 self.sendNotification()
             }
         }
@@ -103,7 +147,7 @@ class SetNotiViewController: UIViewController {
         
         let userName = userDefaults.name ?? "만보"
         notificationContent.title = "\(userName)님이 보낸 메세지:"
-        let notiTime = userDefaults.notiTime!
+        let notiTime = userDefaults.notiTime ?? Date()
         notificationContent.body = "산책 언제 가요? 산책 가요!"
         
         
@@ -119,5 +163,20 @@ class SetNotiViewController: UIViewController {
                 print("Notificaton Error: ", error)
             }
         }
+    }
+    
+    func notificaitonSettingAlert() {
+        
+            self.showAlert(title: "알림을 사용할 수 없습니다.", message: "여러분이 원하는 시간에 알림을 보낼 수 있도록 '설정 > 만보랑'에서 알림 서비스를 켜주세요.", okTitle: "허용하기") {
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(url){
+                    UIApplication.shared.open(url) { success in
+                    }
+                }
+                
+            }
+        
     }
 }

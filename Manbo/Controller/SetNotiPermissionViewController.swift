@@ -20,22 +20,18 @@ class SetNotiPermissionViewController: UIViewController {
         super.viewDidLoad()
         notiLabel.text = "알림을\n받으시겠어요?"
         backgroundView.customAlertSetting()
-        
-        
-       
     }
     
     
     @IBAction func noButtonClicked(_ sender: UIButton) {
         openSetNameSB()
-        
     }
     
     @IBAction func yesButtonClicked(_ sender: UIButton) {
         openNotiTimeSB()
-       
-        
     }
+    
+    
     func openSetNameSB() {
         let sb = UIStoryboard(name: "SetName", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: SetNameViewController.identifier) as? SetNameViewController else {

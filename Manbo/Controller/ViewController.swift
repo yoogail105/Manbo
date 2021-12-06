@@ -126,7 +126,7 @@ class ViewController: UIViewController {
 
         self.navigationController?.isNavigationBarHidden = true
         
-        healthStore!.authorizedHealthKIt()
+        healthStore?.authorizedHealthKIt()
         if !userDefaults.healthKitAuthorization {
             currentStepCountLabel.text = "만보랑 같이 걸어요"
             healthKItInform.isHidden = false
@@ -280,7 +280,7 @@ class ViewController: UIViewController {
         } //: locationSettingAlert
     func healthKitSettingAlert() {
         showAlert(title: "걸음을 가져올 수 없습니다.", message: "건강 앱에서 내 걸음수를 읽을 수 있도록 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요.", okTitle: "확인") {
-            self.healthStore!.authorizedHealthKIt()
+            self.healthStore?.authorizedHealthKIt()
 //            self.didHealthKitAlert = true
 //            guard let url = URL(string: UIApplication.openSettingsURLString) else {
 //                return
