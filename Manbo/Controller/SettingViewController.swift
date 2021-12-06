@@ -17,7 +17,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var resetStepTimeButton: UIButton!
     @IBOutlet weak var resetNotiTimeButton: UIButton!
     @IBOutlet weak var resetColorButton: UIButton!
-    
+    @IBOutlet weak var turnOffAlarmButton: UIButton!
     
     @IBOutlet weak var stepGoalLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -42,7 +42,6 @@ class SettingViewController: UIViewController {
         
         setButtonsUI()
         
-        
         notiTimeLabel.setTimeLabelUI()
         resetTimeLabel.setTimeLabelUI()
         stepGoalLabel.setTimeLabelUI()
@@ -51,13 +50,20 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("SettingViewController", #function)
         
-        print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!), dateFormatter.simpleTimeString(date: userDefaults.notiTime!))
+        print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!))
+        
         
         userNameLabel.text = userDefaults.name!
         stepGoalLabel.text = "\(userDefaults.stepsGoal!.numberForamt()) 걸음"
         resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
+        
+        if userDefaults.notiTime != nil {
         notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
-        //view.layoutIfNeeded()
+            notiTimeLabel.isHidden = false
+        } else {
+            notiTimeLabel.isHidden = true
+        }
+    
     }
     
     func setButtonsUI() {
@@ -66,10 +72,10 @@ class SettingViewController: UIViewController {
         resetNotiTimeButton.settingButtonUI()
         resetStepTimeButton.settingButtonUI()
         resetColorButton.settingButtonUI()
+        turnOffAlarmButton.settingButtonUI()
+        turnOffAlarmButton.setTitle("끄기", for: .normal)
     }
-    
-    
-    
+   
     
     @IBAction func resetNameButtonClicked(_ sender: UIButton) {
         let sb = UIStoryboard(name: "SetName", bundle: nil)
@@ -106,6 +112,7 @@ class SettingViewController: UIViewController {
         
     }
     
+    
     @IBAction func resetNotiTimeButtonClicked(_ sender: UIButton) {
         let sb = UIStoryboard(name: "SetNotiTime", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: SetNotiViewController.identifier) as? SetNotiViewController else {
@@ -116,6 +123,16 @@ class SettingViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
+    
+    @IBAction func turnOffAlarmButtonClicked(_ sender: UIButton) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "turnOffNotification"), object: nil)
+        notiTimeLabel.isHidden = true
+            //  turnOffAlarmButton.isHidden = true
+        //resetNotiTimeButton.setTitle("켜기", for: .normal)
+        
+    }
+    
     
 }//: ViewDidLoad
 
