@@ -74,6 +74,8 @@ class SetNotiViewController: UIViewController {
         if isOnboarding {
             requestNotificationAuthorization()
             openSetNameSB()
+            self.dismiss(animated: true, completion: nil)
+            
         } else {
             checkNotificationAuthorization()
             if !isnotiAuthorization {
@@ -83,7 +85,7 @@ class SetNotiViewController: UIViewController {
                 }
             }
         }
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
     }
     
     @objc func turnOffNotification() {
@@ -109,10 +111,15 @@ class SetNotiViewController: UIViewController {
                
             default :
                 print(settings.authorizationStatus)
-                self.isnotiAuthorization = false
+                DispatchQueue.main.async {
+                    self.notificaitonSettingAlert()
+                    print("noti띄우기")
+                }
             }
         }
+        
     }
+    
     // 권한 요청 -> 권한 요청 팝업
     func requestNotificationAuthorization() {
       //  let userNotificationCenter = UNUserNotificationCenter.current()
@@ -122,8 +129,14 @@ class SetNotiViewController: UIViewController {
             if let error = error {
                 print("requestNotificationAuthorization Error: \(error)")
             } else {
+                print("requestNotificationAuthorization success")
                 self.sendNotification()
             }
+        }
+        
+        DispatchQueue.main.async {
+            print("request: dismiss")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
