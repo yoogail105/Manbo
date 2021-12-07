@@ -11,7 +11,7 @@ import HealthKit
 import RealmSwift
 import CoreLocation
 import NotificationBannerSwift
-
+import Firebase
 
 class ViewController: UIViewController {
     static let identifier = "ViewController"
@@ -105,15 +105,27 @@ class ViewController: UIViewController {
             didLocationAlert = true
         }
         
-        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 탭해주세요🐾"
+        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 두 번 탭해주세요🐾"
+        healthKItInform.isHidden = true
         
         setUI()
         setUserImage()
         SetNotiViewController().requestNotificationAuthorization()
         
+        
+        // MARK: - NotificationCenter
         NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeResteTimeNotification), name:.stepNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeStepCountNotification), name: .updateStepNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(noHealthKitAuthorizationNotification), name: .ifNoHealthKitAuthorizaion, object: nil)
+        
+        // MARK: - Firebase Analytics
+        Analytics.logEvent("getUserSetting", parameters: [
+            "name": userDefaults.name! as NSObject,
+            "goal": userDefaults.stepsGoal! as NSObject,
+            "resetTime": userDefaults.resetTime! as NSObject,
+        ])
+        
         
         // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
@@ -127,14 +139,13 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         healthStore?.authorizedHealthKIt()
-        if !userDefaults.healthKitAuthorization {
-            currentStepCountLabel.text = "만보랑 같이 걸어요"
-            healthKItInform.isHidden = false
-        } else {
-            healthKItInform.isHidden = true
-        }
-//
+
     }//: viewWillAppear
+    
+    @objc func noHealthKitAuthorizationNotification(notification: NSNotification) {
+        self.currentStepCountLabel.text = "만보랑 같이 걸어요"
+        self.healthKItInform.isHidden = false
+    }
     
     @objc func changeStepCountNotification(notification: NSNotification) {
         if let newCount = notification.userInfo?["newCurrentStepCount"] as? Int {
@@ -143,11 +154,12 @@ class ViewController: UIViewController {
             //currentStepCountLabel.text = "\(currentStepCount.numberForamt())"
                 healthKItInform.isHidden = true
              //   view.layoutIfNeeded()
-            } else {
-                currentStepCountLabel.text = "만보랑 같이 걸어요"
-                healthKItInform.isHidden = false
-               
             }
+//            else {
+//                currentStepCountLabel.text = "만보랑 같이 걸어요"
+//                healthKItInform.isHidden = false
+//               
+//            }
         }
     }
     

@@ -17,4 +17,5 @@ extension NSNotification.Name {
     NSNotification.Name("turnOffNotification")
     static let isHiddenNotiTimeLabel =
     NSNotification.Name("isHiddenNotiTimeLabel")
+    static let ifNoHealthKitAuthorizaion = NSNotification.Name("noHealthKitAuthorizationNotification")
 }

@@ -49,8 +49,7 @@ class TabViewController: UIViewController {
 //        buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
         
     }
-    
-    
+
     
     func setButtonTag() {
         for (index, button) in buttons.enumerated() {

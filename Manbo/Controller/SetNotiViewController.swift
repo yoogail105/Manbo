@@ -74,8 +74,6 @@ class SetNotiViewController: UIViewController {
         if isOnboarding {
             requestNotificationAuthorization()
             openSetNameSB()
-            self.dismiss(animated: true, completion: nil)
-            
         } else {
             checkNotificationAuthorization()
             if !isnotiAuthorization {
@@ -134,10 +132,6 @@ class SetNotiViewController: UIViewController {
             }
         }
         
-        DispatchQueue.main.async {
-            print("request: dismiss")
-            self.dismiss(animated: true, completion: nil)
-        }
     }
     
     func openSetNameSB() {
@@ -175,6 +169,12 @@ class SetNotiViewController: UIViewController {
             if let error = error {
                 print("Notificaton Error: ", error)
             }
+        }
+        if !isOnboarding{
+        DispatchQueue.main.async {
+            
+            self.dismiss(animated: true, completion: nil)
+        }
         }
     }
     

@@ -109,6 +109,7 @@ class SetNameViewController: UIViewController {
         
         let changeName = userNameTextField.text!
         userDefaults.name = changeName
+        self.view.endEditing(true)
         
          if isOnboarding {
              UserDefaults.standard.firstLaunchDate = Date()
