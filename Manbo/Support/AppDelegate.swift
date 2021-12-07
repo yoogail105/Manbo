@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import RealmSwift
 import IQKeyboardManagerSwift
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .black
         IQKeyboardManager.shared.enable = true
         UNUserNotificationCenter.current().delegate = self
+        // When you open the realm, specify that the schema
+        // is now using a newer version.
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+        // Use this configuration when opening realms
+            migrationBlock: { migration, oldSchemaVersion in
+        if (oldSchemaVersion < 1) {
+
+        }
+    })
+        // 새로운 설정을 기본 저장소에 적용
+        Realm.Configuration.defaultConfiguration = config
+        
+        // firebase 초기화
+        FirebaseApp.configure()
+       
 
         return true
     }

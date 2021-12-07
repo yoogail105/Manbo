@@ -12,6 +12,7 @@
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE952753ED70004230A6 /* RealmManagerViewController.swift */; };
 		270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE9827546E37004230A6 /* TabBarViewModel.swift */; };
+		270CD2F0275F230600A31E2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270CD2EF275F230600A31E2B /* GoogleService-Info.plist */; };
 		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
 		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */; };
@@ -94,6 +95,7 @@
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
 		270CAE9827546E37004230A6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		270CD2EF275F230600A31E2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Documents/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		2780C5B12744F526004A0BE4 /* Manbo */ = {
 			isa = PBXGroup;
 			children = (
+				270CD2EF275F230600A31E2B /* GoogleService-Info.plist */,
 				27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */,
 				27C6D67A2758C01B009A7D4B /* Manbo.entitlements */,
 				27A66653274C2A4900A63683 /* ManboDebug.entitlements */,
@@ -405,6 +408,7 @@
 				2780C5AC2744F526004A0BE4 /* Frameworks */,
 				2780C5AD2744F526004A0BE4 /* Resources */,
 				D91C9AACEA968C1CDCDA5B7A /* [CP] Embed Pods Frameworks */,
+				270CD2F1275F258D00A31E2B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -482,6 +486,7 @@
 				272567D327562D77002F11CB /* SelectedTaskCollectionViewCell.xib in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
+				270CD2F0275F230600A31E2B /* GoogleService-Info.plist in Resources */,
 				27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
@@ -521,6 +526,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		270CD2F1275F258D00A31E2B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		D91C9AACEA968C1CDCDA5B7A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -774,7 +798,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/Manbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
@@ -811,7 +836,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/ManboRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
@@ -825,7 +850,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

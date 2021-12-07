@@ -72,6 +72,8 @@ extension HKHealthStore {
             DispatchQueue.main.async {
                 if result == 0 {
                     UserDefaults.standard.healthKitAuthorization = false
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "noHealthKitAuthorizationNotification"), object: nil)
+                    
                 } else {
                     UserDefaults.standard.healthKitAuthorization = true
                 }
