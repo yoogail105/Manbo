@@ -15,6 +15,8 @@ class DateCalendarViewCell: JTACDayCell {
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var calendarColorImage: UIImageView!
     
 
     
