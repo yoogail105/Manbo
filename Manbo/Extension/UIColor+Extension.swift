@@ -13,6 +13,13 @@ enum AssetsColor {
     case mainBlue
 }
 
+enum Calendar01 {
+    case first
+    case second
+    case third
+    case fourth
+}
+
 extension UIColor {
     
     static func appColor(_ name: AssetsColor) -> UIColor {
@@ -24,6 +31,20 @@ extension UIColor {
         case .mainBlue:
             return #colorLiteral(red: 0.4156862745, green: 0.5490196078, blue: 0.7019607843, alpha: 1)
       
+        }
+    }
+    
+    static func calendarColor(_ name: Calendar01) -> UIColor {
+        switch name {
+        case .first:
+            return #colorLiteral(red: 0.9863834977, green: 0.7663482428, blue: 0.875755012, alpha: 1)
+        case .second:
+            return #colorLiteral(red: 0.7909837365, green: 0.6802212596, blue: 0.8128792644, alpha: 1)
+        case .third:
+            return #colorLiteral(red: 0.6040309668, green: 0.5678699017, blue: 0.7675608993, alpha: 1)
+        case .fourth:
+            return #colorLiteral(red: 0.6606132388, green: 0.5928084254, blue: 0.8577287793, alpha: 1)
+    
         }
     }
     

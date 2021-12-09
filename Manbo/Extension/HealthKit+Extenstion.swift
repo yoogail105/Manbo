@@ -39,25 +39,16 @@ extension HKHealthStore {
             //read는 감별할 수 없다.
             if success {
                 print("허용여부는 \(self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) ==  .sharingDenied)")
-//                if ( self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .sharingDenied) {
-//                    print("noooo")
-                    
-                    
-//                } else {
+
                     print("yesss")
-                    
                     //code
                     print("허용했음.")
                     self.getTodayStepCounts()
                     self.getThisWeekStepCounts()
                     self.getThisMonthStepCounts()
                     self.getNDaysStepCounts(number: 30)
-    //                if !last30DaysStepCount {
-    //                    healthStore?.getNDaysStepCounts(number: 30)
-//                }
-            } else {
-                // 퍼미션뷰를 보지 못했다.
-             
+       } else {
+                print("퍼미션뷰를 보지 못했다.")
             }
         }
     }

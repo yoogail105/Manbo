@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import FirebaseCrashlytics
 
 // MARK: - (노티예스) -> "노티 시간 설정" (-> 다음: 이름설정)
 class SetNotiViewController: UIViewController {
