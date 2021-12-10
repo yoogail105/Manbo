@@ -116,8 +116,8 @@
 		2780C5BB2744F529004A0BE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2780C5BE2744F529004A0BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2780C5C02744F529004A0BE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		278832922746DFDB007616EA /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = ../../../Documents/Setting.storyboard; sourceTree = "<group>"; };
-		278832942746DFE8007616EA /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = ../../../Documents/Calendar.storyboard; sourceTree = "<group>"; };
+		278832922746DFDB007616EA /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		278832942746DFE8007616EA /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		278832962746EB04007616EA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2788329B2746EFDF007616EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2788329D2746F035007616EA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };

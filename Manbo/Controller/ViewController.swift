@@ -120,12 +120,12 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(noHealthKitAuthorizationNotification), name: .ifNoHealthKitAuthorizaion, object: nil)
         
         // MARK: - Firebase Analytics
-        Analytics.logEvent("getUserSetting", parameters: [
-            "name": userDefaults.name! as NSObject,
-            "goal": userDefaults.stepsGoal! as NSObject,
-            "resetTime": userDefaults.resetTime! as NSObject,
-        ])
-        
+//        Analytics.logEvent("getUserSetting", parameters: [
+//            "name": userDefaults.name! as NSObject,
+//            "goal": userDefaults.stepsGoal! as NSObject,
+//            "resetTime": userDefaults.resetTime! as NSObject,
+//        ])
+//        
         
         // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
