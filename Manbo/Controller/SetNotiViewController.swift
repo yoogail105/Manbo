@@ -23,7 +23,15 @@ class SetNotiViewController: UIViewController {
     
     let userNotificationCenter = UNUserNotificationCenter.current()
     var isOKButton = true
-    var isnotiAuthorization = true
+    var isSendNoti = false {
+        didSet {
+            if isSendNoti {
+            self.dismiss(animated: true, completion: nil)
+            }
+                
+        }
+    }
+        
     let isOnboarding = !UserDefaults.standard.hasOnbarded
     
     override func viewDidLoad() {
@@ -62,29 +70,28 @@ class SetNotiViewController: UIViewController {
     
     
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
-        isOKButton = false
-        dismiss(animated: true, completion: nil)
+        isOKButton = false // 유저디폴트에 저장하지 않는다. 없애는 것 아니고 그냥 취소하는거야
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
-        isOKButton = true
-        self.userDefaults.notiTime = self.datePicker.date
+        isOKButton = true // 유저디폴트값에 시간을 저장한다.
+        self.userDefaults.notiTime = self.datePicker.date //중복저장되는것같은데..
+        //일단 저장되어있던 알림을 지운다.
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["dailyNoti"])
     
+        //알림을 새로 등록한다.
         
         if isOnboarding {
             requestNotificationAuthorization()
             openSetNameSB()
+            return
         } else {
             checkNotificationAuthorization()
-            if !isnotiAuthorization {
-                DispatchQueue.main.async {
-
-                    self.notificaitonSettingAlert()
-                }
+            if isSendNoti {
+                dismiss(animated: true, completion: nil)
             }
         }
-        //self.dismiss(animated: true, completion: nil)
     }
     
     @objc func turnOffNotification() {
@@ -106,30 +113,32 @@ class SetNotiViewController: UIViewController {
             switch settings.authorizationStatus {
             case .authorized:
                 print("authorized")
-                self.requestNotificationAuthorization()
-               
+                self.sendNotification()
+                
             default :
+                // 허락한게 아니라면 얼럿 띄워서 허락 요청하기
                 print(settings.authorizationStatus)
                 DispatchQueue.main.async {
                     self.notificaitonSettingAlert()
-                    print("noti띄우기")
+                    print("noti 띄우기")
                 }
             }
         }
-        
     }
     
-    // 권한 요청 -> 권한 요청 팝업
+    // 온보딩: 권한 요청 -> 유저가 허락했는지 안했는지 확인할 수 있다: success
     func requestNotificationAuthorization() {
-      //  let userNotificationCenter = UNUserNotificationCenter.current()
         
         let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        // success는 Bool형.
         userNotificationCenter.requestAuthorization(options: authOptions) { success, error in
             if let error = error {
                 print("requestNotificationAuthorization Error: \(error)")
-            } else {
-                print("requestNotificationAuthorization success")
+            } else if success {
+                print("success: requestNotificationAuthorization success", success)
                 self.sendNotification()
+            } else {
+                print("!success: requestNotificationAuthorization success", success)
             }
         }
         
@@ -149,8 +158,10 @@ class SetNotiViewController: UIViewController {
     }
     
     
-    // 알림보내기
+    // 알림보내기: 알림 내용을 세팅해주기
     func sendNotification() {
+        print("sendNoti")
+        self.isSendNoti = true
         let notificationContent = UNMutableNotificationContent()
         
         let userName = userDefaults.name ?? "만보"
@@ -171,12 +182,9 @@ class SetNotiViewController: UIViewController {
                 print("Notificaton Error: ", error)
             }
         }
-        if !isOnboarding{
-        DispatchQueue.main.async {
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-        }
+       
+        
+       
     }
     
     func notificaitonSettingAlert() {
