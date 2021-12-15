@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>걸음 수, 만보 이미지를 사용하여 사진 편집을 하기 위해서는 사진 앨범에 대한 접근 권한이 필요합니다.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>현재 걷고 있는 길을 촬영하여 기록을 남기기 위해서는 카메라에 대한 접근 권한이 필요합니다.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>걸음 수, 만보 이미지를 사용하여 사진 편집을 하기 위해서는 사진 앨범에 대한 접근 권한이 필요합니다.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
