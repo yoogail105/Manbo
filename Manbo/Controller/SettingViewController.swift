@@ -25,16 +25,31 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var notiTimeLabel: UILabel!
     
     
+    
     let setMenuItem = ["공지사항", "문의하기", "개인정보정책", "버전"]
     
     let userDefaults = UserDefaults.standard
     let dateFormatter = DateFormatter()
+   
+    var notiTime = UserDefaults.standard.notiTime {
+        didSet {
+            
+        }
+    
+    }
     
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+//       if notiTime == nil {
+//            self.turnOffAlarmButton.isHidden = true
+//       } else {
+//           self.turnOffAlarmButton.isHidden = false
+//       }
+ 
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,30 +65,40 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("SettingViewController", #function)
         
+//        if  userDefaults.notiTime == nil {
+//             self.turnOffAlarmButton.isHidden = true
+//        } else {
+//            self.turnOffAlarmButton.isHidden = false
+//        }
+        
         print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!))
         
+        if userDefaults.notiTime != nil {
+            print("노티타임은 !nil이면", notiTime)
+            notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
+        notiTimeLabel.isHidden = false
+            //turnOffAlarmButton.setTitle("끄기", for: .normal)
+    } else {
+        print("노티타임은 nil이면", notiTime)
+        notiTimeLabel.isHidden = true
+     //   turnOffAlarmButton.setTitle("없음", for: .normal)
         
+    }
         userNameLabel.text = userDefaults.name!
         stepGoalLabel.text = "\(userDefaults.stepsGoal!.numberForamt()) 걸음"
         resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
-        
-        if userDefaults.notiTime != nil {
-        notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
-            notiTimeLabel.isHidden = false
-        } else {
-            notiTimeLabel.isHidden = true
-        }
+    
     
     }
     
     func setButtonsUI() {
-        resetNameButton.settingButtonUI()
-        resetGoalButton.settingButtonUI()
-        resetNotiTimeButton.settingButtonUI()
-        resetStepTimeButton.settingButtonUI()
-        resetColorButton.settingButtonUI()
-        turnOffAlarmButton.settingButtonUI()
-        turnOffAlarmButton.setTitle("끄기", for: .normal)
+        resetNameButton.settingButtonUI(title: "수정")
+        resetGoalButton.settingButtonUI(title: "수정")
+        resetNotiTimeButton.settingButtonUI(title: "수정")
+        resetStepTimeButton.settingButtonUI(title: "수정")
+        resetColorButton.settingButtonUI(title: "수정")
+        turnOffAlarmButton.settingButtonUI(title: "끄기")
+        //turnOffAlarmButton.setTitle("끄기", for: .normal)
     }
    
     
@@ -125,7 +150,8 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func turnOffAlarmButtonClicked(_ sender: UIButton) {
-        
+    
+        UserDefaults.standard.removeObject(forKey: "notiTime")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "turnOffNotification"), object: nil)
         notiTimeLabel.isHidden = true
             //  turnOffAlarmButton.isHidden = true
