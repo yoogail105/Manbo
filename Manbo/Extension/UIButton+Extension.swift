@@ -9,11 +9,11 @@ import UIKit
 
 extension UIButton {
     
-    func settingButtonUI() {
+    func settingButtonUI(title: String) {
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 1
         self.cornerRounded(cornerRadius: 10)
-        self.setTitle("수정", for: .normal)
+        self.setTitle(title, for: .normal)
         self.setTitleColor(UIColor.white, for: .normal)
         self.titleLabel?.font = UIFont.systemFont(ofSize: 10)
     }
