@@ -10,9 +10,9 @@
 		191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335005497D8D5B55E108E521 /* Pods_Manbo.framework */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
+		2707F932276A345600EDCC10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2707F931276A345500EDCC10 /* GoogleService-Info.plist */; };
 		270CAE962753ED70004230A6 /* RealmManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE952753ED70004230A6 /* RealmManagerViewController.swift */; };
 		270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CAE9827546E37004230A6 /* TabBarViewModel.swift */; };
-		270CD2F0275F230600A31E2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 270CD2EF275F230600A31E2B /* GoogleService-Info.plist */; };
 		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
 		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */; };
@@ -93,9 +93,9 @@
 
 /* Begin PBXFileReference section */
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
+		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
 		270CAE9827546E37004230A6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
-		270CD2EF275F230600A31E2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Documents/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		2780C5B12744F526004A0BE4 /* Manbo */ = {
 			isa = PBXGroup;
 			children = (
-				270CD2EF275F230600A31E2B /* GoogleService-Info.plist */,
+				2707F931276A345500EDCC10 /* GoogleService-Info.plist */,
 				27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */,
 				27C6D67A2758C01B009A7D4B /* Manbo.entitlements */,
 				27A66653274C2A4900A63683 /* ManboDebug.entitlements */,
@@ -484,9 +484,9 @@
 				27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */,
 				27EC33E52754F5B100C60C0F /* SetNotiTime.storyboard in Resources */,
 				272567D327562D77002F11CB /* SelectedTaskCollectionViewCell.xib in Resources */,
+				2707F932276A345600EDCC10 /* GoogleService-Info.plist in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
-				270CD2F0275F230600A31E2B /* GoogleService-Info.plist in Resources */,
 				27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,

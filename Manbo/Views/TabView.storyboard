@@ -50,7 +50,7 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="tabChangedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tJo-tm-0Ie"/>
+                                            <action selector="heartButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rz1-Hh-tGg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
@@ -99,8 +99,7 @@
                         <outlet property="tabBarBackgroundView" destination="FOd-cS-JcO" id="ixI-05-g4U"/>
                         <outlet property="tabView" destination="Nq3-KB-knP" id="zLr-7Z-Npj"/>
                         <outletCollection property="buttons" destination="JsR-Py-VQB" collectionClass="NSMutableArray" id="SCE-h8-Xdq"/>
-                        <outletCollection property="buttons" destination="JEv-UY-B5o" collectionClass="NSMutableArray" id="p4J-Ft-DmC"/>
-                        <outletCollection property="buttons" destination="rXL-5j-L6q" collectionClass="NSMutableArray" id="ek3-ep-1Z3"/>
+                        <outletCollection property="buttons" destination="rXL-5j-L6q" collectionClass="NSMutableArray" id="CwU-YA-8oU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

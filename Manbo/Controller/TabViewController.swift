@@ -37,7 +37,7 @@ class TabViewController: UIViewController {
         tabBarBackgroundView.cornerRounded(cornerRadius: tabBarBackgroundView.frame.size.height / 2)
         
         // VC배열에 넣기
-        vcList = [mainVC, cameraVC, calendarVC]
+        vcList = [mainVC,calendarVC]
         
         setButtonTag()
         
@@ -46,7 +46,7 @@ class TabViewController: UIViewController {
         tabChanged(sender: buttons[selectedIndex])
         
         imagePickerController.delegate = self
-        buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
+       // buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
         
     }
 
@@ -57,18 +57,18 @@ class TabViewController: UIViewController {
         }
     }
     
-    @objc func cameraOpen() {
-        self.imagePickerController.sourceType = .camera
-        self.present(self.imagePickerController,animated: true, completion:  nil)
-
-    }
-    
-    
-//    @IBAction func heartButtonClicked(_ sender: UIButton) {
-//        let sb = UIStoryboard(name: "Chat", bundle: nil)
-//        guard let vc = sb.instantiateViewController(withIdentifier: ChatViewController.identifier) as? ChatViewController else { return }
-//        present(vc, animated: true, completion: nil)
+//    @objc func cameraOpen() {
+//        self.imagePickerController.sourceType = .camera
+//        self.present(self.imagePickerController,animated: true, completion:  nil)
+//
 //    }
+    
+    
+    @IBAction func heartButtonClicked(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Chat", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: ChatViewController.identifier) as? ChatViewController else { return }
+        present(vc, animated: true, completion: nil)
+    }
     
 } //:viewDidLoad
 

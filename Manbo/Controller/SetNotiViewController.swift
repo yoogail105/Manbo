@@ -25,8 +25,10 @@ class SetNotiViewController: UIViewController {
     var isOKButton = true
     var isSendNoti = false {
         didSet {
-            if isSendNoti {
-            self.dismiss(animated: true, completion: nil)
+            if !isOnboarding && isSendNoti {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
                 
         }
@@ -40,7 +42,7 @@ class SetNotiViewController: UIViewController {
         setNotiTimeLabel.text = "언제 알림을 드릴까요?"
         datePicker.setValue(UIColor.white, forKey: "textColor")
         backgroundView.customAlertSetting()
-        
+        print(isSendNoti)
         if isOnboarding {
             okButton.setTitle("다음", for: .normal)
             cancelButton.isHidden = true
@@ -59,7 +61,7 @@ class SetNotiViewController: UIViewController {
         if isOKButton {
             userDefaults.notiTime = datePicker.date
         }
-        print("알림시간: ", userDefaults.notiTime!)
+        //print("알림시간: ", userDefaults.notiTime!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,9 +90,6 @@ class SetNotiViewController: UIViewController {
             return
         } else {
             checkNotificationAuthorization()
-            if isSendNoti {
-                dismiss(animated: true, completion: nil)
-            }
         }
     }
     
@@ -161,6 +160,7 @@ class SetNotiViewController: UIViewController {
     // 알림보내기: 알림 내용을 세팅해주기
     func sendNotification() {
         print("sendNoti")
+       
         self.isSendNoti = true
         let notificationContent = UNMutableNotificationContent()
         
@@ -182,8 +182,7 @@ class SetNotiViewController: UIViewController {
                 print("Notificaton Error: ", error)
             }
         }
-       
-        
+    
        
     }
     
