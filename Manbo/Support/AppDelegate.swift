@@ -23,14 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .black
         IQKeyboardManager.shared.enable = true
         UNUserNotificationCenter.current().delegate = self
-        // When you open the realm, specify that the schema
-        // is now using a newer version.
+        
         let config = Realm.Configuration(
             schemaVersion: 1,
             // Use this configuration when opening realms
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
-                    
                 }
             })
         // 새로운 설정을 기본 저장소에 적용
@@ -40,14 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // 원격 알림 등록
-        UNUserNotificationCenter.current().delegate = self
-        
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: { _, _ in }
-        )
-        
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         
@@ -85,24 +75,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        print("사용자가 푸시를 클릭했습니다.")
-        
-        //userInfo: Key -1(광고), 2(채팅방), 3(사용자 설정)
-        print(response.notification.request.content.userInfo)
-        print(response.notification.request.content.body)
-        
-        // Key 1 파싱해보자
-        let userInfo = response.notification.request.content.userInfo
-        if userInfo[AnyHashable("Key")] as? Int == 1 {
-            print("광고 푸시 입니다.")
-        } else {
-            print("다른 푸시입니다.")
-        }
         completionHandler()
     }
     
-    // 포그라운드 수신: Local Notification에서도 동일하게 동작한다!
+    // 포그라운드 수신
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

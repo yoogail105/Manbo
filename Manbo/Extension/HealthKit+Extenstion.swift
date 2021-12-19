@@ -12,26 +12,6 @@ import RealmSwift
 
 extension HKHealthStore {
     
-   
-    /*
-     if UserDefaults.standard.healthKitAuthorization {
-      //code
-     } else {
-         healthStore!.authorizeHealthKit()
-     }
-     */
-    
-    // 헬스킷 허용 여부
-//    func ishealthKitAuthorized()  { //얘는 무조건 엘스라고 나오네.
-//        if (self.authorizationStatus(for: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) == .) {
-//            print("ishealthKIt허용")
-//        }
-//        else {
-//            print("ishealthKIt허용x")
-//        }
-//    }
-    
-    
     func authorizedHealthKIt() {
         let healthKitTypes = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
         
@@ -171,26 +151,20 @@ extension HKHealthStore {
                                               stepCount:Int(dayCount),
                                               stepGoal: goal,
                                               goalPercent: dayCount / Double(goal))
-                        print(dateFormatter.simpleDateString(date: currentDate))
-                        
                         if filterdTask?.count == 0 {
                             try! realm.write {
                                 realm.add(task)
                             }
                             print("add success")
                         } else if savedDate == todayReport {
-                            print(todayReport, savedDate)
                             try! realm.write {
                                 filterdTask?.first?.stepCount = Int(dayCount)
                                 filterdTask?.first?.goalPercent = dayCount / Double(goal)
                             }
                             print("update success")
                         }
-                        // 하루 지나기
                         currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
-                        // print("걸음더하기: \(dayCount)")
                     }
-                    //return
                     DispatchQueue.main.async {
                         completion(totalCount)
                         

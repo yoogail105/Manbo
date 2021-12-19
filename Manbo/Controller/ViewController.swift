@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         
         setUI()
         setUserImage()
-        SetNotiViewController().requestNotificationAuthorization()
+        //SetNotiViewController().requestNotificationAuthorization()
         
         
         // MARK: - NotificationCenter
