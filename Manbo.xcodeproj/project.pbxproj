@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335005497D8D5B55E108E521 /* Pods_Manbo.framework */; };
+		235EF561276EB5B6005EE3D7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 235EF560276EB5B6005EE3D7 /* Realm */; };
+		235EF563276EB5B6005EE3D7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 235EF562276EB5B6005EE3D7 /* RealmSwift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		2707F932276A345600EDCC10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2707F931276A345500EDCC10 /* GoogleService-Info.plist */; };
@@ -53,7 +55,6 @@
 		278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74A627496CB500794E8D /* UserDefaults+Extension.swift */; };
 		278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */; };
 		27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A66654274C2A4900A63683 /* HealthKit.framework */; };
-		27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66659274C34CA00A63683 /* HealthStore.swift */; };
 		27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 27A6665C274D762200A63683 /* JTAppleCalendar */; };
 		27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */; };
 		27A66662274EB61C00A63683 /* manboManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66661274EB61C00A63683 /* manboManager.swift */; };
@@ -62,8 +63,6 @@
 		27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D67827587A98009A7D4B /* ChatViewController.swift */; };
 		27C6D67D2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */; };
 		27C6D6812758F7F3009A7D4B /* SetNotiPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */; };
-		27DC209E2750DE310098E698 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209D2750DE310098E698 /* Realm */; };
-		27DC20A02750DE310098E698 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27DC209F2750DE310098E698 /* RealmSwift */; };
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
 		27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20AE27524B410098E698 /* Date+Extension.swift */; };
 		27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */; };
@@ -143,7 +142,6 @@
 		278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionViewCell.swift; path = Manbo/Views/CalendarCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		27A66653274C2A4900A63683 /* ManboDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManboDebug.entitlements; sourceTree = "<group>"; };
 		27A66654274C2A4900A63683 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		27A66659274C34CA00A63683 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendarViewCell.swift; sourceTree = "<group>"; };
 		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
@@ -189,13 +187,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				275D718E2757B31700070234 /* WebKit.framework in Frameworks */,
-				27DC20A02750DE310098E698 /* RealmSwift in Frameworks */,
-				27DC209E2750DE310098E698 /* Realm in Frameworks */,
 				2707947A27501D5D00CE532D /* Alamofire in Frameworks */,
 				278F749D2748FC1900794E8D /* SideMenu in Frameworks */,
+				235EF563276EB5B6005EE3D7 /* RealmSwift in Frameworks */,
 				27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */,
 				27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */,
 				27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */,
+				235EF561276EB5B6005EE3D7 /* Realm in Frameworks */,
 				191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +241,6 @@
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
 				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
 				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
-				27A66659274C34CA00A63683 /* HealthStore.swift */,
 				270CAE952753ED70004230A6 /* RealmManagerViewController.swift */,
 				27EC33D52754A60900C60C0F /* SettingTextViewController.swift */,
 				27EC33E6275544B600C60C0F /* SetNotiViewController.swift */,
@@ -420,8 +417,8 @@
 				27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */,
 				27A6665C274D762200A63683 /* JTAppleCalendar */,
 				2707947927501D5D00CE532D /* Alamofire */,
-				27DC209D2750DE310098E698 /* Realm */,
-				27DC209F2750DE310098E698 /* RealmSwift */,
+				235EF560276EB5B6005EE3D7 /* Realm */,
+				235EF562276EB5B6005EE3D7 /* RealmSwift */,
 			);
 			productName = Manbo;
 			productReference = 2780C5AF2744F526004A0BE4 /* Manbo.app */;
@@ -457,7 +454,7 @@
 				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				235EF55F276EB5B6005EE3D7 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -588,7 +585,6 @@
 				27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */,
 				27EC33F127557AA500C60C0F /* Notification+Extension.swift in Sources */,
 				27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */,
-				27A6665A274C34CA00A63683 /* HealthStore.swift in Sources */,
 				2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */,
 				27EC33B9275487DE00C60C0F /* SettingTableViewCellController.swift in Sources */,
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
@@ -798,14 +794,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/Manbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "지난 30일간의 걸음 수를 가져와 지난 목표 달성 정도를 표시하고, 매일매일 그 날의 걸음 수를 파악하고 하루의 목표 달성률을 표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "지난 30일간의 걸음 수를 가져와 지난 목표 달성 정도를 표시하고, 매일매일 그 날의 걸음 수를 파악하고 하루의 목표 달성률을 표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
@@ -813,6 +809,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -836,13 +833,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/ManboRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "걸음 수를 표시하기 위해서 건강 앱에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "지난 30일간의 걸음 수를 가져와 지난 목표 달성 정도를 표시하고, 매일매일 그 날의 걸음 수를 파악하고 하루의 목표 달성률을 표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "지난 30일간의 걸음 수를 가져와 지난 목표 달성 정도를 표시하고, 매일매일 그 날의 걸음 수를 파악하고 하루의 목표 달성률을 표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
@@ -850,6 +847,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -889,6 +887,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		235EF55F276EB5B6005EE3D7 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.18.0;
+			};
+		};
 		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -921,17 +927,19 @@
 				minimumVersion = 8.0.0;
 			};
 		};
-		27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.18.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		235EF560276EB5B6005EE3D7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 235EF55F276EB5B6005EE3D7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		235EF562276EB5B6005EE3D7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 235EF55F276EB5B6005EE3D7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		2707947927501D5D00CE532D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -951,16 +959,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
 			productName = JTAppleCalendar;
-		};
-		27DC209D2750DE310098E698 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		27DC209F2750DE310098E698 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27DC209C2750DE310098E698 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

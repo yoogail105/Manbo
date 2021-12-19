@@ -18,7 +18,7 @@ class SetStepGoalViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     var stepsGoalList: [Int] = []
-    var newGoal = 3000
+    var newGoal = 1000
     var isOK = false
     let userDefaults = UserDefaults.standard
     let isOnboarding = !UserDefaults.standard.hasOnbarded

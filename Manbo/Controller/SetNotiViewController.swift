@@ -26,7 +26,9 @@ class SetNotiViewController: UIViewController {
     var isSendNoti = false {
         didSet {
             if !isOnboarding && isSendNoti {
+                print("didset:", isSendNoti)
                 DispatchQueue.main.async {
+            
                     self.dismiss(animated: true, completion: nil)
                 }
             }
@@ -38,7 +40,8 @@ class SetNotiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("SetNotiViewController", #function)
+        isSendNoti = false
         setNotiTimeLabel.text = "언제 알림을 드릴까요?"
         datePicker.setValue(UIColor.white, forKey: "textColor")
         backgroundView.customAlertSetting()
@@ -100,7 +103,7 @@ class SetNotiViewController: UIViewController {
             print("notitiem없음")
             return
         }
-        print(noti)
+        print("notiTime: ", noti)
     }
     
     // MARK: - NOTIFICATION CENTER
@@ -127,7 +130,6 @@ class SetNotiViewController: UIViewController {
     
     // 온보딩: 권한 요청 -> 유저가 허락했는지 안했는지 확인할 수 있다: success
     func requestNotificationAuthorization() {
-        
         let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
         // success는 Bool형.
         userNotificationCenter.requestAuthorization(options: authOptions) { success, error in

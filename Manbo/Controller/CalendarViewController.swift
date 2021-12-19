@@ -14,7 +14,12 @@ import SwiftUI
 
 
 class CalendarViewController: UIViewController {
+    
     static let identifier = "CalendarViewController"
+
+    @IBOutlet weak var detailView: UIView!
+    @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var detailLabel: UILabel!
     
     let currentDateSelecedViewColor = UIColor.appColor(.borderLightGray)
     
@@ -30,7 +35,6 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTACMonthView!
     
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var collectonView: UICollectionView!
     @IBOutlet weak var constraint: NSLayoutConstraint!
     
     @IBOutlet weak var togleAlbumOnOff: UIButton!
@@ -45,6 +49,7 @@ class CalendarViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     var isAlbumOn = true
+    var showInfoView = false
     var headerVisible = true
     var isMonthView = true
     let calendar = Calendar.current
@@ -89,6 +94,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         print(#function)
         imageTintColorSettings()
+        
         self.setupCalendarView()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -96,11 +102,8 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDataSource = self
         setAverageStepCounts()
         
-        
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: SelectedTaskCollectionViewCell.identifier)
-        
-        
         
         //calendarUI
         populateDataSource()
@@ -120,6 +123,7 @@ class CalendarViewController: UIViewController {
         
         naviItem()
         setupCalendarView()
+        setUpDetailView()
         
         // MARK: - NOTIFICATION
         NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotificaiton), name: .nameNotification, object: nil)
@@ -166,8 +170,12 @@ class CalendarViewController: UIViewController {
 //        }
 //            
 
-                                           
-        
+    }
+    
+    func setUpDetailView() {
+        detailView.layer.borderWidth = 1
+        detailView.layer.borderColor = UIColor.lightGray.cgColor
+        detailView.cornerRounded(cornerRadius: 8)
     }
     
     // MARK: - toggle()
@@ -347,12 +355,12 @@ class CalendarViewController: UIViewController {
         print("handleCellEvents",#function)
             let dateString = dateFormatter.simpleDateString(date: cellState.date)
         print("dateString:", dateString)
-            if calendarDataSource[dateString] == nil {
-                print("nil")
-                cell.colorView.isHidden = true
-            } else {
-                cell.colorView.isHidden = false
-            }
+//            if calendarDataSource[dateString] == nil {
+//                print("nil")
+//                cell.colorView.isHidden = true
+//            } else {
+//                cell.colorView.isHidden = false
+//            }
         }
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         print("configureCell",#function)
@@ -362,6 +370,19 @@ class CalendarViewController: UIViewController {
             handleCellEvents(cell: cell, cellState: cellState)
         
         }
+    
+    
+    
+    @IBAction func detailButtonClicked(_ sender: UIButton) {
+        detailView.isHidden.toggle()
+        showInfoView.toggle()
+        detailLabel.text = "👇 만보의 모습을 통해 그동안의 목표 달성률을 확인할 수 있어요!"
+        detailLabel.textColor = .lightGray
+        detailLabel.font = .systemFont(ofSize: 12)
+        detailLabel.numberOfLines = 0
+        
+        
+    }
 }
 
 // MARK: - CalendarViewController
@@ -518,8 +539,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 
 // MARK: - CollectionVeiw
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if isSelectedDate {
@@ -566,11 +586,19 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             cell.dailyImage.image = UIImage(named: "manbo01")
             cell.cornerRounded(cornerRadius: 10)
                 //task.count
+            if showInfoView {
+                cell.infoView.isHidden = false
+                collectionView.reloadData()
+            } else {
+                cell.infoView.isHidden = true
+                collectionView.reloadData()
+            }
             let row = tasks[indexPath.row]
             let imageName = setUserImage(userPercent: row.goalPercent)
             cell.dailyImage.image = UIImage(named: imageName)
             settingCell(cell: cell)
             cell.configureCell(row: row)
+            
             
             return cell
             
