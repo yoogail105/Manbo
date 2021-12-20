@@ -39,10 +39,13 @@ class SetNameViewController: UIViewController {
         backgroundView.customAlertSetting()
         completeButton.activeButtonColor(isActive: isCoreectedName)
         completeButton.isEnabled = false
-        
-        if !isCoreectedName {
-            self.notiBanenr(notiText: notiText)
-        }
+//
+//        if !isCoreectedName {
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//                self.notiBanenr(notiText: self.notiText)
+//            }
+//
+//        }
         
         if isOnboarding {
             cancelButton.isHidden = true
@@ -121,6 +124,7 @@ class SetNameViewController: UIViewController {
         }
         
     }
+    
     func openTabViewSB() {
         
         let sb = UIStoryboard(name: "TabView", bundle: nil)
@@ -143,7 +147,7 @@ class SetNameViewController: UIViewController {
         
         banner.show()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             banner.dismiss()
         })
     }
@@ -159,6 +163,16 @@ extension SetNameViewController: UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if !isCoreectedName {
+            DispatchQueue.main.async {
+                self.notiBanenr(notiText: self.notiText)
+            }
+            
+        }
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
