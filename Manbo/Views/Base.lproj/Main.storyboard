@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -164,14 +164,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eK7-Eb-H3w">
                                         <rect key="frame" x="0.0" y="29" width="32.666666666666664" height="15"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-O6-kmy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-O6-kmy">
                                                 <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.96084719900000004" green="0.76179283860000002" blue="0.25864145160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q09-Dd-Kfi">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q09-Dd-Kfi">
+                                                <rect key="frame" x="56.333333333333329" y="0.0" width="0.0" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.41585117579999997" green="0.55007231239999999" blue="0.70198142529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                             <constraint firstAttribute="height" constant="15" id="zf9-5p-XN3"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-j5-erS">
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-j5-erS">
                                         <rect key="frame" x="42" y="0.0" width="29" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="B2X-j5-erS" secondAttribute="height" multiplier="1:1" id="uSt-ST-H83"/>
@@ -189,6 +189,7 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="B2X-j5-erS" firstAttribute="leading" secondItem="tj1-ji-vCl" secondAttribute="trailing" constant="11" id="5gr-z2-xkO"/>
                                     <constraint firstAttribute="bottom" secondItem="eK7-Eb-H3w" secondAttribute="bottom" id="ALq-7u-64H"/>
                                     <constraint firstItem="B2X-j5-erS" firstAttribute="centerX" secondItem="Q09-Dd-Kfi" secondAttribute="centerX" id="NJg-C4-yfW"/>
                                     <constraint firstItem="hku-Cd-Cwj" firstAttribute="top" secondItem="TM1-az-hXR" secondAttribute="top" id="Nr2-3B-AMv"/>
@@ -204,8 +205,8 @@
                                     <constraint firstItem="eK7-Eb-H3w" firstAttribute="leading" secondItem="TM1-az-hXR" secondAttribute="leading" id="p1v-GN-5x0"/>
                                 </constraints>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 &gt; 걸음 &gt; 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요! 허용 후에는 아래의 발자국을 탭해주세요🐾" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-OL-TMk">
-                                <rect key="frame" x="41.333333333333371" y="591.33333333333337" width="331.33333333333326" height="71.666666666666629"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 &gt; 걸음 &gt; 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요! 허용 후에는 아래의 발자국을 탭해주세요🐾" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-OL-TMk">
+                                <rect key="frame" x="41.333333333333343" y="591.33333333333337" width="331.33333333333326" height="71.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
