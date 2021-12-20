@@ -11,16 +11,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-    <key>NSHealthUpdateUsageDescription</key>
-        <string>지난 30일 간의 걸음 수를 가져와 목표 달성률에 따른 만보의 이미지를 표시하고, 현재의 걸음 수를  표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.</string>
-        <key>NSHealthShareUsageDescription</key>
-        <string>지난 30일 간의 걸음 수를 가져와 목표 달성률에 따른 만보의 이미지를 표시하고, 현재의 걸음 수를  표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.</string>
-        <key>NSLocationAlwaysUsageDescription</key>
-        <string>날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 &apos;서울시청&apos;을 기준으로 표시됩니다.</string>
-        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-        <string>날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 &apos;서울시청&apos;을 기준으로 표시됩니다.</string>
-        <key></key>
-        <string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -74,12 +74,10 @@ class SettingViewController: UIViewController {
         print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!))
         
         if userDefaults.notiTime != nil {
-            print("노티타임은 !nil이면", notiTime)
             notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
         notiTimeLabel.isHidden = false
             //turnOffAlarmButton.setTitle("끄기", for: .normal)
     } else {
-        print("노티타임은 nil이면", notiTime)
         notiTimeLabel.isHidden = true
      //   turnOffAlarmButton.setTitle("없음", for: .normal)
         
