@@ -86,7 +86,7 @@ extension TabViewController {
         
         //기존의 뷰 제거
         previousVC.willMove(toParent: nil)
-        previousVC.view.removeFromSuperview()
+        previousVC.view?.removeFromSuperview()
         previousVC.removeFromParent()
         
         sender.isSelected = true

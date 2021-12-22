@@ -26,8 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.hasOnbarded {
             storyboard = UIStoryboard(name: "TabView", bundle: nil)
             controller = storyboard.instantiateViewController(withIdentifier: TabViewController.identifier) as! TabViewController
-    
-            
            
         } else {
             storyboard = UIStoryboard(name: "Onboarding", bundle: nil)

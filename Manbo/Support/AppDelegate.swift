@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().tintColor = .black
+        
         IQKeyboardManager.shared.enable = true
+        
         UNUserNotificationCenter.current().delegate = self
         
         let config = Realm.Configuration(
@@ -31,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if (oldSchemaVersion < 1) {
                 }
             })
+        
         // 새로운 설정을 기본 저장소에 적용
         Realm.Configuration.defaultConfiguration = config
         
@@ -110,8 +113,7 @@ extension AppDelegate: MessagingDelegate {
         object: nil,
         userInfo: dataDict
       )
-      // TODO: If necessary send token to application server.
-      // Note: This callback is fired at each app startup and whenever a new token is generated.
+     
     }
 
    
