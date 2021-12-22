@@ -18,11 +18,11 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     //static let identifier = String(describing: CalendarViewCell.self)
     
-    func configureCell(row: UserReport) {
-        stepLabel.text = row.stepCount.numberForamt()
-        dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
-    }
-        
+//    func configureCell(row: UserReport) {
+//        stepLabel.text = row.stepCount.numberForamt()
+//        dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
+//    }
+//
         
         override func awakeFromNib() {
             super.awakeFromNib()

@@ -16,7 +16,7 @@ import SwiftUI
 class CalendarViewController: UIViewController {
     
     static let identifier = "CalendarViewController"
-
+    
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
@@ -82,7 +82,7 @@ class CalendarViewController: UIViewController {
     
     // cell color
     let outsideMonthColoer = UIColor(named: "outDatetedColor")
-//    let outsideMonthColor = UIColor(hex: 0x4D4E51)
+    //    let outsideMonthColor = UIColor(hex: 0x4D4E51)
     let monthColor =  UIColor.label
     let selectedMonthColor = UIColor.label
     
@@ -118,7 +118,7 @@ class CalendarViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         
-
+        
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
         
         naviItem()
@@ -141,7 +141,7 @@ class CalendarViewController: UIViewController {
         setupCalendarView()
         userNameLabel.text = userDefaults.name!
         
-
+        
     }//: viewWillAppear
     
     @objc func changeNameNotificaiton(notification: NSNotification) {
@@ -164,12 +164,12 @@ class CalendarViewController: UIViewController {
     
     // MARK: - HEalthkit download
     func thisMonthUserReports() {
-//        if healthStore.ishealthKitAuthorized() {
-//            healthStore.getThisMonthStepCounts()
-//            healthStore.getThisMonthStepCounts()
-//        }
-//            
-
+        //        if healthStore.ishealthKitAuthorized() {
+        //            healthStore.getThisMonthStepCounts()
+        //            healthStore.getThisMonthStepCounts()
+        //        }
+        //
+        
     }
     
     func setUpDetailView() {
@@ -324,19 +324,19 @@ class CalendarViewController: UIViewController {
     
     func setColorTag(percent: Double) -> UIColor {
         var tagColor = UIColor.calendarColor(.first)
-            switch percent {
-            case 0.0 ..< 0.33:
-                tagColor = UIColor.calendarColor(.first)
-            case 0.33 ..< 0.66:
-                tagColor = UIColor.calendarColor(.second)
-            case 0.66 ..< 1.0:
-                tagColor = UIColor.calendarColor(.third)
-            default:
-                tagColor = UIColor.calendarColor(.fourth)
-            }
-            
-            return tagColor
+        switch percent {
+        case 0.0 ..< 0.33:
+            tagColor = UIColor.calendarColor(.first)
+        case 0.33 ..< 0.66:
+            tagColor = UIColor.calendarColor(.second)
+        case 0.66 ..< 1.0:
+            tagColor = UIColor.calendarColor(.third)
+        default:
+            tagColor = UIColor.calendarColor(.fourth)
         }
+        
+        return tagColor
+    }
     
     func populateDataSource() {
         // You can get the data from a server.
@@ -353,23 +353,23 @@ class CalendarViewController: UIViewController {
     
     func handleCellEvents(cell: DateCalendarViewCell, cellState: CellState) {
         print("handleCellEvents",#function)
-            let dateString = dateFormatter.simpleDateString(date: cellState.date)
+        let dateString = dateFormatter.simpleDateString(date: cellState.date)
         print("dateString:", dateString)
-//            if calendarDataSource[dateString] == nil {
-//                print("nil")
-//                cell.colorView.isHidden = true
-//            } else {
-//                cell.colorView.isHidden = false
-//            }
-        }
+        //            if calendarDataSource[dateString] == nil {
+        //                print("nil")
+        //                cell.colorView.isHidden = true
+        //            } else {
+        //                cell.colorView.isHidden = false
+        //            }
+    }
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         print("configureCell",#function)
-            guard let cell = view as? DateCalendarViewCell  else { return }
-            cell.dateLabel.text = cellState.text
-            handleCellTextColor(view: view, cellSTate: cellState)
-            handleCellEvents(cell: cell, cellState: cellState)
+        guard let cell = view as? DateCalendarViewCell  else { return }
+        cell.dateLabel.text = cellState.text
+        handleCellTextColor(view: view, cellSTate: cellState)
+        handleCellEvents(cell: cell, cellState: cellState)
         
-        }
+    }
     
     
     
@@ -394,7 +394,7 @@ extension CalendarViewController: JTACMonthViewDataSource {
         
         //앱 런치 기준 지난 달의 첫날부터
         let startDate = firstDate.startOfMonth().startOfLastMonth
-    
+        
         // 지금 달의 마지막날까지 달력 표시
         let endDate = Date().startOfMonth().endOfThisMonth
         
@@ -426,23 +426,23 @@ extension CalendarViewController: JTACMonthViewDelegate {
         guard let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DateCalendarViewCell.identifier, for: indexPath) as? DateCalendarViewCell else {
             return JTACDayCell()
         }
-      // let calendarDate = dateFormatter.simpleDateString(date: cellState.date)
-       
+        // let calendarDate = dateFormatter.simpleDateString(date: cellState.date)
+        
         cell.dateLabel.text = cellState.text
         print(cellState.date)
-//        let image = UIImage(named: "calShapeEx.png")?.withRenderingMode(.alwaysTemplate)
-//        cell.calendarColorImage.image = image
-//        let row = indexPath.row
-//
-//            let thisColor = self.setColorTag(percent: tasks[row].goalPercent)
-//            cell.calendarColorImage.tintColor = thisColor
-//
+        //        let image = UIImage(named: "calShapeEx.png")?.withRenderingMode(.alwaysTemplate)
+        //        cell.calendarColorImage.image = image
+        //        let row = indexPath.row
+        //
+        //            let thisColor = self.setColorTag(percent: tasks[row].goalPercent)
+        //            cell.calendarColorImage.tintColor = thisColor
+        //
         //tasks[row].goalPercent
         
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCellTextColor(view: cell, cellSTate: cellState)
         configureVisibleCell(view: cell, cellState: cellState, date: date, indexPath: indexPath)
-
+        
         return cell
     }
     
@@ -456,7 +456,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         configureVisibleCell(view: cell, cellState: cellState, date: date, indexPath: indexPath)
     }
     
-   
+    
     
     
     // 오늘날짜 표시하기
@@ -466,7 +466,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         validCell.dateLabel.text = cellState.text
         
         if self.calendar.isDateInToday(date) {
-//            print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
+            //            print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
             validCell.contentView.cornerRounded(cornerRadius: 8)
             validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
             //print("실행됨: \(date)")
@@ -483,34 +483,34 @@ extension CalendarViewController: JTACMonthViewDelegate {
             dateFormatter.dateFormat = "MMM"
             month = cellState.date.month
             year = cellState.date.year
-           // print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
+            // print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
         }
         
     }
     
     // MARK: -  배너 없애기
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-//        print("didSelectDate: \(date), CellState: \(cellState)")
+        //        print("didSelectDate: \(date), CellState: \(cellState)")
         calendarView.allowsMultipleSelection = true
         
         
         let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
         
-       // print(SelectedDate)
-//        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
-//            // self.notiBanenr(notiText: "이날도 만보랑 걸어주실거죠?")
-//           // print("해당 날짜 없음.")
-//            return
-//        }
+        // print(SelectedDate)
+        //        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
+        //            // self.notiBanenr(notiText: "이날도 만보랑 걸어주실거죠?")
+        //           // print("해당 날짜 없음.")
+        //            return
+        //        }
         self.selectedTask = localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate)
         //! 지움
         
         // print(filterdTask.first?.stepCount!)
-    
+        
         //print("row: \(cellState.row), day: \(cellState.day), date: \(cellState.date), text: \(cellState.text), cell: \(cellState.cell), column: \(cellState.column), dateBelongsTo: \(cellState.dateBelongsTo),dateSection: \(cellState.dateSection), isSelected: \(cellState.isSelected), selectedPosition: \(cellState.selectedPosition), selectionType: \(cellState.selectionType)")
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCellTextColor(view: cell, cellSTate: cellState)
-       // print(cellState.date)
+        // print(cellState.date)
     }
     
     
@@ -531,7 +531,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
         handleCellSelected(view: cell, cellSTate: cellState)
-
+        
         return true
     }
     
@@ -539,7 +539,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
 
 // MARK: - CollectionVeiw
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if isSelectedDate {
@@ -557,35 +557,39 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         }
         if isSelectedDate { //셀이 하나
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
+            
+            // 정보가 있으면
             if self.selectedTask != nil {
-           let dailyData = self.selectedTask
-            // print("여기는 콜렉션뷰",self.selectedTask!)
-            let userStep = dailyData?.stepCount
-            let dailyStep = userStep?.numberForamt()
-            
-            cell.dailyStepLabel.text = dailyStep
-           // cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
-            
-            let userPercent = dailyData!.goalPercent
-            // print("userPercent는 \(dailyData!.goalPercent)")
-            let userImageName = self.setUserImage(userPercent: userPercent)
-            cell.dailyImage.image = UIImage(named: userImageName)
-           // cell.cornerRounded(cornerRadius: 10)
-            
-            } else {
+                
+                let dailyData = self.selectedTask
+                let userStep = dailyData?.stepCount
+                let dailyStep = userStep?.numberForamt()
+                
+                cell.dailyStepLabel.text = dailyStep
+                // cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
+                
+                let userPercent = dailyData!.goalPercent
+                // print("userPercent는 \(dailyData!.goalPercent)")
+                let userImageName = self.setUserImage(userPercent: userPercent)
+                cell.dailyImage.image = UIImage(named: userImageName)
+                // cell.cornerRounded(cornerRadius: 10)
+                
+            } else { //걸음 정보가 없으면
+                
                 cell.dailyImage.image = UIImage(named: "manbo03")
                 cell.dailyStepLabel.adjustsFontSizeToFitWidth = true
                 cell.dailyStepLabel.text = "오늘도 같이 걸어 주실거죠?"
                 
             }
+            
             settingCell(cell: cell)
             return cell
             
-        } else {
+        } else { //셀이 여러개: 전체 기록
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
             cell.dailyImage.image = UIImage(named: "manbo01")
             cell.cornerRounded(cornerRadius: 10)
-                //task.count
+            //task.count
             if showInfoView {
                 cell.infoView.isHidden = false
                 collectionView.reloadData()
@@ -593,11 +597,21 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.infoView.isHidden = true
                 collectionView.reloadData()
             }
+            
+            
+            /*
+            var tasks: Results<UserReport>!
+            tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
+            */
+            
             let row = tasks[indexPath.row]
             let imageName = setUserImage(userPercent: row.goalPercent)
             cell.dailyImage.image = UIImage(named: imageName)
+            cell.stepLabel.text = row.stepCount.numberForamt()
+            cell.dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
             settingCell(cell: cell)
-            cell.configureCell(row: row)
+            
+           // cell.configureCell(row: row)
             
             
             return cell
