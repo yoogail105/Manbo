@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NotificationBannerSwift
+//import NotificationBannerSwift
 
 class SetNameViewController: UIViewController {
     
@@ -142,15 +142,15 @@ class SetNameViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func notiBanenr(notiText: String) {
-        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
-        
-        banner.show()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            banner.dismiss()
-        })
-    }
+//    func notiBanenr(notiText: String) {
+//        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
+//
+//        banner.show()
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//            banner.dismiss()
+//        })
+//    }
     
 }
 
@@ -169,7 +169,8 @@ extension SetNameViewController: UITextFieldDelegate {
         
         if !isCoreectedName {
             DispatchQueue.main.async {
-                self.notiBanenr(notiText: self.notiText)
+                print("incorrectedName")
+                //self.notiBanenr(notiText: self.notiText)
             }
             
         }
@@ -177,24 +178,24 @@ extension SetNameViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        incorrectNameNotification()
+        //incorrectNameNotification()
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        incorrectNameNotification()
+        //incorrectNameNotification()
         return true
     }
     
-    func incorrectNameNotification(){
-        
-        if self.longName {
-            self.notiBanenr(notiText: self.notiText)
-        } else if !self.isCoreectedName {
-            self.notiBanenr(notiText: self.notiText)
-        }
-    }
+//    func incorrectNameNotification(){
+//
+//        if self.longName {
+//            self.notiBanenr(notiText: self.notiText)
+//        } else if !self.isCoreectedName {
+//            self.notiBanenr(notiText: self.notiText)
+//        }
+//    }
     
 }
 
