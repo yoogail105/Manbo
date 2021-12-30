@@ -18,7 +18,6 @@
 		270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726D27465F05007ADC71 /* UIView+Extension.swift */; };
 		270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D726F27466914007ADC71 /* UIColor+Extension.swift */; };
 		27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */; };
-		27192758274AFEDF00F26F8D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27192757274AFEDF00F26F8D /* UserModel.swift */; };
 		2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27192759274B8A1000F26F8D /* UIButton+Extension.swift */; };
 		272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */; };
 		272567D327562D77002F11CB /* SelectedTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */; };
@@ -65,15 +64,6 @@
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
 		27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20AE27524B410098E698 /* Date+Extension.swift */; };
 		27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */; };
-		27EC33B9275487DE00C60C0F /* SettingTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33B8275487DE00C60C0F /* SettingTableViewCellController.swift */; };
-		27EC33BC275488E100C60C0F /* ResetNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33BA275488E100C60C0F /* ResetNameTableViewCell.swift */; };
-		27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */; };
-		27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */; };
-		27EC33C42754896500C60C0F /* RsetStepTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */; };
-		27EC33C72754899E00C60C0F /* RestNotiTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33C52754899E00C60C0F /* RestNotiTimeTableViewCell.swift */; };
-		27EC33C82754899E00C60C0F /* RestNotiTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33C62754899E00C60C0F /* RestNotiTimeTableViewCell.xib */; };
-		27EC33CB275489E400C60C0F /* RsetColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33C9275489E400C60C0F /* RsetColorTableViewCell.swift */; };
-		27EC33CC275489E400C60C0F /* RsetColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33CA275489E400C60C0F /* RsetColorTableViewCell.xib */; };
 		27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */; };
 		27EC33D62754A60900C60C0F /* SettingTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33D52754A60900C60C0F /* SettingTextViewController.swift */; };
 		27EC33D82754A61F00C60C0F /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33D72754A61F00C60C0F /* SettingText.storyboard */; };
@@ -96,7 +86,6 @@
 		270CAE9827546E37004230A6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		270D726D27465F05007ADC71 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		270D726F27466914007ADC71 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		27192757274AFEDF00F26F8D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		27192759274B8A1000F26F8D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTaskCollectionViewCell.swift; sourceTree = "<group>"; };
 		272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedTaskCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -152,15 +141,6 @@
 		27DC20A9275241380098E698 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		27DC20AE27524B410098E698 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		27DC20B22752AA560098E698 /* HealthKit+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKit+Extenstion.swift"; sourceTree = "<group>"; };
-		27EC33B8275487DE00C60C0F /* SettingTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCellController.swift; sourceTree = "<group>"; };
-		27EC33BA275488E100C60C0F /* ResetNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNameTableViewCell.swift; sourceTree = "<group>"; };
-		27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetNameTableViewCell.xib; sourceTree = "<group>"; };
-		27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsetStepTimeTableViewCell.swift; sourceTree = "<group>"; };
-		27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RsetStepTimeTableViewCell.xib; sourceTree = "<group>"; };
-		27EC33C52754899E00C60C0F /* RestNotiTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestNotiTimeTableViewCell.swift; sourceTree = "<group>"; };
-		27EC33C62754899E00C60C0F /* RestNotiTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestNotiTimeTableViewCell.xib; sourceTree = "<group>"; };
-		27EC33C9275489E400C60C0F /* RsetColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsetColorTableViewCell.swift; sourceTree = "<group>"; };
-		27EC33CA275489E400C60C0F /* RsetColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RsetColorTableViewCell.xib; sourceTree = "<group>"; };
 		27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBasicTableViewCell.swift; sourceTree = "<group>"; };
 		27EC33D52754A60900C60C0F /* SettingTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextViewController.swift; sourceTree = "<group>"; };
 		27EC33D72754A61F00C60C0F /* SettingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingText.storyboard; sourceTree = "<group>"; };
@@ -171,7 +151,7 @@
 		27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetNotiTime.storyboard; sourceTree = "<group>"; };
 		27EC33E6275544B600C60C0F /* SetNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotiViewController.swift; sourceTree = "<group>"; };
 		27EC33E82755451700C60C0F /* ResetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTimeViewController.swift; sourceTree = "<group>"; };
-		27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetStepGoalViewController.swift; path = Manbo/Views/SetStepGoalViewController.swift; sourceTree = SOURCE_ROOT; };
+		27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetStepGoalViewController.swift; path = Manbo/Controller/SetStepGoalViewController.swift; sourceTree = SOURCE_ROOT; };
 		27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetStepGoal.storyboard; sourceTree = "<group>"; };
 		27EC33F027557AA500C60C0F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +225,8 @@
 				27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */,
 				27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */,
 				27C6D67827587A98009A7D4B /* ChatViewController.swift */,
+				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
+				27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,7 +292,6 @@
 				270D726C27465EE1007ADC71 /* Support */,
 				270D726B27465EC9007ADC71 /* Extension */,
 				270D726A27465EC2007ADC71 /* Controller */,
-				27EC33BE275488EF00C60C0F /* Setting */,
 				270D726927465EB6007ADC71 /* Views */,
 				2780C5C02744F529004A0BE4 /* Info.plist */,
 				2780C5BB2744F529004A0BE4 /* Assets.xcassets */,
@@ -333,7 +314,6 @@
 		278F74A82749701100794E8D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				27192757274AFEDF00F26F8D /* UserModel.swift */,
 				27A66661274EB61C00A63683 /* manboManager.swift */,
 				27A66663274EC6D600A63683 /* realmData.swift */,
 			);
@@ -347,28 +327,10 @@
 				27EC33E22754F59400C60C0F /* SetResetTime.storyboard */,
 				278F749E2748FC4300794E8D /* Onboarding.storyboard */,
 				27EC33DB2754BFEE00C60C0F /* SetName.storyboard */,
-				27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */,
 				27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */,
 				27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		27EC33BE275488EF00C60C0F /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				27EC33B8275487DE00C60C0F /* SettingTableViewCellController.swift */,
-				27EC33BA275488E100C60C0F /* ResetNameTableViewCell.swift */,
-				27EC33C52754899E00C60C0F /* RestNotiTimeTableViewCell.swift */,
-				27EC33C62754899E00C60C0F /* RestNotiTimeTableViewCell.xib */,
-				27EC33C9275489E400C60C0F /* RsetColorTableViewCell.swift */,
-				27EC33CA275489E400C60C0F /* RsetColorTableViewCell.xib */,
-				27EC33BB275488E100C60C0F /* ResetNameTableViewCell.xib */,
-				27EC33C12754896500C60C0F /* RsetStepTimeTableViewCell.swift */,
-				27EC33C22754896500C60C0F /* RsetStepTimeTableViewCell.xib */,
-				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
-			);
-			path = Setting;
 			sourceTree = "<group>";
 		};
 		33ABD6F044B2651CDB0AC97F /* Pods */ = {
@@ -467,11 +429,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27EC33C42754896500C60C0F /* RsetStepTimeTableViewCell.xib in Resources */,
 				278F749F2748FC4300794E8D /* Onboarding.storyboard in Resources */,
 				2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */,
 				272567DB2756CCFF002F11CB /* WeatherInfo.plist in Resources */,
-				27EC33CC275489E400C60C0F /* RsetColorTableViewCell.xib in Resources */,
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
 				27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */,
@@ -480,11 +440,9 @@
 				2707F932276A345600EDCC10 /* GoogleService-Info.plist in Resources */,
 				278F7487274797C900794E8D /* TabView.storyboard in Resources */,
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
-				27EC33BD275488E100C60C0F /* ResetNameTableViewCell.xib in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
 				27C6D67527586D6F009A7D4B /* Chat.storyboard in Resources */,
-				27EC33C82754899E00C60C0F /* RestNotiTimeTableViewCell.xib in Resources */,
 				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
 				27EC33E32754F59400C60C0F /* SetResetTime.storyboard in Resources */,
 				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
@@ -570,7 +528,6 @@
 				270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */,
 				27EC33DE2754C0AA00C60C0F /* SetNameViewController.swift in Sources */,
 				27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */,
-				27EC33BC275488E100C60C0F /* ResetNameTableViewCell.swift in Sources */,
 				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
 				27EC33E02754F10D00C60C0F /* UILabel+Extension.swift in Sources */,
@@ -578,19 +535,15 @@
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				27EC33E92755451700C60C0F /* ResetTimeViewController.swift in Sources */,
 				272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */,
-				27EC33C32754896500C60C0F /* RsetStepTimeTableViewCell.swift in Sources */,
 				27EC33F127557AA500C60C0F /* Notification+Extension.swift in Sources */,
 				27DC20AF27524B410098E698 /* Date+Extension.swift in Sources */,
 				2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */,
-				27EC33B9275487DE00C60C0F /* SettingTableViewCellController.swift in Sources */,
 				2780C5B72744F526004A0BE4 /* ViewController.swift in Sources */,
-				27192758274AFEDF00F26F8D /* UserModel.swift in Sources */,
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
 				275D718C2757AFB800070234 /* Alert+Extension.swift in Sources */,
 				27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */,
 				27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */,
 				272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */,
-				27EC33CB275489E400C60C0F /* RsetColorTableViewCell.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
 				27C6D6812758F7F3009A7D4B /* SetNotiPermissionViewController.swift in Sources */,
@@ -601,7 +554,6 @@
 				27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */,
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,
-				27EC33C72754899E00C60C0F /* RestNotiTimeTableViewCell.swift in Sources */,
 				272567DD2756CD50002F11CB /* MANBORANG++Bundle.swift in Sources */,
 				27EC33E7275544B600C60C0F /* SetNotiViewController.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
@@ -815,7 +767,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -908,7 +860,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

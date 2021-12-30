@@ -10,7 +10,7 @@ import SideMenu
 import HealthKit
 import RealmSwift
 import CoreLocation
-//import NotificationBannerSwift
+import NotificationBannerSwift
 import Firebase
 
 class ViewController: UIViewController {
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
             healthStore = HKHealthStore()
         } else {
             print("만보랑은 아이폰에서 사용이 가능합니다🐾")
-            //self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
+            self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
         }
         
         dateFormatter.timeZone = calendar.timeZone
@@ -111,7 +111,6 @@ class ViewController: UIViewController {
         
         setUI()
         setUserImage()
-        //SetNotiViewController().requestNotificationAuthorization()
         
         
         // MARK: - NotificationCenter
@@ -121,12 +120,12 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(noHealthKitAuthorizationNotification), name: .ifNoHealthKitAuthorizaion, object: nil)
         
         // MARK: - Firebase Analytics
-//        Analytics.logEvent("getUserSetting", parameters: [
-//            "name": userDefaults.name! as NSObject,
-//            "goal": userDefaults.stepsGoal! as NSObject,
-//            "resetTime": userDefaults.resetTime! as NSObject,
-//        ])
-//        
+        Analytics.logEvent("getUserSetting", parameters: [
+            "name": userDefaults.name! as NSObject,
+            "goal": userDefaults.stepsGoal! as NSObject,
+            "resetTime": userDefaults.resetTime! as NSObject,
+        ])
+        
         
         // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
@@ -244,16 +243,16 @@ class ViewController: UIViewController {
         
     }
     
-//    func notiBanenr(notiText: String) {
-//        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
-//
-//        banner.show()
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            banner.dismiss()
-//        })
-//    }
-//
+    func notiBanenr(notiText: String) {
+        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
+
+        banner.show()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            banner.dismiss()
+        })
+    }
+
     
     //다른 뷰에서는 탭바 내려가도록한다.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

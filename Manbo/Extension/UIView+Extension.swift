@@ -40,5 +40,9 @@ extension UIView {
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 2
     }
+    
+    func bannerSetting() {
+        
+    }
 }
 

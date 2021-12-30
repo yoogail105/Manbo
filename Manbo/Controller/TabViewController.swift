@@ -17,6 +17,8 @@ class TabViewController: UIViewController {
     var vcList = [UIViewController]()
    
     
+    @IBOutlet weak var bannerView: UIView!
+    @IBOutlet weak var bannerLabel: UILabel!
     @IBOutlet var tabView:UIView!
     @IBOutlet var buttons:[UIButton]!
 
@@ -30,7 +32,6 @@ class TabViewController: UIViewController {
     //camera
     let imagePickerController = UIImagePickerController()
     
-  
   // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,11 @@ class TabViewController: UIViewController {
         imagePickerController.delegate = self
        // buttons[1].addTarget(self, action: #selector(cameraOpen), for: .touchUpInside)
         
+
+        
     }
+
+   
 
     
     func setButtonTag() {
@@ -99,6 +104,7 @@ extension TabViewController {
         self.addChild(vc)
         self.view.addSubview(vc.view)
         self.view.bringSubviewToFront(tabView)
+      
     }
     
    

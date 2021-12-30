@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import NotificationBannerSwift
+import NotificationBannerSwift
 
 class SetNameViewController: UIViewController {
     
@@ -40,12 +40,12 @@ class SetNameViewController: UIViewController {
         completeButton.activeButtonColor(isActive: isCoreectedName)
         completeButton.isEnabled = false
 //
-//        if !isCoreectedName {
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-//                self.notiBanenr(notiText: self.notiText)
-//            }
+        if !isCoreectedName {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                self.notiBanenr(notiText: self.notiText)
+            }
 //
-//        }
+        }
         
         if isOnboarding {
             cancelButton.isHidden = true
@@ -55,8 +55,11 @@ class SetNameViewController: UIViewController {
             userNameTextField.text = userDefaults.name!
             
         }
+        
+
       
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         if isOK {
@@ -64,6 +67,9 @@ class SetNameViewController: UIViewController {
         }
     }
 
+    
+
+    
     @objc private func textDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
             if let text = textField.text {
@@ -142,15 +148,15 @@ class SetNameViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-//    func notiBanenr(notiText: String) {
-//        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
-//
-//        banner.show()
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//            banner.dismiss()
-//        })
-//    }
+    func notiBanenr(notiText: String) {
+        let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
+
+        banner.show()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            banner.dismiss()
+        })
+    }
     
 }
 
@@ -188,14 +194,14 @@ extension SetNameViewController: UITextFieldDelegate {
         return true
     }
     
-//    func incorrectNameNotification(){
-//
-//        if self.longName {
-//            self.notiBanenr(notiText: self.notiText)
-//        } else if !self.isCoreectedName {
-//            self.notiBanenr(notiText: self.notiText)
-//        }
-//    }
+    func incorrectNameNotification(){
+
+        if self.longName {
+            self.notiBanenr(notiText: self.notiText)
+        } else if !self.isCoreectedName {
+            self.notiBanenr(notiText: self.notiText)
+        }
+    }
     
 }
 

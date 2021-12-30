@@ -18,7 +18,6 @@
 
 import UIKit
 import SnapKit
-
 import MarqueeLabel
 
 @objcMembers
