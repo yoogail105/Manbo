@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina4_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,21 +15,21 @@
             <objects>
                 <viewController storyboardIdentifier="TabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TabViewController" customModule="Manbo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nq3-KB-knP" userLabel="Tab View">
-                                <rect key="frame" x="20" y="790" width="374" height="52"/>
+                                <rect key="frame" x="20" y="496" width="280" height="52"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOd-cS-JcO">
-                                        <rect key="frame" x="87" y="15" width="200" height="32"/>
+                                        <rect key="frame" x="40" y="15" width="200" height="32"/>
                                         <color key="backgroundColor" red="0.50588235290000005" green="0.64313725489999995" blue="0.4431372549" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="ih3-09-YXy"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsR-Py-VQB" userLabel="main">
-                                        <rect key="frame" x="161" y="0.0" width="52" height="52"/>
+                                        <rect key="frame" x="114" y="0.0" width="52" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JsR-Py-VQB" secondAttribute="height" multiplier="1:1" id="EW4-UO-IyI"/>
                                         </constraints>
@@ -41,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEv-UY-B5o" userLabel="camera">
-                                        <rect key="frame" x="120.5" y="15.5" width="30.5" height="31"/>
+                                        <rect key="frame" x="73.5" y="15.5" width="30.5" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JEv-UY-B5o" secondAttribute="height" multiplier="1:1" id="uV3-Oj-VKC"/>
                                         </constraints>
@@ -54,7 +54,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-5j-L6q" userLabel="calendar">
-                                        <rect key="frame" x="223" y="15.5" width="30.5" height="31"/>
+                                        <rect key="frame" x="176" y="15.5" width="30.5" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rXL-5j-L6q" secondAttribute="height" multiplier="1:1" id="aAQ-wD-QZP"/>
                                         </constraints>
