@@ -39,25 +39,14 @@ class SetNameViewController: UIViewController {
         backgroundView.customAlertSetting()
         completeButton.activeButtonColor(isActive: isCorrectedName)
         completeButton.isEnabled = false
-//
-        if !isCorrectedName {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-                self.notiBanner(notiText: self.notiText)
-            }
-//
-        }
-        
+
         if isOnboarding {
             cancelButton.isHidden = true
             okButton.setTitle("같이 걸어요!", for: .normal)
         } else {
             cancelButton.isHidden = false
             userNameTextField.text = userDefaults.name!
-            
         }
-        
-
-      
     }
     
     
@@ -96,16 +85,13 @@ class SetNameViewController: UIViewController {
                     notiText = "2글자 이상 8글자 이하로 입력해주세요"
                     isCorrectedName = false
                 }
-                else if text == "만보" {
-                    longName = false
-                    notiText = "다른 이름을 지어주세요!"
-                    isCorrectedName = false
-                }
+             
                 else {
                     longName = false
                     isCorrectedName = true
                     view.setNeedsDisplay()
                 }
+                
                 completeButton.isEnabled = isCorrectedName
                 completeButton.activeButtonColor(isActive: isCorrectedName)
 
@@ -123,7 +109,7 @@ class SetNameViewController: UIViewController {
          if isOnboarding {
              UserDefaults.standard.firstLaunchDate = Date()
              UserDefaults.standard.hasOnboarded = true
-            openTabViewSB()
+             openTabViewSB()
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotification"), object: nil, userInfo: ["newName": changeName])
             self.dismiss(animated: true, completion: nil)
@@ -185,17 +171,17 @@ extension SetNameViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //incorrectNameNotification()
+        incorrectNameNotification()
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //incorrectNameNotification()
+        incorrectNameNotification()
         return true
     }
     
-    func incorrectNameNotification(){
+    func incorrectNameNotification() {
 
         if self.longName {
             self.notiBanner(notiText: self.notiText)
