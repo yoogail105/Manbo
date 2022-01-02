@@ -37,7 +37,7 @@ class OnboardingViewController: UIViewController {
     // checkName -> setNameVC
     var maxLength = 8
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
-    var isCoreectedName = false
+    var isCorrectedName = false
     var longName = false
     let userDefaults = UserDefaults.standard
     

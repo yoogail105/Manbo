@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     var stepGoal = UserDefaults.standard.stepsGoal!
-    var stepPercent = UserDefaults.standard.setpPercent! {
+    var stepPercent = UserDefaults.standard.stepPercent! {
         didSet {
             //print("퍼센테이지 바꼈다.")
             DispatchQueue.main.async {
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         didSet{
             //print("걸음수값 변경되었다.")
             DispatchQueue.main.async {
-                self.currentStepCountLabel.text = self.currentStepCount.numberForamt()
+                self.currentStepCountLabel.text = self.currentStepCount.numberFormat()
                 self.setUserImage()
             }
             view.layoutIfNeeded()
@@ -84,14 +84,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("main", #function)
-       //   UserDefaults.standard.hasOnbarded = false
+       //   UserDefaults.standard.hasOnboarded = false
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
         } else {
             print("만보랑은 아이폰에서 사용이 가능합니다🐾")
-            self.notiBanenr(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
+            self.notiBanner(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
         }
         
         dateFormatter.timeZone = calendar.timeZone
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
         dateFormatter.basicDateSetting()
         
         locationManager.delegate = self
-        checkUserLoactionServicesAuthorization()
+        checkUserLocationServicesAuthorization()
         
         if !locationAuthorization && !didLocationAlert {
             locationSettingAlert()
@@ -115,9 +115,9 @@ class ViewController: UIViewController {
         
         // MARK: - NotificationCenter
         NotificationCenter.default.addObserver(self, selector: #selector(changeGoalNotification), name:.goalNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(changeResteTimeNotification), name:.stepNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeResetTimeNotification), name:.stepNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeStepCountNotification), name: .updateStepNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(noHealthKitAuthorizationNotification), name: .ifNoHealthKitAuthorizaion, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(noHealthKitAuthorizationNotification), name: .ifNoHealthKitAuthorization, object: nil)
         
         // MARK: - Firebase Analytics
         Analytics.logEvent("getUserSetting", parameters: [
@@ -169,13 +169,13 @@ class ViewController: UIViewController {
         print("main:", #function)
         self.navigationController?.isNavigationBarHidden = false
         
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDefaults.stepsGoal!.numberForamt())"
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDefaults.stepsGoal!.numberFormat())"
     }//: viewWillAppear
     
     @objc func changeGoalNotification(notification: NSNotification) {
         
         if let newGoal = notification.userInfo?["myValue"] as? Int {
-            goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(newGoal.numberForamt())"
+            goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(newGoal.numberFormat())"
             setUserImage()
         }
     }
@@ -189,9 +189,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func changeResteTimeNotification(notification: NSNotification) {
+    @objc func changeResetTimeNotification(notification: NSNotification) {
         if let currentStep = notification.userInfo?["newStep"] as? Int {
-            currentStepCountLabel.text = "\(currentStep.numberForamt())"
+            currentStepCountLabel.text = "\(currentStep.numberFormat())"
             setUserImage()
         }
     }
@@ -208,14 +208,14 @@ class ViewController: UIViewController {
     func setUI() {
         print("main: ", #function)
         goalView.maskedCornerRounded(cornerRadius: 10, maskedCorners:[ .layerMaxXMinYCorner,.layerMaxXMaxYCorner])
-        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(stepGoal.numberForamt())"
-        let stepText = userDefaults.currentStepCount!.numberForamt()
+        goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(stepGoal.numberFormat())"
+        let stepText = userDefaults.currentStepCount!.numberFormat()
         currentStepCountLabel.text = "\(String(describing: stepText))"
     }
     
     func setUserImage() {
-        print("main: percente \(stepPercent)", #function)
-        stepPercent = userDefaults.setpPercent!
+        print("main: percent \(stepPercent)", #function)
+        stepPercent = userDefaults.stepPercent!
         switch stepPercent {
         case 0.0 ..< 0.3:
             userImage = Manbo.manbo00
@@ -243,7 +243,7 @@ class ViewController: UIViewController {
         
     }
     
-    func notiBanenr(notiText: String) {
+    func notiBanner(notiText: String) {
         let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
 
         banner.show()
@@ -313,7 +313,7 @@ class ViewController: UIViewController {
 // MARK: - LOCATION
 extension ViewController: CLLocationManagerDelegate {
     
-    func checkUserLoactionServicesAuthorization() {
+    func checkUserLocationServicesAuthorization() {
         
         let authorizationStatus: CLAuthorizationStatus
         

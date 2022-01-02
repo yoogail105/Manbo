@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         
-        UNUserNotificationCenter.current().delegate = self
         
         let config = Realm.Configuration(
             schemaVersion: 1,
@@ -41,7 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // 원격 알림 등록
+        UNUserNotificationCenter.current().delegate = self
         application.registerForRemoteNotifications()
+        
+        // 메시지 대리자 설정
         Messaging.messaging().delegate = self
         
         // 현재 등록 토큰 가져오기
@@ -73,8 +75,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-// MARK: - USER NOTIFICATION
+// MARK: - USER NOTIFICATION: UNUserNotificationCenterDelegate
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    // Firebase 토큰과 애플의 토큰 매칭
+    func application(application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+      Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    // didReceive: push 클릭 했을 때
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -94,11 +104,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     
-    // Firebase 토큰과 애플의 토큰 매칭
-    func application(application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-      Messaging.messaging().apnsToken = deviceToken
-    }
+    
 }
 
 extension AppDelegate: MessagingDelegate {

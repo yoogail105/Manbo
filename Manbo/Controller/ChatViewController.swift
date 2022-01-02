@@ -20,7 +20,7 @@ class ChatViewController: UIViewController {
             super.viewDidLoad()
             
             let dateFormatter = DateFormatter()
-            let nowPercent = UserDefaults.standard.setpPercent
+            let nowPercent = UserDefaults.standard.stepPercent
             manboImage.image = UIImage(named: self.setUserImage(userPercent: nowPercent!))
             let date = Date()
             dateFormatter.dateFormat = "yy.MM.dd"
@@ -29,7 +29,7 @@ class ChatViewController: UIViewController {
             
             todayLabel.text = dateFormatter.string(from: date)
         let step = UserDefaults.standard.currentStepCount!
-        todayStepLabel.text = "\(step.numberForamt())"
+        todayStepLabel.text = "\(step.numberFormat())"
             
     
         }

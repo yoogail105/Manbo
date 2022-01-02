@@ -21,7 +21,7 @@ class SetStepGoalViewController: UIViewController {
     var newGoal = 1000
     var isOK = false
     let userDefaults = UserDefaults.standard
-    let isOnboarding = !UserDefaults.standard.hasOnbarded
+    let isOnboarding = !UserDefaults.standard.hasOnboarded
     
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
@@ -95,7 +95,7 @@ extension SetStepGoalViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let decimalString = Int(stepsGoalList[row]).numberForamt()
+        let decimalString = Int(stepsGoalList[row]).numberFormat()
         return decimalString
     }
     

@@ -26,7 +26,7 @@ class SetNotiViewController: UIViewController {
     var isSendNoti = false {
         didSet {
             if !isOnboarding && isSendNoti {
-                print("didset:", isSendNoti)
+                print("didSet:", isSendNoti)
                 DispatchQueue.main.async {
             
                     self.dismiss(animated: true, completion: nil)
@@ -36,7 +36,7 @@ class SetNotiViewController: UIViewController {
         }
     }
         
-    let isOnboarding = !UserDefaults.standard.hasOnbarded
+    let isOnboarding = !UserDefaults.standard.hasOnboarded
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,7 +181,7 @@ class SetNotiViewController: UIViewController {
         
         userNotificationCenter.add(request) { error in
             if let error = error {
-                print("Notificaton Error: ", error)
+                print("Notification Error: ", error)
             }
         }
     
