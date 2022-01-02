@@ -21,7 +21,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
     
-    let currentDateSelecedViewColor = UIColor.appColor(.borderLightGray)
+    let currentDateSelectedViewColor = UIColor.appColor(.borderLightGray)
     
     @IBOutlet weak var currentMonth: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -81,7 +81,7 @@ class CalendarViewController: UIViewController {
     var selectedTask: UserReport?
     
     // cell color
-    let outsideMonthColoer = UIColor(named: "outDatetedColor")
+    let outsideMonthColor = UIColor(named: "outDatetedColor")
     //    let outsideMonthColor = UIColor(hex: 0x4D4E51)
     let monthColor =  UIColor.label
     let selectedMonthColor = UIColor.label
@@ -126,17 +126,17 @@ class CalendarViewController: UIViewController {
         setUpDetailView()
         
         // MARK: - NOTIFICATION
-        NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotificaiton), name: .nameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeNameNotification), name: .nameNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeImageNotification), name:.updateImageNotification, object: nil)
         
-        let nowPercent = userDefaults.setpPercent
+        let nowPercent = userDefaults.stepPercent
         userImageView.image = UIImage(named: "\(self.setUserImage(userPercent: nowPercent!))")
     }//: VIEWDIDLOAD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("calendarview", #function)
+        print("calendarView", #function)
         currentStepCount = userDefaults.currentStepCount
         setupCalendarView()
         userNameLabel.text = userDefaults.name!
@@ -144,7 +144,7 @@ class CalendarViewController: UIViewController {
         
     }//: viewWillAppear
     
-    @objc func changeNameNotificaiton(notification: NSNotification) {
+    @objc func changeNameNotification(notification: NSNotification) {
         if let text = notification.userInfo?["newName"] as? String {
             userNameLabel.text = text
         }
@@ -162,7 +162,7 @@ class CalendarViewController: UIViewController {
         }
     }
     
-    // MARK: - HEalthkit download
+    // MARK: - HealthKit download
     func thisMonthUserReports() {
         //        if healthStore.ishealthKitAuthorized() {
         //            healthStore.getThisMonthStepCounts()
@@ -232,8 +232,8 @@ class CalendarViewController: UIViewController {
         
         let weekAverageStepCount = userDefaults.weekStepCount! / Date().weekday
         let monthAverageStepCount = userDefaults.monthStepCount! / Date().day
-        averageWeekLabel.text = "이번주 평균 \(weekAverageStepCount.numberForamt())"
-        averageMonthLabel.text = "이번달 평균 \(monthAverageStepCount.numberForamt())"
+        averageWeekLabel.text = "이번주 평균 \(weekAverageStepCount.numberFormat())"
+        averageMonthLabel.text = "이번달 평균 \(monthAverageStepCount.numberFormat())"
     }
     
     
@@ -281,7 +281,7 @@ class CalendarViewController: UIViewController {
                 validCell.dateLabel.textColor = monthColor
                 
             } else {
-                validCell.dateLabel.textColor = outsideMonthColoer
+                validCell.dateLabel.textColor = outsideMonthColor
             }
         }
         
@@ -312,7 +312,7 @@ class CalendarViewController: UIViewController {
         }
     }
     
-    func notiBanenr(notiText: String) {
+    func notiBanner(notiText: String) {
         let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
         
         banner.show()
@@ -498,7 +498,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         // print(SelectedDate)
         //        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
-        //            // self.notiBanenr(notiText: "이날도 만보랑 걸어주실거죠?")
+        //            // self.notiBanner(notiText: "이날도 만보랑 걸어주실거죠?")
         //           // print("해당 날짜 없음.")
         //            return
         //        }
@@ -563,7 +563,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 
                 let dailyData = self.selectedTask
                 let userStep = dailyData?.stepCount
-                let dailyStep = userStep?.numberForamt()
+                let dailyStep = userStep?.numberFormat()
                 
                 cell.dailyStepLabel.text = dailyStep
                 // cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
@@ -607,7 +607,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             let row = tasks[indexPath.row]
             let imageName = setUserImage(userPercent: row.goalPercent)
             cell.dailyImage.image = UIImage(named: imageName)
-            cell.stepLabel.text = row.stepCount.numberForamt()
+            cell.stepLabel.text = row.stepCount.numberFormat()
             cell.dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
             settingCell(cell: cell)
             

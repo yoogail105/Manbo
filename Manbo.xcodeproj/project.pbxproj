@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335005497D8D5B55E108E521 /* Pods_Manbo.framework */; };
 		23181F6927757D5C00EFC1E4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6827757D5C00EFC1E4 /* Realm */; };
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
@@ -77,6 +76,7 @@
 		27EC33ED2755566600C60C0F /* SetStepGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */; };
 		27EC33EF2755568600C60C0F /* SetStepGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */; };
 		27EC33F127557AA500C60C0F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC33F027557AA500C60C0F /* Notification+Extension.swift */; };
+		CDA5773014F234A52FE9778A /* Pods_Manbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A04A83F534A1D2C0BE5CF /* Pods_Manbo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,9 +154,9 @@
 		27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetStepGoalViewController.swift; path = Manbo/Controller/SetStepGoalViewController.swift; sourceTree = SOURCE_ROOT; };
 		27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetStepGoal.storyboard; sourceTree = "<group>"; };
 		27EC33F027557AA500C60C0F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
-		335005497D8D5B55E108E521 /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
-		FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
+		332A04A83F534A1D2C0BE5CF /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63989511DEC89B81D70DF8EB /* Pods-Manbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.release.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.release.xcconfig"; sourceTree = "<group>"; };
+		CB37EBF10D312A68E856D524 /* Pods-Manbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manbo.debug.xcconfig"; path = "Target Support Files/Pods-Manbo/Pods-Manbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 				27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */,
 				27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */,
 				23181F6927757D5C00EFC1E4 /* Realm in Frameworks */,
-				191022094E8D681CFB589782 /* Pods_Manbo.framework in Frameworks */,
+				CDA5773014F234A52FE9778A /* Pods_Manbo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,8 +336,8 @@
 		33ABD6F044B2651CDB0AC97F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */,
-				FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */,
+				CB37EBF10D312A68E856D524 /* Pods-Manbo.debug.xcconfig */,
+				63989511DEC89B81D70DF8EB /* Pods-Manbo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 			children = (
 				275D718D2757B31700070234 /* WebKit.framework */,
 				27A66654274C2A4900A63683 /* HealthKit.framework */,
-				335005497D8D5B55E108E521 /* Pods_Manbo.framework */,
+				332A04A83F534A1D2C0BE5CF /* Pods_Manbo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -359,12 +359,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2780C5C32744F529004A0BE4 /* Build configuration list for PBXNativeTarget "Manbo" */;
 			buildPhases = (
-				26D37883E29F79CEAEC6933B /* [CP] Check Pods Manifest.lock */,
+				5FDF23222E2A0F2A5C60DB7D /* [CP] Check Pods Manifest.lock */,
 				2780C5AB2744F526004A0BE4 /* Sources */,
 				2780C5AC2744F526004A0BE4 /* Frameworks */,
 				2780C5AD2744F526004A0BE4 /* Resources */,
-				D91C9AACEA968C1CDCDA5B7A /* [CP] Embed Pods Frameworks */,
 				270CD2F1275F258D00A31E2B /* ShellScript */,
+				E87044997CF5371BCC660D5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -409,11 +409,11 @@
 			);
 			mainGroup = 2780C5A62744F526004A0BE4;
 			packageReferences = (
-				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */,
-				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
-				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu.git" */,
+				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */,
+				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar.git" */,
+				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -456,7 +456,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26D37883E29F79CEAEC6933B /* [CP] Check Pods Manifest.lock */ = {
+		270CD2F1275F258D00A31E2B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		5FDF23222E2A0F2A5C60DB7D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,26 +497,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		270CD2F1275F258D00A31E2B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		D91C9AACEA968C1CDCDA5B7A /* [CP] Embed Pods Frameworks */ = {
+		E87044997CF5371BCC660D5B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -744,7 +744,7 @@
 		};
 		2780C5C42744F529004A0BE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37E83E2AA57914B2EE5619B7 /* Pods-Manbo.debug.xcconfig */;
+			baseConfigurationReference = CB37EBF10D312A68E856D524 /* Pods-Manbo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -838,7 +838,7 @@
 		};
 		2780C5C52744F529004A0BE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB2BED682B82F4758983E311 /* Pods-Manbo.release.xcconfig */;
+			baseConfigurationReference = 63989511DEC89B81D70DF8EB /* Pods-Manbo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -953,7 +953,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -961,7 +961,7 @@
 				version = 10.20.2;
 			};
 		};
-		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -969,7 +969,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -977,7 +977,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+		278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
 			requirement = {
@@ -985,7 +985,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+		27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar.git";
 			requirement = {
@@ -998,32 +998,32 @@
 /* Begin XCSwiftPackageProductDependency section */
 		23181F6827757D5C00EFC1E4 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = Realm;
 		};
 		23181F6A27757D5C00EFC1E4 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = RealmSwift;
 		};
 		2707947927501D5D00CE532D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 		27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */;
 			productName = IQKeyboardManagerSwift;
 		};
 		278F749C2748FC1900794E8D /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */;
+			package = 278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu.git" */;
 			productName = SideMenu;
 		};
 		27A6665C274D762200A63683 /* JTAppleCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar.git" */;
 			productName = JTAppleCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */

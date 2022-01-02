@@ -8,7 +8,7 @@
 import Foundation
 extension Int {
     
-func numberForamt() -> String {
+func numberFormat() -> String {
     let number = NumberFormatter()
     number.numberStyle = .decimal
     let result = number.string(for: self)!

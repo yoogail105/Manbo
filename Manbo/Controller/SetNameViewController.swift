@@ -20,11 +20,11 @@ class SetNameViewController: UIViewController {
     @IBOutlet weak var okButton: UIButton!
     var maxLength = 8
     var notiText = "2글자 이상 8글자 이하로 입력해주세요"
-    var isCoreectedName = false
+    var isCorrectedName = false
     var longName = false
     let userDefaults = UserDefaults.standard
     var isOK = false
-    let isOnboarding = !UserDefaults.standard.hasOnbarded
+    let isOnboarding = !UserDefaults.standard.hasOnboarded
     
     // MARK: - VIEWDIDROW
     override func viewDidLoad() {
@@ -37,12 +37,12 @@ class SetNameViewController: UIViewController {
         
        
         backgroundView.customAlertSetting()
-        completeButton.activeButtonColor(isActive: isCoreectedName)
+        completeButton.activeButtonColor(isActive: isCorrectedName)
         completeButton.isEnabled = false
 //
-        if !isCoreectedName {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-                self.notiBanenr(notiText: self.notiText)
+        if !isCorrectedName {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                self.notiBanner(notiText: self.notiText)
             }
 //
         }
@@ -79,7 +79,7 @@ class SetNameViewController: UIViewController {
                     //  8글자 넘어가면 자동으로 키보드 내려감
                     textField.resignFirstResponder()
                     notiText = "8글자를 넘어갈 수 없어요!"
-                    isCoreectedName = true
+                    isCorrectedName = true
                 }
                 
                 // 초과되는 텍스트 제거
@@ -88,26 +88,26 @@ class SetNameViewController: UIViewController {
                     let newString = text[text.startIndex..<index]
                     textField.text = String(newString)
                     notiText = "8글자를 넘어갈 수 없어요!"
-                    isCoreectedName = true
+                    isCorrectedName = true
                 }
                 
                 else if text.count < 2 {
                     longName = false
                     notiText = "2글자 이상 8글자 이하로 입력해주세요"
-                    isCoreectedName = false
+                    isCorrectedName = false
                 }
                 else if text == "만보" {
                     longName = false
                     notiText = "다른 이름을 지어주세요!"
-                    isCoreectedName = false
+                    isCorrectedName = false
                 }
                 else {
                     longName = false
-                    isCoreectedName = true
+                    isCorrectedName = true
                     view.setNeedsDisplay()
                 }
-                completeButton.isEnabled = isCoreectedName
-                completeButton.activeButtonColor(isActive: isCoreectedName)
+                completeButton.isEnabled = isCorrectedName
+                completeButton.activeButtonColor(isActive: isCorrectedName)
 
             }
         }
@@ -122,10 +122,10 @@ class SetNameViewController: UIViewController {
         
          if isOnboarding {
              UserDefaults.standard.firstLaunchDate = Date()
-             UserDefaults.standard.hasOnbarded = true
+             UserDefaults.standard.hasOnboarded = true
             openTabViewSB()
         } else {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotificaiton"), object: nil, userInfo: ["newName": changeName])
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeNameNotification"), object: nil, userInfo: ["newName": changeName])
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -148,11 +148,12 @@ class SetNameViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func notiBanenr(notiText: String) {
+    func notiBanner(notiText: String) {
         let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
 
         banner.show()
-
+        
+        // notiBanner 지속시간
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             banner.dismiss()
         })
@@ -173,10 +174,10 @@ extension SetNameViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        if !isCoreectedName {
+        if !isCorrectedName {
             DispatchQueue.main.async {
                 print("incorrectedName")
-                //self.notiBanenr(notiText: self.notiText)
+                self.notiBanner(notiText: self.notiText)
             }
             
         }
@@ -197,9 +198,9 @@ extension SetNameViewController: UITextFieldDelegate {
     func incorrectNameNotification(){
 
         if self.longName {
-            self.notiBanenr(notiText: self.notiText)
-        } else if !self.isCoreectedName {
-            self.notiBanenr(notiText: self.notiText)
+            self.notiBanner(notiText: self.notiText)
+        } else if !self.isCorrectedName {
+            self.notiBanner(notiText: self.notiText)
         }
     }
     

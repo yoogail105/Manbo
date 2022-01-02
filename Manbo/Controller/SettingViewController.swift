@@ -83,7 +83,7 @@ class SettingViewController: UIViewController {
         
     }
         userNameLabel.text = userDefaults.name!
-        stepGoalLabel.text = "\(userDefaults.stepsGoal!.numberForamt()) 걸음"
+        stepGoalLabel.text = "\(userDefaults.stepsGoal!.numberFormat()) 걸음"
         resetTimeLabel.text = dateFormatter.simpleTimeString(date: userDefaults.resetTime!)
     
     
@@ -180,7 +180,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         //String
         
-        cell.menuLable.text = setMenuItem[row]
+        cell.menuLabel.text = setMenuItem[row]
         
         
         if setMenuItem[row] == "버전" {

@@ -18,7 +18,7 @@ class ResetTimeViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     let userDefaults = UserDefaults.standard
     var isOK = false
-    let isOnboarding = !UserDefaults.standard.hasOnbarded
+    let isOnboarding = !UserDefaults.standard.hasOnboarded
  
     
     override func viewDidLoad() {
@@ -62,7 +62,7 @@ class ResetTimeViewController: UIViewController {
             cancelButton.isHidden = true
         } else {
             cancelButton.isHidden = false
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeResteTimeNotification"), object: nil, userInfo: ["newStep": userDefaults.currentStepCount!])
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeResetTimeNotification"), object: nil, userInfo: ["newStep": userDefaults.currentStepCount!])
         dismiss(animated: true, completion: nil)
         }
     }

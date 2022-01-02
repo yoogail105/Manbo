@@ -24,7 +24,7 @@ extension UserDefaults {
     }
     
     // Onboarding에서 start버튼 누르면
-    var hasOnbarded: Bool {
+    var hasOnboarded: Bool {
         get { bool(forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
         set { setValue(newValue, forKey: UserDefaultsKeys.hasOnboarded.rawValue)}
     }
@@ -70,7 +70,7 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "notiTime")}
     }
 
-    var setpPercent: Double? {
+    var stepPercent: Double? {
         get {
             return Double(currentStepCount!) / Double(stepsGoal!)
         }

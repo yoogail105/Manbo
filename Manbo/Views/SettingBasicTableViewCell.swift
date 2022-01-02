@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingBasicTableViewCell: UITableViewCell {
-    @IBOutlet weak var menuLable: UILabel!
+    @IBOutlet weak var menuLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     static let identifier = "SettingBasicTableViewCell"
 
