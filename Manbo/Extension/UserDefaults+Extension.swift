@@ -20,6 +20,7 @@ extension UserDefaults {
         case setpPercent
         case weekStepCount
         case monthStepCount
+        case currentStepCount
         
     }
     
@@ -31,7 +32,7 @@ extension UserDefaults {
     
     var firstLaunchDate: Date? {
         get { return UserDefaults.standard.object(forKey: "firstLaunchDate") as? Date}
-        set { UserDefaults.standard.set(newValue, forKey: "firstLaunchDate")}
+        set { setValue(newValue, forKey: UserDefaultsKeys.firstLaunchDate.rawValue)}
     }
     
     var healthKitAuthorization: Bool {
@@ -41,33 +42,32 @@ extension UserDefaults {
     
     var lastConnection: Date? {
         get { return UserDefaults.standard.object(forKey: "lastConnection") as? Date}
-        set { UserDefaults.standard.set(newValue, forKey: "lastConnection")}
+        set { setValue(newValue, forKey: UserDefaultsKeys.lastConnection.rawValue)}
     }
     
      var name: String? {
-        get { return UserDefaults.standard.string(forKey: "name")}
-        set { UserDefaults.standard.set(newValue, forKey: "name")}
+         get { string(forKey: UserDefaultsKeys.name.rawValue)}
+         set { setValue(newValue, forKey: UserDefaultsKeys.name.rawValue)}
     }
     
      var stepsGoal: Int? {
-        get { return UserDefaults.standard.integer(forKey: "stepsGoal")}
-        set {
-            UserDefaults.standard.set(newValue, forKey: "stepsGoal")}
+         get { integer(forKey: UserDefaultsKeys.stepGoal.rawValue)}
+         set { setValue(newValue, forKey: UserDefaultsKeys.stepGoal.rawValue)}
     }
     
     var currentStepCount: Int? {
-       get { return UserDefaults.standard.integer(forKey: "currentStepCount")}
-       set { UserDefaults.standard.set(newValue, forKey: "currentStepCount")}
+        get { integer(forKey: UserDefaultsKeys.currentStepCount.rawValue)}
+        set { setValue(newValue, forKey: UserDefaultsKeys.currentStepCount.rawValue)}
    }
     
     var resetTime: Date? {
         get { return UserDefaults.standard.object(forKey: "resetTime") as? Date}
-        set { UserDefaults.standard.set(newValue, forKey: "resetTime")}
+        set { setValue(newValue, forKey: UserDefaultsKeys.resetTime.rawValue)}
     }
     
     var notiTime: Date? {
         get { return UserDefaults.standard.object(forKey: "notiTime") as? Date}
-        set { UserDefaults.standard.set(newValue, forKey: "notiTime")}
+        set { setValue(newValue, forKey: UserDefaultsKeys.notiTime.rawValue)}
     }
 
     var stepPercent: Double? {
@@ -77,12 +77,12 @@ extension UserDefaults {
     }
 
     var weekStepCount: Int? {
-       get { return UserDefaults.standard.integer(forKey: "weekStepCount")}
-       set { UserDefaults.standard.set(newValue, forKey: "weekStepCount")}
+        get { integer(forKey: UserDefaultsKeys.weekStepCount.rawValue)}
+        set { setValue(newValue, forKey: UserDefaultsKeys.weekStepCount.rawValue)}
    }
     var monthStepCount: Int? {
-       get { return UserDefaults.standard.integer(forKey: "monthStepCount")}
-       set { UserDefaults.standard.set(newValue, forKey: "monthStepCount")}
+       get { integer(forKey: UserDefaultsKeys.monthStepCount.rawValue)}
+        set { setValue(newValue, forKey: UserDefaultsKeys.monthStepCount.rawValue)}
    }
 
 }
