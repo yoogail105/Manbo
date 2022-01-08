@@ -53,9 +53,15 @@ class CalendarViewController: UIViewController {
     var headerVisible = true
     var isMonthView = true
     let calendar = Calendar.current
+
     var isSelectedDate = false {
         didSet {
             collectionView.reloadData()
+            if isSelectedDate {
+                detailLabel.text = "👇 선택한 날에 만보와 산책한 기록을 확인할 수 있어요!"
+            } else {
+                detailLabel.text = "👇 만보의 모습을 통해 그동안의 목표 달성률을 확인할 수 있어요!"
+            }
         }
     }
     var currentStepCount = UserDefaults.standard.currentStepCount {
@@ -290,7 +296,6 @@ class CalendarViewController: UIViewController {
         
     }
     
-    
     func handleCellSelected(view: JTACDayCell?, cellSTate: CellState) {
         guard let validCell = view as? DateCalendarViewCell else { return }
         validCell.selectedView.cornerRounded(cornerRadius: 8)
@@ -300,6 +305,7 @@ class CalendarViewController: UIViewController {
             calendarView.allowsMultipleSelection = true
             validCell.selectedView.isHidden = false
             validCell.dateLabel.textColor = monthColor
+    
         } else {
             calendarView.allowsMultipleSelection = false
             isSelectedDate = false
@@ -377,13 +383,15 @@ class CalendarViewController: UIViewController {
     
     
     @IBAction func detailButtonClicked(_ sender: UIButton) {
-        detailView.isHidden.toggle()
         showInfoView.toggle()
-        detailLabel.text = "👇 만보의 모습을 통해 그동안의 목표 달성률을 확인할 수 있어요!"
-        detailLabel.textColor = .lightGray
-        detailLabel.font = .systemFont(ofSize: 12)
-        detailLabel.numberOfLines = 0
+        detailView.isHidden.toggle()
+        self.collectionView.reloadData()
         
+        if showInfoView == true {
+            detailLabel.textColor = .lightGray
+            detailLabel.font = .systemFont(ofSize: 12)
+            detailLabel.numberOfLines = 0
+        }
         
     }
 }
@@ -584,7 +592,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 
                 cell.dailyImage.image = UIImage(named: "manbo03")
                 cell.dailyStepLabel.adjustsFontSizeToFitWidth = true
-                cell.dailyStepLabel.text = "오늘도 같이 걸어 주실거죠?"
+                cell.dailyStepLabel.text = "이 날에도 같이 걸어 주실거죠?"
                 
             }
             
@@ -595,33 +603,24 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
             cell.dailyImage.image = UIImage(named: "manbo01")
             cell.cornerRounded(cornerRadius: 10)
-            //task.count
-            if showInfoView {
-                cell.infoView.isHidden = false
-                collectionView.reloadData()
-            } else {
-                cell.infoView.isHidden = true
-                //collectionView.reloadData()
-                //찾았다 요놈!
-            }
-            /*
-             var tasks: Results<UserReport>!
-             tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-             */
             
             let row = tasks[indexPath.row]
             let imageName = setUserImage(userPercent: row.goalPercent)
             cell.dailyImage.image = UIImage(named: imageName)
-            cell.configureCell(row: row)
-            
-            /* configure Cell 내용
-             stepLabel.text = row.stepCount.numberFormat()
-             dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
-             */
-            print("stepLabel: 스탭카운트: \(row.date): \(row.stepCount)")
-            //print("stepLabel: 스탭카운트 텍스트: \(row.stepCount.numberFormat())")
-            
             settingCell(cell: cell) // UI 설정임
+            
+            if showInfoView {
+                cell.infoView.isHidden = false
+                cell.configureCell(row: row)
+            } else {
+                cell.infoView.isHidden = true
+            
+            }
+            
+            print("stepLabel: 스탭카운트: \(row.date): \(row.stepCount)")
+            
+            
+            
             
             return cell
             
