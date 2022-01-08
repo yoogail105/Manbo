@@ -70,6 +70,7 @@ class CalendarViewController: UIViewController {
             
         }
     }
+    
     var year = Date().year {
         didSet {
             
@@ -92,7 +93,7 @@ class CalendarViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
+        print("CalendarViewController:", #function)
         imageTintColorSettings()
         
         self.setupCalendarView()
@@ -100,7 +101,9 @@ class CalendarViewController: UIViewController {
         collectionView.dataSource = self
         calendarView.ibCalendarDelegate = self
         calendarView.ibCalendarDataSource = self
+        
         setAverageStepCounts()
+        print("초기 값: ", UserDefaults.standard.currentStepCount!)
         
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: SelectedTaskCollectionViewCell.identifier)
@@ -120,9 +123,9 @@ class CalendarViewController: UIViewController {
         
         
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
+        print("tasks 프린트:",tasks.count)
         
         naviItem()
-        setupCalendarView()
         setUpDetailView()
         
         // MARK: - NOTIFICATION
@@ -210,7 +213,7 @@ class CalendarViewController: UIViewController {
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-        calendarView.reloadData(withAnchor: Date())
+        calendarView.reloadData(withAnchor: Date()) // 찾았다 요놈!
         calendarView.visibleDates { [unowned self] visibleDates in
             setupViewsOfCalendar(from: visibleDates)
         }
@@ -551,10 +554,13 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        print(tasks.count)
         func settingCell(cell: UICollectionViewCell) {
             cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
             cell.cornerRounded(cornerRadius: 10)
         }
+        
         if isSelectedDate { //셀이 하나
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedTaskCollectionViewCell.identifier, for: indexPath) as! SelectedTaskCollectionViewCell
             
@@ -585,7 +591,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             settingCell(cell: cell)
             return cell
             
-        } else { //셀이 여러개: 전체 기록
+        } else { // 특정 날짜가 선택되지 않았다면 -> 셀이 여러개: 전체 기록
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
             cell.dailyImage.image = UIImage(named: "manbo01")
             cell.cornerRounded(cornerRadius: 10)
@@ -595,24 +601,27 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 collectionView.reloadData()
             } else {
                 cell.infoView.isHidden = true
-                collectionView.reloadData()
+                //collectionView.reloadData()
+                //찾았다 요놈!
             }
-            
-            
             /*
-            var tasks: Results<UserReport>!
-            tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-            */
+             var tasks: Results<UserReport>!
+             tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
+             */
             
             let row = tasks[indexPath.row]
             let imageName = setUserImage(userPercent: row.goalPercent)
             cell.dailyImage.image = UIImage(named: imageName)
-            cell.stepLabel.text = row.stepCount.numberFormat()
-            cell.dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
-            settingCell(cell: cell)
+            cell.configureCell(row: row)
             
-           // cell.configureCell(row: row)
+            /* configure Cell 내용
+             stepLabel.text = row.stepCount.numberFormat()
+             dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
+             */
+            print("stepLabel: 스탭카운트: \(row.date): \(row.stepCount)")
+            //print("stepLabel: 스탭카운트 텍스트: \(row.stepCount.numberFormat())")
             
+            settingCell(cell: cell) // UI 설정임
             
             return cell
             

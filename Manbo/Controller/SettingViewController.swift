@@ -184,7 +184,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         if setMenuItem[row] == "버전" {
-            cell.rightLabel.text = "1.0.2."
+            cell.rightLabel.text = "1.0.3"
             cell.rightLabel.font = UIFont.italicSystemFont(ofSize: 10)
         }
         
