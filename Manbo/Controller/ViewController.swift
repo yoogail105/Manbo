@@ -59,6 +59,13 @@ class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     var stepGoal = UserDefaults.standard.stepsGoal!
+    
+    var firstGoal = UserDefaults.standard.stepsGoal! {
+        didSet {
+            print("stepGoal has changed:", UserDefaults.standard.stepsGoal! )
+        }
+    }
+    
     var stepPercent = UserDefaults.standard.stepPercent! {
         didSet {
             //print("퍼센테이지 바꼈다.")
@@ -85,7 +92,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("main", #function)
        //   UserDefaults.standard.hasOnboarded = false
-        
+        print("0114currnetStepGoal: \(userDefaults.stepsGoal!)")
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()

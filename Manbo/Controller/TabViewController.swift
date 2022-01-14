@@ -17,11 +17,11 @@ class TabViewController: UIViewController {
     var vcList = [UIViewController]()
    
     
+    
     @IBOutlet weak var bannerView: UIView!
     @IBOutlet weak var bannerLabel: UILabel!
     @IBOutlet var tabView:UIView!
     @IBOutlet var buttons:[UIButton]!
-
     
     // VC연결
     let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ViewController.identifier)
@@ -35,6 +35,7 @@ class TabViewController: UIViewController {
   // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tabBarBackgroundView.cornerRounded(cornerRadius: tabBarBackgroundView.frame.size.height / 2)
         
         // VC배열에 넣기

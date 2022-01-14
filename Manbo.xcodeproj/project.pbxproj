@@ -190,7 +190,7 @@
 		270D726927465EB6007ADC71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				278F74BB274AC6A600794E8D /* Onboarding */,
+				278F74BB274AC6A600794E8D /* Onboarding& */,
 				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
 				278F7486274797C900794E8D /* TabView.storyboard */,
 				2780C5B82744F526004A0BE4 /* Main.storyboard */,
@@ -235,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				278832A02746F1AE007616EA /* UIString+Extension.swift */,
-				278F74A627496CB500794E8D /* UserDefaults+Extension.swift */,
 				270D726D27465F05007ADC71 /* UIView+Extension.swift */,
 				270D726F27466914007ADC71 /* UIColor+Extension.swift */,
 				278F74A4274969F400794E8D /* UIViewController+Extension.swift */,
@@ -316,11 +315,12 @@
 			children = (
 				27A66661274EB61C00A63683 /* manboManager.swift */,
 				27A66663274EC6D600A63683 /* realmData.swift */,
+				278F74A627496CB500794E8D /* UserDefaults+Extension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		278F74BB274AC6A600794E8D /* Onboarding */ = {
+		278F74BB274AC6A600794E8D /* Onboarding& */ = {
 			isa = PBXGroup;
 			children = (
 				27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */,
@@ -330,7 +330,7 @@
 				27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */,
 				27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */,
 			);
-			path = Onboarding;
+			path = "Onboarding&";
 			sourceTree = "<group>";
 		};
 		33ABD6F044B2651CDB0AC97F /* Pods */ = {
@@ -409,11 +409,11 @@
 			);
 			mainGroup = 2780C5A62744F526004A0BE4;
 			packageReferences = (
-				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu.git" */,
-				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */,
-				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar.git" */,
-				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire.git" */,
-				23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */,
+				278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */,
+				27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -750,7 +750,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/Manbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -767,7 +767,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -844,7 +844,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Manbo/ManboRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 877MN2RY22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
@@ -860,7 +860,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -953,7 +953,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
+		23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -961,7 +961,7 @@
 				version = 10.20.2;
 			};
 		};
-		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -969,7 +969,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */ = {
+		27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -977,7 +977,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu.git" */ = {
+		278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
 			requirement = {
@@ -985,7 +985,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar.git" */ = {
+		27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar.git";
 			requirement = {
@@ -998,32 +998,32 @@
 /* Begin XCSwiftPackageProductDependency section */
 		23181F6827757D5C00EFC1E4 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
 		23181F6A27757D5C00EFC1E4 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		2707947927501D5D00CE532D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		27192755274AF09D00F26F8D /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */;
+			package = 27192754274AF09D00F26F8D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
 		278F749C2748FC1900794E8D /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu.git" */;
+			package = 278F749B2748FC1900794E8D /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
 		};
 		27A6665C274D762200A63683 /* JTAppleCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar.git" */;
+			package = 27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
 			productName = JTAppleCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */

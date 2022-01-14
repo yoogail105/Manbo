@@ -19,9 +19,7 @@ extension HKHealthStore {
             //read는 감별할 수 없다. 아래의 success는 요청하는 뷰가 성공적으로 띄워졌는지에 관한 것.
             if success {
                 print("허용여부는 \(self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) ==  .sharingDenied)")
-                    print("yesss")
-                    //code
-                    print("허용했음.")
+    
                     self.getTodayStepCounts()
                     self.getThisWeekStepCounts()
                     self.getThisMonthStepCounts()

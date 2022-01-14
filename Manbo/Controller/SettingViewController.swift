@@ -94,7 +94,6 @@ class SettingViewController: UIViewController {
         resetGoalButton.settingButtonUI(title: "수정")
         resetNotiTimeButton.settingButtonUI(title: "수정")
         resetStepTimeButton.settingButtonUI(title: "수정")
-        resetColorButton.settingButtonUI(title: "수정")
         turnOffAlarmButton.settingButtonUI(title: "끄기")
         //turnOffAlarmButton.setTitle("끄기", for: .normal)
     }
