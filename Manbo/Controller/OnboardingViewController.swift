@@ -66,7 +66,7 @@ class OnboardingViewController: UIViewController {
     
     
     
-    // MARK: - SetGoal 먼가..코드 정리하기..
+   
     //"같이 걸어요 선택했을 때: 목표걸음 수 설정
     @IBAction func alertView(_ sender: UIButton) {
 

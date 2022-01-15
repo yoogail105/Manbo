@@ -16,15 +16,21 @@ extension HKHealthStore {
         let healthKitTypes = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
         
         self.requestAuthorization(toShare: nil, read: [healthKitTypes]) { success, Error in
-            //read는 감별할 수 없다. 아래의 success는 요청하는 뷰가 성공적으로 띄워졌는지에 관한 것.
+            // 아래의 success는 요청하는 뷰가 성공적으로 띄워졌는지에 관한 것.
             if success {
-                print("허용여부는 \(self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!) ==  .sharingDenied)")
-    
+                print ("Healthkit 퍼미션 뷰를 봤다.")
+                
+                let authorizationStatus = self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
+                
+                if authorizationStatus != .notDetermined {
+                    // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
                     self.getTodayStepCounts()
                     self.getThisWeekStepCounts()
                     self.getThisMonthStepCounts()
                     self.getNDaysStepCounts(number: 30)
-       } else {
+                }
+                
+            } else {
                 print("퍼미션뷰를 보지 못했다.")
             }
         }
@@ -33,7 +39,7 @@ extension HKHealthStore {
     func calculateDailyStepCountForPastWeek() {
         
     }
-
+    
     
     func getNDaysStepCounts(number: Int) {
         self.getToalStepCounts(passedDays: number, completion: { (result) in
@@ -102,12 +108,12 @@ extension HKHealthStore {
         let userDefaults = UserDefaults.standard
         //let realm = try! Realm()
         
-
+        
         let today = Date()
         dateFormatter.basicDateSetting()
         var totalSetpCountArray = [Int]()
         let pinDate = today.getPinDate()
-    
+        
         let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
         //엔드: 오늘 기준시간으로부터 24시간 후까지
         let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
