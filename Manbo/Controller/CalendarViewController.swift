@@ -70,6 +70,15 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    var calendarMonth = Date().month
+    
+    var monthName = "" {
+        didSet {
+            self.setAverageStepCounts()
+        }
+    }
+
+    
     // 월이 바뀌면 헬스킷 데이터 받아오기
     var month = Date().month {
         didSet {
@@ -219,7 +228,7 @@ class CalendarViewController: UIViewController {
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-        calendarView.reloadData(withAnchor: Date()) // 찾았다 요놈!
+        calendarView.reloadData(withAnchor: Date())
         calendarView.visibleDates { [unowned self] visibleDates in
             setupViewsOfCalendar(from: visibleDates)
         }
@@ -228,11 +237,13 @@ class CalendarViewController: UIViewController {
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
         guard let startDate = visibleDates.monthDates.first?.date else { return
         }
-        let month = calendar.dateComponents([.month], from: startDate).month!
-        let monthName = self.dateFormatter.monthSymbols[ (month-1) % 12]
-        let year = calendar.component(.year, from: startDate)
         
-        currentMonth.text = String(year) + "년 " + monthName
+        calendarMonth = calendar.dateComponents([.month], from: startDate).month!
+        monthName = self.dateFormatter.monthSymbols[ (calendarMonth - 1) % 12]
+        let calendarYear = calendar.component(.year, from: startDate)
+        
+        currentMonth.text = String(calendarYear) + "년 " + monthName
+        print("monthName",monthName)
         //        self.currentMonth.text = self.formatter.string(from: date)
     }
     
@@ -241,7 +252,13 @@ class CalendarViewController: UIViewController {
         
         let weekAverageStepCount = userDefaults.weekStepCount! / Date().weekday
         let monthAverageStepCount = userDefaults.monthStepCount! / Date().day
+        
+        if calendarMonth == Date().month {
         averageWeekLabel.text = "이번주 평균 \(weekAverageStepCount.numberFormat())"
+        } else {
+            averageWeekLabel.text = "\(monthName) 평균"
+            print("달라졌음.")
+        }
         averageMonthLabel.text = "이번달 평균 \(monthAverageStepCount.numberFormat())"
     }
     
@@ -499,7 +516,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
     }
     
-    // MARK: -  배너 없애기
+    
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         //        print("didSelectDate: \(date), CellState: \(cellState)")
         calendarView.allowsMultipleSelection = true
@@ -616,7 +633,6 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.infoView.isHidden = true
             
             }
-            
             print("stepLabel: 스탭카운트: \(row.date): \(row.stepCount)")
             
             
