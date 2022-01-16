@@ -104,16 +104,15 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDelegate = self
         calendarView.ibCalendarDataSource = self
         
-        calculateThisMonthAverageStepCounts()
-        print("초기 값: ", UserDefaults.standard.currentStepCount!)
         
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: SelectedTaskCollectionViewCell.identifier)
         
         //calendarUI
-        populateDataSource()
-        
+        calculateThisMonthAverageStepCounts()
+        //populateDataSource()
         //calendarCollectionView.allowsMultipleSelection = true
+        
         calendarView.allowsRangedSelection = true
         calendarView.maskedCornerRounded(cornerRadius: 20, maskedCorners: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
         calendarFrameStackView.cornerRounded(cornerRadius: 20)
@@ -125,10 +124,6 @@ class CalendarViewController: UIViewController {
         
         
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-        
-        var monthlyTasks: Results<UserReport>!
-        monthlyTasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false).filter("date CONTAINS [c] '2022-01-'")
-        print("전체 tasks 프린트:", monthlyTasks)
         
         naviItem()
         setUpDetailView()
@@ -363,18 +358,18 @@ class CalendarViewController: UIViewController {
         return tagColor
     }
     
-    func populateDataSource() {
-        // You can get the data from a server.
-        // Then convert that data into a form that can be used by the calendar.
-        calendarDataSource = [
-            "2021-12-01": "2021-12-01",
-            "2021-12-02": "2021-12-01",
-            "2021-12-03": "2021-12-01",
-            "2021-12-04": "2021-12-01",
-        ]
-        // update the calendar
-        calendarView.reloadData()
-    }
+//    func populateDataSource() {
+//        // You can get the data from a server.
+//        // Then convert that data into a form that can be used by the calendar.
+//        calendarDataSource = [
+//            "2021-12-01": "2021-12-01",
+//            "2021-12-02": "2021-12-01",
+//            "2021-12-03": "2021-12-01",
+//            "2021-12-04": "2021-12-01",
+//        ]
+//        // update the calendar
+//        calendarView.reloadData()
+//    }
     
     func handleCellEvents(cell: DateCalendarViewCell, cellState: CellState) {
         print("handleCellEvents",#function)
@@ -417,11 +412,16 @@ extension CalendarViewController: JTACMonthViewDataSource {
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         
-        let firstDate = userDefaults.firstLaunchDate!
+        /* calendar 시작 지점 조정
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy MM dd"
+
+        let startDate = formatter.date(from: "2021 01 01")!
+         */
         
+        let firstDate = userDefaults.firstLaunchDate!
         //앱 런치 기준 지난 달의 첫날부터
         let startDate = firstDate.startOfMonth().startOfLastMonth
-        
         // 지금 달의 마지막날까지 달력 표시
         let endDate = Date().startOfMonth().endOfThisMonth
         

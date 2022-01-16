@@ -21,19 +21,23 @@ class AverageStepCountManager {
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false).filter("date CONTAINS [c] '\(year)-\(monthString)'")
         
         var totalStepCount = 0
+        var monthlyAverageStepCount = 0
         
         tasks.forEach { task in
             print(task.date)
             print(task.stepCount)
             totalStepCount += task.stepCount
         }
-    
-        //print("\(year)년 \(monthString)월 totalStepCount:", totalStepCount)
         
-        let monthlyAverageStepCount = totalStepCount / tasks.count
+        if tasks.count  != 0 {
+            monthlyAverageStepCount = totalStepCount / tasks!.count
+        } else {
+            monthlyAverageStepCount = 0
+        }
+        
         
         return monthlyAverageStepCount
-    
+        
     }
     
     
