@@ -2,6 +2,7 @@
 
 🐾 동글동글 만보랑 함께 걸어봐요!</br>
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/53874628/149617515-39e98b24-3b83-446d-b99d-1f0977683381.png">
+<br/>
 🎶 [앱스토어에서 확인하기 v1.0.2](https://apps.apple.com/kr/app/manborang-만보랑-같이-걸어요/id1596845782)
 
 🏞 [기획서 및 진행상황 노션 보러가기](
