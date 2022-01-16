@@ -25,8 +25,8 @@ extension HKHealthStore {
                 if authorizationStatus != .notDetermined {
                     // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
                     self.getTodayStepCounts()
-                    self.getThisWeekStepCounts()
-                    self.getThisMonthStepCounts()
+                    //self.getThisWeekStepCounts()
+                    //self.getThisMonthStepCounts()
                     self.getNDaysStepCounts(number: 30)
                 }
                 
@@ -111,7 +111,7 @@ extension HKHealthStore {
         
         let today = Date()
         dateFormatter.basicDateSetting()
-        var totalSetpCountArray = [Int]()
+        var totalStepCountArray = [Int]()
         let pinDate = today.getPinDate()
         
         let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
@@ -144,7 +144,7 @@ extension HKHealthStore {
                     if let count = statistic.sumQuantity() {
                         //step가져오기(double)
                         dayCount = count.doubleValue(for: HKUnit.count())
-                        totalSetpCountArray.append(Int(dayCount))
+                        totalStepCountArray.append(Int(dayCount))
                         totalCount += dayCount
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
                         filterdTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")

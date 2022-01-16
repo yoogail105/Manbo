@@ -92,7 +92,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("main", #function)
        //   UserDefaults.standard.hasOnboarded = false
-        print("0114currnetStepGoal: \(userDefaults.stepsGoal!)")
+        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+        
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
