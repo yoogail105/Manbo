@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		23181F6927757D5C00EFC1E4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6827757D5C00EFC1E4 /* Realm */; };
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
+		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		2707F932276A345600EDCC10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2707F931276A345500EDCC10 /* GoogleService-Info.plist */; };
@@ -80,6 +81,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				278F748027478D1600794E8D /* CameraViewController.swift */,
 				278832962746EB04007616EA /* SettingViewController.swift */,
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
+				23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */,
 				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
 				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
 				270CAE952753ED70004230A6 /* RealmManagerViewController.swift */,
@@ -548,6 +551,7 @@
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
 				27C6D6812758F7F3009A7D4B /* SetNotiPermissionViewController.swift in Sources */,
 				27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */,
+				23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */,
 				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
 				27EC33ED2755566600C60C0F /* SetStepGoalViewController.swift in Sources */,
 				278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */,
