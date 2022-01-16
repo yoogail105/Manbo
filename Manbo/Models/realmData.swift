@@ -29,3 +29,22 @@ class UserReport: Object {
         //self.success = false
     }
 }
+
+//class MonthlyReport: UserReport {
+//    @Persisted var month: String
+//
+//
+//    override static func primaryKey() -> String? {
+//        return "month"
+//    }
+//
+//    convenience init(date: String, stepCount:Int,stepGoal: Int, goalPercent: Double) {
+//        self.init()
+//
+//        self.date = date
+//        self.stepCount = stepCount
+//        self.stepGoal = stepGoal
+//        self.goalPercent = goalPercent
+//        //self.success = false
+//    }
+//}

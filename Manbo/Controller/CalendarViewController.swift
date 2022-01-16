@@ -66,31 +66,18 @@ class CalendarViewController: UIViewController {
     }
     var currentStepCount = UserDefaults.standard.currentStepCount {
         didSet {
-            self.setAverageStepCounts()
+            self.calculateThisMonthAverageStepCounts()
         }
     }
     
     var calendarMonth = Date().month
-    
-    var monthName = "" {
+    var calendarYear = Date().year {
         didSet {
-            self.setAverageStepCounts()
+            self.calculatePastMonthAverageStepCounts()
         }
     }
 
-    
-    // 월이 바뀌면 헬스킷 데이터 받아오기
-    var month = Date().month {
-        didSet {
-            
-        }
-    }
-    
-    var year = Date().year {
-        didSet {
-            
-        }
-    }
+    var weekAverageStepCount = 0
     //Realm
     let localRealm = try! Realm()
     var tasks: Results<UserReport>!
@@ -117,7 +104,7 @@ class CalendarViewController: UIViewController {
         calendarView.ibCalendarDelegate = self
         calendarView.ibCalendarDataSource = self
         
-        setAverageStepCounts()
+        calculateThisMonthAverageStepCounts()
         print("초기 값: ", UserDefaults.standard.currentStepCount!)
         
         let nibName = UINib(nibName: SelectedTaskCollectionViewCell.identifier, bundle: nil)
@@ -138,7 +125,10 @@ class CalendarViewController: UIViewController {
         
         
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-        print("tasks 프린트:",tasks.count)
+        
+        var monthlyTasks: Results<UserReport>!
+        monthlyTasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false).filter("date CONTAINS [c] '2022-01-'")
+        print("전체 tasks 프린트:", monthlyTasks)
         
         naviItem()
         setUpDetailView()
@@ -235,31 +225,40 @@ class CalendarViewController: UIViewController {
     }
     
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
+        print(#function)
         guard let startDate = visibleDates.monthDates.first?.date else { return
         }
         
         calendarMonth = calendar.dateComponents([.month], from: startDate).month!
-        monthName = self.dateFormatter.monthSymbols[ (calendarMonth - 1) % 12]
-        let calendarYear = calendar.component(.year, from: startDate)
+        calendarYear = calendar.component(.year, from: startDate)
         
-        currentMonth.text = String(calendarYear) + "년 " + monthName
-        print("monthName",monthName)
-        //        self.currentMonth.text = self.formatter.string(from: date)
+        
+        currentMonth.text = String(calendarYear) + "년 " + String(calendarMonth) + "월"
     }
     
-    func setAverageStepCounts() {
+    func calculateThisMonthAverageStepCounts() {
         print("CalendarView", #function)
         
-        let weekAverageStepCount = userDefaults.weekStepCount! / Date().weekday
-        let monthAverageStepCount = userDefaults.monthStepCount! / Date().day
+        
+        weekAverageStepCount = userDefaults.weekStepCount! / Date().weekday
+        let thisMonthAverageStepCount = AverageStepCountManager.shared.calculateMonthlyAverageStepCount(year: Date().year, month: Date().month)
+    
+        averageMonthLabel.text = "이번달 평균 \(thisMonthAverageStepCount.numberFormat())"
+        
+    }
+    
+    func calculatePastMonthAverageStepCounts() {
+        
+        let monthlyAverageStepCount = AverageStepCountManager.shared.calculateMonthlyAverageStepCount(year: calendarYear, month: calendarMonth)
         
         if calendarMonth == Date().month {
         averageWeekLabel.text = "이번주 평균 \(weekAverageStepCount.numberFormat())"
         } else {
-            averageWeekLabel.text = "\(monthName) 평균"
+            averageWeekLabel.text = "\(calendarMonth)월 평균 \(monthlyAverageStepCount.numberFormat())"
             print("달라졌음.")
         }
-        averageMonthLabel.text = "이번달 평균 \(monthAverageStepCount.numberFormat())"
+     
+        
     }
     
     
@@ -494,10 +493,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
         validCell.dateLabel.text = cellState.text
         
         if self.calendar.isDateInToday(date) {
-            //            print("오늘날짜configureVisibileCellD:\(calendar.isDateInToday(date))")
+            // 오늘 날짜
             validCell.contentView.cornerRounded(cornerRadius: 8)
             validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
-            //print("실행됨: \(date)")
         } else {
             validCell.contentView.backgroundColor = .clear
             
@@ -509,9 +507,9 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         if cellState.dateBelongsTo == .thisMonth && cellState.text == "1" {
             dateFormatter.dateFormat = "MMM"
-            month = cellState.date.month
-            year = cellState.date.year
-            // print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
+            let month = cellState.date.month // 이번 달
+            let year = cellState.date.year
+             print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
         }
         
     }
@@ -580,7 +578,6 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        print(tasks.count)
         func settingCell(cell: UICollectionViewCell) {
             cell.backgroundColor = UIColor.init(hex: 0xF2E2DA)
             cell.cornerRounded(cornerRadius: 10)
@@ -633,10 +630,6 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.infoView.isHidden = true
             
             }
-            print("stepLabel: 스탭카운트: \(row.date): \(row.stepCount)")
-            
-            
-            
             
             return cell
             

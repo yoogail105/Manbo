@@ -25,8 +25,7 @@ extension HKHealthStore {
                 if authorizationStatus != .notDetermined {
                     // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
                     self.getTodayStepCounts()
-                    //self.getThisWeekStepCounts()
-                    //self.getThisMonthStepCounts()
+                    self.getThisWeekStepCounts()
                     self.getNDaysStepCounts(number: 30)
                 }
                 
