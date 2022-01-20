@@ -41,7 +41,9 @@ extension HKHealthStore {
     
     
     func getNDaysStepCounts(number: Int) {
+        
         self.getToalStepCounts(passedDays: number, completion: { (result) in
+            print(#function)
             DispatchQueue.main.async {
                 if result == 0 {
                     UserDefaults.standard.healthKitAuthorization = false
@@ -58,6 +60,7 @@ extension HKHealthStore {
     
     func getTodayStepCounts()  {
         self.getToalStepCounts(passedDays: 0) { (result) in
+            print(#function)
             DispatchQueue.main.async {
                 let currentStepCount = Int(result)
                 UserDefaults.standard.currentStepCount = currentStepCount
@@ -74,6 +77,7 @@ extension HKHealthStore {
         
         let passedWeekday = Date().weekday
         self.getToalStepCounts(passedDays: passedWeekday - 1, completion: { (result) in
+            print(#function)
             DispatchQueue.main.async {
                 UserDefaults.standard.weekStepCount = Int(result)
                 // self.averageThisWeekStepCounts = thisWeekTotalStepCount / 7
@@ -147,6 +151,7 @@ extension HKHealthStore {
                         totalCount += dayCount
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
                         filterdTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
+                        
                         //realm 에 저장하기! -> func
                         
                         let task = UserReport(date: savedDate,
@@ -158,7 +163,17 @@ extension HKHealthStore {
                                 realm.add(task)
                             }
                             print("add success")
-                        } else if savedDate == todayReport {
+                            
+                        } else if filterdTask?.first?.stepCount != task.stepCount {
+                            print("saved step count: \(filterdTask?.first?.stepCount), healthkit data: \(task.stepCount)")
+                            try! realm.write {
+                                filterdTask?.first?.stepCount = Int(dayCount)
+                                filterdTask?.first?.goalPercent = dayCount / Double(goal)
+                                print("last connection day update success: \(task.date)")
+                            }
+                           
+                            
+                        }else if savedDate == todayReport {
                             try! realm.write {
                                 filterdTask?.first?.stepCount = Int(dayCount)
                                 filterdTask?.first?.goalPercent = dayCount / Double(goal)

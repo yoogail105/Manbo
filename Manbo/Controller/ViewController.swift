@@ -93,6 +93,8 @@ class ViewController: UIViewController {
         print("main", #function)
        //   UserDefaults.standard.hasOnboarded = false
         print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+        getLastConnection()
+        print("마지막 접속일", userDefaults.lastConnection)
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
