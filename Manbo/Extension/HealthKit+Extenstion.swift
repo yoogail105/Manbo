@@ -24,9 +24,12 @@ extension HKHealthStore {
                 
                 if authorizationStatus != .notDetermined {
                     // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
-                    self.getTodayStepCounts()
-                    self.getThisWeekStepCounts()
-                    self.getNDaysStepCounts(number: 30)
+                    DispatchQueue.main.sync {
+                        self.getTodayStepCounts()
+                        self.getThisWeekStepCounts()
+                        self.getNDaysStepCounts(number: 30)
+                    }
+                   
                 }
                 
             } else {
@@ -79,6 +82,7 @@ extension HKHealthStore {
         self.getToalStepCounts(passedDays: passedWeekday - 1, completion: { (result) in
             print(#function)
             DispatchQueue.main.async {
+                print("passedWeekday",passedWeekday)
                 UserDefaults.standard.weekStepCount = Int(result)
                 // self.averageThisWeekStepCounts = thisWeekTotalStepCount / 7
                 
@@ -142,7 +146,7 @@ extension HKHealthStore {
             if let myresult = result {
                 myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
                     let realm = try! Realm()
-                    var filterdTask: Results<UserReport>?
+                    var filteredTask: Results<UserReport>?
                     let todayReport = dateFormatter.simpleDateString(date: today)
                     if let count = statistic.sumQuantity() {
                         //step가져오기(double)
@@ -150,7 +154,7 @@ extension HKHealthStore {
                         totalStepCountArray.append(Int(dayCount))
                         totalCount += dayCount
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
-                        filterdTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'")
+                        filteredTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").sorted(byKeyPath: "date", ascending: false)
                         
                         //realm 에 저장하기! -> func
                         
@@ -158,33 +162,55 @@ extension HKHealthStore {
                                               stepCount:Int(dayCount),
                                               stepGoal: goal,
                                               goalPercent: dayCount / Double(goal))
-                        if filterdTask?.count == 0 {
+                        print("savedDate", savedDate)
+                        print("프린트",filteredTask?.first?.date, userDefaults.lastConnection)
+                        
+                        if filteredTask?.count == 0 {
+                            // 해당하는 날짜에 대한 정보가 없다.
                             try! realm.write {
                                 realm.add(task)
                             }
-                            print("add success")
+                            print("add success: \(task.date)")
                             
-                        } else if filterdTask?.first?.stepCount != task.stepCount {
-                            print("saved step count: \(filterdTask?.first?.stepCount), healthkit data: \(task.stepCount)")
+                        } else if filteredTask?.first?.date != userDefaults.lastConnection {
+                            
+//                        else if userDefaults.lastConnection == "" {
+                            
+                            if (filteredTask?.first?.stepCount)! != task.stepCount {
+                                try! realm.write {
+                                    filteredTask?.first?.stepCount = Int(dayCount)
+                                    filteredTask?.first?.goalPercent = dayCount / Double(goal)
+                                    print("걸음 수 다른 날 업데이트 완료: \(task.date)")
+                                }
+                            }
+                            
+                        } else if filteredTask?.first?.date == userDefaults.lastConnection {
+                            // lastConnect가 있으면 -> 같은 날이면 변경 완료
+                            print("saved step count: \((filteredTask?.first?.stepCount)!), healthkit data: \(task.stepCount)")
                             try! realm.write {
-                                filterdTask?.first?.stepCount = Int(dayCount)
-                                filterdTask?.first?.goalPercent = dayCount / Double(goal)
+                                filteredTask?.first?.stepCount = Int(dayCount)
+                                filteredTask?.first?.goalPercent = dayCount / Double(goal)
                                 print("last connection day update success: \(task.date)")
                             }
-                           
+
                             
-                        }else if savedDate == todayReport {
+                        } else if savedDate == todayReport {
                             try! realm.write {
-                                filterdTask?.first?.stepCount = Int(dayCount)
-                                filterdTask?.first?.goalPercent = dayCount / Double(goal)
+                                filteredTask?.first?.stepCount = Int(dayCount)
+                                filteredTask?.first?.goalPercent = dayCount / Double(goal)
                             }
-                            print("update success")
+                            print("update success: \(savedDate)")
+                            userDefaults.lastConnection = todayReport
+                            print(#function, "lastConnetcion: \(userDefaults.lastConnection!)")
                         }
+
                         currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+                        
+                        print("내일 currentDate = \(currentDate), \( dateFormatter.simpleDateString(date: currentDate)), 오늘 stepCount = \(task.stepCount)")
+                        
                     }
                     DispatchQueue.main.async {
                         completion(totalCount)
-                        
                     }
                 }
             }

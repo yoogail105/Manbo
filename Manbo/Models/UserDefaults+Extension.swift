@@ -40,8 +40,8 @@ extension UserDefaults {
         set { setValue(newValue, forKey: UserDefaultsKeys.healthKitAuthorization.rawValue)}
     }
     
-    var lastConnection: Date? {
-        get { return UserDefaults.standard.object(forKey: "lastConnection") as? Date}
+    var lastConnection: String? {
+        get { string(forKey: UserDefaultsKeys.lastConnection.rawValue)}
         set { setValue(newValue, forKey: UserDefaultsKeys.lastConnection.rawValue)}
     }
     

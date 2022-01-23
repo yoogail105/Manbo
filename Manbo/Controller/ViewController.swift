@@ -93,8 +93,10 @@ class ViewController: UIViewController {
         print("main", #function)
        //   UserDefaults.standard.hasOnboarded = false
         print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        // 마지막 접속 날짜 받아오기
         getLastConnection()
-        print("마지막 접속일", userDefaults.lastConnection)
+        
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
@@ -207,8 +209,8 @@ class ViewController: UIViewController {
     }
     
     func getLastConnection() {
-        UserDefaults.standard.lastConnection = Date()
-        print(UserDefaults.standard.lastConnection!)
+        print("마지막접속일: \(userDefaults.lastConnection)")
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
