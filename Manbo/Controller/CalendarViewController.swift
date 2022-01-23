@@ -456,7 +456,6 @@ extension CalendarViewController: JTACMonthViewDelegate {
         // let calendarDate = dateFormatter.simpleDateString(date: cellState.date)
         
         cell.dateLabel.text = cellState.text
-        print(cellState.date)
         //        let image = UIImage(named: "calShapeEx.png")?.withRenderingMode(.alwaysTemplate)
         //        cell.calendarColorImage.image = image
         //        let row = indexPath.row
