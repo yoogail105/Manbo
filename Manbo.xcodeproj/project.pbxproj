@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		23181F6927757D5C00EFC1E4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6827757D5C00EFC1E4 /* Realm */; };
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
+		23439AE627BA464F00F79318 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 23439AE527BA464F00F79318 /* Zip */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
@@ -170,6 +171,7 @@
 				2707947A27501D5D00CE532D /* Alamofire in Frameworks */,
 				278F749D2748FC1900794E8D /* SideMenu in Frameworks */,
 				23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */,
+				23439AE627BA464F00F79318 /* Zip in Frameworks */,
 				27A6665D274D762200A63683 /* JTAppleCalendar in Frameworks */,
 				27A66655274C2A4900A63683 /* HealthKit.framework in Frameworks */,
 				27192756274AF09D00F26F8D /* IQKeyboardManagerSwift in Frameworks */,
@@ -181,6 +183,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		234DC38C27ACD83A00132A36 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		2707947B2750387B00CE532D /* APIKEYS */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +300,7 @@
 				2707947B2750387B00CE532D /* APIKEYS */,
 				272567DA2756CCFF002F11CB /* WeatherInfo.plist */,
 				278F748C2747EA0600794E8D /* Localization */,
+				234DC38C27ACD83A00132A36 /* API */,
 				278F74A82749701100794E8D /* Models */,
 				270D726C27465EE1007ADC71 /* Support */,
 				270D726B27465EC9007ADC71 /* Extension */,
@@ -304,7 +315,6 @@
 		278F748C2747EA0600794E8D /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
 				278832A22746F1E1007616EA /* LocalizableStrings.swift */,
 				278F74972747EFBA00794E8D /* InfoPlist.strings */,
 				2788329C2746EFDF007616EA /* Localizable.strings */,
@@ -381,6 +391,7 @@
 				2707947927501D5D00CE532D /* Alamofire */,
 				23181F6827757D5C00EFC1E4 /* Realm */,
 				23181F6A27757D5C00EFC1E4 /* RealmSwift */,
+				23439AE527BA464F00F79318 /* Zip */,
 			);
 			productName = Manbo;
 			productReference = 2780C5AF2744F526004A0BE4 /* Manbo.app */;
@@ -417,6 +428,7 @@
 				27A6665B274D762200A63683 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 				2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				23439AE427BA464F00F79318 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 2780C5B02744F526004A0BE4 /* Products */;
 			projectDirPath = "";
@@ -760,6 +772,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "지난 30일 간의 걸음 수를 가져와 목표 달성률에 따른 만보의 이미지를 표시하고, 현재의 걸음 수를  표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "지난 30일 간의 걸음 수를 가져와 목표 달성률에 따른 만보의 이미지를 표시하고, 현재의 걸음 수를  표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
@@ -776,7 +789,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -853,6 +866,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Manbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "만보랑";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "지난 30일 간의 걸음 수를 가져와 목표 달성률에 따른 만보의 이미지를 표시하고, 현재의 걸음 수를  표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "지난 30일 간의 걸음 수를 가져와 목표 달성률에 따른 만보의 이미지를 표시하고, 현재의 걸음 수를  표시하기 위해서 건강 앱의 '걸음'에 대한 접근 권한이 필요합니다. 만보랑은 여러분의 개인 정보를 수집하지 않습니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 정보를 얻기 위해서는 사용자의 위치 정보에 대한 접근 권한이 필요합니다. 허용하지 않으면 '서울시청'을 기준으로 표시됩니다.";
@@ -869,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -965,6 +979,14 @@
 				version = 10.20.2;
 			};
 		};
+		23439AE427BA464F00F79318 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		2707947827501D5D00CE532D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1009,6 +1031,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 23181F6727757D5C00EFC1E4 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		23439AE527BA464F00F79318 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23439AE427BA464F00F79318 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		2707947927501D5D00CE532D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
