@@ -31,32 +31,6 @@ https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
 - **Firebase Crashlytics**를 통한 버그 추적 및 지속적인 유지보수
 
 
-<details>
-<summary>1. 월별 걸음 수 평균 조회</summary>
-<div markdown="1">       
-
-```swift
-
-    func calculateMonthlyAverageStepCount(year: Int, month: Int) -> Int {
-        
-        let monthString = String(format: "%02d", month)
-        tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false).filter("date CONTAINS [c] '\(year)-\(monthString)'")
-        var totalStepCount = 0
-  
-        tasks.forEach { task in
-            print(task.date)
-            print(task.stepCount)
-            totalStepCount += task.stepCount
-        }
-        
-        let monthlyAverageStepCount = totalStepCount / tasks.count
-        return monthlyAverageStepCount
-    }
-
-```
-
-</div>
-</details>
 
 ## Issues
 #### 1. HealthKit의 read 권한이 확인이 되지 않는 문제<br/>
@@ -84,3 +58,29 @@ https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
 
 #### 6. 월 별 걸음 수 평균 계산하기
 👉 [move to post](https://github.com/yoogail105/Manbo/blob/e2961bd5a0421c9d100dc0308154eb292e2a91bf/Documents/%EC%9B%94%EB%B3%84%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%ED%8F%89%EA%B7%A0%20%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0.md)
+        <details>
+<summary>Summary</summary>
+<div markdown="1">       
+
+```swift
+
+    func calculateMonthlyAverageStepCount(year: Int, month: Int) -> Int {
+        
+        let monthString = String(format: "%02d", month)
+        tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false).filter("date CONTAINS [c] '\(year)-\(monthString)'")
+        var totalStepCount = 0
+  
+        tasks.forEach { task in
+            print(task.date)
+            print(task.stepCount)
+            totalStepCount += task.stepCount
+        }
+        
+        let monthlyAverageStepCount = totalStepCount / tasks.count
+        return monthlyAverageStepCount
+    }
+
+```
+
+</div>
+</details>
