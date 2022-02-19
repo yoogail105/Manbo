@@ -79,5 +79,8 @@ https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
 #### 4. 사용자의 설정에 따라 HealthKit의 걸음 데이터 가져오기
 👉 [move to post](https://github.com/yoogail105/Manbo/blob/f6bae8a1701103e61ca0254373bd127e4c6deff6/Documents/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%9D%98%20%EC%84%A4%EC%A0%95%EC%97%90%20%EB%94%B0%EB%9D%BC%20HealthKit%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%EB%B0%9B%EC%95%84%EC%98%A4%EA%B8%B0.md)
 
-#### 5. 월 별 걸음 수 평균 계산하기
+#### 5. 백업 파일이 가진 데이터에 따라 캘린더 업데이트
+👉 [move to post](https://github.com/yoogail105/Manbo/blob/07ccbc9f6474883ec408821b0b6aa0686c1a10f5/Documents/%EB%B0%B1%EC%97%85%20%ED%8C%8C%EC%9D%BC%EC%97%90%20%EB%94%B0%EB%9D%BC%20%EC%BA%98%EB%A6%B0%EB%8D%94%20%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8.md)
+
+#### 6. 월 별 걸음 수 평균 계산하기
 👉 [move to post](https://github.com/yoogail105/Manbo/blob/e2961bd5a0421c9d100dc0308154eb292e2a91bf/Documents/%EC%9B%94%EB%B3%84%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%ED%8F%89%EA%B7%A0%20%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0.md)
