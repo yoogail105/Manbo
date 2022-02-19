@@ -2,7 +2,7 @@
 
 ### 1. 탭바 화면으로 이용할 스토리보드를 만들어준 후, 탭바를 만든다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aadd5e67-6118-4766-8c3b-5e2c511b11b8/Untitled.png)
+<img width="150" alt="image" src="https://user-images.githubusercontent.com/53874628/154792467-12d2cfe9-39e3-40ee-bbfc-480a2eb6e815.png">
 
 ### 2. TabViewController 연결
 
@@ -71,7 +71,8 @@ extension TabViewController {
 }
 ```
 
-**❗️알아야할 것**
+
+**❗️알아야할 것 **
 
 ```swift
 // 기존의 뷰 지우기
@@ -85,22 +86,19 @@ previousVC.removeFromParent()
 
 이 코드를 적지 않고 빌드를 한 후에 여러 화면을 클릭하면.. 아래와 같이 기존에 누른 화면이 유지된다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cc15b18e-497e-4a61-a51d-d183fe9f6485/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/028f4707-b13e-445c-998e-53d745e1a9dd/Untitled.png)
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/53874628/154792610-17b90efa-0b25-4e66-b1ec-28a4ba119563.png">
 
 → 그래서 childVC가 parentVC에 추가 되기 전이나 후, 제거되기 전이나 후를 알려주는 메서드를 적어준다.
 
-**`willMove(toParent:)` :**Called just before the view controller is added or removed from a container view controller.
+**`willMove(toParent:)`**:Called just before the view controller is added or removed from a container view controller.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8f69516-5606-486d-a2d1-318be0b62adc/Untitled.png)
+<img width="284" alt="image" src="https://user-images.githubusercontent.com/53874628/154792636-b640a066-919f-4e36-9615-39a939c65eae.png">
 
 → 위의 코드 적어주면 여러 화면을 누른 후에 계층을 확인해도, 아래처럼 지금 선택된 것만 나온다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0caf5eb0-7b2b-448d-8a2e-234c0b05f2e0/Untitled.png)
+<img width="368" alt="image" src="https://user-images.githubusercontent.com/53874628/154792640-b0fa26e8-8654-41c2-9519-f219e5f47bac.png">
 
-- 참고
-
+- 🔖 참고
   [swift - viewController에 viewController 추가하기 #addChild()](https://jinsangjin.tistory.com/119)
 
 ### 3. 버튼과 액션 연결
@@ -123,11 +121,9 @@ tabChanged(sender: buttons[selectedIndex])
 let vc = viewControllers[selectedIndex]
 ```
 
-위의 함수에서 인덱스로 사용되기 때문에, 순서를 유념해서 지정해야 한다.
+위의 함수에서 인덱스로 사용되기 때문에, 순서를 유념해서 지정해야 한다.<br/>
+<img width="576" alt="image" src="https://user-images.githubusercontent.com/53874628/154792700-a9750f5d-c78f-40bd-a8d2-e22cc3057d67.png">
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1c89ee4e-2367-4d77-b3b8-f41203969f85/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2bb9038a-a58f-4acb-b79f-aa72bf8ceab9/Untitled.png)
 
 🔖 참고
 
