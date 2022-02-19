@@ -17,15 +17,19 @@ https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
 | ***[v1.0.1]*** <br />- 21.12.22 | ∙ iOS 15.0 미만에서 앱 접속 시 튕기는 버그를 수정했어요.<br />∙ 다크모드에서 일부 텍스트가 보이지 않는 버그를 수정했어요.<br />∙ 만보의 이름 설정 화면에서 배너 등장 시점을 수정했어요. |
 | ***[v1.0.0]*** <br />-21.12.20  | ∙ 첫 출시: 만보랑 같이 걸어요 🐾                              |
 
+# Skil, Framework, Library
 
+- **UIKit**
+- **MVC** 패턴
+- **Storyboard**를 통해 뷰 구현
+- **HealthKit**을 활용한 기준 시간에 따른 걸음 정보 업데이트 비동기 처리, 주간∙월간 평균 걸음 수 제공
+- **NotificationCenter**, **Observer** 를 활용한 뷰간 데이터 전달 및 실시간 UI 업데이트
+- **CustomTabbarController**, **CustomAlertView**
+- **OpenWeatherMapAPI**, **CLCoreLocation**, **Alamofire**
+- **UICollectionView**, **JPAppleCalendar**, **Realm**을 통해 일/주/월별 걸음 수 표기
+- **LocalNotification**, **Firebse CloudMessaging** 를 통해 정해진 시간에 알림 받기
+- **Firebase Crashlytics**를 통한 버그 추적 및 지속적인 유지보수
 
-
-### 팀빌딩 & 하루하루 공부 기록
-#### Iteration 1
-🐾 21/11/15 Day1. 앱 구상 단계 ➢[notion](https://hmhhsh.notion.site/TIL1115-d8ea189f39394508bec6d1586c7b24db)<br>
-🐾 21/11/16 Day2. 앱 기능 및 디자인 구체화 및 기획서 작성1 ➢[notion](https://hmhhsh.notion.site/TIL1116-adaba2df4fcd4ab6b689ef7ffe76b7d0)<br>
-🐾 21/11/16 Day3. 앱 기능 및 디자인 구체화 및 기획서 작성2 ➢[notion](https://hmhhsh.notion.site/TIL_1117-8a18c9ed33674436b116bbb57a4d7426)<br>
-🐾 21/11/16 Day4. 메인View 및 코드 작성 시 유의사항 ➢[notion](https://hmhhsh.notion.site/1118-508b796acc0f455aaddd7b6fdc33daa8)<br>
 
 ## Features
 
