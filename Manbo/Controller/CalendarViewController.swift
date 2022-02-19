@@ -124,7 +124,7 @@ class CalendarViewController: UIViewController {
         
         
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-        
+    
         naviItem()
         setUpDetailView()
         
@@ -411,18 +411,14 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: JTACMonthViewDataSource {
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        
-        /* calendar 시작 지점 조정
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy MM dd"
 
-        let startDate = formatter.date(from: "2021 01 01")!
-         */
+        print("userDefaults.firstLaunchDate!:\( userDefaults.firstLaunchDate!)")
         
-        let firstDate = userDefaults.firstLaunchDate!
-        //앱 런치 기준 지난 달의 첫날부터
-        let startDate = firstDate.startOfMonth().startOfLastMonth
-        // 지금 달의 마지막날까지 달력 표시
+        let findFirstDay = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: true)
+        let firstDay = findFirstDay.first!.date
+        print("firstDay: \(firstDay)")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let startDate = dateFormatter.date(from: firstDay)!
         let endDate = Date().startOfMonth().endOfThisMonth
         
         if isMonthView {

@@ -33,6 +33,15 @@ extension UIViewController {
         
         return userImage.rawValue
     }
+    
+    func showToast(message: String) {
+        let toast = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        self.present(toast, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.dismiss(animated: true)
+        }
+    }
 
    
 }
