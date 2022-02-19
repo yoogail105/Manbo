@@ -31,8 +31,6 @@ https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
 - **Firebase Crashlytics**를 통한 버그 추적 및 지속적인 유지보수
 
 
-## Features
-
 <details>
 <summary>1. 월별 걸음 수 평균 조회</summary>
 <div markdown="1">       
@@ -61,15 +59,25 @@ https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
 </details>
 
 ## Issues
-1. HealthKit의 read 권한이 확인이 되지 않는 문제<br/>
-👉 [HealthKit authorization status: read](https://velog.io/@yoogail/iOS-HealthKit-read에-대한-접근-권한-확인feat.-확인-불가)<br/>
-<br/>
+#### 1. HealthKit의 read 권한이 확인이 되지 않는 문제<br/>
+👉 [move to post](https://velog.io/@yoogail/iOS-HealthKit-read에-대한-접근-권한-확인feat.-확인-불가)<br/>
+
+#### 2.iOS15 미만 버전의 경우 TestFlight에서 시작하자마자 꺼지는 오류
+👉 [move to post](https://velog.io/@yoogail/Xcode-13-13.0-시뮬레이터는-되는데-testflight에서는-충돌하는-경우)
 <details>
-<summary>2.iOS15 미만 버전의 경우 TestFlight에서 시작하자마자 꺼지는 오류</summary>
+<summary> Summary</summary>
     ✔︎ Xcode 13, 13.1에서 발생하는 오류로, 애플에서 보고된 오류였다.<br/>
     🔗 [애플문서 보러가기](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_2-release-notes)<br/>
     <img width="672" alt="image" src="https://user-images.githubusercontent.com/53874628/147111396-e71311dd-143f-48ef-bad3-ba27eb2a2bac.png"><br/>
     ❗️수정하는 방법<br/>
     <img width="675" alt="image" src="https://user-images.githubusercontent.com/53874628/147111071-ad37bb32-28a4-4759-81e2-90ec15a24913.png"><br/>
 </details>
-<br/>
+
+#### 3. Custom TabBar를 이용한 화면 전환 구현하기
+👉 [move to post](https://github.com/yoogail105/Manbo/blob/0d17e7637669816d2c3423db9af9243848b4a88e/Documents/CustomTabBarController.md)<br/>
+
+#### 4. 사용자의 설정에 따라 HealthKit의 걸음 데이터 가져오기
+👉 [move to post](https://github.com/yoogail105/Manbo/blob/f6bae8a1701103e61ca0254373bd127e4c6deff6/Documents/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%9D%98%20%EC%84%A4%EC%A0%95%EC%97%90%20%EB%94%B0%EB%9D%BC%20HealthKit%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%EB%B0%9B%EC%95%84%EC%98%A4%EA%B8%B0.md)
+
+#### 5. 월 별 걸음 수 평균 계산하기
+👉 [move to post](https://github.com/yoogail105/Manbo/blob/e2961bd5a0421c9d100dc0308154eb292e2a91bf/Documents/%EC%9B%94%EB%B3%84%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%ED%8F%89%EA%B7%A0%20%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0.md)
