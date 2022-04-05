@@ -45,7 +45,6 @@ class SetStepGoalViewController: UIViewController {
         if isOK {
             userDefaults.stepsGoal = newGoal
         }
-        print("목표걸음수는 \(userDefaults.stepsGoal!)")
     }
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
@@ -72,7 +71,6 @@ class SetStepGoalViewController: UIViewController {
     func openSetResetTimeSB() {
         let sb = UIStoryboard(name: "SetResetTime", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: ResetTimeViewController.identifier) as? ResetTimeViewController else {
-            print("Error")
             return
         }
         

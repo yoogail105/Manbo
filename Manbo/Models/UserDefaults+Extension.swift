@@ -21,7 +21,13 @@ extension UserDefaults {
         case weekStepCount
         case monthStepCount
         case currentStepCount
+        case isUpdate
         
+    }
+    
+    var isUpdate: Bool {
+        get { bool(forKey: UserDefaultsKeys.isUpdate.rawValue)}
+        set { setValue(newValue, forKey: UserDefaultsKeys.isUpdate.rawValue)}
     }
     
     // Onboarding에서 start버튼 누르면

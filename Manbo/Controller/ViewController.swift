@@ -56,15 +56,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentStepCountLabel: UILabel!
     var userImage = Manbo.manbo00
     //userDefaults
+    
+    
     let userDefaults = UserDefaults.standard
     
     var stepGoal = UserDefaults.standard.stepsGoal!
     
-    var firstGoal = UserDefaults.standard.stepsGoal! {
-        didSet {
-            print("stepGoal has changed:", UserDefaults.standard.stepsGoal! )
-        }
-    }
+    var firstGoal = UserDefaults.standard.stepsGoal!
     
     var stepPercent = UserDefaults.standard.stepPercent! {
         didSet {
@@ -76,7 +74,6 @@ class ViewController: UIViewController {
     }
     var currentStepCount = UserDefaults.standard.currentStepCount! {
         didSet{
-            //print("걸음수값 변경되었다.")
             DispatchQueue.main.async {
                 self.currentStepCountLabel.text = self.currentStepCount.numberFormat()
                 self.setUserImage()
@@ -85,24 +82,31 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if !userDefaults.isUpdate {
+            self.makeAlertWithoutCancel(message: "업데이트 완료!\n업데이트 시 목표 걸음수가 초기화 되었을 수 있으니 확인해 주세요🐾", okTitle: "확인") {_ in
+                self.userDefaults.isUpdate = true
+            }
+        }
+    }
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("main", #function)
        //   UserDefaults.standard.hasOnboarded = false
-        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+//        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+        
         
         // 마지막 접속 날짜 받아오기
         getLastConnection()
+        
         
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
         } else {
-            print("만보랑은 아이폰에서 사용이 가능합니다🐾")
             self.notiBanner(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
         }
         
@@ -119,6 +123,7 @@ class ViewController: UIViewController {
         }
         
         healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 두 번 탭해주세요🐾"
+        
         healthKItInform.isHidden = true
         
         setUI()

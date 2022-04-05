@@ -42,9 +42,31 @@ extension UIViewController {
             self.dismiss(animated: true)
         }
     }
+    
+    func makeAlertWithoutCancel(message: String, okTitle: String, okAction: ((UIAlertAction) -> Void)?) {
+   
+        self.view.tintColor = UIColor.appColor(.mainGreen)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okAction)
+        okAction.greenAlertText()
+        alert.addAction(okAction)
+
+        self.present(alert, animated: true)
+    }
+    
 
    
 }
 
 
 
+extension UIAlertAction {
+    
+    func greenAlertText() {
+        self.setValue(UIColor.appColor(.mainGreen), forKey: "titleTextColor")
+    }
+    
+    func redAlertText() {
+        self.setValue(UIColor.red, forKey: "titleTextColor")
+    }
+}

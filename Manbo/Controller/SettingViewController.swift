@@ -247,10 +247,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         //String
         
         cell.menuLabel.text = setMenuItem[row]
-        
-        
         if setMenuItem[row] == "버전" {
-            cell.rightLabel.text = "1.1.0"
+            cell.rightLabel.text = "1.1.1"
             cell.rightLabel.font = UIFont.italicSystemFont(ofSize: 10)
         }
         
@@ -270,10 +268,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         if row == 0 {
             self.backup()
-            
         } else if row == 1 {
             self.restore()
-        } else if setMenuItem[row] == "버전" {
+        } else if setMenuItem[row] != "버전" {
             let sb = UIStoryboard(name: "SettingText", bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: SettingTextViewController.identifier) as? SettingTextViewController else { return }
             vc.urlString = cellURL[row - 2]
