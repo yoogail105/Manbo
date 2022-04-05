@@ -5,9 +5,6 @@
 <br/>
 🎶 [앱스토어에서 확인하기 v1.1.1](https://apps.apple.com/kr/app/manborang-만보랑-같이-걸어요/id1596845782)
 
-🏞 [기획서 및 진행상황 노션 보러가기](
-https://www.notion.so/hmhhsh/c5aa5bab71334879b1eda4a4b3c82583)
-
 ## UPDATE
 
 |                                 | 업데이트 사항                                                |
