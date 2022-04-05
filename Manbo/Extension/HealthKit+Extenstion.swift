@@ -18,8 +18,6 @@ extension HKHealthStore {
         self.requestAuthorization(toShare: nil, read: [healthKitTypes]) { success, Error in
             // 아래의 success는 요청하는 뷰가 성공적으로 띄워졌는지에 관한 것.
             if success {
-                print ("Healthkit 퍼미션 뷰를 봤다.")
-                
                 let authorizationStatus = self.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
                 
                 if authorizationStatus != .notDetermined {
@@ -33,7 +31,7 @@ extension HKHealthStore {
                 }
                 
             } else {
-                print("퍼미션뷰를 보지 못했다.")
+                //퍼미션 뷰 보지 못함
             }
         }
     }
@@ -162,15 +160,11 @@ extension HKHealthStore {
                                               stepCount:Int(dayCount),
                                               stepGoal: goal,
                                               goalPercent: dayCount / Double(goal))
-                        print("savedDate", savedDate)
-                        print("프린트",filteredTask?.first?.date, userDefaults.lastConnection)
-                        
                         if filteredTask?.count == 0 {
                             // 해당하는 날짜에 대한 정보가 없다.
                             try! realm.write {
                                 realm.add(task)
                             }
-                            print("add success: \(task.date)")
                             
                         } else if filteredTask?.first?.date != userDefaults.lastConnection {
                             
@@ -180,17 +174,14 @@ extension HKHealthStore {
                                 try! realm.write {
                                     filteredTask?.first?.stepCount = Int(dayCount)
                                     filteredTask?.first?.goalPercent = dayCount / Double(goal)
-                                    print("걸음 수 다른 날 업데이트 완료: \(task.date)")
                                 }
                             }
                             
                         } else if filteredTask?.first?.date == userDefaults.lastConnection {
                             // lastConnect가 있으면 -> 같은 날이면 변경 완료
-                            print("saved step count: \((filteredTask?.first?.stepCount)!), healthkit data: \(task.stepCount)")
                             try! realm.write {
                                 filteredTask?.first?.stepCount = Int(dayCount)
                                 filteredTask?.first?.goalPercent = dayCount / Double(goal)
-                                print("last connection day update success: \(task.date)")
                             }
 
                             
@@ -199,14 +190,12 @@ extension HKHealthStore {
                                 filteredTask?.first?.stepCount = Int(dayCount)
                                 filteredTask?.first?.goalPercent = dayCount / Double(goal)
                             }
-                            print("update success: \(savedDate)")
                             userDefaults.lastConnection = todayReport
                             print(#function, "lastConnetcion: \(userDefaults.lastConnection!)")
                         }
 
                         currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
                         
-                        print("내일 currentDate = \(currentDate), \( dateFormatter.simpleDateString(date: currentDate)), 오늘 stepCount = \(task.stepCount)")
                         
                     }
                     DispatchQueue.main.async {

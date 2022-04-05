@@ -64,7 +64,6 @@ class SetNotiViewController: UIViewController {
         if isOKButton {
             userDefaults.notiTime = datePicker.date
         }
-        //print("알림시간: ", userDefaults.notiTime!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

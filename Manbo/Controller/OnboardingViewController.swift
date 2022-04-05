@@ -46,6 +46,7 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Onboarding: ",#function)
+        UserDefaults.standard.isUpdate = true
         setUI()
         stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
         welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"

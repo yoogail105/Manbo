@@ -95,7 +95,6 @@ class CalendarViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CalendarViewController:", #function)
         imageTintColorSettings()
         
         self.setupCalendarView()
@@ -139,7 +138,6 @@ class CalendarViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("calendarView", #function)
         currentStepCount = userDefaults.currentStepCount
         setupCalendarView()
         userNameLabel.text = userDefaults.name!
@@ -250,7 +248,6 @@ class CalendarViewController: UIViewController {
         averageWeekLabel.text = "이번주 평균 \(weekAverageStepCount.numberFormat())"
         } else {
             averageWeekLabel.text = "\(calendarMonth)월 평균 \(monthlyAverageStepCount.numberFormat())"
-            print("달라졌음.")
         }
      
         
@@ -488,7 +485,6 @@ extension CalendarViewController: JTACMonthViewDelegate {
         validCell.dateLabel.text = cellState.text
         
         if self.calendar.isDateInToday(date) {
-            // 오늘 날짜
             validCell.contentView.cornerRounded(cornerRadius: 8)
             validCell.contentView.backgroundColor = UIColor.appColor(.mainGreen)
         } else {
@@ -498,40 +494,24 @@ extension CalendarViewController: JTACMonthViewDelegate {
         
         handleCellTextColor(view: validCell, cellSTate: cellState)
         
-        // 다른 날 healthKIt 정보 내려받기
-        
         if cellState.dateBelongsTo == .thisMonth && cellState.text == "1" {
             dateFormatter.dateFormat = "MMM"
-            let month = cellState.date.month // 이번 달
-            let year = cellState.date.year
-             print("이번달이고, cellState.text(날짜가) 1일인 월 찾기: ", month)
+            _ = cellState.date.month // 이번 달
+            _ = cellState.date.year
         }
         
     }
     
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        //        print("didSelectDate: \(date), CellState: \(cellState)")
         calendarView.allowsMultipleSelection = true
         
         
         let SelectedDate = self.dateFormatter.simpleDateString(date: cellState.date)
-        
-        // print(SelectedDate)
-        //        guard localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate) != nil else {
-        //            // self.notiBanner(notiText: "이날도 만보랑 걸어주실거죠?")
-        //           // print("해당 날짜 없음.")
-        //            return
-        //        }
         self.selectedTask = localRealm.object(ofType: UserReport.self, forPrimaryKey: SelectedDate)
-        //! 지움
-        
-        // print(filterdTask.first?.stepCount!)
-        
-        //print("row: \(cellState.row), day: \(cellState.day), date: \(cellState.date), text: \(cellState.text), cell: \(cellState.cell), column: \(cellState.column), dateBelongsTo: \(cellState.dateBelongsTo),dateSection: \(cellState.dateSection), isSelected: \(cellState.isSelected), selectedPosition: \(cellState.selectedPosition), selectionType: \(cellState.selectionType)")
+      
         handleCellSelected(view: cell, cellSTate: cellState)
         handleCellTextColor(view: cell, cellSTate: cellState)
-        // print(cellState.date)
     }
     
     
