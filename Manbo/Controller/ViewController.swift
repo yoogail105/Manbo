@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     // healthStore
     var healthKitAuthorization = UserDefaults.standard.healthKitAuthorization
     var healthStore: HKHealthStore?
+    var query: HKStatisticsCollectionQuery?
+    
     var totalStepCount = 0.0
     var SevenDaysStepCounts = 0
     var ThisWeekStepCounts = 0
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
     var last30DaysStepCount = false
     var didHealthKitAlert = false
 
+    
     
     //time
     var today = Date()
@@ -83,6 +86,17 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("main",#function)
+        if query != nil { return }
+        
+        
+        healthStore?.authorizedHealthKIt()
+
+    }//: viewWillAppear
+    
     override func viewDidAppear(_ animated: Bool) {
         if !userDefaults.isUpdate {
             self.makeAlertWithoutCancel(message: "업데이트 완료!\n업데이트 시 목표 걸음수가 초기화 되었을 수 있으니 확인해 주세요🐾", okTitle: "확인") {_ in
@@ -90,6 +104,8 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -151,16 +167,7 @@ class ViewController: UIViewController {
         
     }//: viewDidLoad
  
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("main",#function)
 
-        
-        
-        healthStore?.authorizedHealthKIt()
-
-    }//: viewWillAppear
     
     @objc func noHealthKitAuthorizationNotification(notification: NSNotification) {
         print("카운트 변경됨: \(userDefaults.currentStepCount)")
@@ -192,6 +199,8 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDefaults.stepsGoal!.numberFormat())"
+        
+        // healthkitStore.stop(query)
     }//: viewWillAppear
     
     @objc func changeGoalNotification(notification: NSNotification) {

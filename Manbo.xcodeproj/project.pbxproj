@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		23181F6927757D5C00EFC1E4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6827757D5C00EFC1E4 /* Realm */; };
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
+		2336E50F2807617600B4430C /* HealthDataTypeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336E50E2807617600B4430C /* HealthDataTypeValue.swift */; };
 		23439AE627BA464F00F79318 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 23439AE527BA464F00F79318 /* Zip */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2336E50E2807617600B4430C /* HealthDataTypeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataTypeValue.swift; sourceTree = "<group>"; };
 		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				27A66661274EB61C00A63683 /* manboManager.swift */,
 				27A66663274EC6D600A63683 /* realmData.swift */,
 				278F74A627496CB500794E8D /* UserDefaults+Extension.swift */,
+				2336E50E2807617600B4430C /* HealthDataTypeValue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				272567DD2756CD50002F11CB /* MANBORANG++Bundle.swift in Sources */,
 				27EC33E7275544B600C60C0F /* SetNotiViewController.swift in Sources */,
 				278F748127478D1600794E8D /* CameraViewController.swift in Sources */,
+				2336E50F2807617600B4430C /* HealthDataTypeValue.swift in Sources */,
 				278F74A12748FC5700794E8D /* OnboardingViewController.swift in Sources */,
 				278F74A32749034400794E8D /* CustomSideMenuNavigationViewController.swift in Sources */,
 				278832972746EB04007616EA /* SettingViewController.swift in Sources */,
