@@ -12,6 +12,7 @@ import RealmSwift
 import CoreLocation
 import NotificationBannerSwift
 import Firebase
+import FirebaseAnalytics
 
 class ViewController: UIViewController {
     static let identifier = "ViewController"
@@ -94,6 +95,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("main", #function)
+        self.navigationController?.isNavigationBarHidden = true
        //   UserDefaults.standard.hasOnboarded = false
 //        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
         
@@ -122,7 +124,7 @@ class ViewController: UIViewController {
             didLocationAlert = true
         }
         
-        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 두 번 탭해주세요🐾"
+        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 두 번 탭해주세요🐾"
         
         healthKItInform.isHidden = true
         
@@ -137,6 +139,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(noHealthKitAuthorizationNotification), name: .ifNoHealthKitAuthorization, object: nil)
         
         // MARK: - Firebase Analytics
+        
         Analytics.logEvent("getUserSetting", parameters: [
             "name": userDefaults.name! as NSObject,
             "goal": userDefaults.stepsGoal! as NSObject,
@@ -153,13 +156,14 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         print("main",#function)
 
-        self.navigationController?.isNavigationBarHidden = true
+        
         
         healthStore?.authorizedHealthKIt()
 
     }//: viewWillAppear
     
     @objc func noHealthKitAuthorizationNotification(notification: NSNotification) {
+        print("카운트 변경됨: \(userDefaults.currentStepCount)")
         self.currentStepCountLabel.text = "만보랑 같이 걸어요"
         self.healthKItInform.isHidden = false
     }
@@ -167,6 +171,7 @@ class ViewController: UIViewController {
     @objc func changeStepCountNotification(notification: NSNotification) {
         if let newCount = notification.userInfo?["newCurrentStepCount"] as? Int {
             if userDefaults.healthKitAuthorization {
+                print("카운트 변경됨: \(newCount)")
                 currentStepCount = newCount
             //currentStepCountLabel.text = "\(currentStepCount.numberForamt())"
                 healthKItInform.isHidden = true

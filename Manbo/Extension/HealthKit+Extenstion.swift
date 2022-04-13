@@ -23,9 +23,9 @@ extension HKHealthStore {
                 if authorizationStatus != .notDetermined {
                     // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
                     DispatchQueue.main.sync {
+                        self.getNDaysStepCounts(number: 30)
                         self.getTodayStepCounts()
                         self.getThisWeekStepCounts()
-                        self.getNDaysStepCounts(number: 30)
                     }
                    
                 }
@@ -45,8 +45,9 @@ extension HKHealthStore {
         
         self.getToalStepCounts(passedDays: number, completion: { (result) in
             print(#function)
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 if result == 0 {
+                    print("결과는 0")
                     UserDefaults.standard.healthKitAuthorization = false
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "noHealthKitAuthorizationNotification"), object: nil)
                     
@@ -55,18 +56,18 @@ extension HKHealthStore {
                 }
                 // self.averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
                 
-            }
+//            }
         })
     }
     
     func getTodayStepCounts()  {
         self.getToalStepCounts(passedDays: 0) { (result) in
             print(#function)
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 let currentStepCount = Int(result)
                 UserDefaults.standard.currentStepCount = currentStepCount
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStepCountNotification"), object: nil, userInfo: ["newCurrentStepCount": currentStepCount])
-            }
+//            }
         }
     }
     
@@ -108,6 +109,7 @@ extension HKHealthStore {
     
     
     func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
+        print("걸음 수 가져오기")
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
         let userDefaults = UserDefaults.standard
@@ -123,7 +125,10 @@ extension HKHealthStore {
         //엔드: 오늘 기준시간으로부터 24시간 후까지
         let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
         
+        
         guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
+        
+        
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
         var interval = DateComponents()
         interval.day = 1
@@ -149,6 +154,7 @@ extension HKHealthStore {
                     if let count = statistic.sumQuantity() {
                         //step가져오기(double)
                         dayCount = count.doubleValue(for: HKUnit.count())
+                        print("dayCount: \(dayCount)")
                         totalStepCountArray.append(Int(dayCount))
                         totalCount += dayCount
                         let savedDate = dateFormatter.simpleDateString(date: currentDate)
