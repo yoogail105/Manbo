@@ -412,10 +412,21 @@ extension CalendarViewController: JTACMonthViewDataSource {
         print("userDefaults.firstLaunchDate!:\( userDefaults.firstLaunchDate!)")
         
         let findFirstDay = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: true)
-        let firstDay = findFirstDay.first!.date
-        print("firstDay: \(firstDay)")
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let startDate = dateFormatter.date(from: firstDay)!
+
+        
+        
+        let firstDay: String? = findFirstDay.first?.date
+               var startDate = Date()
+               
+               if let firstDay = firstDay {
+                   startDate = dateFormatter.date(from: firstDay)!
+               } else {
+                  // let startDate = dateFormatter.date(from: firstDay)!
+               }
+               
+        print("firstDay: \(firstDay)")
+
         let endDate = Date().startOfMonth().endOfThisMonth
         
         if isMonthView {
