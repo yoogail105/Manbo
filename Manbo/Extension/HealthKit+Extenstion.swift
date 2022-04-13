@@ -22,11 +22,11 @@ extension HKHealthStore {
                 
                 if authorizationStatus != .notDetermined {
                     // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
-                    DispatchQueue.main.sync {
+                        self.getNDaysStepCounts(number: 30)
                         self.getTodayStepCounts()
                         self.getThisWeekStepCounts()
-                        self.getNDaysStepCounts(number: 30)
-                    }
+                        
+                    
                    
                 }
                 
@@ -45,13 +45,21 @@ extension HKHealthStore {
         
         self.getToalStepCounts(passedDays: number, completion: { (result) in
             print(#function)
+            print(result)
             DispatchQueue.main.async {
                 if result == 0 {
+                    print("getNdays: 0")
+                    UserDefaults.standard.currentStepCount = 0
                     UserDefaults.standard.healthKitAuthorization = false
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "noHealthKitAuthorizationNotification"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStepCountNotification"), object: nil, userInfo: ["newCurrentStepCount": 0])
                     
+                   
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "noHealthKitAuthorizationNotification"), object: nil)
+//
                 } else {
+                    print("getNdays: 0아님")
                     UserDefaults.standard.healthKitAuthorization = true
+                   
                 }
                 // self.averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
                 
@@ -125,6 +133,7 @@ extension HKHealthStore {
         
         guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
+        
         var interval = DateComponents()
         interval.day = 1
         
@@ -134,79 +143,118 @@ extension HKHealthStore {
                                                 anchorDate: startDate,
                                                 intervalComponents: interval)
         
-        var totalCount = 0.0
-        query.initialResultsHandler = {
-            query, result, Error in
-            var dayCount = 0.0
-            var currentDate = startDate
-            
-            let goal = userDefaults.stepsGoal!
-            if let myresult = result {
-                myresult.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
-                    let realm = try! Realm()
-                    var filteredTask: Results<UserReport>?
-                    let todayReport = dateFormatter.simpleDateString(date: today)
-                    if let count = statistic.sumQuantity() {
-                        //step가져오기(double)
-                        dayCount = count.doubleValue(for: HKUnit.count())
-                        totalStepCountArray.append(Int(dayCount))
-                        totalCount += dayCount
-                        let savedDate = dateFormatter.simpleDateString(date: currentDate)
-                        filteredTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").sorted(byKeyPath: "date", ascending: false)
-                        
-                        //realm 에 저장하기! -> func
-                        
-                        let task = UserReport(date: savedDate,
-                                              stepCount:Int(dayCount),
-                                              stepGoal: goal,
-                                              goalPercent: dayCount / Double(goal))
-                        if filteredTask?.count == 0 {
-                            // 해당하는 날짜에 대한 정보가 없다.
-                            try! realm.write {
-                                realm.add(task)
-                            }
-                            
-                        } else if filteredTask?.first?.date != userDefaults.lastConnection {
-                            
-//                        else if userDefaults.lastConnection == "" {
-                            
-                            if (filteredTask?.first?.stepCount)! != task.stepCount {
-                                try! realm.write {
-                                    filteredTask?.first?.stepCount = Int(dayCount)
-                                    filteredTask?.first?.goalPercent = dayCount / Double(goal)
-                                }
-                            }
-                            
-                        } else if filteredTask?.first?.date == userDefaults.lastConnection {
-                            // lastConnect가 있으면 -> 같은 날이면 변경 완료
-                            try! realm.write {
-                                filteredTask?.first?.stepCount = Int(dayCount)
-                                filteredTask?.first?.goalPercent = dayCount / Double(goal)
-                            }
-
-                            
-                        } else if savedDate == todayReport {
-                            try! realm.write {
-                                filteredTask?.first?.stepCount = Int(dayCount)
-                                filteredTask?.first?.goalPercent = dayCount / Double(goal)
-                            }
-                            userDefaults.lastConnection = todayReport
-                            print(#function, "lastConnetcion: \(userDefaults.lastConnection!)")
-                        }
-
-                        currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
-                        
-                        
-                    }
-                    DispatchQueue.main.async {
-                        completion(totalCount)
-                    }
-                }
+     
+        
+        query.initialResultsHandler = { query, statisticsCollection, Error in
+            var totalCount = 0.0
+            if let statisticsCollection = statisticsCollection {
+                totalCount = self.saveResultAndUpdateUIFromStatistics(passedDays: passedDays, statisticsCollection)
+                
             }
-            // print(totalCount)
+            completion(totalCount)
+            
+          
+        }//:  query.initialResultsHandler
+        
+        query.statisticsUpdateHandler = { [weak self] query, statistics, statisticsCollection, error in
+            var totalCount = 0.0
+            if let statisticsCollection = statisticsCollection {
+                totalCount = self?.saveResultAndUpdateUIFromStatistics(passedDays: passedDays, statisticsCollection) ?? 0
+            
+            }
+            completion(totalCount)
         }
+       
         self.execute(query)
     }
     
+    func saveResultAndUpdateUIFromStatistics(passedDays: Int, _ statisticsCollection: HKStatisticsCollection) -> Double {
+        var totalCount = 0.0
+
+            
+        
+        
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        let userDefaults = UserDefaults.standard
+        //let realm = try! Realm()
+        
+        
+        let today = Date()
+        dateFormatter.basicDateSetting()
+        var totalStepCountArray = [Int]()
+        let pinDate = today.getPinDate()
+        
+        let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
+        //엔드: 오늘 기준시간으로부터 24시간 후까지
+        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
+        
+        var dayCount = 0.0
+        var currentDate = startDate
+        let goal = userDefaults.stepsGoal!
+        
+        
+        statisticsCollection.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
+            let realm = try! Realm()
+            var filteredTask: Results<UserReport>?
+            let todayReport = dateFormatter.simpleDateString(date: today)
+            if let count = statistic.sumQuantity() {
+                //step가져오기(double)
+                dayCount = count.doubleValue(for: HKUnit.count())
+                totalStepCountArray.append(Int(dayCount))
+                totalCount += dayCount
+                let savedDate = dateFormatter.simpleDateString(date: currentDate)
+                filteredTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").sorted(byKeyPath: "date", ascending: false)
+                
+                //realm 에 저장하기! -> func
+                
+                let task = UserReport(date: savedDate,
+                                      stepCount:Int(dayCount),
+                                      stepGoal: goal,
+                                      goalPercent: dayCount / Double(goal))
+                if filteredTask?.count == 0 {
+                    // 해당하는 날짜에 대한 정보가 없다.
+                    try! realm.write {
+                        realm.add(task)
+                    }
+                    
+                } else if filteredTask?.first?.date != userDefaults.lastConnection {
+                    
+//                        else if userDefaults.lastConnection == "" {
+                    
+                    if (filteredTask?.first?.stepCount)! != task.stepCount {
+                        try! realm.write {
+                            filteredTask?.first?.stepCount = Int(dayCount)
+                            filteredTask?.first?.goalPercent = dayCount / Double(goal)
+                        }
+                    }
+                    
+                } else if filteredTask?.first?.date == userDefaults.lastConnection {
+                    // lastConnect가 있으면 -> 같은 날이면 변경 완료
+                    try! realm.write {
+                        filteredTask?.first?.stepCount = Int(dayCount)
+                        filteredTask?.first?.goalPercent = dayCount / Double(goal)
+                    }
+
+                    
+                } else if savedDate == todayReport {
+                    try! realm.write {
+                        filteredTask?.first?.stepCount = Int(dayCount)
+                        filteredTask?.first?.goalPercent = dayCount / Double(goal)
+                    }
+                    userDefaults.lastConnection = todayReport
+                    print(#function, "lastConnetcion: \(userDefaults.lastConnection!)")
+                }
+
+                currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+                
+                
+            } //:  if let count = statistic.sumQuantity() {
+            
+                
+            
+        }//: statisticsCollection.enumerateStatistics(from: startDate, to:endDate) {
+        return totalCount
+    }
 }
 

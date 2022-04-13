@@ -172,11 +172,11 @@ class ViewController: UIViewController {
                 healthKItInform.isHidden = true
              //   view.layoutIfNeeded()
             }
-//            else {
-//                currentStepCountLabel.text = "만보랑 같이 걸어요"
-//                healthKItInform.isHidden = false
-//               
-//            }
+            else {
+                currentStepCountLabel.text = "만보랑 같이 걸어요"
+                healthKItInform.isHidden = false
+
+            }
         }
     }
     
