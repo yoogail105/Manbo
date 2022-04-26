@@ -10,6 +10,7 @@
 		23181F6927757D5C00EFC1E4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6827757D5C00EFC1E4 /* Realm */; };
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
 		23439AE627BA464F00F79318 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 23439AE527BA464F00F79318 /* Zip */; };
+		2345F896281854C80043AD2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345F895281854C80043AD2B /* Constants.swift */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
@@ -23,7 +24,7 @@
 		272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */; };
 		272567D327562D77002F11CB /* SelectedTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */; };
 		272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567D4275644B9002F11CB /* UIInt+Extension.swift */; };
-		272567DB2756CCFF002F11CB /* WeatherInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272567DA2756CCFF002F11CB /* WeatherInfo.plist */; };
+		272567DB2756CCFF002F11CB /* APIKeysInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272567DA2756CCFF002F11CB /* APIKeysInfo.plist */; };
 		272567DD2756CD50002F11CB /* MANBORANG++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */; };
 		275D718C2757AFB800070234 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D718B2757AFB800070234 /* Alert+Extension.swift */; };
 		275D718E2757B31700070234 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D718D2757B31700070234 /* WebKit.framework */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2345F895281854C80043AD2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTaskCollectionViewCell.swift; sourceTree = "<group>"; };
 		272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedTaskCollectionViewCell.xib; sourceTree = "<group>"; };
 		272567D4275644B9002F11CB /* UIInt+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInt+Extension.swift"; sourceTree = "<group>"; };
-		272567DA2756CCFF002F11CB /* WeatherInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeatherInfo.plist; sourceTree = "<group>"; };
+		272567DA2756CCFF002F11CB /* APIKeysInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeysInfo.plist; sourceTree = "<group>"; };
 		272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MANBORANG++Bundle.swift"; sourceTree = "<group>"; };
 		275D718B2757AFB800070234 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		275D718D2757B31700070234 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -186,7 +188,9 @@
 		234DC38C27ACD83A00132A36 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2707947B2750387B00CE532D /* APIKEYS */,
 				2707947E275038DD00CE532D /* OpenWeatherAPI.swift */,
+				2345F895281854C80043AD2B /* Constants.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -194,6 +198,7 @@
 		2707947B2750387B00CE532D /* APIKEYS */ = {
 			isa = PBXGroup;
 			children = (
+				272567DA2756CCFF002F11CB /* APIKeysInfo.plist */,
 				272567DC2756CD50002F11CB /* MANBORANG++Bundle.swift */,
 			);
 			path = APIKEYS;
@@ -297,8 +302,6 @@
 				27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */,
 				27C6D67A2758C01B009A7D4B /* Manbo.entitlements */,
 				27A66653274C2A4900A63683 /* ManboDebug.entitlements */,
-				2707947B2750387B00CE532D /* APIKEYS */,
-				272567DA2756CCFF002F11CB /* WeatherInfo.plist */,
 				278F748C2747EA0600794E8D /* Localization */,
 				234DC38C27ACD83A00132A36 /* API */,
 				278F74A82749701100794E8D /* Models */,
@@ -446,7 +449,7 @@
 			files = (
 				278F749F2748FC4300794E8D /* Onboarding.storyboard in Resources */,
 				2780C5BF2744F529004A0BE4 /* LaunchScreen.storyboard in Resources */,
-				272567DB2756CCFF002F11CB /* WeatherInfo.plist in Resources */,
+				272567DB2756CCFF002F11CB /* APIKeysInfo.plist in Resources */,
 				278F747F27478D0400794E8D /* Camera.storyboard in Resources */,
 				2788329A2746EFDF007616EA /* Localizable.strings in Resources */,
 				27EC33DC2754BFEF00C60C0F /* SetName.storyboard in Resources */,
@@ -547,6 +550,7 @@
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
 				27EC33E02754F10D00C60C0F /* UILabel+Extension.swift in Sources */,
 				27A66662274EB61C00A63683 /* manboManager.swift in Sources */,
+				2345F896281854C80043AD2B /* Constants.swift in Sources */,
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
 				27EC33E92755451700C60C0F /* ResetTimeViewController.swift in Sources */,
 				272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */,
@@ -789,7 +793,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -883,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -66,7 +66,6 @@ class ViewController: UIViewController {
     
     var stepPercent = UserDefaults.standard.stepPercent! {
         didSet {
-            //print("퍼센테이지 바꼈다.")
             DispatchQueue.main.async {
                 self.userImageView.image = UIImage(named: self.userImage.rawValue)
             }
@@ -77,8 +76,9 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 self.currentStepCountLabel.text = self.currentStepCount.numberFormat()
                 self.setUserImage()
+                
             }
-            view.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -93,13 +93,13 @@ class ViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("main", #function)
        //   UserDefaults.standard.hasOnboarded = false
 //        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
         
         
         // 마지막 접속 날짜 받아오기
         getLastConnection()
+
         
         
         
@@ -151,7 +151,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("main",#function)
 
         self.navigationController?.isNavigationBarHidden = true
         
@@ -183,7 +182,7 @@ class ViewController: UIViewController {
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("main:", #function)
+
         self.navigationController?.isNavigationBarHidden = false
         
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDefaults.stepsGoal!.numberFormat())"
@@ -231,7 +230,6 @@ class ViewController: UIViewController {
     }
     
     func setUserImage() {
-        print("main: percent \(stepPercent)", #function)
         stepPercent = userDefaults.stepPercent!
         switch stepPercent {
         case 0.0 ..< 0.3:
@@ -355,23 +353,18 @@ extension ViewController: CLLocationManagerDelegate {
         print("메인: ", #function)
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            print("위치권한: 권한 설정ok")
             self.locationManager.startUpdatingLocation()
         case .restricted, .notDetermined:
-            print("위치권한: 권한이 설정되지 않음")
             locationManager.requestWhenInUseAuthorization()
         case .denied:
-            print("위치권한: 요청을 거부함")
             setDefaultLocation()
         default:
-            print("위치권한:  디폴트")
             setDefaultLocation()
         }
     }
     
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("메인: ", #function)
         
         if let location = locations.last {
             self.currentLocation = location
@@ -404,17 +397,14 @@ extension ViewController: CLLocationManagerDelegate {
         case .restricted, .denied:
             locationAuthorization = false
             fetchWeather()
-            print("설정으로")
         case .authorizedAlways:
             locationAuthorization = true
             locationManager.startUpdatingLocation()
         case .authorizedWhenInUse:
             locationAuthorization = true
         case .authorized:
-            print("default")
             fetchWeather()
         @unknown default:
-            print("default")
             fetchWeather()
         }
         if #available(iOS 14.0, *) {

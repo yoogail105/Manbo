@@ -22,12 +22,12 @@ extension HKHealthStore {
                 
                 if authorizationStatus != .notDetermined {
                     // read: 승인 or 거부 -> 확인할 수 없으므로 얻어진 걸음수가 0걸음이면 거부로 간주
-                        self.getNDaysStepCounts(number: 30)
+                    DispatchQueue.global().async {
                         self.getTodayStepCounts()
+                        self.getNDaysStepCounts(number: 30)
                         self.getThisWeekStepCounts()
+                    }
                         
-                    
-                   
                 }
                 
             } else {
@@ -46,21 +46,18 @@ extension HKHealthStore {
         self.getToalStepCounts(passedDays: number, completion: { (result) in
             print(#function)
             print(result)
-            DispatchQueue.main.async {
+
                 if result == 0 {
                     print("getNdays: 0")
                     UserDefaults.standard.currentStepCount = 0
                     UserDefaults.standard.healthKitAuthorization = false
+                    DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStepCountNotification"), object: nil, userInfo: ["newCurrentStepCount": 0])
+                    }
                     
-                   
-//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "noHealthKitAuthorizationNotification"), object: nil)
-//
                 } else {
                     print("getNdays: 0아님")
                     UserDefaults.standard.healthKitAuthorization = true
-                   
-                }
                 // self.averageSevenDaysStepCounts = sevenDaysTotalStepCount / 7
                 
             }
@@ -78,21 +75,17 @@ extension HKHealthStore {
         }
     }
     
-    
-    
-    
-    
     func getThisWeekStepCounts() {
         
         let passedWeekday = Date().weekday
         self.getToalStepCounts(passedDays: passedWeekday - 1, completion: { (result) in
             print(#function)
-            DispatchQueue.main.async {
+            
                 print("passedWeekday",passedWeekday)
                 UserDefaults.standard.weekStepCount = Int(result)
                 // self.averageThisWeekStepCounts = thisWeekTotalStepCount / 7
                 
-            }
+            
         })
     }
     
@@ -135,7 +128,7 @@ extension HKHealthStore {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
         
         var interval = DateComponents()
-        interval.day = 1
+        interval.hour = 24
         
         let query = HKStatisticsCollectionQuery(quantityType: sampleType,
                                                 quantitySamplePredicate: predicate,
@@ -170,10 +163,6 @@ extension HKHealthStore {
     
     func saveResultAndUpdateUIFromStatistics(passedDays: Int, _ statisticsCollection: HKStatisticsCollection) -> Double {
         var totalCount = 0.0
-
-            
-        
-        
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
         let userDefaults = UserDefaults.standard
@@ -183,18 +172,20 @@ extension HKHealthStore {
         let today = Date()
         dateFormatter.basicDateSetting()
         var totalStepCountArray = [Int]()
-        let pinDate = today.getPinDate()
+        let pinDate = today.getPinDate() - 1
         
         let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
         //엔드: 오늘 기준시간으로부터 24시간 후까지
-        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate)!
+        let endDate = calendar.date(byAdding: .hour, value: 24, to: pinDate + 1)!
         
         var dayCount = 0.0
         var currentDate = startDate
         let goal = userDefaults.stepsGoal!
         
-        
+        print("pinDate\(pinDate), startDate: \(startDate), endDate\(endDate)")
         statisticsCollection.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
+            print(statistic.sumQuantity())
+
             let realm = try! Realm()
             var filteredTask: Results<UserReport>?
             let todayReport = dateFormatter.simpleDateString(date: today)
@@ -238,6 +229,7 @@ extension HKHealthStore {
 
                     
                 } else if savedDate == todayReport {
+                    print("오늘이면 날짜 변경 완료")
                     try! realm.write {
                         filteredTask?.first?.stepCount = Int(dayCount)
                         filteredTask?.first?.goalPercent = dayCount / Double(goal)
@@ -250,11 +242,7 @@ extension HKHealthStore {
                 
                 
             } //:  if let count = statistic.sumQuantity() {
-            
-                
-            
         }//: statisticsCollection.enumerateStatistics(from: startDate, to:endDate) {
         return totalCount
     }
 }
-

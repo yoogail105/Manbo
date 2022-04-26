@@ -156,22 +156,22 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="tj1-ji-vCl">
-                                        <rect key="frame" x="2" y="0.0" width="29" height="29"/>
+                                        <rect key="frame" x="2.3333333333333321" y="0.0" width="29" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tj1-ji-vCl" secondAttribute="height" multiplier="1:1" id="tK5-6y-8he"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eK7-Eb-H3w">
-                                        <rect key="frame" x="0.0" y="29" width="32.666666666666664" height="15"/>
+                                        <rect key="frame" x="0.0" y="29" width="33.333333333333336" height="15"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-O6-kmy">
-                                                <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-O6-kmy">
+                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.96084719900000004" green="0.76179283860000002" blue="0.25864145160000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q09-Dd-Kfi">
-                                                <rect key="frame" x="56.333333333333329" y="0.0" width="0.0" height="15"/>
+                                                <rect key="frame" x="56.666666666666671" y="0.0" width="0.0" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.41585117579999997" green="0.55007231239999999" blue="0.70198142529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -182,7 +182,7 @@
                                         </constraints>
                                     </stackView>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="B2X-j5-erS">
-                                        <rect key="frame" x="42" y="0.0" width="29" height="29"/>
+                                        <rect key="frame" x="42.333333333333336" y="0.0" width="29.000000000000007" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="B2X-j5-erS" secondAttribute="height" multiplier="1:1" id="uSt-ST-H83"/>
                                         </constraints>

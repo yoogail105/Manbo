@@ -18,7 +18,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var todayStepLabel: UILabel!
     override func viewDidLoad() {
             super.viewDidLoad()
-            
+        
+//            
             let dateFormatter = DateFormatter()
             let nowPercent = UserDefaults.standard.stepPercent
             manboImage.image = UIImage(named: self.setUserImage(userPercent: nowPercent!))

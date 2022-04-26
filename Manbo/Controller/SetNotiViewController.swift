@@ -146,6 +146,7 @@ class SetNotiViewController: UIViewController {
     
     func openSetNameSB() {
         let sb = UIStoryboard(name: "SetName", bundle: nil)
+        let uvc = self.storyboard!.instantiateViewController(withIdentifier: "SetName")
         guard let vc = sb.instantiateViewController(withIdentifier: SetNameViewController.identifier) as? SetNameViewController else {
             print("Error")
             return
