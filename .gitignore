@@ -6,6 +6,10 @@
 xcuserdata/
 GoogleService-Info.plist
 APIKeysInfo.plist
+Pods
+Podfile
+Podfile.lock
+appDsyms 
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
