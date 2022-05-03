@@ -5,6 +5,7 @@
 ## User settings
 xcuserdata/
 GoogleService-Info.plist
+APIKeysInfo.plist
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
