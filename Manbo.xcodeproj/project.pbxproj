@@ -133,7 +133,7 @@
 		278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigationViewController.swift; sourceTree = "<group>"; };
 		278F74A4274969F400794E8D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		278F74A627496CB500794E8D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
-		278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionViewCell.swift; path = Manbo/Views/Cell/CalendarCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionViewCell.swift; path = Manbo/Views/Calendar/Cell/CalendarCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		27A66653274C2A4900A63683 /* ManboDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManboDebug.entitlements; sourceTree = "<group>"; };
 		27A66654274C2A4900A63683 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendarViewCell.swift; sourceTree = "<group>"; };
@@ -223,6 +223,42 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		23A0824728280D4D00D7D91C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				27EC33D72754A61F00C60C0F /* SettingText.storyboard */,
+				278832922746DFDB007616EA /* Setting.storyboard */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		23A0824828280D9200D7D91C /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				278F747E27478D0400794E8D /* Camera.storyboard */,
+				27C6D67427586D6F009A7D4B /* Share.storyboard */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		23A0824928280DAB00D7D91C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				278F7486274797C900794E8D /* TabView.storyboard */,
+				2780C5B82744F526004A0BE4 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		23A0824A28280DC500D7D91C /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				23A0824228280B9700D7D91C /* Cell */,
+				278832942746DFE8007616EA /* Calendar.storyboard */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		2707947B2750387B00CE532D /* APIKEYS */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,17 +271,12 @@
 		270D726927465EB6007ADC71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				23A0824228280B9700D7D91C /* Cell */,
 				278F74BB274AC6A600794E8D /* Onboarding */,
 				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
-				278F7486274797C900794E8D /* TabView.storyboard */,
-				2780C5B82744F526004A0BE4 /* Main.storyboard */,
-				278832942746DFE8007616EA /* Calendar.storyboard */,
-				270CAE9827546E37004230A6 /* TabBarViewModel.swift */,
-				278F747E27478D0400794E8D /* Camera.storyboard */,
-				27EC33D72754A61F00C60C0F /* SettingText.storyboard */,
-				278832922746DFDB007616EA /* Setting.storyboard */,
-				27C6D67427586D6F009A7D4B /* Share.storyboard */,
+				23A0824928280DAB00D7D91C /* Main */,
+				23A0824A28280DC500D7D91C /* Calendar */,
+				23A0824828280D9200D7D91C /* Camera */,
+				23A0824728280D4D00D7D91C /* Setting */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +379,7 @@
 		278F74A82749701100794E8D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				270CAE9827546E37004230A6 /* TabBarViewModel.swift */,
 				27A66661274EB61C00A63683 /* manboManager.swift */,
 				27A66663274EC6D600A63683 /* realmData.swift */,
 				278F74A627496CB500794E8D /* UserDefaults+Extension.swift */,

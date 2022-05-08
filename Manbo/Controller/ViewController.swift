@@ -84,7 +84,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if !userDefaults.isUpdate {
-            self.makeAlertWithoutCancel(message: "업데이트 완료!\n업데이트 시 목표 걸음수가 초기화 되었을 수 있으니 확인해 주세요🐾", okTitle: "확인") {_ in
+            self.makeAlertWithoutCancel(message: AlertText.updateMessage.rawValue, okTitle: AlertMenuText.ok.rawValue) {_ in
                 self.userDefaults.isUpdate = true
             }
         }
@@ -107,7 +107,7 @@ class ViewController: UIViewController {
         if HKHealthStore.isHealthDataAvailable() {
             healthStore = HKHealthStore()
         } else {
-            self.notiBanner(notiText: "만보랑은 아이폰에서 사용이 가능합니다🐾")
+            self.notiBanner(notiText: MainText.iphoneOnly.rawValue)
         }
         
         dateFormatter.timeZone = calendar.timeZone
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
             didLocationAlert = true
         }
         
-        healthKItInform.text = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 두 번 탭해주세요🐾"
+        healthKItInform.text = MainText.requestHealthKit.rawValue
         
         healthKItInform.isHidden = true
         
@@ -159,7 +159,7 @@ class ViewController: UIViewController {
     }//: viewWillAppear
     
     @objc func noHealthKitAuthorizationNotification(notification: NSNotification) {
-        self.currentStepCountLabel.text = "만보랑 같이 걸어요"
+        self.currentStepCountLabel.text = MainText.defaultMessage.rawValue
         self.healthKItInform.isHidden = false
     }
     
@@ -172,7 +172,7 @@ class ViewController: UIViewController {
              //   view.layoutIfNeeded()
             }
             else {
-                currentStepCountLabel.text = "만보랑 같이 걸어요"
+                currentStepCountLabel.text = MainText.defaultMessage.rawValue
                 healthKItInform.isHidden = false
 
             }
@@ -280,9 +280,6 @@ class ViewController: UIViewController {
     }
     
     // MARK: - HEALTHKIT
-    // UI바뀌어야 해서,,
-    
-    
     func fetchWeather() {
         OpenWeatherAPIManager.shared.fetchWeatherInformation(latitude: latitude, longitude: longitude) { temp  in
             
@@ -294,7 +291,7 @@ class ViewController: UIViewController {
         }
     }
     func locationSettingAlert() {
-            showAlert(title: "위치 서비스를 사용할 수 없습니다.", message: "지도에서 내 위치를 확인하여 정확한 날씨 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요.", okTitle: "허용하기") {
+        showAlert(title: AlertText.noLocationTitle.rawValue, message: AlertText.noLocationMessage.rawValue, okTitle: AlertMenuText.permit.rawValue) {
                 guard let url = URL(string: UIApplication.openSettingsURLString) else {
                     return
                 }
@@ -306,7 +303,7 @@ class ViewController: UIViewController {
             }
         } //: locationSettingAlert
     func healthKitSettingAlert() {
-        showAlert(title: "걸음을 가져올 수 없습니다.", message: "건강 앱에서 내 걸음수를 읽을 수 있도록 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요.", okTitle: "확인") {
+        showAlert(title: AlertText.noHealthKitTitle.rawValue, message: AlertText.noHealthKitMessage.rawValue, okTitle: AlertMenuText.ok.rawValue) {
             self.healthStore?.authorizedHealthKIt()
 //            self.didHealthKitAlert = true
 //            guard let url = URL(string: UIApplication.openSettingsURLString) else {

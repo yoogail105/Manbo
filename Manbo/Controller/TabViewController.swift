@@ -71,7 +71,7 @@ class TabViewController: UIViewController {
     
     
     @IBAction func heartButtonClicked(_ sender: UIButton) {
-        let sb = UIStoryboard(name: "Chat", bundle: nil)
+        let sb = UIStoryboard(name: "Share", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: ShareViewController.identifier) as? ShareViewController else { return }
         present(vc, animated: true, completion: nil)
     }
