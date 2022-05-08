@@ -22,14 +22,6 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     
     
-    
-    // AlertView
-//    let setGoalAlert: SetGoalAlertView? = UIView.loadFromNib()
-//    let setResetTimeAlert: SetResetTimeAlertView? = UIView.loadFromNib()
-//    let setNotificationAlertView: SetNotificationAlertView? = UIView.loadFromNib()
-//    let setNotificationTimeAlertView: SetNotificationTimeAlertView? = UIView.loadFromNib()
-//    @objc let setNameAlertView: SetNameAlertView? = UIView.loadFromNib()
-    
     // pickerView
     var stepsGoalList: [Int] = []
     var typeValue = String()
@@ -50,10 +42,6 @@ class OnboardingViewController: UIViewController {
         setUI()
         stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
         welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
-        
-      //  guard let textField = setNameAlertView?.userNameTextField else { return }
-    //    textField.delegate = self
-      //  NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: textField)
         userDefaults.stepsGoal = 1000
     } //: viewDidLoad
     

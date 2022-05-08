@@ -25,9 +25,5 @@ class DateCalendarViewCell: JTACDayCell {
       
 
     }
-    
-   
-    
-    
 }
 

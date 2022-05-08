@@ -83,7 +83,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgP-R4-NG7" customClass="PaddingLabel" customModule="Manbo" customModuleProvider="target">
-                                                            <rect key="frame" x="65" y="14.5" width="55" height="21"/>
+                                                            <rect key="frame" x="65" y="19.5" width="45" height="11"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -130,16 +130,16 @@
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cAS-e0-o0n">
-                                                            <rect key="frame" x="20" y="14.5" width="124" height="21"/>
+                                                            <rect key="frame" x="20" y="15" width="114" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmC-qn-qxP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="59" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="59" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYL-lt-7aY" customClass="PaddingLabel" customModule="Manbo" customModuleProvider="target">
-                                                                    <rect key="frame" x="69" y="0.0" width="55" height="21"/>
+                                                                    <rect key="frame" x="69" y="0.0" width="45" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -172,16 +172,16 @@
                                                     <rect key="frame" x="0.0" y="150" width="414" height="50"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QIy-et-eBK">
-                                                            <rect key="frame" x="20" y="14.5" width="124" height="21"/>
+                                                            <rect key="frame" x="20" y="15" width="114" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJh-NX-nZd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="59" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="59" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcR-K2-Jty" customClass="PaddingLabel" customModule="Manbo" customModuleProvider="target">
-                                                                    <rect key="frame" x="69" y="0.0" width="55" height="21"/>
+                                                                    <rect key="frame" x="69" y="0.0" width="45" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -356,13 +356,13 @@
     </scenes>
     <designables>
         <designable name="EcR-K2-Jty">
-            <size key="intrinsicContentSize" width="55" height="21"/>
+            <size key="intrinsicContentSize" width="45" height="11"/>
         </designable>
         <designable name="NgP-R4-NG7">
-            <size key="intrinsicContentSize" width="55" height="21"/>
+            <size key="intrinsicContentSize" width="45" height="11"/>
         </designable>
         <designable name="vYL-lt-7aY">
-            <size key="intrinsicContentSize" width="55" height="21"/>
+            <size key="intrinsicContentSize" width="45" height="11"/>
         </designable>
     </designables>
     <resources>

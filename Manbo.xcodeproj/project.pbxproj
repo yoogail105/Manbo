@@ -11,6 +11,7 @@
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
 		23439AE627BA464F00F79318 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 23439AE527BA464F00F79318 /* Zip */; };
 		2345F896281854C80043AD2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345F895281854C80043AD2B /* Constants.swift */; };
+		23A0824628280CD100D7D91C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A0824528280CD100D7D91C /* Text.swift */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
@@ -59,8 +60,8 @@
 		27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */; };
 		27A66662274EB61C00A63683 /* manboManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66661274EB61C00A63683 /* manboManager.swift */; };
 		27A66664274EC6D600A63683 /* realmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66663274EC6D600A63683 /* realmData.swift */; };
-		27C6D67527586D6F009A7D4B /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67427586D6F009A7D4B /* Chat.storyboard */; };
-		27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D67827587A98009A7D4B /* ChatViewController.swift */; };
+		27C6D67527586D6F009A7D4B /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67427586D6F009A7D4B /* Share.storyboard */; };
+		27C6D67927587A98009A7D4B /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D67827587A98009A7D4B /* ShareViewController.swift */; };
 		27C6D67D2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */; };
 		27C6D6812758F7F3009A7D4B /* SetNotiPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */; };
 		27DC20AA275241380098E698 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC20A9275241380098E698 /* DateFormatter+Extension.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		2345F895281854C80043AD2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		23A0824528280CD100D7D91C /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -131,14 +133,14 @@
 		278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigationViewController.swift; sourceTree = "<group>"; };
 		278F74A4274969F400794E8D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		278F74A627496CB500794E8D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
-		278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionViewCell.swift; path = Manbo/Views/CalendarCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCollectionViewCell.swift; path = Manbo/Views/Cell/CalendarCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		27A66653274C2A4900A63683 /* ManboDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManboDebug.entitlements; sourceTree = "<group>"; };
 		27A66654274C2A4900A63683 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendarViewCell.swift; sourceTree = "<group>"; };
 		27A66661274EB61C00A63683 /* manboManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manboManager.swift; sourceTree = "<group>"; };
 		27A66663274EC6D600A63683 /* realmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmData.swift; sourceTree = "<group>"; };
-		27C6D67427586D6F009A7D4B /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
-		27C6D67827587A98009A7D4B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		27C6D67427586D6F009A7D4B /* Share.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
+		27C6D67827587A98009A7D4B /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		27C6D67A2758C01B009A7D4B /* Manbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Manbo.entitlements; sourceTree = "<group>"; };
 		27C6D67B2758C039009A7D4B /* ManboRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManboRelease.entitlements; sourceTree = "<group>"; };
 		27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetNotiSetNotiPermission.storyboard; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 		27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetNotiTime.storyboard; sourceTree = "<group>"; };
 		27EC33E6275544B600C60C0F /* SetNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotiViewController.swift; sourceTree = "<group>"; };
 		27EC33E82755451700C60C0F /* ResetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTimeViewController.swift; sourceTree = "<group>"; };
-		27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetStepGoalViewController.swift; path = Manbo/Controller/SetStepGoalViewController.swift; sourceTree = SOURCE_ROOT; };
+		27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetStepGoalViewController.swift; path = Manbo/Controller/Setting/SetStepGoalViewController.swift; sourceTree = SOURCE_ROOT; };
 		27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetStepGoal.storyboard; sourceTree = "<group>"; };
 		27EC33F027557AA500C60C0F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		332A04A83F534A1D2C0BE5CF /* Pods_Manbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,32 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		23A0824228280B9700D7D91C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
+				272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */,
+				272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */,
+				27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */,
+				27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		23A0824428280C3C00D7D91C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				278832962746EB04007616EA /* SettingViewController.swift */,
+				27EC33D52754A60900C60C0F /* SettingTextViewController.swift */,
+				27EC33E6275544B600C60C0F /* SetNotiViewController.swift */,
+				27EC33E82755451700C60C0F /* ResetTimeViewController.swift */,
+				27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */,
+				27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */,
+				27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		2707947B2750387B00CE532D /* APIKEYS */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,20 +235,17 @@
 		270D726927465EB6007ADC71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				278F74BB274AC6A600794E8D /* Onboarding& */,
+				23A0824228280B9700D7D91C /* Cell */,
+				278F74BB274AC6A600794E8D /* Onboarding */,
 				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
 				278F7486274797C900794E8D /* TabView.storyboard */,
 				2780C5B82744F526004A0BE4 /* Main.storyboard */,
 				278832942746DFE8007616EA /* Calendar.storyboard */,
 				270CAE9827546E37004230A6 /* TabBarViewModel.swift */,
 				278F747E27478D0400794E8D /* Camera.storyboard */,
-				278832922746DFDB007616EA /* Setting.storyboard */,
 				27EC33D72754A61F00C60C0F /* SettingText.storyboard */,
-				27A6665F274D81AC00A63683 /* DateCalendarViewCell.swift */,
-				27EC33D227548C7B00C60C0F /* SettingBasicTableViewCell.swift */,
-				272567D027562D77002F11CB /* SelectedTaskCollectionViewCell.swift */,
-				272567D127562D77002F11CB /* SelectedTaskCollectionViewCell.xib */,
-				27C6D67427586D6F009A7D4B /* Chat.storyboard */,
+				278832922746DFDB007616EA /* Setting.storyboard */,
+				27C6D67427586D6F009A7D4B /* Share.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,23 +253,16 @@
 		270D726A27465EC2007ADC71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				23A0824428280C3C00D7D91C /* Setting */,
 				278F74882747A2B600794E8D /* TabViewController.swift */,
 				2780C5B62744F526004A0BE4 /* ViewController.swift */,
 				278F748027478D1600794E8D /* CameraViewController.swift */,
-				278832962746EB04007616EA /* SettingViewController.swift */,
 				278F748227478D6D00794E8D /* CalendarViewController.swift */,
 				23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */,
-				278F74AB27497B5D00794E8D /* CalendarCollectionViewCell.swift */,
 				278F74A22749034400794E8D /* CustomSideMenuNavigationViewController.swift */,
 				270CAE952753ED70004230A6 /* RealmManagerViewController.swift */,
-				27EC33D52754A60900C60C0F /* SettingTextViewController.swift */,
-				27EC33E6275544B600C60C0F /* SetNotiViewController.swift */,
-				27EC33E82755451700C60C0F /* ResetTimeViewController.swift */,
-				27C6D6802758F7F3009A7D4B /* SetNotiPermissionViewController.swift */,
-				27EC33DD2754C0AA00C60C0F /* SetNameViewController.swift */,
-				27C6D67827587A98009A7D4B /* ChatViewController.swift */,
+				27C6D67827587A98009A7D4B /* ShareViewController.swift */,
 				278F74A02748FC5700794E8D /* OnboardingViewController.swift */,
-				27EC33EC2755566600C60C0F /* SetStepGoalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +282,7 @@
 				27EC33F027557AA500C60C0F /* Notification+Extension.swift */,
 				272567D4275644B9002F11CB /* UIInt+Extension.swift */,
 				275D718B2757AFB800070234 /* Alert+Extension.swift */,
+				23A0824528280CD100D7D91C /* Text.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -336,7 +355,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		278F74BB274AC6A600794E8D /* Onboarding& */ = {
+		278F74BB274AC6A600794E8D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				27EC33E42754F5B100C60C0F /* SetNotiTime.storyboard */,
@@ -346,7 +365,7 @@
 				27EC33EE2755568600C60C0F /* SetStepGoal.storyboard */,
 				27C6D67C2758F781009A7D4B /* SetNotiSetNotiPermission.storyboard */,
 			);
-			path = "Onboarding&";
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		33ABD6F044B2651CDB0AC97F /* Pods */ = {
@@ -460,7 +479,7 @@
 				278F748D2747EA1E00794E8D /* Setting.strings in Resources */,
 				2780C5BC2744F529004A0BE4 /* Assets.xcassets in Resources */,
 				2780C5BA2744F526004A0BE4 /* Main.storyboard in Resources */,
-				27C6D67527586D6F009A7D4B /* Chat.storyboard in Resources */,
+				27C6D67527586D6F009A7D4B /* Share.storyboard in Resources */,
 				278832932746DFDB007616EA /* Setting.storyboard in Resources */,
 				27EC33E32754F59400C60C0F /* SetResetTime.storyboard in Resources */,
 				278832952746DFE8007616EA /* Calendar.storyboard in Resources */,
@@ -561,7 +580,8 @@
 				278F74AC27497B5D00794E8D /* CalendarCollectionViewCell.swift in Sources */,
 				275D718C2757AFB800070234 /* Alert+Extension.swift in Sources */,
 				27EC33D327548C7B00C60C0F /* SettingBasicTableViewCell.swift in Sources */,
-				27C6D67927587A98009A7D4B /* ChatViewController.swift in Sources */,
+				27C6D67927587A98009A7D4B /* ShareViewController.swift in Sources */,
+				23A0824628280CD100D7D91C /* Text.swift in Sources */,
 				272567D227562D77002F11CB /* SelectedTaskCollectionViewCell.swift in Sources */,
 				2780C5B32744F526004A0BE4 /* AppDelegate.swift in Sources */,
 				278F74A727496CB500794E8D /* UserDefaults+Extension.swift in Sources */,
