@@ -28,7 +28,7 @@ class OnboardingViewController: UIViewController {
     
     // checkName -> setNameVC
     var maxLength = 8
-    var notiText = "2글자 이상 8글자 이하로 입력해주세요"
+    var notiText = OnboardingText.nameNoti.rawValue
     var isCorrectedName = false
     var longName = false
     let userDefaults = UserDefaults.standard
@@ -41,7 +41,7 @@ class OnboardingViewController: UIViewController {
         UserDefaults.standard.isUpdate = true
         setUI()
         stepsGoalList.append(contentsOf: stride(from: 1000, to: 30000, by: 1000))
-        welcomeLabel.text = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
+        welcomeLabel.text = OnboardingText.welcomeLabel.rawValue
         userDefaults.stepsGoal = 1000
     } //: viewDidLoad
     

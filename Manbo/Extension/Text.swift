@@ -19,9 +19,11 @@ enum AlertText: String {
     case noHealthKitTitle = "걸음을 가져올 수 없습니다."
     case noHealthKitMessage = "건강 앱에서 내 걸음수를 읽을 수 있도록 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요."
 }
-//enum OnboardingText: String {
-//
-//}
+
+enum OnboardingText: String {
+    case welcomeLabel = "처음오셨군요!\n반가워요.\n같이 걸어 볼까요?"
+    case nameNoti = "2글자 이상 8글자 이하로 입력해주세요"
+}
 
 enum MainText: String {
     
@@ -33,3 +35,8 @@ enum MainText: String {
     
 }
 
+
+enum CalendarText: String {
+    case infoStepLable = "👇 선택한 날에 만보와 산책한 기록을 확인할 수 있어요!"
+    case infoGoalLabel = "👇 만보의 모습을 통해 그동안의 목표 달성률을 확인할 수 있어요!"
+}

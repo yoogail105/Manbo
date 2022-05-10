@@ -12,10 +12,6 @@ class ShareViewController: UIViewController {
     
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var manboImage: UIImageView!
-
-    
-        
-        
     @IBOutlet weak var todayStepLabel: UILabel!
     override func viewDidLoad() {
             super.viewDidLoad()

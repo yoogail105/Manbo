@@ -58,9 +58,9 @@ class CalendarViewController: UIViewController {
         didSet {
             collectionView.reloadData()
             if isSelectedDate {
-                detailLabel.text = "👇 선택한 날에 만보와 산책한 기록을 확인할 수 있어요!"
+                detailLabel.text = CalendarText.infoStepLable.rawValue
             } else {
-                detailLabel.text = "👇 만보의 모습을 통해 그동안의 목표 달성률을 확인할 수 있어요!"
+                detailLabel.text = CalendarText.infoGoalLabel.rawValue
             }
         }
     }
