@@ -11,7 +11,7 @@ import UIKit
 import NotificationBannerSwift
 import UserNotifications
 
-class OnboardingViewController: UIViewController {
+final class OnboardingViewController: UIViewController {
     
     // MARK: - PROPERTIES
     static let identifier = "OnboardingViewController"
@@ -20,7 +20,6 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var firstAlertView: UIView!
     @IBOutlet weak var tabBarBackgroundView: UIView!
     @IBOutlet weak var welcomeLabel: UILabel!
-    
     
     // pickerView
     var stepsGoalList: [Int] = []

@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 
-class CustomSideMenuNavigationViewController: SideMenuNavigationController {
+final class CustomSideMenuNavigationViewController: SideMenuNavigationController {
     
     static let identifier = "CustomSideMenuNavigationViewController"
 

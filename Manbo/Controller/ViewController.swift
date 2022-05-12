@@ -13,7 +13,7 @@ import CoreLocation
 import NotificationBannerSwift
 import Firebase
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     static let identifier = "ViewController"
     // MARK: - PROPERTIES
     
@@ -95,13 +95,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        //   UserDefaults.standard.hasOnboarded = false
 //        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
-        
-        
-        // 마지막 접속 날짜 받아오기
-        getLastConnection()
-
-        
-        
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
@@ -210,11 +203,6 @@ class ViewController: UIViewController {
             currentStepCountLabel.text = "\(currentStep.numberFormat())"
             setUserImage()
         }
-    }
-    
-    func getLastConnection() {
-        print("마지막접속일: \(userDefaults.lastConnection)")
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -362,20 +350,15 @@ extension ViewController: CLLocationManagerDelegate {
     
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         if let location = locations.last {
             self.currentLocation = location
-            
             locationManager.stopUpdatingLocation()
             latitude = self.currentLocation!.coordinate.latitude
             longitude = self.currentLocation!.coordinate.longitude
-            
-            
         } else {
             latitude = 37.566403559824955
             longitude = 126.97794018074802
         }
-        
         fetchWeather()
     }
     

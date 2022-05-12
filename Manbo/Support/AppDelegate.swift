@@ -109,8 +109,6 @@ extension AppDelegate: MessagingDelegate {
     
     // 토큰 갱신 모니터링
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      //print("Firebase registration token: \(String(describing: fcmToken))")
-
       let dataDict: [String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(
         name: Notification.Name("FCMToken"),

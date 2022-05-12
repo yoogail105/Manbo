@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabViewController: UIViewController {
+final class TabViewController: UIViewController {
 
     static let identifier = "TabViewController"
     @IBOutlet weak var tabBarBackgroundView: UIView!

@@ -13,7 +13,7 @@ import NotificationBannerSwift
 import SwiftUI
 
 
-class CalendarViewController: UIViewController {
+final class CalendarViewController: UIViewController {
     
     static let identifier = "CalendarViewController"
     
@@ -424,8 +424,6 @@ extension CalendarViewController: JTACMonthViewDataSource {
                } else {
                   // let startDate = dateFormatter.date(from: firstDay)!
                }
-               
-        print("firstDay: \(firstDay)")
 
         let endDate = Date().startOfMonth().endOfThisMonth
         

@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class AverageStepCountManager {
+final class AverageStepCountManager {
     static let shared = AverageStepCountManager()
     
     let localRealm = try! Realm()

@@ -111,13 +111,8 @@ extension HKHealthStore {
     func getToalStepCounts(passedDays: Int, completion: @escaping (Double) -> Void) {
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
-        let userDefaults = UserDefaults.standard
-        //let realm = try! Realm()
-        
-        
         let today = Date()
         dateFormatter.basicDateSetting()
-        var totalStepCountArray = [Int]()
         let pinDate = today.getPinDate()
         
         let startDate = calendar.date(byAdding: .day, value: -passedDays, to: pinDate)!
@@ -166,9 +161,6 @@ extension HKHealthStore {
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
         let userDefaults = UserDefaults.standard
-        //let realm = try! Realm()
-        
-        
         let today = Date()
         dateFormatter.basicDateSetting()
         var totalStepCountArray = [Int]()
@@ -184,7 +176,6 @@ extension HKHealthStore {
         
         print("pinDate\(pinDate), startDate: \(startDate), endDate\(endDate)")
         statisticsCollection.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
-            print(statistic.sumQuantity())
 
             let realm = try! Realm()
             var filteredTask: Results<UserReport>?
@@ -229,7 +220,7 @@ extension HKHealthStore {
 
                     
                 } else if savedDate == todayReport {
-                    print("오늘이면 날짜 변경 완료")
+                    //오늘이면 날짜 변경 완료
                     try! realm.write {
                         filteredTask?.first?.stepCount = Int(dayCount)
                         filteredTask?.first?.goalPercent = dayCount / Double(goal)

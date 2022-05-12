@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController {
+final class CameraViewController: UIViewController {
     
     static let identifier = "CameraViewController"
  
@@ -25,8 +25,6 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-  
     }
 
 }

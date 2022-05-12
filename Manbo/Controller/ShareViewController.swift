@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShareViewController: UIViewController {
+final class ShareViewController: UIViewController {
     static let identifier = "ShareViewController"
     
     @IBOutlet weak var todayLabel: UILabel!

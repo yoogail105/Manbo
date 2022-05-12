@@ -51,7 +51,6 @@ class SettingViewController: UIViewController {
         tableView.dataSource = self
         
         tasks = localRealm.objects(UserReport.self).sorted(byKeyPath: "date", ascending: false)
-        print(tasks)
         
         //       if notiTime == nil {
         //            self.turnOffAlarmButton.isHidden = true

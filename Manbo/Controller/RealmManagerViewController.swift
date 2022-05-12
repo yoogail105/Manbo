@@ -12,7 +12,7 @@ extension Realm {
     
 }
 
-class RealmManagerViewController: UIViewController {
+final class RealmManagerViewController: UIViewController {
     
     let localRealm = try! Realm()
     var tasks: Results<UserReport>!
