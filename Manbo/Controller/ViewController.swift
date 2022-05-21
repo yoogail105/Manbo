@@ -29,7 +29,7 @@ final class ViewController: UIViewController {
     var ThisMonthStepCounts = 0
     var last30DaysStepCount = false
     var didHealthKitAlert = false
-
+    
     
     //time
     var today = Date()
@@ -48,6 +48,7 @@ final class ViewController: UIViewController {
     var latitude = 37.566403559824955
     var longitude = 126.97794018074802
     var didLocationAlert = false
+    var justUpdated = false
     
     //  @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -83,9 +84,10 @@ final class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if !userDefaults.isUpdate {
+        // 업데이트 후 최초실행 걸음수 확인 얼럿 표시 isUpdate=false일 때 실행
+        if justUpdated {
             self.makeAlertWithoutCancel(message: AlertText.updateMessage.rawValue, okTitle: AlertMenuText.ok.rawValue) {_ in
-                self.userDefaults.isUpdate = true
+                self.justUpdated = false
             }
         }
     }
@@ -93,8 +95,9 @@ final class ViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-       //   UserDefaults.standard.hasOnboarded = false
-//        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
+        checkUpdateStatus()
+        //   UserDefaults.standard.hasOnboarded = false
+        //        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
         
         // MARK: - 헬스킷!
         if HKHealthStore.isHealthDataAvailable() {
@@ -140,15 +143,15 @@ final class ViewController: UIViewController {
         // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }//: viewDidLoad
- 
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         self.navigationController?.isNavigationBarHidden = true
         
         healthStore?.authorizedHealthKIt()
-
+        
     }//: viewWillAppear
     
     @objc func noHealthKitAuthorizationNotification(notification: NSNotification) {
@@ -160,14 +163,14 @@ final class ViewController: UIViewController {
         if let newCount = notification.userInfo?["newCurrentStepCount"] as? Int {
             if userDefaults.healthKitAuthorization {
                 currentStepCount = newCount
-            //currentStepCountLabel.text = "\(currentStepCount.numberForamt())"
+                //currentStepCountLabel.text = "\(currentStepCount.numberForamt())"
                 healthKItInform.isHidden = true
-             //   view.layoutIfNeeded()
+                //   view.layoutIfNeeded()
             }
             else {
                 currentStepCountLabel.text = MainText.defaultMessage.rawValue
                 healthKItInform.isHidden = false
-
+                
             }
         }
     }
@@ -175,7 +178,7 @@ final class ViewController: UIViewController {
     // calendar에서는 보이도록
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         self.navigationController?.isNavigationBarHidden = false
         
         goalLabel.text = "\(LocalizableStrings.goal_steps.LocalizedMain) \(userDefaults.stepsGoal!.numberFormat())"
@@ -248,14 +251,14 @@ final class ViewController: UIViewController {
     
     func notiBanner(notiText: String) {
         let banner = NotificationBanner(title: notiText, subtitle: "", leftView: nil, rightView: nil, style: .info, colors: nil)
-
+        
         banner.show()
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             banner.dismiss()
         })
     }
-
+    
     
     //다른 뷰에서는 탭바 내려가도록한다.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -280,32 +283,44 @@ final class ViewController: UIViewController {
     }
     func locationSettingAlert() {
         showAlert(title: AlertText.noLocationTitle.rawValue, message: AlertText.noLocationMessage.rawValue, okTitle: AlertMenuText.permit.rawValue) {
-                guard let url = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
-                if UIApplication.shared.canOpenURL(url){
-                    UIApplication.shared.open(url) { success in
-                    }
-                }
-                
+            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                return
             }
-        } //: locationSettingAlert
+            if UIApplication.shared.canOpenURL(url){
+                UIApplication.shared.open(url) { success in
+                }
+            }
+            
+        }
+    } //: locationSettingAlert
     func healthKitSettingAlert() {
         showAlert(title: AlertText.noHealthKitTitle.rawValue, message: AlertText.noHealthKitMessage.rawValue, okTitle: AlertMenuText.ok.rawValue) {
             self.healthStore?.authorizedHealthKIt()
-//            self.didHealthKitAlert = true
-//            guard let url = URL(string: UIApplication.openSettingsURLString) else {
-//                return
-//            }
-//            if UIApplication.shared.canOpenURL(url){
-//                UIApplication.shared.open(url) { success in
-//                }
-//            }
+            //            self.didHealthKitAlert = true
+            //            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+            //                return
+            //            }
+            //            if UIApplication.shared.canOpenURL(url){
+            //                UIApplication.shared.open(url) { success in
+            //                }
+            //            }
             
-        }
         }
     }
     
+    func checkUpdateStatus() {
+        let currentVersion = Bundle.main.infoDictionary? ["CFBundleShortVersionString"] as? String
+        let lastVersion = userDefaults.lastVersion
+        if lastVersion == nil {
+            userDefaults.lastVersion = currentVersion
+        } else if lastVersion != currentVersion {
+            // 업데이트 후 최초 실행
+            userDefaults.lastVersion = currentVersion
+            justUpdated = true
+        }
+    }
+}
+
 //     MARK: - getToalStepCounts -> HealthKit Extension
 
 
@@ -319,7 +334,7 @@ extension ViewController: CLLocationManagerDelegate {
         
         if #available(iOS 14.0, *) {
             authorizationStatus = locationManager.authorizationStatus
-    
+            
         } else {
             authorizationStatus = CLLocationManager.authorizationStatus()
         }
@@ -348,7 +363,7 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
     
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.currentLocation = location

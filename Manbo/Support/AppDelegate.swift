@@ -53,6 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
         
+        // 최신버전이면: false
+//        var nowUpdated = isUpdateAvailable() {
+//            
+//            print(isUpdateAvailable())
+//        }
+       
+
         return true
     }
     
@@ -70,6 +77,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    // 업데이트 필요하면 true, 최신버전이면 false
+    func isUpdateAvailable() -> Bool {
+        guard let version = Bundle.main.infoDictionary? ["CFBundleShortVersionString"] as? String,
+              let url = URL(string: "http://itunes.apple.com/kr/lookup?bundleId=\(Bundle.main.AppStoreID)"),
+              let data = try? Data(contentsOf: url),
+              let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+              let results = json["results"] as? [[String: Any]],
+              results.count > 0,
+              let appStoreVersion = results[0]["version"] as? String
+        else { print("return")
+            return false }
+        print("version: \(version), appStoreVersion = \(appStoreVersion)")
+        if !(version == appStoreVersion) { return true }
+        else{ return false }
+        return false
+    }
     
 }
 

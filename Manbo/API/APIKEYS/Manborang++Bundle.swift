@@ -18,5 +18,12 @@ extension Bundle {
         return key
     }
     
+    var AppStoreID: String {
+        guard let file = self.path(forResource: resource, ofType: "plist") else {return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["APPStoreID"] as? String else { fatalError("APPStoreID" + FatalError.errorMessage.rawValue)}
+        return key
+    }
+    
     
 }

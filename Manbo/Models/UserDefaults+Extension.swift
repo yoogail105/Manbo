@@ -21,13 +21,8 @@ extension UserDefaults {
         case weekStepCount
         case monthStepCount
         case currentStepCount
-        case isUpdate
+        case lastVersion
         
-    }
-    
-    var isUpdate: Bool {
-        get { bool(forKey: UserDefaultsKeys.isUpdate.rawValue)}
-        set { setValue(newValue, forKey: UserDefaultsKeys.isUpdate.rawValue)}
     }
     
     // Onboarding에서 start버튼 누르면
@@ -90,5 +85,10 @@ extension UserDefaults {
        get { integer(forKey: UserDefaultsKeys.monthStepCount.rawValue)}
         set { setValue(newValue, forKey: UserDefaultsKeys.monthStepCount.rawValue)}
    }
+    
+    var lastVersion: String? {
+        get { string(forKey: UserDefaultsKeys.lastVersion.rawValue)}
+        set { setValue(newValue, forKey: UserDefaultsKeys.lastVersion.rawValue)}
+    }
 
 }
