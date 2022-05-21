@@ -41,7 +41,7 @@
 #### 2.iOS15 미만 버전의 경우 TestFlight에서 시작하자마자 꺼지는 오류
 👉 [move to post](https://velog.io/@yoogail/Xcode-13-13.0-시뮬레이터는-되는데-testflight에서는-충돌하는-경우)
 <details>
-<summary> Summary</summary>
+<summary>`click` Summary</summary>
     ✔︎ Xcode 13, 13.1에서 발생하는 오류로, 애플에서 보고된 오류였다.<br/>
     🔗 [애플문서 보러가기](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_2-release-notes)<br/>
     <img width="672" alt="image" src="https://user-images.githubusercontent.com/53874628/147111396-e71311dd-143f-48ef-bad3-ba27eb2a2bac.png"><br/>
@@ -61,7 +61,7 @@
 #### 6. 월 별 걸음 수 평균 계산하기
 👉 [move to post](https://github.com/yoogail105/Manbo/blob/e2961bd5a0421c9d100dc0308154eb292e2a91bf/Documents/%EC%9B%94%EB%B3%84%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%ED%8F%89%EA%B7%A0%20%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0.md)
         <details>
-<summary>Summary</summary>
+<summary>`click` Summary</summary>
 <div markdown="1">       
 
 ```swift
@@ -86,3 +86,6 @@
 
 </div>
 </details>
+
+#### 7. 최초 업데이트 시에만 동작하는 함수 구현
+👉 [move to post](https://github.com/yoogail105/Manbo/blob/d65867b3d9e57b56457570f11750ab17392573d0/Documents/%EC%B5%9C%EC%B4%88%20%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EC%8B%9C%EC%97%90%EB%A7%8C%20%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%20%ED%95%A8%EC%88%98%20%EA%B5%AC%ED%98%84.md)
