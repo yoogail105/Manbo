@@ -41,7 +41,7 @@
 #### 2.iOS15 미만 버전의 경우 TestFlight에서 시작하자마자 꺼지는 오류
 👉 [move to post](https://velog.io/@yoogail/Xcode-13-13.0-시뮬레이터는-되는데-testflight에서는-충돌하는-경우)
 <details>
-<summary>`click` Summary</summary>
+<summary>▼ Summary</summary>
     ✔︎ Xcode 13, 13.1에서 발생하는 오류로, 애플에서 보고된 오류였다.<br/>
     🔗 [애플문서 보러가기](https://developer.apple.com/documentation/xcode-release-notes/xcode-13_2-release-notes)<br/>
     <img width="672" alt="image" src="https://user-images.githubusercontent.com/53874628/147111396-e71311dd-143f-48ef-bad3-ba27eb2a2bac.png"><br/>
@@ -61,7 +61,7 @@
 #### 6. 월 별 걸음 수 평균 계산하기
 👉 [move to post](https://github.com/yoogail105/Manbo/blob/e2961bd5a0421c9d100dc0308154eb292e2a91bf/Documents/%EC%9B%94%EB%B3%84%20%EA%B1%B8%EC%9D%8C%20%EC%88%98%20%ED%8F%89%EA%B7%A0%20%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0.md)
         <details>
-<summary>`click` Summary</summary>
+<summary>▼ Summary</summary>
 <div markdown="1">       
 
 ```swift
