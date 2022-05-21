@@ -273,7 +273,7 @@ final class CalendarViewController: UIViewController {
     
     
     func naviItem() {
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "waveform.path"), style: .plain, target: self, action: #selector(settingButtonClicked))
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingButtonClicked))
         settingButton.tintColor = UIColor.label
         self.navigationItem.rightBarButtonItem = settingButton
     }

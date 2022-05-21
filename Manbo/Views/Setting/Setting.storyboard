@@ -45,7 +45,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fw-So-Rgu">
-                                                            <rect key="frame" x="20" y="2" width="51.5" height="46"/>
+                                                            <rect key="frame" x="15" y="2" width="51.5" height="46"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                                     <constraints>
                                                         <constraint firstItem="VrA-D5-KbN" firstAttribute="centerY" secondItem="o4r-1D-Lit" secondAttribute="centerY" id="1TD-cf-WfO"/>
                                                         <constraint firstItem="9Fw-So-Rgu" firstAttribute="top" secondItem="o4r-1D-Lit" secondAttribute="top" constant="2" id="A0i-f3-GP5"/>
-                                                        <constraint firstItem="9Fw-So-Rgu" firstAttribute="leading" secondItem="o4r-1D-Lit" secondAttribute="leading" constant="20" id="Sb9-Co-oWg"/>
+                                                        <constraint firstItem="9Fw-So-Rgu" firstAttribute="leading" secondItem="o4r-1D-Lit" secondAttribute="leading" constant="15" id="Sb9-Co-oWg"/>
                                                         <constraint firstAttribute="trailing" secondItem="VrA-D5-KbN" secondAttribute="trailing" constant="20" id="bQK-mc-IVR"/>
                                                         <constraint firstItem="9Fw-So-Rgu" firstAttribute="centerY" secondItem="o4r-1D-Lit" secondAttribute="centerY" id="gC2-pq-NYT"/>
                                                     </constraints>
@@ -77,13 +77,13 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목표" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkr-yv-mgI">
-                                                            <rect key="frame" x="20" y="13" width="35" height="24"/>
+                                                            <rect key="frame" x="15" y="13" width="35" height="24"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgP-R4-NG7" customClass="PaddingLabel" customModule="Manbo" customModuleProvider="target">
-                                                            <rect key="frame" x="65" y="14.5" width="55" height="21"/>
+                                                            <rect key="frame" x="60" y="14.5" width="55" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                                     <constraints>
                                                         <constraint firstItem="wxy-AW-X07" firstAttribute="centerY" secondItem="sM8-d3-bBY" secondAttribute="centerY" id="IH1-Ft-UVV"/>
                                                         <constraint firstItem="Dkr-yv-mgI" firstAttribute="centerY" secondItem="sM8-d3-bBY" secondAttribute="centerY" id="OJ1-gu-Hxf"/>
-                                                        <constraint firstItem="Dkr-yv-mgI" firstAttribute="leading" secondItem="sM8-d3-bBY" secondAttribute="leading" constant="20" id="QsJ-ha-KKH"/>
+                                                        <constraint firstItem="Dkr-yv-mgI" firstAttribute="leading" secondItem="sM8-d3-bBY" secondAttribute="leading" constant="15" id="QsJ-ha-KKH"/>
                                                         <constraint firstItem="NgP-R4-NG7" firstAttribute="leading" secondItem="Dkr-yv-mgI" secondAttribute="trailing" constant="10" id="mlb-rF-c5o"/>
                                                         <constraint firstItem="NgP-R4-NG7" firstAttribute="centerY" secondItem="sM8-d3-bBY" secondAttribute="centerY" id="pnK-wH-pgC"/>
                                                         <constraint firstAttribute="trailing" secondItem="wxy-AW-X07" secondAttribute="trailing" constant="20" id="ppG-bx-I0R"/>
@@ -130,7 +130,7 @@
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cAS-e0-o0n">
-                                                            <rect key="frame" x="20" y="14.5" width="124" height="21"/>
+                                                            <rect key="frame" x="15" y="14.5" width="124" height="21"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmC-qn-qxP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="59" height="21"/>
@@ -163,7 +163,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="cAS-e0-o0n" firstAttribute="centerY" secondItem="PmE-Wa-HMR" secondAttribute="centerY" id="CIw-gn-HNm"/>
-                                                        <constraint firstItem="cAS-e0-o0n" firstAttribute="leading" secondItem="PmE-Wa-HMR" secondAttribute="leading" constant="20" id="UvK-LB-EAk"/>
+                                                        <constraint firstItem="cAS-e0-o0n" firstAttribute="leading" secondItem="PmE-Wa-HMR" secondAttribute="leading" constant="15" id="UvK-LB-EAk"/>
                                                         <constraint firstItem="PU7-Pc-0za" firstAttribute="centerY" secondItem="PmE-Wa-HMR" secondAttribute="centerY" id="VKx-Be-Rfa"/>
                                                         <constraint firstAttribute="trailing" secondItem="PU7-Pc-0za" secondAttribute="trailing" constant="20" id="jhv-yq-aMH"/>
                                                     </constraints>
@@ -172,7 +172,7 @@
                                                     <rect key="frame" x="0.0" y="150" width="414" height="50"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QIy-et-eBK">
-                                                            <rect key="frame" x="20" y="14.5" width="124" height="21"/>
+                                                            <rect key="frame" x="15" y="14.5" width="124" height="21"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJh-NX-nZd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="59" height="21"/>
@@ -233,7 +233,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="u6l-R6-apa" firstAttribute="centerY" secondItem="zfe-MT-vMh" secondAttribute="centerY" id="37z-j5-jI6"/>
-                                                        <constraint firstItem="QIy-et-eBK" firstAttribute="leading" secondItem="zfe-MT-vMh" secondAttribute="leading" constant="20" id="4YQ-nZ-E3f"/>
+                                                        <constraint firstItem="QIy-et-eBK" firstAttribute="leading" secondItem="zfe-MT-vMh" secondAttribute="leading" constant="15" id="4YQ-nZ-E3f"/>
                                                         <constraint firstItem="amx-2d-ODl" firstAttribute="centerY" secondItem="zfe-MT-vMh" secondAttribute="centerY" id="Bgt-yi-hgc"/>
                                                         <constraint firstAttribute="trailing" secondItem="u6l-R6-apa" secondAttribute="trailing" constant="20" id="E2N-cG-X9T"/>
                                                         <constraint firstItem="QIy-et-eBK" firstAttribute="centerY" secondItem="zfe-MT-vMh" secondAttribute="centerY" id="Ebz-CO-Bhu"/>
