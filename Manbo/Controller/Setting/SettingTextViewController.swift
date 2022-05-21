@@ -20,17 +20,9 @@ class SettingTextViewController: UIViewController, WKUIDelegate, WKNavigationDel
     override func viewDidLoad() {
         super.viewDidLoad()
         loadWebPage(urlString)
-        self.manboImage.isHidden = true
         webView.uiDelegate = self
         webView.navigationDelegate = self
         
-        
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-//            self.manboImage.isHidden = true
-//
-//        })
-//
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +53,14 @@ class SettingTextViewController: UIViewController, WKUIDelegate, WKNavigationDel
               }
             })
         }
+    }
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        self.manboImage.isHidden = false
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.manboImage.isHidden = true
     }
 }
 
