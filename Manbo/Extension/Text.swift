@@ -31,12 +31,14 @@ enum MainText: String {
     case requestHealthKit = "만보는 여러분의 건강 데이터에 대한 접근을 허용해 주셔야 걸음 수를 알 수 있어요. 아이폰의 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요!\n허용 후에는 아래의 발자국을 두 번 탭해주세요🐾"
     case defaultMessage = "만보랑 같이 걸어요"
     
-    
-    
 }
 
 
 enum CalendarText: String {
     case infoStepLable = "👇 선택한 날에 만보와 산책한 기록을 확인할 수 있어요!"
     case infoGoalLabel = "👇 만보의 모습을 통해 그동안의 목표 달성률을 확인할 수 있어요!"
+}
+
+enum ToastMessage: String {
+    case networkError = "네트워크 연결이 원활하지 않습니다. 연결상태 확인 후 다시 시도해 주세요!"
 }

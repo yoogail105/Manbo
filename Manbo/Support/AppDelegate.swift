@@ -53,12 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
         
-        // 최신버전이면: false
-//        var nowUpdated = isUpdateAvailable() {
-//            
-//            print(isUpdateAvailable())
-//        }
-       
+        NetworkMonitor.shared.startMonitoring()
 
         return true
     }

@@ -12,6 +12,7 @@
 		23439AE627BA464F00F79318 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 23439AE527BA464F00F79318 /* Zip */; };
 		2345F896281854C80043AD2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345F895281854C80043AD2B /* Constants.swift */; };
 		23A0824628280CD100D7D91C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A0824528280CD100D7D91C /* Text.swift */; };
+		23BCCD9728398942007A4A5E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCD9628398942007A4A5E /* NetworkMonitor.swift */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		2345F895281854C80043AD2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		23A0824528280CD100D7D91C /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		23BCCD9628398942007A4A5E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			children = (
 				2780C5B22744F526004A0BE4 /* AppDelegate.swift */,
 				2780C5B42744F526004A0BE4 /* SceneDelegate.swift */,
+				23BCCD9628398942007A4A5E /* NetworkMonitor.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				270D726E27465F05007ADC71 /* UIView+Extension.swift in Sources */,
 				27EC33ED2755566600C60C0F /* SetStepGoalViewController.swift in Sources */,
 				278832A12746F1AE007616EA /* UIString+Extension.swift in Sources */,
+				23BCCD9728398942007A4A5E /* NetworkMonitor.swift in Sources */,
 				27A66660274D81AC00A63683 /* DateCalendarViewCell.swift in Sources */,
 				2780C5B52744F526004A0BE4 /* SceneDelegate.swift in Sources */,
 				270D727027466914007ADC71 /* UIColor+Extension.swift in Sources */,

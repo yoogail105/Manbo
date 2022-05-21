@@ -45,6 +45,18 @@ extension UIViewController {
 
         self.present(alert, animated: true)
     }
+    
+    func makeToastAndPop(message: String) {
+      let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+      self.present(alert, animated: true)
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        self.dismiss(animated: true) {
+          self.navigationController?.popViewController(animated: true)
+        }
+      })
+    }
+
 }
 
 

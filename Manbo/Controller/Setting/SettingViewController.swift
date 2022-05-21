@@ -175,7 +175,6 @@ class SettingViewController: UIViewController {
         }else {
             return nil
         }
-        
     }
     
     func presentActivityViewController() {
@@ -228,11 +227,6 @@ class SettingViewController: UIViewController {
 
 // MARK: - TABLEVIEW
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return setMenuItem.count
