@@ -93,9 +93,20 @@ final class ViewController: UIViewController {
     }
     
     // MARK: - viewDidLoad
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
         checkUpdateStatus()
+        
         //   UserDefaults.standard.hasOnboarded = false
         //        print("realm 위치: ", Realm.Configuration.defaultConfiguration.fileURL!)
         
