@@ -234,70 +234,64 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eA8-Sa-xMV">
                                                         <rect key="frame" x="0.0" y="340" width="372.5" height="30"/>
                                                         <subviews>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ns-vP-S2D">
-                                                                <rect key="frame" x="342.5" y="0.0" width="30" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="2Ns-vP-S2D" secondAttribute="height" multiplier="1:1" id="iT6-7T-JBZ"/>
-                                                                </constraints>
-                                                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="square.and.arrow.up" catalog="system">
-                                                                    <color key="titleColor" systemColor="labelColor"/>
-                                                                </state>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYJ-yX-eTq">
-                                                                <rect key="frame" x="307.5" y="0.0" width="30" height="30"/>
+                                                                <rect key="frame" x="312.5" y="5" width="50" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="6UL-7R-Ned"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="SJf-fn-zOr"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="p.square" catalog="system">
+                                                                <state key="normal" title="manbo">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="toggleAlbumOnOffButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="N62-sl-iMA"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrL-cj-irK">
-                                                                <rect key="frame" x="272.5" y="0.0" width="30" height="30"/>
-                                                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="m.square" catalog="system">
-                                                                    <color key="titleColor" systemColor="labelColor"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="toggleMonthAndWeekButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AHM-zo-d7L"/>
-                                                                </connections>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FH-uu-fet">
-                                                                <rect key="frame" x="237.5" y="0.0" width="30" height="30"/>
+                                                                <rect key="frame" x="192.5" y="5" width="50" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="W4q-KH-bZ4"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="c22-CO-wDO"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="d.square" catalog="system">
+                                                                <state key="normal" title="today">
                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="reloadCalendar:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hfp-E9-jT9"/>
                                                                 </connections>
                                                             </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrL-cj-irK">
+                                                                <rect key="frame" x="252.5" y="5" width="50" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="8dL-cE-kQg"/>
+                                                                    <constraint firstAttribute="width" constant="50" id="MRG-Z7-o2r"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Month">
+                                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="toggleMonthAndWeekButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AHM-zo-d7L"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="NrL-cj-irK" firstAttribute="leading" secondItem="6FH-uu-fet" secondAttribute="trailing" constant="5" id="0tL-YT-iMr"/>
-                                                            <constraint firstItem="2Ns-vP-S2D" firstAttribute="centerY" secondItem="eA8-Sa-xMV" secondAttribute="centerY" id="6Ud-PC-tBz"/>
-                                                            <constraint firstItem="GYJ-yX-eTq" firstAttribute="leading" secondItem="NrL-cj-irK" secondAttribute="trailing" constant="5" id="7PC-01-P1G"/>
-                                                            <constraint firstAttribute="bottom" secondItem="NrL-cj-irK" secondAttribute="bottom" id="BT3-MC-0Cf"/>
-                                                            <constraint firstItem="6FH-uu-fet" firstAttribute="width" secondItem="6FH-uu-fet" secondAttribute="height" multiplier="1:1" id="DVD-By-nZ0"/>
-                                                            <constraint firstItem="GYJ-yX-eTq" firstAttribute="width" secondItem="GYJ-yX-eTq" secondAttribute="height" multiplier="1:1" id="Ida-kb-jC5"/>
-                                                            <constraint firstItem="6FH-uu-fet" firstAttribute="top" secondItem="eA8-Sa-xMV" secondAttribute="top" id="Nzw-Ro-Iml"/>
-                                                            <constraint firstAttribute="bottom" secondItem="2Ns-vP-S2D" secondAttribute="bottom" id="SiU-qt-hRL"/>
-                                                            <constraint firstItem="NrL-cj-irK" firstAttribute="width" secondItem="NrL-cj-irK" secondAttribute="height" multiplier="1:1" id="XLy-bx-CNj"/>
-                                                            <constraint firstItem="GYJ-yX-eTq" firstAttribute="top" secondItem="eA8-Sa-xMV" secondAttribute="top" id="Y92-m6-BHc"/>
-                                                            <constraint firstAttribute="bottom" secondItem="6FH-uu-fet" secondAttribute="bottom" id="dwK-Hw-dXa"/>
+                                                            <constraint firstAttribute="trailing" secondItem="GYJ-yX-eTq" secondAttribute="trailing" constant="10" id="6zo-FN-SHJ"/>
+                                                            <constraint firstItem="6FH-uu-fet" firstAttribute="centerY" secondItem="eA8-Sa-xMV" secondAttribute="centerY" id="KoQ-cG-uBw"/>
+                                                            <constraint firstItem="NrL-cj-irK" firstAttribute="leading" secondItem="6FH-uu-fet" secondAttribute="trailing" constant="10" id="Vjq-Cw-IrE"/>
+                                                            <constraint firstItem="NrL-cj-irK" firstAttribute="centerY" secondItem="eA8-Sa-xMV" secondAttribute="centerY" id="Yxy-HG-q9c"/>
+                                                            <constraint firstItem="GYJ-yX-eTq" firstAttribute="centerY" secondItem="eA8-Sa-xMV" secondAttribute="centerY" id="Z0V-ef-jAG"/>
                                                             <constraint firstAttribute="height" constant="30" id="fwa-tS-a4m"/>
-                                                            <constraint firstAttribute="bottom" secondItem="GYJ-yX-eTq" secondAttribute="bottom" id="g9L-Lu-R3F"/>
-                                                            <constraint firstItem="NrL-cj-irK" firstAttribute="top" secondItem="eA8-Sa-xMV" secondAttribute="top" id="if4-qe-Hyg"/>
-                                                            <constraint firstAttribute="trailing" secondItem="2Ns-vP-S2D" secondAttribute="trailing" id="nBn-pD-NcO"/>
-                                                            <constraint firstItem="2Ns-vP-S2D" firstAttribute="leading" secondItem="GYJ-yX-eTq" secondAttribute="trailing" constant="5" id="pt4-Nh-Axc"/>
-                                                            <constraint firstItem="2Ns-vP-S2D" firstAttribute="top" secondItem="eA8-Sa-xMV" secondAttribute="top" id="vrW-SH-wKr"/>
+                                                            <constraint firstItem="GYJ-yX-eTq" firstAttribute="leading" secondItem="NrL-cj-irK" secondAttribute="trailing" constant="10" id="ize-yw-Gy1"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -535,6 +529,7 @@
                         <outlet property="detailView" destination="GRj-OL-PTr" id="Rfk-X4-Q4P"/>
                         <outlet property="leftButton" destination="7hB-20-6CW" id="1WK-Kj-l9O"/>
                         <outlet property="rightButton" destination="XSI-pI-Pql" id="Tvv-NC-SVu"/>
+                        <outlet property="todayButton" destination="6FH-uu-fet" id="Qtm-X8-bIC"/>
                         <outlet property="toggleMonthWeek" destination="NrL-cj-irK" id="pQq-XG-5DI"/>
                         <outlet property="togleAlbumOnOff" destination="GYJ-yX-eTq" id="AUI-eP-gcA"/>
                         <outlet property="userImageView" destination="Ibc-hv-WNm" id="Lkt-9R-flI"/>
@@ -568,14 +563,11 @@
         <image name="calShapeEx" width="400" height="400"/>
         <image name="chevron_left_icon" width="2048" height="2048"/>
         <image name="chevron_right_icon" width="2048" height="2048"/>
-        <image name="d.square" catalog="system" width="128" height="114"/>
         <image name="feet" width="2048" height="2048"/>
         <image name="m.square" catalog="system" width="128" height="114"/>
         <image name="manbo00" width="400" height="400"/>
         <image name="manbo01" width="400" height="400"/>
-        <image name="p.square" catalog="system" width="128" height="114"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="w.square" catalog="system" width="128" height="114"/>
         <namedColor name="mainColor">
             <color red="0.50588235294117645" green="0.64313725490196083" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -41,6 +41,7 @@ final class CalendarViewController: UIViewController {
     @IBOutlet weak var averageWeekLabel: UILabel!
     @IBOutlet weak var averageMonthLabel: UILabel!
     
+    @IBOutlet weak var todayButton: UIButton!
     
     // calendar에 색상 표시하기
     var calendarDataSource: [String:String] = [:]
@@ -96,7 +97,7 @@ final class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageTintColorSettings()
-        
+        setupButtonUI()
         self.setupCalendarView()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -179,12 +180,20 @@ final class CalendarViewController: UIViewController {
         detailView.cornerRounded(cornerRadius: 8)
     }
     
+    func setupButtonUI() {
+        toggleMonthWeek.calendarButtonUI(title: "month")
+        todayButton.calendarButtonUI(title: "today")
+        togleAlbumOnOff.calendarColorButtonUI(title: "photo")
+    }
+    
     // MARK: - toggle()
     @IBAction func toggleMonthAndWeekButtonClicked(_ sender: UIButton) {
         let visibleDates = self.calendarView.visibleDates()
         if isMonthView {
             isMonthView.toggle()
-            toggleMonthWeek.setImage(UIImage(systemName: "w.square"), for: .normal)
+            toggleMonthWeek.calendarButtonUI(title: "week")
+            //toggleMonthWeek.setTitle("Week", for: .normal)
+            //toggleMonthWeek.setImage(UIImage(systemName: "w.square"), for: .normal)
             constraint.constant = 50.0
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
@@ -196,7 +205,8 @@ final class CalendarViewController: UIViewController {
             }
         } else {
             isMonthView.toggle()
-            toggleMonthWeek.setImage(UIImage(systemName: "m.square"), for: .normal)
+            toggleMonthWeek.calendarButtonUI(title: "month")
+//            toggleMonthWeek.setImage(UIImage(systemName: "m.square"), for: .normal)
             self.constraint.constant = 270
             
             UIView.animate(withDuration: 0.2, animations: {
@@ -260,7 +270,14 @@ final class CalendarViewController: UIViewController {
         isAlbumOn.toggle()
         collectionView.isHidden.toggle()
         
+        if isAlbumOn {
+            togleAlbumOnOff.calendarColorButtonUI(title: "photo")
+        } else {
+            togleAlbumOnOff.calendarButtonUI(title: "photo")
+        }
+        
     }
+    
     // 간결하게 [ ]
     func imageTintColorSettings() {
         let leftButtonImage = UIImage(named: "chevron_left_icon.png")?.withRenderingMode(.alwaysTemplate)
