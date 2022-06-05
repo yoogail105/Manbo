@@ -40,7 +40,7 @@ class SetNotiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SetNotiViewController", #function)
+        debugPrint("SetNotiViewController", #function)
         isSendNoti = false
         setNotiTimeLabel.text = "언제 알림을 드릴까요?"
         datePicker.setValue(UIColor.white, forKey: "textColor")
@@ -59,7 +59,7 @@ class SetNotiViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("setNotiTiemVeiw", #function)
+        debugPrint("setNotiTiemVeiw", #function)
         
         if isOKButton {
             userDefaults.notiTime = datePicker.date

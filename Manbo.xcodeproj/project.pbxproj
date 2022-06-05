@@ -11,6 +11,8 @@
 		23181F6B27757D5C00EFC1E4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23181F6A27757D5C00EFC1E4 /* RealmSwift */; };
 		23439AE627BA464F00F79318 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 23439AE527BA464F00F79318 /* Zip */; };
 		2345F896281854C80043AD2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345F895281854C80043AD2B /* Constants.swift */; };
+		239B4DBF284C6FD000D564EF /* AlertBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B4DBE284C6FD000D564EF /* AlertBaseView.swift */; };
+		239B4DC1284C70F200D564EF /* AlertViewText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239B4DC0284C70F200D564EF /* AlertViewText.swift */; };
 		23A0824628280CD100D7D91C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A0824528280CD100D7D91C /* Text.swift */; };
 		23BCCD9728398942007A4A5E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCD9628398942007A4A5E /* NetworkMonitor.swift */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
@@ -86,6 +88,8 @@
 
 /* Begin PBXFileReference section */
 		2345F895281854C80043AD2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		239B4DBE284C6FD000D564EF /* AlertBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBaseView.swift; sourceTree = "<group>"; };
+		239B4DC0284C70F200D564EF /* AlertViewText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewText.swift; sourceTree = "<group>"; };
 		23A0824528280CD100D7D91C /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		23BCCD9628398942007A4A5E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		270D726927465EB6007ADC71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				239B4DBE284C6FD000D564EF /* AlertBaseView.swift */,
 				278F74BB274AC6A600794E8D /* Onboarding */,
 				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
 				23A0824928280DAB00D7D91C /* Main */,
@@ -316,6 +321,7 @@
 				272567D4275644B9002F11CB /* UIInt+Extension.swift */,
 				275D718B2757AFB800070234 /* Alert+Extension.swift */,
 				23A0824528280CD100D7D91C /* Text.swift */,
+				239B4DC0284C70F200D564EF /* AlertViewText.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -593,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239B4DC1284C70F200D564EF /* AlertViewText.swift in Sources */,
 				278F74892747A2B600794E8D /* TabViewController.swift in Sources */,
 				27EC33D62754A60900C60C0F /* SettingTextViewController.swift in Sources */,
 				278F748327478D6D00794E8D /* CalendarViewController.swift in Sources */,
@@ -600,6 +607,7 @@
 				270CAE9927546E37004230A6 /* TabBarViewModel.swift in Sources */,
 				27EC33DE2754C0AA00C60C0F /* SetNameViewController.swift in Sources */,
 				27DC20B32752AA560098E698 /* HealthKit+Extenstion.swift in Sources */,
+				239B4DBF284C6FD000D564EF /* AlertBaseView.swift in Sources */,
 				27A66664274EC6D600A63683 /* realmData.swift in Sources */,
 				278F74A5274969F400794E8D /* UIViewController+Extension.swift in Sources */,
 				27EC33E02754F10D00C60C0F /* UILabel+Extension.swift in Sources */,
@@ -849,7 +857,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -943,7 +951,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

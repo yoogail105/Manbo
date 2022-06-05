@@ -44,7 +44,6 @@ extension UIColor {
             return #colorLiteral(red: 0.6040309668, green: 0.5678699017, blue: 0.7675608993, alpha: 1)
         case .fourth:
             return #colorLiteral(red: 0.6606132388, green: 0.5928084254, blue: 0.8577287793, alpha: 1)
-    
         }
     }
     

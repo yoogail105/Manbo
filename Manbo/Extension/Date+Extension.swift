@@ -52,8 +52,6 @@ extension Date {
     // 이번달 1일 구하기 with 설정 시간
     func startOfMonth() -> (startOfThisMonth: Date, startOfLastMonth: Date, startOfNextMonth: Date, endOfThisMonth: Date) {
         
-        
-        
         let calendar = Calendar.current
         
         
@@ -65,13 +63,11 @@ extension Date {
         // 지난달 1일
         let startOfLastMonth = calendar.date(byAdding: .month, value: -1, to: startOfThisMonth)
         
-        
         //다음달 1일
         let startOfNextMonth = calendar.date(byAdding: .month, value: +1, to: startOfThisMonth)
         
         //이번달 마지막
         let endOfThisMonth = calendar.date(byAdding: .day, value: -1, to: startOfNextMonth!)
-    
     
         return (startOfThisMonth,  startOfLastMonth!,  startOfNextMonth!, endOfThisMonth!)
     }

@@ -28,19 +28,11 @@ extension HKHealthStore {
                         self.getNDaysStepCounts(number: 30)
                         self.getThisWeekStepCounts()
                     }
-                    
                 }
                 
-            } else {
-                //퍼미션 뷰 보지 못함
             }
         }
     }
-    
-//    func calculateDailyStepCountForPastWeek() {
-//
-//    }
-    
     
     func getNDaysStepCounts(number: Int) {
         
@@ -180,17 +172,16 @@ extension HKHealthStore {
         }
         
         statisticsCollection.enumerateStatistics(from: startDate, to:endDate) { (statistic, value) in
-                dayCount = statistic.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0.0
-                totalCount += dayCount
-                let savedDate = dateFormatter.simpleDateString(date: currentDate)
-                filteredTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").sorted(byKeyPath: "date", ascending: false)
-                
-                //realm 에 저장하기! -> func
-                
-                let task = UserReport(date: savedDate,
-                                      stepCount:Int(dayCount),
-                                      stepGoal: goal,
-                                      goalPercent: dayCount / Double(goal))
+            dayCount = statistic.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0.0
+            totalCount += dayCount
+            let savedDate = dateFormatter.simpleDateString(date: currentDate)
+            filteredTask =  realm.objects(UserReport.self).filter("date CONTAINS [c] '\(savedDate)'").sorted(byKeyPath: "date", ascending: false)
+            
+            //realm 에 저장하기! -> func
+            let task = UserReport(date: savedDate,
+                                  stepCount:Int(dayCount),
+                                  stepGoal: goal,
+                                  goalPercent: dayCount / Double(goal))
             
             if currentDate == endDate {
                 if filteredTask?.count != 0 {
