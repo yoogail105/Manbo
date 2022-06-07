@@ -15,10 +15,8 @@ class SelectedTaskCollectionViewCell: UICollectionViewCell {
     @IBOutlet var dailyImage: UIImageView!
     @IBOutlet var dailyStepLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

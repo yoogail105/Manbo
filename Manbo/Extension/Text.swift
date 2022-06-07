@@ -18,6 +18,7 @@ enum AlertText: String {
     case noLocationMessage = "지도에서 내 위치를 확인하여 정확한 날씨 정보를 얻기 위해 '설정 > 개인정보 보호'에서 위치 서비스를 켜주세요."
     case noHealthKitTitle = "걸음을 가져올 수 없습니다."
     case noHealthKitMessage = "건강 앱에서 내 걸음수를 읽을 수 있도록 '건강 > 걸음 > 데이터 소스 및 접근'에서 만보랑의 읽기 접근을 허용해 주세요."
+    case namePlaceHolder = "만보의 이름은 ..."
 }
 
 enum OnboardingText: String {
@@ -42,3 +43,5 @@ enum CalendarText: String {
 enum ToastMessage: String {
     case networkError = "네트워크 연결이 원활하지 않습니다. 연결상태 확인 후 다시 시도해 주세요!"
 }
+
+

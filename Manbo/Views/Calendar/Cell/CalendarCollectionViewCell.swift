@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CollectionViewCell"
@@ -23,8 +22,6 @@ class CollectionViewCell: UICollectionViewCell {
         stepLabel.text = row.stepCount.numberFormat()
         dateLabel.text = row.date.replacingOccurrences(of: "-", with: ". ")
     }
-
-        
         override func awakeFromNib() {
             super.awakeFromNib()
             

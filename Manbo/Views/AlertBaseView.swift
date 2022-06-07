@@ -44,6 +44,10 @@ class AlertBaseView: UIView {
     }
     
     func constraints() {
+        [label, OKButton, cancelButton].forEach {
+            addSubview($0)
+        }
+        
         
     }
 }

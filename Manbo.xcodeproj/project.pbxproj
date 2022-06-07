@@ -16,6 +16,7 @@
 		23A0824628280CD100D7D91C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A0824528280CD100D7D91C /* Text.swift */; };
 		23BCCD9728398942007A4A5E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCD9628398942007A4A5E /* NetworkMonitor.swift */; };
 		23EB989B27940EED006F7BB9 /* AverageStepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */; };
+		23ED9480284F945600DE3E9C /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED947F284F945600DE3E9C /* NameView.swift */; };
 		2707947A27501D5D00CE532D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2707947927501D5D00CE532D /* Alamofire */; };
 		2707947F275038DD00CE532D /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707947E275038DD00CE532D /* OpenWeatherAPI.swift */; };
 		2707F932276A345600EDCC10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2707F931276A345500EDCC10 /* GoogleService-Info.plist */; };
@@ -93,6 +94,7 @@
 		23A0824528280CD100D7D91C /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		23BCCD9628398942007A4A5E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		23EB989A27940EED006F7BB9 /* AverageStepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageStepCountManager.swift; sourceTree = "<group>"; };
+		23ED947F284F945600DE3E9C /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		2707947E275038DD00CE532D /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		2707F931276A345500EDCC10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		270CAE952753ED70004230A6 /* RealmManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				239B4DBE284C6FD000D564EF /* AlertBaseView.swift */,
+				23ED947F284F945600DE3E9C /* NameView.swift */,
 				278F74BB274AC6A600794E8D /* Onboarding */,
 				2780C5BD2744F529004A0BE4 /* LaunchScreen.storyboard */,
 				23A0824928280DAB00D7D91C /* Main */,
@@ -614,6 +617,7 @@
 				27A66662274EB61C00A63683 /* manboManager.swift in Sources */,
 				2345F896281854C80043AD2B /* Constants.swift in Sources */,
 				2719275A274B8A1000F26F8D /* UIButton+Extension.swift in Sources */,
+				23ED9480284F945600DE3E9C /* NameView.swift in Sources */,
 				27EC33E92755451700C60C0F /* ResetTimeViewController.swift in Sources */,
 				272567D5275644B9002F11CB /* UIInt+Extension.swift in Sources */,
 				27EC33F127557AA500C60C0F /* Notification+Extension.swift in Sources */,
@@ -857,7 +861,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -951,7 +955,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
