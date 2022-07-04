@@ -60,16 +60,6 @@ class SettingViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(#function)
-        
-        setButtonsUI()
-        
-        notiTimeLabel.setTimeLabelUI()
-        resetTimeLabel.setTimeLabelUI()
-        stepGoalLabel.setTimeLabelUI()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         print("SettingViewController", #function)
         
@@ -80,6 +70,12 @@ class SettingViewController: UIViewController {
         //        }
         
         print(userDefaults.name!, String(userDefaults.stepsGoal!), dateFormatter.simpleTimeString(date: userDefaults.resetTime!))
+        
+        setButtonsUI()
+        
+        notiTimeLabel.setTimeLabelUI()
+        resetTimeLabel.setTimeLabelUI()
+        stepGoalLabel.setTimeLabelUI()
         
         if userDefaults.notiTime != nil {
             notiTimeLabel.text =  dateFormatter.simpleTimeString(date: userDefaults.notiTime!)
